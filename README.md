@@ -1,5 +1,5 @@
-# react-boilerplate
-Just a super stripped down react boilerplate for personal use.
+# react-simple-dropdown
+Simple and lightweight React dropdown component
 
 ## Setup
 ```
