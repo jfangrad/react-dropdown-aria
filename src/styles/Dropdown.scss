@@ -1,0 +1,97 @@
+@import './colours.scss';
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+
+  .dropdown-select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    background-color: $white;
+    padding: 9px 5px;
+    border-radius: 5px;
+    text-align: start;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    .displayed-value {
+      flex: 1;
+      border-right: 1px solid lighten($grey, 30%);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: $black;
+    }
+
+    .grey {
+      color: $grey;
+    }
+
+    .dropdown-arrow {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 8px;
+      margin-right: 5px;
+      border-right: 5px solid transparent;
+      border-left: 5px solid transparent;
+    }
+
+    .down {
+      border-top: 5px solid $grey;
+      border-bottom: 0;
+    }
+
+    .up {
+      border-bottom: 5px solid $grey;
+      border-top: 0;
+    }
+  }
+
+  .dropdown-content {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 38px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    display: none;
+
+    .dropdown-option, .dropdown-option-selected {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 5px 10px;
+      width: 100%;
+      text-align: start;
+      cursor: pointer;
+      outline: none;
+
+      &:hover, &:focus {
+        background-color: lighten($grey, 20%);
+      }
+    }
+
+    .dropdown-option-selected {
+      background-color: lighten($purple-light, 30%);
+      &:hover, &:focus {
+        background-color: lighten($purple-light, 20%);
+      }
+    }
+  }
+
+  .dropdown-content-open {
+    display: block;
+  }
+}
