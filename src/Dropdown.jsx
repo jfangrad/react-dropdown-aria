@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import DropdownItem from "./Components/DropdownItem";
 import './styles/Dropdown.scss';
 
@@ -31,7 +32,6 @@ class Dropdown extends React.Component {
     this.setState(p => ({ open: !p.open}));
   }
 
-  // Would have pulled this out as a seperate component in a seperate file but I can only have 10 files
   renderOptions = () => {
     return this.props.options.map(option =>{
       const selected = option.name === this.props.selectedOption;
@@ -57,12 +57,12 @@ class Dropdown extends React.Component {
   }
 }
 
-// Dropdown.propTypes = {
-//   disabled: React.PropTypes.bool,
-//   options: React.PropTypes.object.isRequired,
-//   placeholder: React.PropTypes.string,
-//   selectedOption: React.PropTypes.string,
-//   setSelected: React.PropTypes.func.isRequired,
-// };
+Dropdown.propTypes = {
+  disabled: PropTypes.bool,
+  options: PropTypes.array.isRequired,
+  placeholder: PropTypes.string,
+  selectedOption: PropTypes.string,
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default Dropdown;

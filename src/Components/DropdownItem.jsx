@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DropdownItem = props => {
-  const optionClass = props.selected ? 'dropdown-option-selected' : 'dropdown-option';
-  const { option } = props
+  const { option, selected } = props;
+  const optionClass = selected ? 'dropdown-option-selected' : 'dropdown-option';
+
   return (
     <button
       className={ optionClass }
@@ -14,6 +16,11 @@ const DropdownItem = props => {
       { option.name }
     </button>
   );
+};
+
+DropdownItem.propTypes = {
+  option: PropTypes.object.isRequired,
+  selected: PropTypes.bool,
 };
 
 export default DropdownItem;

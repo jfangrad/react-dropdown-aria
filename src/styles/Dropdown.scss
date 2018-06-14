@@ -11,11 +11,21 @@
     flex-direction: row;
     align-items: center;
     width: 100%;
-    background-color: $white;
+    background-color: lighten(lightGrey, 45%);
     padding: 9px 5px;
-    border-radius: 5px;
+    margin: 0;
+    border-radius: 0px;
+    border-bottom: 2px solid lighten($grey, 20%);
+    border-top: none;
+    border-right: none;
+    border-left: none;
     text-align: start;
     cursor: pointer;
+    outline: none;
+
+    &:hover, &:focus {
+      box-shadow: 0px 1px 3px 2px lighten($grey, 35%);
+    }
 
     &:disabled {
       cursor: not-allowed;
@@ -59,14 +69,19 @@
     width: 100%;
     position: absolute;
     left: 0;
-    top: 38px;
+    top: 35px;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 0;
+    padding-right: 0;
     background-color: white;
     color: black;
-    border-radius: 5px;
+    border-radius: 2px;
     display: none;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 3px 2px lighten($grey, 35%);
 
     .dropdown-option, .dropdown-option-selected {
       overflow: hidden;
@@ -77,9 +92,11 @@
       text-align: start;
       cursor: pointer;
       outline: none;
+      background-color: white;
+      border: none;
 
       &:hover, &:focus {
-        background-color: lighten($grey, 20%);
+        background-color: lighten($grey, 35%);
       }
     }
 
