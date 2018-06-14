@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import Dropdown from '../../src/Dropdown';
 
 const options = [
-  { name: 'Marketing' },
-  { name: 'Sales' },
-  { name: 'Ecommerce' },
-  { name: 'All' },
+  { name: 'React', className: 'test' },
+  { name: 'Angular' },
+  { name: 'Vue' },
+  { name: 'Elm' },
+  { name: 'React', className: 'test' },
+  { name: 'Angular' },
+  { name: 'Vue' },
+  { name: 'Elm' },
 ];
 
 class Demo extends React.Component {
@@ -29,7 +33,14 @@ class Demo extends React.Component {
     const disabled = this.state.status === 'submitting';
 
     return (
-      <Dropdown placeholder='Interested in...' options={ options } selectedOption={ this.state.interest } setSelected={ this.setInterest } disabled={ this.state.disabled } />
+      <Dropdown
+        placeholder='Framework of Choice?'
+        options={ options }
+        selectedOption={ this.state.interest }
+        setSelected={ this.setInterest }
+        disabled={ this.state.disabled }
+        width={200}
+        maxContentHeight={150} />
     );
   }
 };
