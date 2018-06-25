@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from '../../src/Dropdown';
+import './index.scss';
 
 const options = [
   { name: 'React', className: 'test' },
@@ -35,6 +36,7 @@ class Demo extends React.Component {
     return (
       <Dropdown
         placeholder='Framework of Choice?'
+        className='my-dropdown'
         options={ options }
         selectedOption={ this.state.interest }
         setSelected={ this.setInterest }

@@ -42,6 +42,7 @@ class Dropdown extends React.Component {
 
   render() {
     const displayedValue = this.props.selectedOption || this.props.placeholder || '';
+    const dropdownButtonClass = this.props.className ? `${this.props.className} dropdown-select` : 'dropdown-select'
     const displayedValueClass = !!this.props.selectedOption ? 'displayed-value' : 'displayed-value grey';
     const contentClass = this.state.open ? 'dropdown-content dropdown-content-open' : 'dropdown-content';
     const arrowClass = this.state.open ? 'dropdown-arrow up' : 'dropdown-arrow down';
@@ -49,7 +50,7 @@ class Dropdown extends React.Component {
 
     return (
       <div className='dropdown' onBlur={ this.onBlur } style={ createStyleObject(this.props.width, this.props.height) }>
-        <button className='dropdown-select' onClick={ this.onDropdownClick } disabled={ this.props.disabled } aria-label={ displayedValue }>
+        <button className={ dropdownButtonClass } onClick={ this.onDropdownClick } disabled={ this.props.disabled } aria-label={ displayedValue }>
           <div className={ displayedValueClass }>{ displayedValue }</div>
           <div className={ arrowClass } />
         </button>
@@ -60,6 +61,7 @@ class Dropdown extends React.Component {
 }
 
 Dropdown.propTypes = {
+  className: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
