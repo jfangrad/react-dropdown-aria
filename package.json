@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "react-simple-dropdown",
   "version": "1.0.0",
-  "description": "Simple strpped down React boilerplate",
+  "description": "Simple strpped down React simple-dropdown",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfangrad/react-boilerplate.git"
+    "url": "git+https://github.com/jfangrad/react-simple-dropdown.git"
   },
   "keywords": [
-    "React",
-    "boilerplate"
+    "react",
+    "dropdown"
   ],
   "author": "Justin Fagnrad",
   "license": "MIT",

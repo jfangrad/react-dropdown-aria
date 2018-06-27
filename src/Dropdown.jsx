@@ -36,23 +36,23 @@ class Dropdown extends React.Component {
   }
 
   onKeyDown = e => {
-    const key = e.nativeEvent.key;
-    if(!/^[A-z]+$/.test(key)) return;
+    const key = e.nativeEvent.key.toLowerCase();
+    if (key.length !== 1) return;
 
-    console.log(key);
     const oldTerm = this.state.searchTerm;
     this.setState(p => ({ searchTerm: p.searchTerm + key }));
-    console.log(oldTerm + key);
     this.searchList(oldTerm + key);
 
     this.clearTimer();
-    const timer = setTimeout(this.clearSearch, 2000);
+    const timer = setTimeout(this.clearSearch, 1000);
     this.setState({ searchTimer: timer });
   }
 
   clearTimer = () => {
-    clearTimeout(this.state.searchTimer);
-    this.setState({ searchTimer: -1});
+    if (this.state.searchTimer !== -1) {
+      clearTimeout(this.state.searchTimer);
+      this.setState({ searchTimer: -1});
+    }
   }
 
   clearSearch = () => {
@@ -69,11 +69,6 @@ class Dropdown extends React.Component {
   }
 
   renderOptions = () => {
-    // return this.props.options.map((option, index) =>{
-    //   const selected = option.name === this.props.selectedOption;
-    //   return <DropdownItem key={ option.name + index } ref={ option.name + index } selected={ selected } onOptionClicked={ this.onOptionClicked } option={ option } />;
-    // });
-
     return this.props.options.map((option, index) =>{
       const selected = option.name === this.props.selectedOption;
       return <DropdownItem key={ option.name + index } ref={ option.name + index } selected={ selected } onOptionClicked={ this.onOptionClicked } option={ option } />;
