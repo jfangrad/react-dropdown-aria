@@ -8,10 +8,10 @@ const options = [
   { name: 'Angular' },
   { name: 'Vue' },
   { name: 'Elm' },
-  { name: 'React', className: 'test' },
-  { name: 'Angular' },
-  { name: 'Vue' },
-  { name: 'Elm' },
+  { name: 'Go', className: 'test' },
+  { name: 'Ruby' },
+  { name: 'C++' },
+  { name: 'Python' },
 ];
 
 class Demo extends React.Component {
@@ -24,8 +24,7 @@ class Demo extends React.Component {
     };
   }
 
-  setInterest = e => {
-    const selectedOption = e.nativeEvent.target.innerText;
+  setInterest = selectedOption => {
     this.setState({ interest: selectedOption, interestError: false });
   }
 
