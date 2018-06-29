@@ -1,57 +1,85 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import DropdownItem from "./Components/DropdownItem";
-import { createStyleObject } from './helper';
+import DropdownItem from './Components/DropdownItem';
+import { createStyleObject, KEY_CODES, NAVIGATION_KEYS } from './helper';
 import './styles/Dropdown.scss';
 
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
       searchTerm: '',
       searchTimer: -1,
-    }
+    };
+    this.elements = {};
   }
 
-  onBlur = e => {
+  onBlur = (e) => {
     const target = e.nativeEvent.relatedTarget;
     if (!target) {
       this.setState({ open: false });
       return;
     }
     const classValue = target.classList.value;
-    if(classValue.indexOf('dropdown') === -1) {
+    if (classValue.indexOf('dropdown') === -1) {
       this.setState({ open: false });
     }
   }
 
-  onDropdownClick = e => {
-    !this.props.disabled && this.setState(p => ({ open: !p.open}));
+  onDropdownClick = () => {
+    const { disabled } = this.props;
+    if (!disabled) this.setState(p => ({ open: !p.open }));
   }
 
-  onOptionClicked = e => {
-    this.props.setSelected(e.nativeEvent.target.innerText);
-    this.setState(p => ({ open: !p.open}));
+  onOptionClicked = (e) => {
+    const { setSelected } = this.props;
+    setSelected(e.nativeEvent.target.innerText);
+    this.setState(p => ({ open: !p.open }));
   }
 
-  onKeyDown = e => {
-    const key = e.nativeEvent.key.toLowerCase();
+  onKeyDown = ({ nativeEvent }) => {
+    const key = nativeEvent.key.toLowerCase();
+    const { keyCode } = nativeEvent;
+
     if (key.length !== 1) return;
 
-    const oldTerm = this.state.searchTerm;
+    if (NAVIGATION_KEYS.includes(keyCode)) {
+      this.onNavigation(keyCode);
+    } else {
+      this.searchDropdown(key);
+    }
+  }
+
+  onNavigation = (keyCode) => {
+    switch (keyCode) {
+      case KEY_CODES.UP_ARROW:
+
+        break;
+      case KEY_CODES.DOWN_ARROW:
+
+        break;
+      default:
+        break;
+    }
+  }
+
+  searchDropdown = (key) => {
+    const { searchTerm } = this.state;
+    const oldTerm = searchTerm;
     this.setState(p => ({ searchTerm: p.searchTerm + key }));
     this.searchList(oldTerm + key);
 
     this.clearTimer();
-    const timer = setTimeout(this.clearSearch, 1000);
+    const timer = setTimeout(this.clearSearch, 1500);
     this.setState({ searchTimer: timer });
   }
 
   clearTimer = () => {
-    if (this.state.searchTimer !== -1) {
-      clearTimeout(this.state.searchTimer);
-      this.setState({ searchTimer: -1});
+    const { searchTimer } = this.state;
+    if (searchTimer !== -1) {
+      clearTimeout(searchTimer);
+      this.setState({ searchTimer: -1 });
     }
   }
 
@@ -59,37 +87,42 @@ class Dropdown extends React.Component {
     this.setState({ searchTerm: '' });
   }
 
-  searchList = value => {
-    const key = Object.keys(this.refs).find(el => el.toLowerCase().indexOf(value) === 0);
-    console.log('selected ', key);
-    if (this.refs[key]) {
-      this.refs[key].focus();
-      this.props.setSelected(this.refs[key].innerText);
+  searchList = (value) => {
+    const { setSelected } = this.props;
+    const key = Object.keys(this.elements).find(el => el.toLowerCase().indexOf(value) === 0);
+    if (this.elements[key]) {
+      this.elements[key].focus();
+      setSelected(this.elements[key].innerText);
     }
   }
 
   renderOptions = () => {
-    return this.props.options.map((option, index) =>{
-      const selected = option.name === this.props.selectedOption;
-      return <DropdownItem key={ option.name + index } ref={ option.name + index } selected={ selected } onOptionClicked={ this.onOptionClicked } option={ option } />;
+    const { selectedOption, options } = this.props;
+    this.elements = {}; // Reset reference array
+    return options.map((option) => {
+      const selected = option.name === selectedOption;
+      return <DropdownItem key={option.name} ref={el => (this.elements[option.name] = el)} selected={selected} onOptionClicked={this.onOptionClicked} option={option} />;
     });
   }
 
   render() {
-    const displayedValue = this.props.selectedOption || this.props.placeholder || '';
-    const dropdownButtonClass = this.props.className ? `${this.props.className} dropdown-select` : 'dropdown-select'
-    const displayedValueClass = !!this.props.selectedOption ? 'displayed-value' : 'displayed-value grey';
-    const contentClass = this.state.open ? 'dropdown-content dropdown-content-open' : 'dropdown-content';
-    const arrowClass = this.state.open ? 'dropdown-arrow up' : 'dropdown-arrow down';
-    const listStyle = this.props.maxContentHeight ? { maxHeight: this.props.maxContentHeight, overflowY: 'scroll' } : {};
+    const { selectedOption, placeholder, className, maxContentHeight, disabled, width, height } = this.props;
+    const { open } = this.state;
+
+    const displayedValue = selectedOption || placeholder || '';
+    const dropdownButtonClass = className ? `${className} dropdown-select` : 'dropdown-select';
+    const displayedValueClass = selectedOption ? 'displayed-value' : 'displayed-value grey';
+    const contentClass = open ? 'dropdown-content dropdown-content-open' : 'dropdown-content';
+    const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
+    const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
 
     return (
-      <div className='dropdown' onBlur={ this.onBlur }   onKeyDown={ this.onKeyDown } style={ createStyleObject(this.props.width, this.props.height) }>
-        <button className={ dropdownButtonClass } onClick={ this.onDropdownClick } disabled={ this.props.disabled } aria-label={ displayedValue }>
-          <div className={ displayedValueClass }>{ displayedValue }</div>
-          <div className={ arrowClass } />
+      <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
+        <button className={dropdownButtonClass} type="button" onClick={this.onDropdownClick} disabled={disabled} aria-label={displayedValue}>
+          <div className={displayedValueClass}>{ displayedValue }</div>
+          <div className={arrowClass} />
         </button>
-        <ul className={ contentClass } style={ listStyle }>{ this.renderOptions() }</ul>
+        <ul className={contentClass} style={listStyle}>{ this.renderOptions() }</ul>
       </div>
     );
   }
@@ -105,6 +138,16 @@ Dropdown.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   maxContentHeight: PropTypes.number,
+};
+
+Dropdown.defaultProps = {
+  className: '',
+  disabled: false,
+  placeholder: 'Select ...',
+  selectedOption: null,
+  width: null,
+  height: null,
+  maxContentHeight: null,
 };
 
 export default Dropdown;

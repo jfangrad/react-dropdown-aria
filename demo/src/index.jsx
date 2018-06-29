@@ -24,26 +24,27 @@ class Demo extends React.Component {
     };
   }
 
-  setInterest = selectedOption => {
-    this.setState({ interest: selectedOption, interestError: false });
+  setInterest = (selectedOption) => {
+    this.setState({ interest: selectedOption });
   }
 
   render() {
-    const buttonText = this.state.status === 'submitting' ? 'Submitting ...' : 'Sign up now';
-    const disabled = this.state.status === 'submitting';
+    const { interest, disabled } = this.state;
 
     return (
       <Dropdown
-        placeholder='Framework of Choice?'
-        className='my-dropdown'
-        options={ options }
-        selectedOption={ this.state.interest }
-        setSelected={ this.setInterest }
-        disabled={ this.state.disabled }
+        placeholder="Framework of Choice?"
+        className="my-dropdown"
+        options={options}
+        selectedOption={interest}
+        setSelected={this.setInterest}
+        disabled={disabled}
         width={200}
-        maxContentHeight={150} />
+        maxContentHeight={150}
+      />
     );
   }
-};
+}
 
-ReactDOM.render(<Demo />, document.getElementById("root"));
+// eslint-disable-next-line no-undef
+ReactDOM.render(<Demo />, document.getElementById('root'));
