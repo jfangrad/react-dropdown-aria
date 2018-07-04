@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import DropdownItem from './Components/DropdownItem';
 import { createStyleObject, KEY_CODES, NAVIGATION_KEYS } from './helper';
 import './styles/Dropdown.scss';
@@ -121,13 +122,13 @@ class Dropdown extends Component {
   }
 
   render() {
-    const { selectedOption, placeholder, className, maxContentHeight, disabled, width, height } = this.props;
+    const { selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
     const { open } = this.state;
 
     const displayedValue = selectedOption || placeholder || '';
-    const dropdownButtonClass = className ? `${className} dropdown-select` : 'dropdown-select';
-    const displayedValueClass = selectedOption ? 'displayed-value' : 'displayed-value grey';
-    const contentClass = open ? 'dropdown-content dropdown-content-open' : 'dropdown-content';
+    const dropdownButtonClass = classNames('dropdown-select', className);
+    const displayedValueClass = classNames('displayed-value', { grey: !selectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
+    const contentClass = classNames('dropdown-content', { 'dropdown-content-open': open });
     const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
     const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
 
@@ -135,7 +136,7 @@ class Dropdown extends Component {
       <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
         <button className={dropdownButtonClass} type="button" onClick={this.onDropdownClick} disabled={disabled} aria-label={displayedValue}>
           <div className={displayedValueClass}>{ displayedValue }</div>
-          <div className={arrowClass} />
+          { !hideArrow && <div className={arrowClass} /> }
         </button>
         <ul className={contentClass} style={listStyle}>{ this.renderOptions() }</ul>
       </div>
@@ -145,6 +146,7 @@ class Dropdown extends Component {
 
 Dropdown.propTypes = {
   className: PropTypes.string,
+  centerText: PropTypes.bool,
   disabled: PropTypes.bool,
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
@@ -153,16 +155,19 @@ Dropdown.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   maxContentHeight: PropTypes.number,
+  hideArrow: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   className: '',
+  centerText: 'false',
   disabled: false,
   placeholder: 'Select ...',
   selectedOption: null,
   width: null,
   height: null,
   maxContentHeight: null,
+  hideArrow: false,
 };
 
 export default Dropdown;

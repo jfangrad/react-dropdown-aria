@@ -41,6 +41,8 @@ class Demo extends React.Component {
         disabled={disabled}
         width={200}
         maxContentHeight={150}
+        hideArrow
+        centerText
       />
     );
   }
