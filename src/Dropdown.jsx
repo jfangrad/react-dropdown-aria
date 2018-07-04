@@ -70,6 +70,9 @@ class Dropdown extends Component {
           this.setState(p => ({ focusedIndex: p.focusedIndex + 1 }), this.setFocus);
         }
         break;
+      case KEY_CODES.ESCAPE:
+        this.setState({ open: false });
+        break;
       default:
         break;
     }
