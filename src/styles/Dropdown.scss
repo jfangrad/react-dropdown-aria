@@ -91,6 +91,18 @@
   display: none;
   box-sizing: border-box;
   box-shadow: 0px 3px 3px 2px lighten($grey, 35%);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #ddd;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #666;
+  }
 }
 
 .dropdown-option, .dropdown-option-selected {
