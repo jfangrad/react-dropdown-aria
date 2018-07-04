@@ -11,6 +11,7 @@ class Dropdown extends Component {
       open: false,
       searchTerm: '',
       searchTimer: -1,
+      focusedIndex: -1,
     };
     this.elements = {};
   }
@@ -42,26 +43,41 @@ class Dropdown extends Component {
     const key = nativeEvent.key.toLowerCase();
     const { keyCode } = nativeEvent;
 
-    if (key.length !== 1) return;
-
     if (NAVIGATION_KEYS.includes(keyCode)) {
+      nativeEvent.preventDefault();
       this.onNavigation(keyCode);
-    } else {
+    } else if (key.length === 1) {
       this.searchDropdown(key);
     }
   }
 
   onNavigation = (keyCode) => {
+    const { focusedIndex } = this.state;
     switch (keyCode) {
       case KEY_CODES.UP_ARROW:
-
+        if (focusedIndex === -1) {
+          this.setState({ focusedIndex: 0 }, this.setFocus);
+        } else if (focusedIndex === 0) {
+          this.setState({ focusedIndex: this.elements.length - 1 }, this.setFocus);
+        } else {
+          this.setState(p => ({ focusedIndex: p.focusedIndex - 1 }), this.setFocus);
+        }
         break;
       case KEY_CODES.DOWN_ARROW:
-
+        if (focusedIndex === -1 || focusedIndex === this.elements.length - 1) {
+          this.setState({ focusedIndex: 0 }, this.setFocus);
+        } else {
+          this.setState(p => ({ focusedIndex: p.focusedIndex + 1 }), this.setFocus);
+        }
         break;
       default:
         break;
     }
+  }
+
+  setFocus = () => {
+    const { focusedIndex } = this.state;
+    this.elements[focusedIndex].focus();
   }
 
   searchDropdown = (key) => {
@@ -88,20 +104,16 @@ class Dropdown extends Component {
   }
 
   searchList = (value) => {
-    const { setSelected } = this.props;
-    const key = Object.keys(this.elements).find(el => el.toLowerCase().indexOf(value) === 0);
-    if (this.elements[key]) {
-      this.elements[key].focus();
-      setSelected(this.elements[key].innerText);
-    }
+    const element = this.elements.find(el => el.innerText.toLowerCase().indexOf(value) === 0);
+    if (element) element.focus();
   }
 
   renderOptions = () => {
     const { selectedOption, options } = this.props;
-    this.elements = {}; // Reset reference array
+    this.elements = []; // Reset reference array
     return options.map((option) => {
       const selected = option.name === selectedOption;
-      return <DropdownItem key={option.name} ref={el => (this.elements[option.name] = el)} selected={selected} onOptionClicked={this.onOptionClicked} option={option} />;
+      return <DropdownItem key={option.name} ref={el => (el && this.elements.push(el))} selected={selected} onOptionClicked={this.onOptionClicked} option={option} />;
     });
   }
 
