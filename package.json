@@ -10,6 +10,7 @@
     "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-simple-dropdown.min.js",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
+    "deploy-demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
     "start": "webpack-dev-server --mode development --open --hot",
     "lint": "eslint --ext .js,.jsx src/ demo/src",
     "gzip-size": "node -e \"process.stdout.write('gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js"
