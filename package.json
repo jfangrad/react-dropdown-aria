@@ -1,7 +1,7 @@
 {
   "name": "react-simple-dropdown",
   "version": "1.0.0",
-  "description": "Simple stripped down React simple-dropdown",
+  "description": "Simple stripped down React dropdown",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run lib:dev\" \"npm run demo:dev\"",
@@ -21,14 +21,15 @@
   },
   "keywords": [
     "react",
-    "dropdown"
+    "dropdown",
+    "select"
   ],
   "author": "Justin Fagnrad",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jfangrad/react-boilerplate/issues"
+    "url": "https://github.com/jfangrad/react-simple-dropdown/issues"
   },
-  "homepage": "https://github.com/jfangrad/react-boilerplate#readme",
+  "homepage": "https://github.com/jfangrad/react-simple-dropdown#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",

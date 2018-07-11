@@ -122,7 +122,7 @@ class Dropdown extends Component {
   }
 
   render() {
-    const { selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
+    const { id, selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
     const { open } = this.state;
 
     const displayedValue = selectedOption || placeholder || '';
@@ -134,7 +134,7 @@ class Dropdown extends Component {
 
     return (
       <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
-        <button className={dropdownButtonClass} type="button" onClick={this.onDropdownClick} disabled={disabled} aria-label={displayedValue}>
+        <button id={id} className={dropdownButtonClass} type="button" onClick={this.onDropdownClick} disabled={disabled} aria-label={displayedValue}>
           <div className={displayedValueClass}>{ displayedValue }</div>
           { !hideArrow && <div className={arrowClass} /> }
         </button>
@@ -148,26 +148,28 @@ Dropdown.propTypes = {
   className: PropTypes.string,
   centerText: PropTypes.bool,
   disabled: PropTypes.bool,
+  height: PropTypes.number,
+  hideArrow: PropTypes.bool,
+  id: PropTypes.string,
+  maxContentHeight: PropTypes.number,
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
   selectedOption: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
   width: PropTypes.number,
-  height: PropTypes.number,
-  maxContentHeight: PropTypes.number,
-  hideArrow: PropTypes.bool,
 };
 
 Dropdown.defaultProps = {
   className: '',
-  centerText: 'false',
+  centerText: false,
   disabled: false,
+  height: null,
+  hideArrow: false,
+  id: '',
+  maxContentHeight: null,
   placeholder: 'Select ...',
   selectedOption: null,
   width: null,
-  height: null,
-  maxContentHeight: null,
-  hideArrow: false,
 };
 
 export default Dropdown;

@@ -35,14 +35,13 @@ class Demo extends React.Component {
       <Dropdown
         placeholder="Framework of Choice?"
         className="my-dropdown"
+        id="dropdown"
         options={options}
         selectedOption={interest}
         setSelected={this.setInterest}
         disabled={disabled}
         width={200}
         maxContentHeight={150}
-        hideArrow
-        centerText
       />
     );
   }
