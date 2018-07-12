@@ -10,10 +10,10 @@
     "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-simple-dropdown.min.js",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
-    "deploy-demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
+    "deploy:demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
     "start": "webpack-dev-server --mode development --open --hot",
     "lint": "eslint --ext .js,.jsx src/ demo/src",
-    "gzip-size": "node -e \"process.stdout.write('gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js"
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/bundle.css"
   },
   "repository": {
     "type": "git",
@@ -45,6 +45,7 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.10.0",
+    "gzip-size-cli": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
     "jsx-loader": "^0.13.2",
     "node-sass": "^4.9.0",
