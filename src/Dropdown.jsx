@@ -117,12 +117,20 @@ class Dropdown extends Component {
     this.elements = []; // Reset reference array
     return options.map((option) => {
       const selected = option.name === selectedOption;
-      return <DropdownItem key={option.name} ref={el => (el && this.elements.push(el))} selected={selected} onOptionClicked={this.onOptionClicked} option={option} />;
+      return (
+        <DropdownItem
+          key={option.name}
+          ref={el => (el && this.elements.push(el))}
+          selected={selected}
+          onOptionClicked={this.onOptionClicked}
+          option={option}
+        />
+      );
     });
   }
 
   render() {
-    const { id, selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
+    const { ariaLabel, id, selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
     const { open } = this.state;
 
     const displayedValue = selectedOption || placeholder || '';
@@ -134,7 +142,7 @@ class Dropdown extends Component {
 
     return (
       <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
-        <button id={id} className={dropdownButtonClass} type="button" onClick={this.onDropdownClick} disabled={disabled} aria-label={displayedValue}>
+        <button id={id} className={dropdownButtonClass} aria-label={ariaLabel} type="button" onClick={this.onDropdownClick} disabled={disabled}>
           <div className={displayedValueClass}>{ displayedValue }</div>
           { !hideArrow && <div className={arrowClass} /> }
         </button>
@@ -145,6 +153,7 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
+  ariaLabel: PropTypes.string,
   className: PropTypes.string,
   centerText: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -160,6 +169,7 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
+  ariaLabel: null,
   className: '',
   centerText: false,
   disabled: false,

@@ -12,7 +12,7 @@ const DropdownItem = React.forwardRef((props, ref) => {
       className={optionClass}
       tabIndex="0"
       title={option.name}
-      aria-label={option.name}
+      aria-label={option.ariaLabel}
       onClick={onOptionClicked}
       ref={ref}
     >
@@ -24,6 +24,7 @@ const DropdownItem = React.forwardRef((props, ref) => {
 DropdownItem.propTypes = {
   option: PropTypes.object.isRequired,
   selected: PropTypes.bool,
+  ariaLabel: PropTypes.string,
 };
 
 export default DropdownItem;

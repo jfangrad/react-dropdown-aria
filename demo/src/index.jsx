@@ -4,7 +4,7 @@ import Dropdown from '../../src/Dropdown';
 import './index.scss';
 
 const options = [
-  { name: 'React', className: 'test' },
+  { name: 'React', className: 'test', ariaLabel: 'test-aria' },
   { name: 'Angular' },
   { name: 'Vue' },
   { name: 'Elm' },
@@ -36,6 +36,7 @@ class Demo extends React.Component {
         placeholder="Framework of Choice?"
         className="my-dropdown"
         id="dropdown"
+        ariaLabel="React Simple Dropdown"
         options={options}
         selectedOption={interest}
         setSelected={this.setInterest}
