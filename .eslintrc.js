@@ -11,6 +11,7 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": "off",
     "max-len": ["error", { "code": 250 }],
     "no-return-assign": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "linebreak-style": "off"
   },
 };
