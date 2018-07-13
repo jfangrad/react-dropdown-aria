@@ -13,7 +13,7 @@
     "deploy:demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
     "start": "webpack-dev-server --mode development --open --hot",
     "lint": "eslint --ext .js,.jsx src/ demo/src",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/bundle.css"
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.css"
   },
   "repository": {
     "type": "git",
@@ -61,6 +61,8 @@
     "rollup-plugin-uglify": "^4.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "uglify-es": "^3.3.9",
+    "uglifycss": "0.0.29",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4"

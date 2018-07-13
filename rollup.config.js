@@ -1,20 +1,26 @@
 import babel from 'rollup-plugin-babel';
-import buble from 'rollup-plugin-buble';
 import { uglify } from 'rollup-plugin-uglify';
+import { minify } from 'uglify-es';
 import scss from 'rollup-plugin-scss';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import uglifycss from 'uglifycss';
+import { writeFileSync } from 'fs';
+import path from 'path';
 
 const config = {
   input: 'src/Dropdown.jsx',
   output: {
     format: 'cjs',
     interop: false,
-    strict: false,
   },
   plugins: [
-    buble,
-    scss({ output: 'dist/bundle.css' }),
+    scss({
+      output: (style) => {
+        const uglified = uglifycss.processString(style);
+        writeFileSync(path.join(__dirname, 'dist/react-simple-dropdown.min.css'), uglified);
+      },
+    }),
     resolve({
       extensions: ['.scss', '.js', '.jsx'],
     }),
@@ -36,23 +42,9 @@ if (process.env.NODE_ENV === 'production') {
         'react',
         'stage-2',
       ],
-      plugins: [
-        [
-          'transform-react-remove-prop-types',
-          {
-            removeImport: true,
-          },
-        ],
-      ],
+      plugins: ['transform-react-remove-prop-types'],
     }),
-    uglify({
-      mangle: {
-        properties: { regex: /^\$/ },
-      },
-      compress: {
-        pure_getters: true,
-      },
-    }),
+    uglify({}, minify),
   );
 } else {
   config.plugins.push(

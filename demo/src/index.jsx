@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dropdown from '../../src/Dropdown';
 import './index.scss';
+import '../../src/styles/Dropdown.scss';
 
 const options = [
   { name: 'React', className: 'test', ariaLabel: 'test-aria' },
