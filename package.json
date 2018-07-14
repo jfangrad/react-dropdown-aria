@@ -1,35 +1,38 @@
 {
-  "name": "react-simple-dropdown",
+  "name": "react-aria-dropdown",
   "version": "1.0.0",
-  "description": "Simple stripped down React dropdown",
+  "description": "Simple accessible React dropdown component",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run lib:dev\" \"npm run demo:dev\"",
     "build": "npm run lib:prod && npm run demo:prod",
-    "lib:dev": "rollup -c -w -o dist/react-simple-dropdown.dev.js",
-    "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-simple-dropdown.min.js",
+    "lib:dev": "rollup -c -w -o dist/react-aria-dropdown.dev.js",
+    "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-aria-dropdown.min.js",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
-    "deploy:demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
+    "deploy:demo": "npm run build && git push origin `git subtree split --prefix demo/dist master`:gh-pages --force",
     "start": "webpack-dev-server --mode development --open --hot",
     "lint": "eslint --ext .js,.jsx src/ demo/src",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-simple-dropdown.min.css"
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfangrad/react-simple-dropdown.git"
+    "url": "git+https://github.com/jfangrad/react-aria-dropdown.git"
   },
   "keywords": [
     "react",
     "dropdown",
-    "select"
+    "select",
+    "aria",
+    "react-dropdown",
+    "react-aria-dropdown"
   ],
   "author": "Justin Fagnrad",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jfangrad/react-simple-dropdown/issues"
+    "url": "https://github.com/jfangrad/react-aria-dropdown/issues"
   },
-  "homepage": "https://github.com/jfangrad/react-simple-dropdown#readme",
+  "homepage": "https://github.com/jfangrad/react-aria-dropdown#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",

@@ -11,14 +11,14 @@ import path from 'path';
 const config = {
   input: 'src/Dropdown.jsx',
   output: {
-    format: 'cjs',
+    format: 'cjs', // Consider making es?
     interop: false,
   },
   plugins: [
     scss({
       output: (style) => {
         const uglified = uglifycss.processString(style);
-        writeFileSync(path.join(__dirname, 'dist/react-simple-dropdown.min.css'), uglified);
+        writeFileSync(path.join(__dirname, 'dist/react-aria-dropdown.min.css'), uglified);
       },
     }),
     resolve({
