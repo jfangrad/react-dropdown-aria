@@ -1,7 +1,7 @@
 {
   "name": "react-aria-dropdown",
   "version": "1.0.0",
-  "description": "Simple accessible React dropdown component",
+  "description": "Simple and accessible React dropdown component",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run lib:dev\" \"npm run demo:dev\"",
