@@ -6,3 +6,4 @@ demo
 webpack.config.js
 .bablerc
 .vscode/
+.circleci/
