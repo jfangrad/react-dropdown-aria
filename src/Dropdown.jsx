@@ -170,12 +170,12 @@ Dropdown.propTypes = {
 
 Dropdown.defaultProps = {
   ariaLabel: null,
-  className: '',
+  className: undefined,
   centerText: false,
   disabled: false,
   height: null,
   hideArrow: false,
-  id: '',
+  id: undefined,
   maxContentHeight: null,
   placeholder: 'Select ...',
   selectedOption: null,
