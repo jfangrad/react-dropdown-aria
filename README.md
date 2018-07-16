@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown)[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg)](https://circleci.com/gh/jfangrad/react-aria-dropdown)
+[![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown) ![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)
 # react-aria-dropdown
 Simple, lightweight, and accessible React dropdown component.
 
