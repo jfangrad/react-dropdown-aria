@@ -1,3 +1,4 @@
+[![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown)[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg)](https://circleci.com/gh/jfangrad/react-aria-dropdown)
 # react-aria-dropdown
 Simple, lightweight, and accessible React dropdown component.
 
