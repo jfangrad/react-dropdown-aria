@@ -73,6 +73,7 @@ class Dropdown extends Component {
         break;
       case KEY_CODES.ESCAPE:
         this.setState({ open: false });
+        this.button.focus();
         break;
       default:
         break;
@@ -151,6 +152,7 @@ class Dropdown extends Component {
           disabled={disabled}
           id={id}
           onClick={this.onDropdownClick}
+          ref={btn => this.button = btn}
           type="button"
         >
           <div className={displayedValueClass}>{ displayedValue }</div>
