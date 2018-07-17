@@ -56,7 +56,9 @@ Class Names and aria-label props can also be passed down to each option:
 ## Dropdown Props
 | Property | Type | Default | Description |
 |:---|:---|:---|:---|
-| `aria-label` | string | null | Aria Label to be applied to the main dropdown button |
+| `ariaDescribedBy` | string | null | ID of element that should be used to describe the dropdown |
+| `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
+| `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
 | `className` | string | undefined | CSS class to be applied to main drodown button |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |

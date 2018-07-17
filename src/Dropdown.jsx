@@ -130,7 +130,8 @@ class Dropdown extends Component {
   }
 
   render() {
-    const { ariaLabel, id, selectedOption, placeholder, className, maxContentHeight, disabled, width, height, hideArrow, centerText } = this.props;
+    // Please Keep Alphabetical
+    const { ariaDescribedBy, ariaLabel, ariaLabelledBy, centerText, className, disabled, height, hideArrow, id, maxContentHeight, placeholder, selectedOption, width } = this.props;
     const { open } = this.state;
 
     const displayedValue = selectedOption || placeholder || '';
@@ -142,7 +143,16 @@ class Dropdown extends Component {
 
     return (
       <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
-        <button id={id} className={dropdownButtonClass} aria-label={ariaLabel} type="button" onClick={this.onDropdownClick} disabled={disabled}>
+        <button
+          aria-label={ariaLabel}
+          ariaDescribedBy={ariaDescribedBy}
+          ariaLabelledBy={ariaLabelledBy}
+          className={dropdownButtonClass}
+          disabled={disabled}
+          id={id}
+          onClick={this.onDropdownClick}
+          type="button"
+        >
           <div className={displayedValueClass}>{ displayedValue }</div>
           { !hideArrow && <div className={arrowClass} /> }
         </button>
@@ -152,8 +162,11 @@ class Dropdown extends Component {
   }
 }
 
+// Please Keep Alphabetical
 Dropdown.propTypes = {
+  ariaDescribedBy: PropTypes.string,
   ariaLabel: PropTypes.string,
+  ariaLabelledBy: PropTypes.string,
   className: PropTypes.string,
   centerText: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -168,8 +181,11 @@ Dropdown.propTypes = {
   width: PropTypes.number,
 };
 
+// Please Keep Alphabetical
 Dropdown.defaultProps = {
+  ariaDescribedBy: null,
   ariaLabel: null,
+  ariaLabelledBy: null,
   className: undefined,
   centerText: false,
   disabled: false,
