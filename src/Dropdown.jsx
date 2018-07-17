@@ -145,8 +145,8 @@ class Dropdown extends Component {
       <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
         <button
           aria-label={ariaLabel}
-          ariaDescribedBy={ariaDescribedBy}
-          ariaLabelledBy={ariaLabelledBy}
+          ari-describedby={ariaDescribedBy}
+          aria-labelledby={ariaLabelledBy}
           className={dropdownButtonClass}
           disabled={disabled}
           id={id}
