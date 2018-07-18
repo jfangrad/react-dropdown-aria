@@ -117,10 +117,10 @@ class Dropdown extends Component {
     const { selectedOption, options } = this.props;
     this.elements = []; // Reset reference array
     return options.map((option) => {
-      const selected = option.name === selectedOption;
+      const selected = option.value === selectedOption;
       return (
         <DropdownItem
-          key={option.name}
+          key={option.value}
           ref={el => (el && this.elements.push(el))}
           selected={selected}
           onOptionClicked={this.onOptionClicked}

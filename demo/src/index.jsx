@@ -5,14 +5,14 @@ import './index.scss';
 import '../../src/styles/Dropdown.scss';
 
 const options = [
-  { name: 'React', className: 'test', ariaLabel: 'test-aria' },
-  { name: 'Angular' },
-  { name: 'Vue' },
-  { name: 'Elm' },
-  { name: 'Go', className: 'test' },
-  { name: 'Ruby' },
-  { name: 'C++' },
-  { name: 'Python' },
+  { value: 'React', className: 'test', ariaLabel: 'test-aria' },
+  { value: 'Angular', title: 'testing title' },
+  { value: 'Vue' },
+  { value: 'Elm' },
+  { value: 'Go', className: 'test' },
+  { value: 'Ruby' },
+  { value: 'C++' },
+  { value: 'Python' },
 ];
 
 class Demo extends React.Component {

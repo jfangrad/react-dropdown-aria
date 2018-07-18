@@ -30,28 +30,19 @@ Options should be provided to the Dropdown as an array of objects.
 <Dropdown
   ...
   options: {[
-    { name: 'one' },
-    { name: 'two' },
-    { name: 'three' }
+    { value: 'one' },
+    { value: 'two' },
+    { value: 'three' }
   ]}
 />
 ```
 
-Class Names and aria-label props can also be passed down to each option:
-
-```js
-<Dropdown
-  ...
-  options: {[
-    {
-      name: 'one',
-      className: 'class-one',
-      ariaLabel: 'option one'
-    },
-    ...
-  ]}
-/>
-```
+Each option object in the array of options can have the following keys:
+| key | Type | Required? | Default | Description |
+| `ariaLabel` | string | no | null | Aria Label to be applied to the option |
+| `className` | string | no | null | CSS class to be applied to the option |
+| `title` | string | no | null | HTML title to be used for the option |
+| `value` | string | yes | null | The value to be displayed in the dropdown |
 
 ## Dropdown Props
 | Property | Type | Default | Description |
