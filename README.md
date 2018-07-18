@@ -39,6 +39,7 @@ Options should be provided to the Dropdown as an array of objects.
 
 Each option object in the array of options can have the following keys:
 | key | Type | Required? | Default | Description |
+|:---|:---|:---|:---|:---|
 | `ariaLabel` | string | no | null | Aria Label to be applied to the option |
 | `className` | string | no | null | CSS class to be applied to the option |
 | `title` | string | no | null | HTML title to be used for the option |
