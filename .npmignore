@@ -7,3 +7,4 @@ webpack.config.js
 .bablerc
 .vscode/
 .circleci/
+__tests__/
