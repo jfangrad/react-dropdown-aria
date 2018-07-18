@@ -12,7 +12,7 @@
     "demo:prod": "webpack --mode production",
     "deploy:demo": "npm run build && git push origin `git subtree split --prefix demo/dist master`:gh-pages --force",
     "start": "webpack-dev-server --mode development --open --hot",
-    "lint": "eslint --ext .js,.jsx src/ demo/src",
+    "lint": "eslint --ext .js,.jsx src/ demo/src __tests__/",
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
     "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css"
