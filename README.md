@@ -66,5 +66,5 @@ Each option object in the array of options can have the following keys:
 ## Developing
 ```
 npm install
-npm start
+npm run dev
 ```
