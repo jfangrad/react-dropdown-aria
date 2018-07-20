@@ -22,6 +22,7 @@ You can then include it as well as the styles in your project:
 import Dropdown from 'react-aria-dropdown';
 import 'react-aria-dropdown/dist/react-aria-dropdown.min.scss';
 ```
+(You only need to include the styles once in your project)
 
 # Usage
 Options should be provided to the Dropdown as an array of objects.
@@ -61,6 +62,8 @@ Each option object in the array of options can have the following keys:
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
 | `options` | Array | undefined | Array of option objects |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
+| `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
+| `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `setSelected` | function | undefined | Function used to update the state of the selected value |
 | `width` | number | null | Use to set the dropdown width manually |
 

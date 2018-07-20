@@ -13,8 +13,9 @@ class Dropdown extends Component {
       searchTerm: '',
       searchTimer: -1,
       focusedIndex: -1,
+      internalSelectedOption: null,
     };
-    this.elements = {};
+    this.elements = [];
   }
 
   onBlur = (e) => {
@@ -34,20 +35,22 @@ class Dropdown extends Component {
     if (!disabled) this.setState(p => ({ open: !p.open }));
   }
 
-  onOptionClicked = (e) => {
+  onOptionClicked = ({ nativeEvent }) => {
     const { setSelected } = this.props;
-    setSelected(e.nativeEvent.target.innerText);
-    this.setState(p => ({ open: !p.open }));
+    const selectedOption = nativeEvent.target.innerText;
+    setSelected(selectedOption);
+    this.setState(p => ({ open: !p.open, internalSelectedOption: selectedOption }));
   }
 
   onKeyDown = ({ nativeEvent }) => {
     const key = nativeEvent.key.toLowerCase();
     const { keyCode } = nativeEvent;
+    const { searchable } = this.props;
 
     if (NAVIGATION_KEYS.includes(keyCode)) {
       nativeEvent.preventDefault();
       this.onNavigation(keyCode);
-    } else if (key.length === 1) {
+    } else if (key.length === 1 && searchable) {
       this.searchDropdown(key);
     }
   }
@@ -115,9 +118,11 @@ class Dropdown extends Component {
 
   renderOptions = () => {
     const { selectedOption, options } = this.props;
+    const { internalSelectedOption } = this.state;
     this.elements = []; // Reset reference array
+
     return options.map((option) => {
-      const selected = option.value === selectedOption;
+      const selected = (option.value === selectedOption || option.value === internalSelectedOption);
       return (
         <DropdownItem
           key={option.value}
@@ -133,11 +138,11 @@ class Dropdown extends Component {
   render() {
     // Please Keep Alphabetical
     const { ariaDescribedBy, ariaLabel, ariaLabelledBy, centerText, className, disabled, height, hideArrow, id, maxContentHeight, placeholder, selectedOption, width } = this.props;
-    const { open } = this.state;
+    const { internalSelectedOption, open } = this.state;
 
-    const displayedValue = selectedOption || placeholder || '';
+    const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const dropdownButtonClass = classNames('dropdown-select', className);
-    const displayedValueClass = classNames('displayed-value', { grey: !selectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
+    const displayedValueClass = classNames('displayed-value', { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
     const contentClass = classNames('dropdown-content', { 'dropdown-content-open': open });
     const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
     const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
@@ -178,6 +183,7 @@ Dropdown.propTypes = {
   maxContentHeight: PropTypes.number,
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
+  searchable: PropTypes.bool,
   selectedOption: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
   width: PropTypes.number,
@@ -196,6 +202,7 @@ Dropdown.defaultProps = {
   id: undefined,
   maxContentHeight: null,
   placeholder: 'Select ...',
+  searchable: true,
   selectedOption: null,
   width: null,
 };
