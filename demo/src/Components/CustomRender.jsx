@@ -1,15 +1,12 @@
 import React from 'react';
+import ClassNames from 'classnames';
 import Dropdown from '../../../src/Dropdown';
 
 const options = [
-  { value: 'Java', className: 'test', ariaLabel: 'test-aria' },
-  { value: 'JavaScript', title: 'testing title' },
-  { value: 'Swift' },
-  { value: 'C' },
-  { value: 'Go', className: 'test' },
-  { value: 'Ruby' },
-  { value: 'C++' },
-  { value: 'Python' },
+  { value: 'Custom' },
+  { value: 'Render' },
+  { value: 'Function' },
+  { value: 'Example' },
 ];
 
 class Basic extends React.Component {
@@ -40,18 +37,32 @@ class Basic extends React.Component {
     this.setState({ interest: selectedOption });
   }
 
+  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef) => {
+    return options.map((option) => {
+      return (
+        <li
+          key={option.value}
+          ref={el => (el && elementsRef.push(el))}
+        >
+          {option.value}
+        </li>
+      );
+    });
+  }
+
   render() {
     const { disabled, interest, searchable } = this.state;
 
     return (
       <div className="section">
-        <div className="section-title">Language Of Choice <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/Basic.jsx">(Source)</a></div>
+        <div className="section-title">Custom Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomRender.jsx">(Source)</a></div>
         <Dropdown
           placeholder="Language of Choice?"
           className="my-dropdown"
           id="dropdown"
           ariaLabel="React Simple Dropdown"
           options={options}
+          optionRenderer={this.customRenderFunction}
           selectedOption={interest}
           setSelected={this.setInterest}
           disabled={disabled}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import DropdownItem from './Components/DropdownItem';
-import { createStyleObject, KEY_CODES, NAVIGATION_KEYS } from './helper';
+import defaultOptionRenderer from './utils/defaultOptionRenderer';
+import { createStyleObject, KEY_CODES, NAVIGATION_KEYS } from './utils/helper';
 import './styles/Dropdown.scss';
 
 class Dropdown extends Component {
@@ -117,22 +117,16 @@ class Dropdown extends Component {
   }
 
   renderOptions = () => {
-    const { selectedOption, options } = this.props;
+    const { optionRenderer, selectedOption, options } = this.props;
     const { internalSelectedOption } = this.state;
+
     this.elements = []; // Reset reference array
 
-    return options.map((option) => {
-      const selected = (option.value === selectedOption || option.value === internalSelectedOption);
-      return (
-        <DropdownItem
-          key={option.value}
-          ref={el => (el && this.elements.push(el))}
-          selected={selected}
-          onOptionClicked={this.onOptionClicked}
-          option={option}
-        />
-      );
-    });
+    if (optionRenderer) {
+      return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
+    }
+
+    return defaultOptionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
   }
 
   render() {
@@ -180,6 +174,7 @@ Dropdown.propTypes = {
   height: PropTypes.number,
   hideArrow: PropTypes.bool,
   id: PropTypes.string,
+  optionRenderer: PropTypes.func,
   maxContentHeight: PropTypes.number,
   options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
@@ -200,6 +195,7 @@ Dropdown.defaultProps = {
   height: null,
   hideArrow: false,
   id: undefined,
+  optionRenderer: undefined,
   maxContentHeight: null,
   placeholder: 'Select ...',
   searchable: true,
