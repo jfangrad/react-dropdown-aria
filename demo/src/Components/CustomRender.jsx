@@ -1,5 +1,4 @@
 import React from 'react';
-import ClassNames from 'classnames';
 import Dropdown from '../../../src/Dropdown';
 
 const options = [
@@ -37,18 +36,14 @@ class Basic extends React.Component {
     this.setState({ interest: selectedOption });
   }
 
-  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef) => {
-    return options.map((option) => {
-      return (
-        <li
-          key={option.value}
-          ref={el => (el && elementsRef.push(el))}
-        >
-          {option.value}
-        </li>
-      );
-    });
-  }
+  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef) => options.map(option => (
+    <li
+      key={option.value}
+      ref={el => (el && elementsRef.push(el))}
+    >
+      {option.value}
+    </li>
+  ))
 
   render() {
     const { disabled, interest, searchable } = this.state;
