@@ -36,39 +36,24 @@ class Basic extends React.Component {
     this.setState({ interest: selectedOption });
   }
 
-  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef) => options.map((option, index) => {
-    const selected = selectedOption === option.value ? 'dropdown-option-selected' : 'dropdown-option';
-    const optionClass = index % 2 === 0 ? 'option-left' : 'option-right';
-
-    return (
-      <button
-        aria-label={option.ariaLabel}
-        className={`${optionClass} ${selected}`}
-        onClick={onOptionClicked}
-        ref={btn => elementsRef.push(btn)}
-        tabIndex="-1"
-        title={option.title}
-        type="button"
-        key={option.value}
-      >
-        { option.value }
-      </button>
-    );
-  });
+  customArrowRenderer = (open) => {
+    const arrowClass = open ? 'far fa-smile custom-arrow' : 'far fa-frown custom-arrow';
+    return <i className={arrowClass} />;
+  }
 
   render() {
     const { disabled, interest, searchable } = this.state;
 
     return (
       <div className="section">
-        <div className="section-title">Custom Option Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomRender.jsx">(Source)</a></div>
+        <div className="section-title">Custom Arrow Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomArrow.jsx">(Source)</a></div>
         <Dropdown
           placeholder="Language of Choice?"
           className="my-dropdown"
           id="dropdown"
           ariaLabel="React Simple Dropdown"
+          arrowRenderer={this.customArrowRenderer}
           options={options}
-          optionRenderer={this.customRenderFunction}
           selectedOption={interest}
           setSelected={this.setInterest}
           disabled={disabled}

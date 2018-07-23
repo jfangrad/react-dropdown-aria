@@ -37,7 +37,7 @@ body {
 .section {
   display: flex;
   flex-direction: column;
-  padding: 1em 0;
+  padding: 2em 0;
 
   .section-title {
     font-size: 1.25em;
@@ -47,11 +47,45 @@ body {
   .buttons-container {
     display: flex;
     flex-direction: column;
-    margin: 1em 0;
+    margin: 1em 0 0 0;
 
     .checkbox-input {
       display: flex;
       flex-direction: row;
     }
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgray;
+  padding: 2em 0;
+
+  .copyright {
+    text-align: center;
+  }
+}
+
+.option-left {
+  text-align: left;
+}
+
+.option-right {
+  text-align: right;
+}
+
+.fa-frown {
+  color: red;
+}
+
+.fa-smile {
+  color: green;
+}
+
+.custom-arrow {
+  padding: 0 0.5em;
 }

@@ -131,7 +131,7 @@ class Dropdown extends Component {
 
   render() {
     // Please Keep Alphabetical
-    const { ariaDescribedBy, ariaLabel, ariaLabelledBy, centerText, className, disabled, height, hideArrow, id, maxContentHeight, placeholder, selectedOption, width } = this.props;
+    const { ariaDescribedBy, ariaLabel, ariaLabelledBy, arrowRenderer, centerText, className, disabled, height, hideArrow, id, maxContentHeight, placeholder, selectedOption, width } = this.props;
     const { internalSelectedOption, open } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
@@ -155,7 +155,8 @@ class Dropdown extends Component {
           type="button"
         >
           <div className={displayedValueClass}>{ displayedValue }</div>
-          { !hideArrow && <div className={arrowClass} /> }
+          { !hideArrow && !arrowRenderer && <div className={arrowClass} /> }
+          { !hideArrow && arrowRenderer && arrowRenderer(open) }
         </button>
         <ul className={contentClass} style={listStyle}>{ this.renderOptions() }</ul>
       </div>
@@ -168,6 +169,7 @@ Dropdown.propTypes = {
   ariaDescribedBy: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
+  arrowRenderer: PropTypes.func,
   className: PropTypes.string,
   centerText: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -189,6 +191,7 @@ Dropdown.defaultProps = {
   ariaDescribedBy: null,
   ariaLabel: null,
   ariaLabelledBy: null,
+  arrowRenderer: undefined,
   className: undefined,
   centerText: false,
   disabled: false,

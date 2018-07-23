@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Header from './Components/Header';
 import Basic from './Components/Basic';
 import CustomRender from './Components/CustomRender';
+import CustomArrow from './Components/CustomArrow';
+import Footer from './Components/Footer';
 import './index.scss';
 import '../../src/styles/Dropdown.scss';
 
@@ -11,6 +13,8 @@ const Demo = () => (
     <Header />
     <Basic />
     <CustomRender />
+    <CustomArrow />
+    <Footer />
   </div>
 );
 

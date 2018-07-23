@@ -53,6 +53,7 @@ Each option object in the array of options can have the following keys:
 | `ariaDescribedBy` | string | null | ID of element that should be used to describe the dropdown |
 | `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
 | `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
+| `arrowRenderer` | function | undefined | Custom function to render the arrow for the dropdown |
 | `className` | string | undefined | CSS class to be applied to main drodown button |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
@@ -60,6 +61,7 @@ Each option object in the array of options can have the following keys:
 | `hideArrow` | boolean | false | Controls whether dropdown component has the arrow or not |
 | `id` | string | undefined | `id` to be passed to the main dropdown button |
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
+| `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | Array | undefined | Array of option objects |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
