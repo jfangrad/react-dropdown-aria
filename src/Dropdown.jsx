@@ -18,14 +18,18 @@ class Dropdown extends Component {
     this.elements = [];
   }
 
-  onBlur = (e) => {
-    const target = e.nativeEvent.relatedTarget;
-    if (!target) {
-      this.setState({ open: false });
-      return;
-    }
-    const classValue = target.classList.value;
-    if (classValue.indexOf('dropdown') === -1) {
+  componentDidMount() {
+    document.addEventListener('mouseup', this.onClick); // eslint-disable-line no-undef
+    document.addEventListener('touchend', this.onClick); // eslint-disable-line no-undef
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mouseup'); // eslint-disable-line no-undef
+    document.removeEventListener('touchend'); // eslint-disable-line no-undef
+  }
+
+  onClick = (e) => {
+    if (!this.container.contains(e.target)) {
       this.setState({ open: false });
     }
   }
@@ -47,9 +51,11 @@ class Dropdown extends Component {
     const { keyCode } = nativeEvent;
     const { searchable } = this.props;
 
-    if (NAVIGATION_KEYS.includes(keyCode)) {
+    if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
       nativeEvent.preventDefault();
       this.onNavigation(keyCode);
+    } else if (keyCode === KEY_CODES.TAB) {
+      this.setState({ open: false });
     } else if (key.length === 1 && searchable) {
       this.searchDropdown(key);
     }
@@ -131,8 +137,27 @@ class Dropdown extends Component {
 
   render() {
     // Please Keep Alphabetical
-    const { ariaDescribedBy, ariaLabel, ariaLabelledBy, arrowRenderer, centerText, className, disabled, height, hideArrow, id, maxContentHeight, placeholder, selectedOption, width } = this.props;
-    const { internalSelectedOption, open } = this.state;
+    const {
+      ariaDescribedBy,
+      ariaLabel,
+      ariaLabelledBy,
+      arrowRenderer,
+      centerText,
+      className,
+      disabled,
+      height,
+      hideArrow,
+      id,
+      maxContentHeight,
+      placeholder,
+      selectedOption,
+      width,
+    } = this.props;
+
+    const {
+      internalSelectedOption,
+      open,
+    } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const dropdownButtonClass = classNames('dropdown-select', className);
@@ -142,7 +167,12 @@ class Dropdown extends Component {
     const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
 
     return (
-      <div className="dropdown" onBlur={this.onBlur} onKeyDown={this.onKeyDown} style={createStyleObject(width, height)}>
+      <div
+        className="dropdown"
+        onKeyDown={this.onKeyDown}
+        ref={div => this.container = div}
+        style={createStyleObject(width, height)}
+      >
         <button
           aria-label={ariaLabel}
           ari-describedby={ariaDescribedBy}

@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
 const DropdownItem = React.forwardRef((props, ref) => {
-  const { onOptionClicked, option, selected } = props;
+  const {
+    onOptionClicked,
+    option,
+    selected,
+  } = props;
+
   const optionClass = ClassNames(option.className, selected ? 'dropdown-option-selected' : 'dropdown-option');
 
   return (
