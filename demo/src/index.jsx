@@ -11,9 +11,11 @@ import '../../src/styles/Dropdown.scss';
 const Demo = () => (
   <div className="demo-app">
     <Header />
-    <Basic />
-    <CustomRender />
-    <CustomArrow />
+    <div className="demo-container">
+      <Basic />
+      <CustomRender />
+      <CustomArrow />
+    </div>
     <Footer />
   </div>
 );
