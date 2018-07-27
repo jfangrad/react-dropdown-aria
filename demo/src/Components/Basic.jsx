@@ -9,7 +9,7 @@ const options = [
   { value: 'Go', className: 'test' },
   { value: 'Ruby' },
   { value: 'C++' },
-  { value: 'Python' },
+  { value: 'Python', iconClass: 'fab fa-python' },
 ];
 
 class Basic extends React.Component {

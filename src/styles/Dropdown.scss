@@ -122,6 +122,10 @@
   &:hover, &:focus {
     background-color: lighten($grey, 35%);
   }
+
+  .option-icon {
+    padding-right: 5px;
+  }
 }
 
 .dropdown-option-selected {

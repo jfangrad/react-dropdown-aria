@@ -21,6 +21,7 @@ const DropdownItem = React.forwardRef((props, ref) => {
       title={option.title}
       type="button"
     >
+      { option.iconClass && <i className={`${option.iconClass} option-icon`} />}
       { option.value }
     </button>
   );
