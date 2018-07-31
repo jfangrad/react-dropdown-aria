@@ -19,13 +19,13 @@ class Dropdown extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.onClick); // eslint-disable-line no-undef
-    document.addEventListener('touchend', this.onClick); // eslint-disable-line no-undef
+    document.addEventListener('mouseup', this.onClick, false); // eslint-disable-line no-undef
+    document.addEventListener('touchend', this.onClick, false); // eslint-disable-line no-undef
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup'); // eslint-disable-line no-undef
-    document.removeEventListener('touchend'); // eslint-disable-line no-undef
+    document.removeEventListener('mouseup', this.onClick); // eslint-disable-line no-undef
+    document.removeEventListener('touchend', this.onClick); // eslint-disable-line no-undef
   }
 
   onClick = (e) => {
@@ -63,6 +63,8 @@ class Dropdown extends Component {
 
   onNavigation = (keyCode) => {
     const { focusedIndex } = this.state;
+    const { pageKeyTraverseSize } = this.props;
+
     switch (keyCode) {
       case KEY_CODES.UP_ARROW:
         if (focusedIndex === -1) {
@@ -74,11 +76,19 @@ class Dropdown extends Component {
         }
         break;
       case KEY_CODES.DOWN_ARROW:
-        if (focusedIndex === -1 || focusedIndex === this.elements.length - 1) {
+        this.setState(p => ({ focusedIndex: (p.focusedIndex + 1) % this.elements.length }), this.setFocus);
+        break;
+      case KEY_CODES.PAGE_UP:
+        if (focusedIndex === -1) {
           this.setState({ focusedIndex: 0 }, this.setFocus);
+        } else if (focusedIndex - pageKeyTraverseSize < 0) {
+          this.setState({ focusedIndex: this.elements.length - 1 }, this.setFocus);
         } else {
-          this.setState(p => ({ focusedIndex: p.focusedIndex + 1 }), this.setFocus);
+          this.setState(p => ({ focusedIndex: p.focusedIndex - pageKeyTraverseSize - 1 }), this.setFocus);
         }
+        break;
+      case KEY_CODES.PAGE_DOWN:
+        this.setState(p => ({ focusedIndex: (p.focusedIndex + pageKeyTraverseSize - 1) % this.elements.length }), this.setFocus);
         break;
       case KEY_CODES.ESCAPE:
         this.setState({ open: false });
@@ -149,6 +159,7 @@ class Dropdown extends Component {
       hideArrow,
       id,
       maxContentHeight,
+      openUp,
       placeholder,
       selectedOption,
       width,
@@ -162,7 +173,7 @@ class Dropdown extends Component {
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const dropdownButtonClass = classNames('dropdown-select', className);
     const displayedValueClass = classNames('displayed-value', { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
-    const contentClass = classNames('dropdown-content', { 'dropdown-content-open': open });
+    const contentClass = classNames('dropdown-content', { 'dropdown-content-open': open, 'dropdown-content-down': !openUp, 'dropdown-content-up': openUp });
     const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
     const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
 
@@ -209,6 +220,8 @@ Dropdown.propTypes = {
   optionRenderer: PropTypes.func,
   maxContentHeight: PropTypes.number,
   options: PropTypes.array.isRequired,
+  openUp: PropTypes.bool,
+  pageKeyTraverseSize: PropTypes.number,
   placeholder: PropTypes.string,
   searchable: PropTypes.bool,
   selectedOption: PropTypes.string,
@@ -228,8 +241,10 @@ Dropdown.defaultProps = {
   height: null,
   hideArrow: false,
   id: undefined,
+  openUp: false,
   optionRenderer: undefined,
   maxContentHeight: null,
+  pageKeyTraverseSize: 10,
   placeholder: 'Select ...',
   searchable: true,
   selectedOption: null,

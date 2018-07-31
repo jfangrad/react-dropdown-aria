@@ -5,7 +5,9 @@
   display: flex;
   flex-direction: column;
 }
+
 .dropdown-select {
+  font-size: 1em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,7 +82,6 @@
   overflow-x: hidden;
   position: absolute;
   left: 0;
-  top: 100%;
   list-style-type: none;
   margin: 0;
   padding-top: 2px;
@@ -92,7 +93,6 @@
   border-radius: 2px;
   display: none;
   box-sizing: border-box;
-  box-shadow: 0px 3px 3px 2px lighten($grey, 35%);
 
   &::-webkit-scrollbar {
     width: 5px;
@@ -107,7 +107,18 @@
   }
 }
 
+.dropdown-content-down {
+  top: 100%;
+  box-shadow: 0px 3px 3px 2px lighten($grey, 35%);
+}
+
+.dropdown-content-up {
+  bottom: 105%;
+  box-shadow: 0px -3px 3px 2px lighten($grey, 35%);
+}
+
 .dropdown-option, .dropdown-option-selected {
+  font-size: 0.95em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
