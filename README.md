@@ -63,7 +63,7 @@ Each option object in the array of options can have the following keys:
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
 | `openUp` | boolean | false | Whether dropdown should open up or not |
 | `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
-| `options` | array | undefined | Array of option objects |
+| `options` | array | [] | Array of option objects |
 | `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |

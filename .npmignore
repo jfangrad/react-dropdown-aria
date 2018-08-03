@@ -8,3 +8,4 @@ webpack.config.js
 .vscode/
 .circleci/
 __tests__/
+enzymeAdapter.setup.js

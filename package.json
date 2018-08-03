@@ -45,6 +45,9 @@
     "babel-preset-stage-2": "^6.24.1",
     "concurrently": "^3.6.0",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
@@ -81,5 +84,17 @@
   "peerDependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "./node_modules"
+    ],
+    "testRegex": "src/*(/(__tests?__/)([^_].*/)*?[^_][^/]*?\\.(test|spec)?\\.(js?))$",
+    "setupFiles": [
+      "./enzymeAdapter.setup.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(scss)$": "<rootDir>/src/__tests__/__mocks__/styleMock.js"
+    }
   }
 }

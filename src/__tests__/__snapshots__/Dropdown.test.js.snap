@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check Props Matches snapshot with custom props 1`] = `
+<div
+  className="dropdown"
+  onKeyDown={[Function]}
+  style={
+    Object {
+      "width": 400,
+    }
+  }
+>
+  <button
+    ari-describedby={null}
+    aria-label="React Simple Dropdown"
+    aria-labelledby={null}
+    className="dropdown-select custom-class"
+    disabled={true}
+    id="dropdown"
+    onClick={[Function]}
+    type="button"
+  >
+    <div
+      className="displayed-value grey"
+    >
+      Custom Placeholder...
+    </div>
+    <div
+      className="dropdown-arrow down"
+    />
+  </button>
+  <ul
+    className="dropdown-content dropdown-content-down"
+    style={
+      Object {
+        "maxHeight": 150,
+        "overflowY": "scroll",
+      }
+    }
+  >
+    <[object Object]
+      key="1"
+      onOptionClicked={[Function]}
+      option={
+        Object {
+          "ariaLabel": "ariaLabel",
+          "className": "className",
+          "iconClass": "fab fa-js-square",
+          "title": "title",
+          "value": "1",
+        }
+      }
+      selected={false}
+    />
+    <[object Object]
+      key="2"
+      onOptionClicked={[Function]}
+      option={
+        Object {
+          "ariaLabel": "ariaLabel",
+          "className": "className",
+          "iconClass": "fab fa-js-square",
+          "title": "title",
+          "value": "2",
+        }
+      }
+      selected={false}
+    />
+    <[object Object]
+      key="3"
+      onOptionClicked={[Function]}
+      option={
+        Object {
+          "ariaLabel": "ariaLabel",
+          "className": "className",
+          "iconClass": "fab fa-js-square",
+          "title": "title",
+          "value": "3",
+        }
+      }
+      selected={false}
+    />
+  </ul>
+</div>
+`;
+
+exports[`Check Props Matches snapshot with default props 1`] = `
+<div
+  className="dropdown"
+  onKeyDown={[Function]}
+  style={Object {}}
+>
+  <button
+    ari-describedby={null}
+    aria-label={null}
+    aria-labelledby={null}
+    className="dropdown-select"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    <div
+      className="displayed-value grey"
+    >
+      Select ...
+    </div>
+    <div
+      className="dropdown-arrow down"
+    />
+  </button>
+  <ul
+    className="dropdown-content dropdown-content-down"
+    style={Object {}}
+  />
+</div>
+`;
