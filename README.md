@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown) ![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)
+[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown)
 # react-aria-dropdown
 Simple, lightweight, and accessible React dropdown component.
 
@@ -73,6 +73,12 @@ Each option object in the array of options can have the following keys:
 
 
 ## Developing
+Clone the repo
+```
+git clone https://github.com/jfangrad/react-aria-dropdown.git
+```
+
+Install node modules and start in dev mode
 ```
 npm install
 npm run dev
