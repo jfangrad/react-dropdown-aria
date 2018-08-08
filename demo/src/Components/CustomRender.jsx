@@ -73,7 +73,6 @@ class Basic extends React.Component {
           setSelected={this.setInterest}
           disabled={disabled}
           width={400}
-          maxContentHeight={150}
           searchable={searchable}
         />
         <div className="buttons-container">
