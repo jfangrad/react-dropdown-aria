@@ -6,6 +6,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   onKeyDown={[Function]}
   style={
     Object {
+      "height": null,
       "width": 400,
     }
   }
@@ -38,48 +39,48 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       }
     }
   >
-    <[object Object]
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="1"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "1",
-        }
-      }
-      selected={false}
-    />
-    <[object Object]
+      onClick={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      1
+    </button>
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="2"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "2",
-        }
-      }
-      selected={false}
-    />
-    <[object Object]
+      onClick={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      2
+    </button>
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="3"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "3",
-        }
-      }
-      selected={false}
-    />
+      onClick={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      3
+    </button>
   </ul>
 </div>
 `;
@@ -88,7 +89,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
 <div
   className="dropdown"
   onKeyDown={[Function]}
-  style={Object {}}
+  style={
+    Object {
+      "height": null,
+      "width": null,
+    }
+  }
 >
   <button
     ari-describedby={null}

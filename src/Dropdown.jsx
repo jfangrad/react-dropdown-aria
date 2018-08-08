@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import defaultOptionRenderer from './utils/defaultOptionRenderer';
-import { createStyleObject, KEY_CODES, NAVIGATION_KEYS } from './utils/helper';
+import { KEY_CODES, NAVIGATION_KEYS } from './utils/helper';
 import './styles/Dropdown.scss';
 
 class Dropdown extends Component {
@@ -135,14 +134,30 @@ class Dropdown extends Component {
   renderOptions = () => {
     const { optionRenderer, selectedOption, options } = this.props;
     const { internalSelectedOption } = this.state;
-
-    this.elements = []; // Reset reference array
+    this.elements = []; // Reset ref array
 
     if (optionRenderer) {
       return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
     }
 
-    return defaultOptionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
+    return options.map((option) => {
+      const optionClass = classNames(option.className, (option.value === selectedOption) ? 'dropdown-option-selected' : 'dropdown-option');
+      return (
+        <button
+          aria-label={option.ariaLabel}
+          className={optionClass}
+          key={option.value}
+          onClick={this.onOptionClicked}
+          ref={btn => btn && this.elements.push(btn)}
+          tabIndex="-1"
+          title={option.title}
+          type="button"
+        >
+          { option.iconClass && <i className={`${option.iconClass} option-icon`} />}
+          { option.value }
+        </button>
+      );
+    });
   }
 
   render() {
@@ -182,7 +197,7 @@ class Dropdown extends Component {
         className="dropdown"
         onKeyDown={this.onKeyDown}
         ref={div => this.container = div}
-        style={createStyleObject(width, height)}
+        style={{ width, height }}
       >
         <button
           aria-label={ariaLabel}
