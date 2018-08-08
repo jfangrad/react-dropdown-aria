@@ -14,7 +14,8 @@
     "lint": "eslint --ext .js,.jsx src/ demo/src",
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css"
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css",
+    "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
   "repository": {
     "type": "git",
@@ -74,6 +75,7 @@
     "uglify-es": "^3.3.9",
     "uglifycss": "0.0.29",
     "webpack": "^4.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.4"
   },

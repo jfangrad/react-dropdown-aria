@@ -1,3 +1,4 @@
 node_modules/
 .vscode/
 dist/react-aria-dropdown.dev.js
+stats.json
