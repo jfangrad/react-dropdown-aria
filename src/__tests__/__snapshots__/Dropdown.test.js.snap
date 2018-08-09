@@ -19,6 +19,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     disabled={true}
     id="dropdown"
     onClick={[Function]}
+    onKeyDown={[Function]}
     type="button"
   >
     <div
@@ -44,6 +45,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       className="className dropdown-option"
       key="1"
       onClick={[Function]}
+      onKeyDown={[Function]}
       tabIndex="-1"
       title="title"
       type="button"
@@ -58,6 +60,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       className="className dropdown-option"
       key="2"
       onClick={[Function]}
+      onKeyDown={[Function]}
       tabIndex="-1"
       title="title"
       type="button"
@@ -72,6 +75,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       className="className dropdown-option"
       key="3"
       onClick={[Function]}
+      onKeyDown={[Function]}
       tabIndex="-1"
       title="title"
       type="button"
@@ -103,6 +107,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     className="dropdown-select"
     disabled={false}
     onClick={[Function]}
+    onKeyDown={[Function]}
     type="button"
   >
     <div

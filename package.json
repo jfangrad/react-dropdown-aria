@@ -14,6 +14,7 @@
     "lint": "eslint --ext .js,.jsx src/ demo/src",
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
+    "test:update": "jest --updateSnapshot",
     "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css",
     "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
@@ -46,7 +47,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "concurrently": "^3.6.0",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
+    "enzyme": "^3.4.1",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
     "eslint": "^5.0.1",

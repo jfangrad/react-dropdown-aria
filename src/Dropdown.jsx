@@ -29,24 +29,38 @@ class Dropdown extends Component {
 
   onClick = (e) => {
     if (!this.container.contains(e.target)) {
-      this.setState({ open: false });
+      this.closeDropdown();
     }
   }
 
-  onDropdownClick = () => {
+  onDropdownClick = ({ nativeEvent }) => {
     const { disabled } = this.props;
-    if (!disabled) this.setState(p => ({ open: !p.open }));
+
+    if (nativeEvent instanceof KeyboardEvent) { // eslint-disable-line no-undef
+      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
+      nativeEvent.preventDefault();
+    }
+
+    if (!disabled) {
+      this.setState(p => ({ open: !p.open, focusedIndex: p.open ? -1 : p.focusedIndex }));
+    }
   }
 
   onOptionClicked = ({ nativeEvent }) => {
     const { setSelected } = this.props;
+
+    if (nativeEvent instanceof KeyboardEvent) { // eslint-disable-line no-undef
+      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
+      nativeEvent.preventDefault();
+    }
+
     const selectedOption = nativeEvent.target.innerText;
     setSelected(selectedOption);
-    this.setState(p => ({ open: !p.open, internalSelectedOption: selectedOption }));
+    this.setState({ open: false, internalSelectedOption: selectedOption });
   }
 
   onKeyDown = ({ nativeEvent }) => {
-    const key = nativeEvent.key.toLowerCase();
+    const key = nativeEvent.key && nativeEvent.key.toLowerCase();
     const { keyCode } = nativeEvent;
     const { searchable } = this.props;
 
@@ -54,7 +68,7 @@ class Dropdown extends Component {
       nativeEvent.preventDefault();
       this.onNavigation(keyCode);
     } else if (keyCode === KEY_CODES.TAB) {
-      this.setState({ open: false });
+      this.closeDropdown();
     } else if (key.length === 1 && searchable) {
       this.searchDropdown(key);
     }
@@ -90,8 +104,7 @@ class Dropdown extends Component {
         this.setState(p => ({ focusedIndex: (p.focusedIndex + pageKeyTraverseSize - 1) % this.elements.length }), this.setFocus);
         break;
       case KEY_CODES.ESCAPE:
-        this.setState({ open: false });
-        this.button.focus();
+        this.closeDropdown(true);
         break;
       default:
         break;
@@ -101,6 +114,13 @@ class Dropdown extends Component {
   setFocus = () => {
     const { focusedIndex } = this.state;
     this.elements[focusedIndex].focus();
+  }
+
+  closeDropdown = (focus = false) => {
+    this.setState({ open: false, focusedIndex: -1 });
+    if (focus) {
+      this.container.focus();
+    }
   }
 
   searchDropdown = (key) => {
@@ -148,6 +168,7 @@ class Dropdown extends Component {
           className={optionClass}
           key={option.value}
           onClick={this.onOptionClicked}
+          onKeyDown={this.onOptionClicked}
           ref={btn => btn && this.elements.push(btn)}
           tabIndex="-1"
           title={option.title}
@@ -207,6 +228,7 @@ class Dropdown extends Component {
           disabled={disabled}
           id={id}
           onClick={this.onDropdownClick}
+          onKeyDown={this.onDropdownClick}
           ref={btn => this.button = btn}
           type="button"
         >
