@@ -7,6 +7,7 @@ webpack.config.js
 .bablerc
 .vscode/
 .circleci/
+.github/
 __tests__/
 enzymeAdapter.setup.js
 stats.json
