@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Dropdown from '../Dropdown';
 import { CUSTOM_OPTIONS } from './constants';
@@ -27,5 +27,26 @@ describe('Check Props', () => {
       />,
     );
     expect(toJson(dropdown)).toMatchSnapshot();
+  });
+});
+
+describe('Navigation', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(<Dropdown options={CUSTOM_OPTIONS} setSelected={foo} />);
+  });
+
+  it('Opens dropdown when clicked', () => {
+    wrapper.find('.dropdown-select').simulate('click');
+
+    expect(wrapper.state('open')).toBeTruthy();
+  });
+
+  it('Closes when clicked again', () => {
+    wrapper.find('.dropdown-select').simulate('click');
+    wrapper.find('.dropdown-select').simulate('click');
+
+    expect(wrapper.state('open')).toBeFalsy();
   });
 });
