@@ -43,7 +43,7 @@ Each option object in the array of options can have the following keys:
 | key | Type | Default | Description |
 |:---|:---|:---|:---|
 | `ariaLabel` | string | null | Aria Label to be applied to the option |
-| `className` | string | null | CSS class to be applied to the option |
+| `className` | string | null | CSS class to be applied to this option |
 | `title` | string | null | HTML title to be used for the option |
 | `value` | string | null | The value to be displayed in the dropdown (Required) |
 
@@ -54,8 +54,9 @@ Each option object in the array of options can have the following keys:
 | `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
 | `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
 | `arrowRenderer` | function | undefined | Custom function to render the arrow for the dropdown |
-| `className` | string | undefined | CSS class to be applied to main drodown button |
+| `buttonClassName` | string | undefined | CSS class to be applied to main drodown button |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
+| `contentClassName` | string | undefined | CSS class to be applied to the dropdown option `ul` container |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
 | `height` | number | null | Use to set the dropdown height manually |
 | `hideArrow` | boolean | false | Controls whether dropdown component has the arrow or not |
@@ -64,9 +65,12 @@ Each option object in the array of options can have the following keys:
 | `openUp` | boolean | false | Whether dropdown should open up or not |
 | `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | array | [] | Array of option objects |
+| `optionClassName` | string | undefined | CSS class to be applied to all options in the dropdown |
 | `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
+| `selectedOptionClassName` | string | undefined | CSS class to be applied to the selected option in the dropdown |
+| `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `setSelected` | function | undefined | Function used to update the state of the selected value |
 | `width` | number | null | Use to set the dropdown width manually |

@@ -1,15 +1,17 @@
 import React from 'react';
 import Dropdown from '../../../src/Dropdown';
+import '../styles/CustomStyles.scss';
 
 const options = [
-  { value: 'Java', className: 'test', ariaLabel: 'test-aria' },
-  { value: 'JavaScript', title: 'testing title' },
-  { value: 'Swift' },
-  { value: 'C' },
-  { value: 'Go', className: 'test' },
-  { value: 'Ruby' },
-  { value: 'C++' },
-  { value: 'Python', iconClass: 'fab fa-python' },
+  { value: 'Helicopter', iconClass: 'fas fa-helicopter' },
+  { value: 'Plane', iconClass: 'fas fa-plane' },
+  { value: 'Train', iconClass: 'fas fa-train' },
+  { value: 'Bus', iconClass: 'fas fa-bus' },
+  { value: 'Car', iconClass: 'fas fa-car' },
+  { value: 'Ship', iconClass: 'fas fa-ship' },
+  { value: 'Rocket', iconClass: 'fas fa-rocket' },
+  { value: 'Bike', iconClass: 'fas fa-bicycle' },
+  { value: 'Motorcycle', iconClass: 'fas fa-motorcycle' },
 ];
 
 class Basic extends React.Component {
@@ -45,10 +47,13 @@ class Basic extends React.Component {
 
     return (
       <div className="section">
-        <div className="section-title">Basic Usage <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/Basic.jsx">(Source)</a></div>
+        <div className="section-title">Custom Styling <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx">(Source)</a></div>
         <Dropdown
-          placeholder="Language of Choice?"
-          buttonClassName="my-dropdown"
+          placeholder="Transportation of Choice?"
+          buttonClassName="my-custom-dropdown"
+          contentClassName="my-custom-dropdown-content"
+          optionClassName="custom-option"
+          selectedOptionClassName="custom-option-selected"
           id="dropdown"
           ariaLabel="React Simple Dropdown"
           options={options}

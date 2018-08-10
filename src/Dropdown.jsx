@@ -57,6 +57,7 @@ class Dropdown extends Component {
     const selectedOption = nativeEvent.target.innerText;
     setSelected(selectedOption);
     this.setState({ open: false, internalSelectedOption: selectedOption });
+    if (nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER) this.button.focus();
   }
 
   onKeyDown = ({ nativeEvent }) => {
@@ -117,9 +118,9 @@ class Dropdown extends Component {
   }
 
   closeDropdown = (focus = false) => {
-    this.setState({ open: false, focusedIndex: -1 });
+    this.setState(p => ({ open: false, focusedIndex: p.internalSelectedOption ? p.focusedIndex : -1 }));
     if (focus) {
-      this.container.focus();
+      this.button.focus();
     }
   }
 
@@ -152,7 +153,7 @@ class Dropdown extends Component {
   }
 
   renderOptions = () => {
-    const { optionRenderer, selectedOption, options } = this.props;
+    const { optionRenderer, selectedOption, selectedOptionClassName, optionClassName, options } = this.props;
     const { internalSelectedOption } = this.state;
     this.elements = []; // Reset ref array
 
@@ -161,7 +162,7 @@ class Dropdown extends Component {
     }
 
     return options.map((option) => {
-      const optionClass = classNames(option.className, (option.value === selectedOption) ? 'dropdown-option-selected' : 'dropdown-option');
+      const optionClass = classNames(option.className, (option.value === selectedOption) ? (selectedOptionClassName || 'dropdown-option-selected') : (optionClassName || 'dropdown-option'));
       return (
         <button
           aria-label={option.ariaLabel}
@@ -189,7 +190,8 @@ class Dropdown extends Component {
       ariaLabelledBy,
       arrowRenderer,
       centerText,
-      className,
+      contentClassName,
+      buttonClassName,
       disabled,
       height,
       hideArrow,
@@ -198,6 +200,7 @@ class Dropdown extends Component {
       openUp,
       placeholder,
       selectedOption,
+      selectedValueClassName,
       width,
     } = this.props;
 
@@ -207,9 +210,9 @@ class Dropdown extends Component {
     } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-    const dropdownButtonClass = classNames('dropdown-select', className);
-    const displayedValueClass = classNames('displayed-value', { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
-    const contentClass = classNames('dropdown-content', { 'dropdown-content-open': open, 'dropdown-content-down': !openUp, 'dropdown-content-up': openUp });
+    const dropdownButtonClass = classNames('dropdown-select', buttonClassName);
+    const displayedValueClass = classNames('displayed-value', selectedValueClassName, { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
+    const contentClass = classNames('dropdown-content', contentClassName, { 'dropdown-content-open': open, 'dropdown-content-down': !openUp, 'dropdown-content-up': openUp });
     const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
     const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
 
@@ -248,8 +251,9 @@ Dropdown.propTypes = {
   ariaLabel: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
   arrowRenderer: PropTypes.func,
-  className: PropTypes.string,
+  buttonClassName: PropTypes.string,
   centerText: PropTypes.bool,
+  contentClassName: PropTypes.string,
   disabled: PropTypes.bool,
   height: PropTypes.number,
   hideArrow: PropTypes.bool,
@@ -257,11 +261,14 @@ Dropdown.propTypes = {
   optionRenderer: PropTypes.func,
   maxContentHeight: PropTypes.number,
   options: PropTypes.array,
+  optionClassName: PropTypes.string,
   openUp: PropTypes.bool,
   pageKeyTraverseSize: PropTypes.number,
   placeholder: PropTypes.string,
   searchable: PropTypes.bool,
   selectedOption: PropTypes.string,
+  selectedOptionClassName: PropTypes.string,
+  selectedValueClassName: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
   width: PropTypes.number,
 };
@@ -272,8 +279,9 @@ Dropdown.defaultProps = {
   ariaLabel: null,
   ariaLabelledBy: null,
   arrowRenderer: undefined,
-  className: undefined,
+  buttonClassName: undefined,
   centerText: false,
+  contentClassName: undefined,
   disabled: false,
   height: null,
   hideArrow: false,
@@ -281,11 +289,14 @@ Dropdown.defaultProps = {
   openUp: false,
   optionRenderer: undefined,
   options: [],
+  optionClassName: undefined,
   maxContentHeight: null,
   pageKeyTraverseSize: 10,
   placeholder: 'Select ...',
   searchable: true,
   selectedOption: null,
+  selectedOptionClassName: undefined,
+  selectedValueClassName: undefined,
   width: null,
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from '../../../src/Dropdown';
+import '../styles/CustomArrow.scss';
 
 const options = [
   { value: 'Custom' },
@@ -58,10 +59,9 @@ class Basic extends React.Component {
       <div className="section">
         <div className="section-title">Custom Arrow Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomArrow.jsx">(Source)</a></div>
         <Dropdown
-          placeholder="Language of Choice?"
-          className="my-dropdown"
+          buttonClassName="my-dropdown"
           id="dropdown"
-          ariaLabel="React Simple Dropdown"
+          ariaLabel="Custom Arrow Dropdown"
           arrowRenderer={this.customArrowRenderer}
           options={options}
           selectedOption={interest}

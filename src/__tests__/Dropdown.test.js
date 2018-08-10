@@ -18,7 +18,7 @@ describe('Check Props', () => {
     const dropdown = shallow(
       <Dropdown
         placeholder="Custom Placeholder..."
-        className="custom-class"
+        buttonClassName="custom-class"
         id="dropdown"
         ariaLabel="React Simple Dropdown"
         options={CUSTOM_OPTIONS}

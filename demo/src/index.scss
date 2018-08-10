@@ -64,6 +64,10 @@ body {
       flex-direction: row;
     }
   }
+
+  &:last-child {
+    padding: 2em 0 4em 0;
+  }
 }
 
 .footer {
@@ -79,24 +83,4 @@ body {
   .copyright {
     text-align: center;
   }
-}
-
-.option-left {
-  text-align: left;
-}
-
-.option-right {
-  text-align: right;
-}
-
-.fa-frown {
-  color: red;
-}
-
-.fa-smile {
-  color: green;
-}
-
-.custom-arrow {
-  padding: 0 0.5em;
 }

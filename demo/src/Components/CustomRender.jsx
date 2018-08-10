@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from '../../../src/Dropdown';
+import '../styles/CustomRender.scss';
 
 const options = [
   { value: 'Custom' },
@@ -45,6 +46,7 @@ class Basic extends React.Component {
         aria-label={option.ariaLabel}
         className={`${optionClass} ${selected}`}
         onClick={onOptionClicked}
+        onKeyDown={onOptionClicked}
         ref={btn => elementsRef.push(btn)}
         tabIndex="-1"
         title={option.title}
@@ -63,10 +65,9 @@ class Basic extends React.Component {
       <div className="section">
         <div className="section-title">Custom Option Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomRender.jsx">(Source)</a></div>
         <Dropdown
-          placeholder="Language of Choice?"
-          className="my-dropdown"
+          buttonClassName="my-dropdown"
           id="dropdown"
-          ariaLabel="React Simple Dropdown"
+          ariaLabel="Custom Option Rendering Dropdown"
           options={options}
           optionRenderer={this.customRenderFunction}
           selectedOption={interest}
