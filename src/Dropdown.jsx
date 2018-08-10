@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { KEY_CODES, NAVIGATION_KEYS } from './utils/helper';
+import defaultOptionRenderer from './utils/defaultOptionRenderer';
 import './styles/Dropdown.scss';
 
 class Dropdown extends Component {
@@ -161,25 +162,7 @@ class Dropdown extends Component {
       return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
     }
 
-    return options.map((option) => {
-      const optionClass = classNames(option.className, (option.value === selectedOption) ? (selectedOptionClassName || 'dropdown-option-selected') : (optionClassName || 'dropdown-option'));
-      return (
-        <button
-          aria-label={option.ariaLabel}
-          className={optionClass}
-          key={option.value}
-          onClick={this.onOptionClicked}
-          onKeyDown={this.onOptionClicked}
-          ref={btn => btn && this.elements.push(btn)}
-          tabIndex="-1"
-          title={option.title}
-          type="button"
-        >
-          { option.iconClass && <i className={`${option.iconClass} option-icon`} />}
-          { option.value }
-        </button>
-      );
-    });
+    return defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, this.onOptionClicked, this.elements);
   }
 
   render() {

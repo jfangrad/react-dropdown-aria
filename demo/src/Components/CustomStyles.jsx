@@ -2,16 +2,24 @@ import React from 'react';
 import Dropdown from '../../../src/Dropdown';
 import '../styles/CustomStyles.scss';
 
-const options = [
+const airOptions = [
   { value: 'Helicopter', iconClass: 'fas fa-helicopter' },
   { value: 'Plane', iconClass: 'fas fa-plane' },
+  { value: 'Rocket', iconClass: 'fas fa-rocket' },
+];
+
+const landOptions = [
   { value: 'Train', iconClass: 'fas fa-train' },
   { value: 'Bus', iconClass: 'fas fa-bus' },
   { value: 'Car', iconClass: 'fas fa-car' },
   { value: 'Ship', iconClass: 'fas fa-ship' },
-  { value: 'Rocket', iconClass: 'fas fa-rocket' },
   { value: 'Bike', iconClass: 'fas fa-bicycle' },
   { value: 'Motorcycle', iconClass: 'fas fa-motorcycle' },
+];
+
+const options = [
+  { label: 'Air', groupOptions: airOptions },
+  { label: 'Land', groupOptions: landOptions },
 ];
 
 class Basic extends React.Component {
@@ -55,7 +63,7 @@ class Basic extends React.Component {
           optionClassName="custom-option"
           selectedOptionClassName="custom-option-selected"
           id="dropdown"
-          ariaLabel="React Simple Dropdown"
+          ariaLabel="Custom styled Dropdown"
           options={options}
           selectedOption={interest}
           setSelected={this.setInterest}
