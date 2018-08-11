@@ -40,48 +40,51 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       }
     }
   >
-    <[object Object]
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="1"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "1",
-        }
-      }
-      optionClass="className dropdown-option"
-    />
-    <[object Object]
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      1
+    </button>
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="2"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "2",
-        }
-      }
-      optionClass="className dropdown-option"
-    />
-    <[object Object]
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      2
+    </button>
+    <button
+      aria-label="ariaLabel"
+      className="className dropdown-option"
       key="3"
-      onOptionClicked={[Function]}
-      option={
-        Object {
-          "ariaLabel": "ariaLabel",
-          "className": "className",
-          "iconClass": "fab fa-js-square",
-          "title": "title",
-          "value": "3",
-        }
-      }
-      optionClass="className dropdown-option"
-    />
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      tabIndex="-1"
+      title="title"
+      type="button"
+    >
+      <i
+        className="fab fa-js-square option-icon"
+      />
+      3
+    </button>
   </ul>
 </div>
 `;
