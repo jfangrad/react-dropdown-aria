@@ -53,12 +53,12 @@ Groups of items can also be implemented by pasing an object of the following for
 <Dropdown
   ...
   options: {[
-    { label: 'Group 1', optionGroup: optionsGroup1 },
-    { label: 'Group 2', optionGroup: optionsGroup2 },
+    { label: 'Group 1', groupOptions: optionsGroup1 },
+    { label: 'Group 2', groupOptions: optionsGroup2 },
   ]}
 />
 ```
-Where the `optionGroup` is an array of options as described above.
+Where the `groupOptions` is an array of options as described above.
 
 ## Dropdown Props
 | Property | Type | Default | Description |
