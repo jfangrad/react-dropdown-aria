@@ -19,7 +19,7 @@ const options = [
   { value: '10' },
 ];
 
-class Basic extends React.Component {
+class CustomArrow extends React.Component {
   constructor(props) {
     super(props);
 
@@ -80,4 +80,4 @@ class Basic extends React.Component {
   }
 }
 
-export default Basic;
+export default CustomArrow;

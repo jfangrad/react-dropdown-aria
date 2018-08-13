@@ -30,7 +30,7 @@ const groupedOptions = [
   },
 ];
 
-class Basic extends React.Component {
+class Groups extends React.Component {
   constructor(props) {
     super(props);
 
@@ -86,4 +86,4 @@ class Basic extends React.Component {
   }
 }
 
-export default Basic;
+export default Groups;

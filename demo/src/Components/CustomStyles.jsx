@@ -22,7 +22,7 @@ const options = [
   { label: 'Land', groupOptions: landOptions },
 ];
 
-class Basic extends React.Component {
+class CustomStyles extends React.Component {
   constructor(props) {
     super(props);
 
@@ -81,4 +81,4 @@ class Basic extends React.Component {
   }
 }
 
-export default Basic;
+export default CustomStyles;

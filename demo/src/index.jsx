@@ -15,8 +15,8 @@ const Demo = () => (
     <Header />
     <div className="demo-container">
       <Basic />
-      <CustomStyles />
       <Groups />
+      <CustomStyles />
       <CustomRender />
       <CustomArrow />
     </div>

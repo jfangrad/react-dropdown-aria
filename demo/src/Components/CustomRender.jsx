@@ -9,7 +9,7 @@ const options = [
   { value: 'Example' },
 ];
 
-class Basic extends React.Component {
+class CustomRender extends React.Component {
   constructor(props) {
     super(props);
 
@@ -85,4 +85,4 @@ class Basic extends React.Component {
   }
 }
 
-export default Basic;
+export default CustomRender;
