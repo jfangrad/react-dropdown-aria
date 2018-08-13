@@ -3,7 +3,7 @@
 Simple, lightweight, and accessible React dropdown component.
 
 ## Purpose
-This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy dropdown look to [react-select](https://github.com/JedWatson/react-select)
+This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
 # Demo And Examples
 For demo and examples checkout [https://jfangrad.github.io/react-aria-dropdown/](https://jfangrad.github.io/react-aria-dropdown/)
@@ -48,7 +48,7 @@ Each option object in the array of options can have the following keys:
 | `value` | string | null | The value to be displayed in the dropdown (Required) |
 
 ### Groups Example
-Groups of items can also be implemented by pasing an object of the following for to the dropdown options prop:
+Groups of items can also be implemented by pasing an array of objects of the following form to the dropdown options prop:
 ```js
 <Dropdown
   ...
@@ -58,7 +58,7 @@ Groups of items can also be implemented by pasing an object of the following for
   ]}
 />
 ```
-Where the `groupOptions` is an array of options as described above.
+Where the `groupOptions` is an array of options as described above, and the `label` is the string to display above the group in the dropdown.
 
 ## Dropdown Props
 | Property | Type | Default | Description |
