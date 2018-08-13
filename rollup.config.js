@@ -3,9 +3,6 @@ import { uglify } from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import uglifycss from 'uglifycss';
-import { writeFileSync } from 'fs';
-import path from 'path';
 
 const config = {
   input: 'src/Dropdown.jsx',
