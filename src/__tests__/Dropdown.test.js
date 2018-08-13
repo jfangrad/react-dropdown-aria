@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import Dropdown from '../Dropdown';
-import { CUSTOM_OPTIONS, OPTIONS } from './constants';
+import { CUSTOM_OPTIONS, OPTIONS, GROUPED_OPTIONS } from './constants';
 import { KEY_CODES } from '../utils/helper';
 
 const foo = () => {};
@@ -28,6 +28,11 @@ describe('Check Props', () => {
         maxContentHeight={150}
       />,
     );
+    expect(toJson(dropdown)).toMatchSnapshot();
+  });
+
+  it('Matches snapshot with grouped options', () => {
+    const dropdown = shallow(<Dropdown setSelected={foo} options={GROUPED_OPTIONS} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 });

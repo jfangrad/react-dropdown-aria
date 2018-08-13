@@ -1,28 +1,36 @@
 import React from 'react';
 import Dropdown from '../../../src/Dropdown';
-import '../styles/CustomStyles.scss';
 
-const airOptions = [
-  { value: 'Helicopter', iconClass: 'fas fa-helicopter' },
-  { value: 'Plane', iconClass: 'fas fa-plane' },
-  { value: 'Rocket', iconClass: 'fas fa-rocket' },
+const languageOptions = [
+  { value: 'ActionScript' },
+  { value: 'Assembly' },
+  { value: 'C#' },
+  { value: 'Bash' },
+  { value: 'Kotlin' },
+  { value: 'LaTeX' },
+  { value: 'Legoscript' },
+  { value: 'Visual Basic' },
 ];
 
-const landOptions = [
-  { value: 'Train', iconClass: 'fas fa-train' },
-  { value: 'Bus', iconClass: 'fas fa-bus' },
-  { value: 'Car', iconClass: 'fas fa-car' },
-  { value: 'Ship', iconClass: 'fas fa-ship' },
-  { value: 'Bike', iconClass: 'fas fa-bicycle' },
-  { value: 'Motorcycle', iconClass: 'fas fa-motorcycle' },
+const frameworkOptions = [
+  { value: 'React' },
+  { value: 'Vue' },
+  { value: 'Angular' },
+  { value: 'Elm' },
 ];
 
-const options = [
-  { label: 'Air', groupOptions: airOptions },
-  { label: 'Land', groupOptions: landOptions },
+const groupedOptions = [
+  {
+    label: 'Languages',
+    groupOptions: languageOptions,
+  },
+  {
+    label: 'frameworks',
+    groupOptions: frameworkOptions,
+  },
 ];
 
-class CustomStyles extends React.Component {
+class Groups extends React.Component {
   constructor(props) {
     super(props);
 
@@ -55,16 +63,13 @@ class CustomStyles extends React.Component {
 
     return (
       <div className="section">
-        <div className="section-title">Custom Styling <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx">(Source)</a></div>
+        <div className="section-title">Grouped Options <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/Groups.jsx">(Source)</a></div>
         <Dropdown
-          placeholder="Transportation of Choice?"
-          buttonClassName="my-custom-dropdown"
-          contentClassName="my-custom-dropdown-content"
-          optionClassName="custom-option"
-          selectedOptionClassName="custom-option-selected"
+          placeholder={"What's best?"}
+          buttonClassName="my-dropdown"
           id="dropdown"
-          ariaLabel="Custom styled Dropdown"
-          options={options}
+          ariaLabel="Grouped Options Dropdown"
+          options={groupedOptions}
           selectedOption={interest}
           setSelected={this.setInterest}
           disabled={disabled}
@@ -81,4 +86,4 @@ class CustomStyles extends React.Component {
   }
 }
 
-export default CustomStyles;
+export default Groups;

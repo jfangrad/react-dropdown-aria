@@ -26,7 +26,7 @@ import 'react-aria-dropdown/dist/react-aria-dropdown.min.scss';
 
 # Usage
 Options should be provided to the Dropdown as an array of objects.
-### Example:
+### Simple Example:
 ```js
 <Dropdown
   ...
@@ -46,6 +46,19 @@ Each option object in the array of options can have the following keys:
 | `className` | string | null | CSS class to be applied to this option |
 | `title` | string | null | HTML title to be used for the option |
 | `value` | string | null | The value to be displayed in the dropdown (Required) |
+
+### Groups Example
+Groups of items can also be implemented by pasing an object of the following for to the dropdown options prop:
+```js
+<Dropdown
+  ...
+  options: {[
+    { label: 'Group 1', groupOptions: optionsGroup1 },
+    { label: 'Group 2', groupOptions: optionsGroup2 },
+  ]}
+/>
+```
+Where the `groupOptions` is an array of options as described above.
 
 ## Dropdown Props
 | Property | Type | Default | Description |
