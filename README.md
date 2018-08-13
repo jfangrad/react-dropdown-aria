@@ -86,6 +86,7 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `setSelected` | function | undefined | Function used to update the state of the selected value |
+| `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 
 

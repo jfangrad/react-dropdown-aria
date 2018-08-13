@@ -1,5 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import colours from '../styles/Colours';
+
+export const optionStyle = (props, state, selected) => ({
+  fontSize: '0.95em',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  padding: '5px 10px',
+  width: '100%',
+  textAlign: 'left',
+  cursor: 'pointer',
+  outline: 'none',
+  backgroundColor: selected ? colours.purple.lighter : 'white',
+  border: 'none',
+
+  '&:hover': {
+    backgroundColor: selected ? colours.purple.light : colours.greys.lighter,
+  },
+
+  '&:focus': {
+    backgroundColor: selected ? colours.purple.light : colours.greys.lighter,
+  },
+
+  '.option-icon': {
+    paddingRight: '5px',
+  },
+});
 
 const OptionItem = React.forwardRef((props, ref) => {
   const {

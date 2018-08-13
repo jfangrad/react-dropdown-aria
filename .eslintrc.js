@@ -8,6 +8,7 @@ module.exports = {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "react/jsx-one-expression-per-line": "off",
     "react/forbid-prop-types": ["error", { forbid: ["any"] }],
+    "react/no-unused-prop-types": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "max-len": ["error", { "code": 250 }],
     "no-return-assign": "off",
