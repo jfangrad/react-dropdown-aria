@@ -97,6 +97,18 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   box-shadow: 0px 3px 3px 2px #d9dadd;
 }
 
+.emotion-6::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-6::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-6::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
 .emotion-3 {
   font-size: 0.95em;
   overflow: hidden;
@@ -282,6 +294,18 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   box-shadow: 0px 3px 3px 2px #d9dadd;
 }
 
+.emotion-3::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-3::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-3::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
 .emotion-1 {
   content: "";
   width: 0px;
@@ -404,6 +428,18 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   box-sizing: border-box;
   top: 100%;
   box-shadow: 0px 3px 3px 2px #d9dadd;
+}
+
+.emotion-27::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-27::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-27::-webkit-scrollbar-thumb {
+  background: #666;
 }
 
 .emotion-1 {
