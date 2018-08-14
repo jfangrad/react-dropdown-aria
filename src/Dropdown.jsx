@@ -195,11 +195,11 @@ class Dropdown extends Component {
     } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-    const wrapperClass = this.getStyle('dropdownWrapperStyle');
-    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButtonStyle'));
-    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValueStyle'));
-    const contentClass = cx(contentClassName, this.getStyle('optionContainerStyle'));
-    const arrowClass = this.getStyle('arrowStyle');
+    const wrapperClass = this.getStyle('dropdownWrapper');
+    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButton'));
+    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValue'));
+    const contentClass = cx(contentClassName, this.getStyle('optionContainer'));
+    const arrowClass = this.getStyle('arrow');
 
     return (
       <div
@@ -255,14 +255,14 @@ Dropdown.propTypes = {
   selectedValueClassName: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
   style: PropTypes.shape({
-    arrowStyle: PropTypes.func,
-    dropdownButtonStyle: PropTypes.func,
-    displayedValueStyle: PropTypes.func,
-    dropdownWrapperStyle: PropTypes.func,
-    groupContainerStyle: PropTypes.func,
-    groupHeadingStyle: PropTypes.func,
-    optionContainerStyle: PropTypes.func,
-    optionStyle: PropTypes.func,
+    arrow: PropTypes.func,
+    dropdownButton: PropTypes.func,
+    displayedValue: PropTypes.func,
+    dropdownWrapper: PropTypes.func,
+    groupContainer: PropTypes.func,
+    groupHeading: PropTypes.func,
+    optionContainer: PropTypes.func,
+    optionItem: PropTypes.func,
   }),
   width: PropTypes.number,
 };

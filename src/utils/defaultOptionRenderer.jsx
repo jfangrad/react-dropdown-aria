@@ -12,14 +12,14 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
 
     if (groupOptions) { // Is group of options
       return (
-        <div key={label} className={getStyle('groupContainerStyle')}>
-          <div className={getStyle('groupHeadingStyle')}>
+        <div key={label} className={getStyle('groupContainer')}>
+          <div className={getStyle('groupHeading')}>
             <div>{label.toUpperCase()}</div>
             <div>{groupOptions.length}</div>
           </div>
           {
             option.groupOptions.map((groupOption) => {
-              const groupOptionClass = cx(groupOption.className, getStyle('optionStyle', groupOption.value === selectedOption));
+              const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
               return (
                 <button
                   aria-label={groupOption.ariaLabel}
@@ -51,7 +51,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
-    const optionClass = cx(className, getStyle('optionStyle', value === selectedOption));
+    const optionClass = cx(className, getStyle('optionItem', value === selectedOption));
     return (
       <button
         aria-label={option.ariaLabel}

@@ -1,5 +1,5 @@
 const style = {
-  dropdownButtonStyle: base => ({
+  dropdownButton: base => ({
     ...base,
     border: '1px solid gray',
     borderRadius: '8px',
@@ -21,13 +21,13 @@ const style = {
       backgroundColor: '#e6e6e6',
     },
   }),
-  optionContainerStyle: base => ({
+  optionContainer: base => ({
     ...base,
     padding: '5px 0',
     border: '1px solid rgb(154, 154, 154)',
     borderRadius: '5px',
   }),
-  optionStyle: (base, state, selected) => ({
+  optionItem: (base, state, selected) => ({
     ...base,
     fontSize: '0.95em',
     color: selected ? 'white' : 'black',

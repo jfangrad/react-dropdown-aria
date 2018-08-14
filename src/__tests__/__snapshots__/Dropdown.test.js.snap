@@ -27,6 +27,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   text-align: left;
   cursor: pointer;
   outline: none;
+  box-shadow: none;
 }
 
 .emotion-2:hover {
@@ -249,6 +250,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   text-align: left;
   cursor: pointer;
   outline: none;
+  box-shadow: none;
 }
 
 .emotion-2:hover {
@@ -385,6 +387,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   text-align: left;
   cursor: pointer;
   outline: none;
+  box-shadow: none;
 }
 
 .emotion-2:hover {

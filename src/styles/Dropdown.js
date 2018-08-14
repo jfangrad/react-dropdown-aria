@@ -1,7 +1,7 @@
 import colours from './Colours';
-import { optionStyle } from '../components/OptionItem';
+import { optionItemStyle as optionItem } from '../components/OptionItem';
 
-const dropdownWrapperStyle = ({ width, height }) => ({
+const dropdownWrapper = ({ width, height }) => ({
   width,
   height,
   position: 'relative',
@@ -9,7 +9,7 @@ const dropdownWrapperStyle = ({ width, height }) => ({
   flexDirection: 'column',
 });
 
-const dropdownButtonStyle = () => ({
+const dropdownButton = (props, { open }) => ({
   fontSize: '1em',
   display: 'flex',
   flexDirection: 'row',
@@ -27,6 +27,7 @@ const dropdownButtonStyle = () => ({
   textAlign: 'left',
   cursor: 'pointer',
   outline: 'none',
+  boxShadow: open ? `0px 1px 3px 2px ${colours.greys.lighter}` : 'none',
 
   '&:hover': {
     boxShadow: `0px 1px 3px 2px ${colours.greys.lighter}`,
@@ -41,7 +42,7 @@ const dropdownButtonStyle = () => ({
   },
 });
 
-const displayedValueStyle = ({ hideArrow, selectedOption, centerText }, { internalSelectedOption }) => ({
+const displayedValue = ({ hideArrow, selectedOption, centerText }, { internalSelectedOption }) => ({
   flex: '1',
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   overflow: 'hidden',
@@ -51,7 +52,7 @@ const displayedValueStyle = ({ hideArrow, selectedOption, centerText }, { intern
   textAlign: centerText ? 'center' : 'left',
 });
 
-const arrowStyle = (props, { open }) => ({
+const arrow = (props, { open }) => ({
   content: '""',
   width: '0',
   height: '0',
@@ -63,7 +64,7 @@ const arrowStyle = (props, { open }) => ({
   borderBottom: open ? `5px solid ${colours.greys.base}` : '0',
 });
 
-const optionContainerStyle = ({ openUp, maxContentHeight }, { open }) => ({
+const optionContainer = ({ openUp, maxContentHeight }, { open }) => ({
   width: '100%',
   maxHeight: maxContentHeight || '175px',
   overflowY: maxContentHeight ? 'scroll' : null,
@@ -96,11 +97,11 @@ const optionContainerStyle = ({ openUp, maxContentHeight }, { open }) => ({
   },
 });
 
-const groupContainerStyle = () => ({
+const groupContainer = () => ({
   padding: '1em 0 0 0',
 });
 
-const groupHeadingStyle = () => ({
+const groupHeading = () => ({
   color: 'grey',
   fontSize: '0.9em',
   padding: '0 10px 3px 5px',
@@ -110,14 +111,14 @@ const groupHeadingStyle = () => ({
 });
 
 const defaultStyles = {
-  arrowStyle,
-  dropdownButtonStyle,
-  displayedValueStyle,
-  dropdownWrapperStyle,
-  groupContainerStyle,
-  groupHeadingStyle,
-  optionContainerStyle,
-  optionStyle,
+  arrow,
+  dropdownButton,
+  displayedValue,
+  dropdownWrapper,
+  groupContainer,
+  groupHeading,
+  optionContainer,
+  optionItem,
 };
 
 export default defaultStyles;
