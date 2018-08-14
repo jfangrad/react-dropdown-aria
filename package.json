@@ -88,6 +88,11 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
+  "bundlesize": [
+    {
+      "path": "./dist/react-aria-dropdown.min.js"
+    }
+  ],
   "jest": {
     "modulePathIgnorePatterns": [
       "./node_modules"

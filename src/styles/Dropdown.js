@@ -82,6 +82,18 @@ const optionContainerStyle = ({ openUp, maxContentHeight }, { open }) => ({
   top: openUp ? null : '100%',
   bottom: openUp ? '105%' : null,
   boxShadow: openUp ? `0px -3px 3px 2px ${colours.greys.lighter}` : `0px 3px 3px 2px ${colours.greys.lighter}`,
+
+  '&::-webkit-scrollbar': {
+    width: '5px',
+  },
+
+  '&::-webkit-scrollbar-track': {
+    background: '#ddd',
+  },
+
+  '&::-webkit-scrollbar-thumb': {
+    background: '#666',
+  },
 });
 
 const groupContainerStyle = () => ({
