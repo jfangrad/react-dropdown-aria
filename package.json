@@ -1,6 +1,6 @@
 {
   "name": "react-aria-dropdown",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple and accessible React dropdown component",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js && node -e \"process.stdout.write('CSS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.css",
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js",
     "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
   "repository": {
