@@ -1,26 +1,26 @@
-[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown)
-# react-aria-dropdown
+[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
+# react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
 ## Purpose
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
 # Demo And Examples
-For demo and examples checkout [https://jfangrad.github.io/react-aria-dropdown/](https://jfangrad.github.io/react-aria-dropdown/)
+For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
 
 # Installation
 Simply use npm or yarn to install the package.
 ```
 // npm
-$ npm install --save react-aria-dropdown
+$ npm install --save react-dropdown-aria
 // Yarn
-$ yarn add react-aria-dropdown
+$ yarn add react-dropdown-aria
 ```
 
 You can then include it as well as the styles in your project:
 ```js
-import Dropdown from 'react-aria-dropdown';
-import 'react-aria-dropdown/dist/react-aria-dropdown.min.scss';
+import Dropdown from 'react-dropdown-aria';
+import 'react-dropdown-aria/dist/react-dropdown-aria.min.scss';
 ```
 (You only need to include the styles once in your project)
 
@@ -92,7 +92,7 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 ## Developing
 Clone the repo
 ```
-git clone https://github.com/jfangrad/react-aria-dropdown.git
+git clone https://github.com/jfangrad/react-dropdown-aria.git
 ```
 
 Install node modules and start in dev mode

@@ -18,7 +18,7 @@ const config = {
     scss({
       output: (style) => {
         const uglified = uglifycss.processString(style);
-        writeFileSync(path.join(__dirname, 'dist/react-aria-dropdown.min.css'), uglified);
+        writeFileSync(path.join(__dirname, 'dist/react-dropdown-aria.min.css'), uglified);
       },
     }),
     resolve({
