@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
+[![gzip size](http://img.badgesize.io/https://unpkg.com/react-dropdown-aria/dist/react-dropdown-aria.min.js?compression=gzip)](https://unpkg.com/react-dropdown-aria/dist/react-dropdown-aria.min.js)
 # react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
