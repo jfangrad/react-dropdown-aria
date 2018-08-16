@@ -1,5 +1,5 @@
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./dist/react-aria-dropdown.min.js');
+  module.exports = require('./dist/react-dropdown-aria.min.js');
 } else {
-  module.exports = require('./dist/react-aria-dropdown.dev.js'); // eslint-disable-line
+  module.exports = require('./dist/react-dropdown-aria.dev.js'); // eslint-disable-line
 }
