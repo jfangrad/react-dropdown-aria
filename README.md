@@ -1,5 +1,5 @@
-[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-aria-dropdown.svg)](https://www.npmjs.com/package/react-aria-dropdown)
-# react-aria-dropdown
+[![CircleCI](https://circleci.com/gh/jfangrad/react-aria-dropdown.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-aria-dropdown/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
+# react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
 ## Purpose
@@ -13,21 +13,21 @@ This component was created to be a light weight and fully accessible dropdown co
 5. Custom render function props
 
 # Demo And Examples
-For demo and examples checkout [https://jfangrad.github.io/react-aria-dropdown/](https://jfangrad.github.io/react-aria-dropdown/)
+For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
 
 # Installation
 Simply use npm or yarn to install the package.
 ```
 // npm
-$ npm install --save react-aria-dropdown
+$ npm install --save react-dropdown-aria
 // Yarn
-$ yarn add react-aria-dropdown
+$ yarn add react-dropdown-aria
 ```
 
 You can then include it as well as the styles in your project:
 ```js
-import Dropdown from 'react-aria-dropdown';
-import 'react-aria-dropdown/dist/react-aria-dropdown.min.scss';
+import Dropdown from 'react-dropdown-aria';
+import 'react-dropdown-aria/dist/react-dropdown-aria.min.css';
 ```
 (You only need to include the styles once in your project)
 
@@ -134,7 +134,7 @@ As shown above, each function will be called with `base` and `state` at minimum 
 ## Developing
 Clone the repo
 ```
-git clone https://github.com/jfangrad/react-aria-dropdown.git
+git clone https://github.com/jfangrad/react-dropdown-aria.git
 ```
 
 Install node modules and start in dev mode

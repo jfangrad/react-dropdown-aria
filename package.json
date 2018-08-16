@@ -1,13 +1,13 @@
 {
-  "name": "react-aria-dropdown",
+  "name": "react-dropdown-aria",
   "version": "1.1.0",
   "description": "Simple and accessible React dropdown component",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run lib:dev\" \"npm run demo:dev\"",
     "build": "npm run lib:prod && npm run demo:prod",
-    "lib:dev": "rollup -c -w -o dist/react-aria-dropdown.dev.js",
-    "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-aria-dropdown.min.js",
+    "lib:dev": "rollup -c -w -o dist/react-dropdown-aria.dev.js",
+    "lib:prod": " SET NODE_ENV=production && rollup -c -o dist/react-dropdown-aria.min.js",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
     "deploy:demo": "npm run build && git push origin `git subtree split --prefix demo/dist master`:gh-pages --force",
@@ -15,12 +15,12 @@
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-aria-dropdown.min.js",
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-dropdown-aria.min.js",
     "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfangrad/react-aria-dropdown.git"
+    "url": "git+https://github.com/jfangrad/react-dropdown-aria.git"
   },
   "keywords": [
     "react",
@@ -28,14 +28,14 @@
     "select",
     "aria",
     "react-dropdown",
-    "react-aria-dropdown"
+    "react-dropdown-aria"
   ],
-  "author": "Justin Fagnrad",
+  "author": "Justin Fangrad",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jfangrad/react-aria-dropdown/issues"
+    "url": "https://github.com/jfangrad/react-dropdown-aria/issues"
   },
-  "homepage": "https://github.com/jfangrad/react-aria-dropdown#readme",
+  "homepage": "https://github.com/jfangrad/react-dropdown-aria#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
@@ -90,7 +90,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/react-aria-dropdown.min.js"
+      "path": "./dist/react-dropdown-aria.min.js"
     }
   ],
   "jest": {
