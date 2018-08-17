@@ -1,61 +1,8 @@
 'use strict';
 
 var React = require('react');
+var emotion = require('emotion');
 var PropTypes = require('prop-types');
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-var classnames = createCommonjsModule(function (module) {
-	/*!
-   Copyright (c) 2017 Jed Watson.
-   Licensed under the MIT License (MIT), see
-   http://jedwatson.github.io/classnames
- */
-	/* global define */
-
-	(function () {
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames() {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg;
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg) && arg.length) {
-					var inner = classNames.apply(null, arg);
-					if (inner) {
-						classes.push(inner);
-					}
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (module.exports) {
-			classNames.default = classNames;
-			module.exports = classNames;
-		} else {
-			window.classNames = classNames;
-		}
-	})();
-});
-var classnames_1 = classnames.classnames;
 
 const KEY_CODES = {
   UP_ARROW: 38,
@@ -71,12 +18,11 @@ const NAVIGATION_KEYS = [KEY_CODES.ESCAPE, KEY_CODES.UP_ARROW, KEY_CODES.DOWN_AR
 
 // import OptionItem from '../components/OptionItem';
 
-
 /*
 This file needs changes once Enzyme updates to be able to handle forwardRef in tests
 */
 
-function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef) {
+function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
   return options.map(option => {
     const { groupOptions, label, value, className } = option;
 
@@ -84,10 +30,10 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       // Is group of options
       return React.createElement(
         'div',
-        { key: label, className: 'dropdown-group' },
+        { key: label, className: getStyle('groupContainer') },
         React.createElement(
           'div',
-          { className: 'dropdown-group-heading' },
+          { className: getStyle('groupHeading') },
           React.createElement(
             'div',
             null,
@@ -100,7 +46,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
           )
         ),
         option.groupOptions.map(groupOption => {
-          const groupOptionClass = classnames(groupOption.className, groupOption.value === selectedOption ? selectedOptionClassName || 'dropdown-option-selected' : optionClassName || 'dropdown-option');
+          const groupOptionClass = emotion.cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
           return React.createElement(
             'button',
             {
@@ -130,7 +76,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
-    const optionClass = classnames(className, value === selectedOption ? selectedOptionClassName || 'dropdown-option-selected' : optionClassName || 'dropdown-option');
+    const optionClass = emotion.cx(className, getStyle('optionItem', value === selectedOption));
     return React.createElement(
       'button',
       {
@@ -158,6 +104,203 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
     // );
   });
 }
+
+const colours = {
+  greys: {
+    lighter: '#d9dadd',
+    light: '#b5b6b7',
+    base: '#808080',
+    dark: '#595959',
+    darker: '#404040'
+  },
+  purple: {
+    lighter: '#ccd1ed',
+    light: '#a7aedf',
+    base: '#990099'
+  }
+};
+
+const optionItemStyle = (props, state, selected) => ({
+  fontSize: '0.95em',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  padding: '5px 10px',
+  width: '100%',
+  textAlign: 'left',
+  cursor: 'pointer',
+  outline: 'none',
+  backgroundColor: selected ? colours.purple.lighter : 'white',
+  border: 'none',
+
+  '&:hover': {
+    backgroundColor: selected ? colours.purple.light : colours.greys.lighter
+  },
+
+  '&:focus': {
+    backgroundColor: selected ? colours.purple.light : colours.greys.lighter
+  },
+
+  '.option-icon': {
+    paddingRight: '5px'
+  }
+});
+
+const OptionItem = React.forwardRef((props, ref) => {
+  const {
+    onOptionClicked,
+    option,
+    optionClass
+  } = props;
+
+  return React.createElement(
+    'button',
+    {
+      'aria-label': option.ariaLabel,
+      className: optionClass,
+      onClick: onOptionClicked,
+      onKeyDown: onOptionClicked,
+      ref: ref,
+      tabIndex: '-1',
+      title: option.title,
+      type: 'button'
+    },
+    option.iconClass && React.createElement('i', { className: `${option.iconClass} option-icon` }),
+    option.value
+  );
+});
+
+// Please Keep Alphabetical
+OptionItem.propTypes = {
+  ariaLabel: PropTypes.string,
+  option: PropTypes.shape({
+    ariaLabel: PropTypes.string,
+    className: PropTypes.string,
+    title: PropTypes.string,
+    value: PropTypes.string.isRequired
+  }).isRequired,
+  optionClass: PropTypes.string
+};
+
+const dropdownWrapper = ({ width, height }) => ({
+  width,
+  height,
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column'
+});
+
+const dropdownButton = (props, { open }) => ({
+  fontSize: '1em',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'white',
+  padding: '9px 5px',
+  margin: '0',
+  borderRadius: '0',
+  borderBottom: `2px solid ${colours.greys.light}`,
+  borderTop: 'none',
+  borderRight: 'none',
+  borderLeft: 'none',
+  textAlign: 'left',
+  cursor: 'pointer',
+  outline: 'none',
+  boxShadow: open ? `0px 1px 3px 2px ${colours.greys.lighter}` : 'none',
+
+  '&:hover': {
+    boxShadow: `0px 1px 3px 2px ${colours.greys.lighter}`
+  },
+
+  '&:focus': {
+    boxShadow: `0px 1px 3px 2px ${colours.greys.lighter}`
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed'
+  }
+});
+
+const displayedValue = ({ hideArrow, selectedOption, centerText }, { internalSelectedOption }) => ({
+  flex: '1',
+  borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  color: selectedOption || internalSelectedOption ? 'black' : colours.greys.base,
+  textAlign: centerText ? 'center' : 'left'
+});
+
+const arrow = (props, { open }) => ({
+  content: '""',
+  width: '0',
+  height: '0',
+  marginLeft: '8px',
+  marginRight: '5px',
+  borderRight: '5px solid transparent',
+  borderLeft: '5px solid transparent',
+  borderTop: open ? '0' : `5px solid ${colours.greys.base}`,
+  borderBottom: open ? `5px solid ${colours.greys.base}` : '0'
+});
+
+const optionContainer = ({ openUp, maxContentHeight }, { open }) => ({
+  width: '100%',
+  maxHeight: maxContentHeight || '175px',
+  overflowY: maxContentHeight ? 'scroll' : null,
+  zIndex: '9999',
+  overflowX: 'hidden',
+  position: 'absolute',
+  left: '0',
+  listStyleType: 'none',
+  margin: '0',
+  padding: '2px 0',
+  backgroundColor: 'white',
+  color: 'black',
+  borderRadius: '2px',
+  display: open ? 'block' : 'none',
+  boxSizing: 'border-box',
+  top: openUp ? null : '100%',
+  bottom: openUp ? '105%' : null,
+  boxShadow: openUp ? `0px -3px 3px 2px ${colours.greys.lighter}` : `0px 3px 3px 2px ${colours.greys.lighter}`,
+
+  '&::-webkit-scrollbar': {
+    width: '5px'
+  },
+
+  '&::-webkit-scrollbar-track': {
+    background: '#ddd'
+  },
+
+  '&::-webkit-scrollbar-thumb': {
+    background: '#666'
+  }
+});
+
+const groupContainer = () => ({
+  padding: '1em 0 0 0'
+});
+
+const groupHeading = () => ({
+  color: 'grey',
+  fontSize: '0.9em',
+  padding: '0 10px 3px 5px',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between'
+});
+
+const defaultStyles = {
+  arrow,
+  dropdownButton,
+  displayedValue,
+  dropdownWrapper,
+  groupContainer,
+  groupHeading,
+  optionContainer,
+  optionItem: optionItemStyle
+};
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -250,6 +393,13 @@ class Dropdown extends React.Component {
       }
     };
 
+    this.getStyle = (key, extraState) => {
+      const { style } = this.props;
+      const baseStyle = defaultStyles[key](this.props, this.state, extraState);
+      const customStyle = style[key];
+      return customStyle ? emotion.css(customStyle(baseStyle, this.state, extraState)) : emotion.css(baseStyle);
+    };
+
     this.setFocus = () => {
       const { focusedIndex } = this.state;
       this.elements[focusedIndex].focus();
@@ -296,10 +446,10 @@ class Dropdown extends React.Component {
       this.elements = []; // Reset ref array
 
       if (optionRenderer) {
-        return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
+        return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements, this.getStyle);
       }
 
-      return defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, this.onOptionClicked, this.elements);
+      return defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, this.onOptionClicked, this.elements, this.getStyle);
     };
 
     this.state = {
@@ -329,19 +479,14 @@ class Dropdown extends React.Component {
       ariaLabel,
       ariaLabelledBy,
       arrowRenderer,
-      centerText,
       contentClassName,
       buttonClassName,
       disabled,
-      height,
       hideArrow,
       id,
-      maxContentHeight,
-      openUp,
       placeholder,
       selectedOption,
-      selectedValueClassName,
-      width
+      selectedValueClassName
     } = this.props;
 
     const {
@@ -350,19 +495,18 @@ class Dropdown extends React.Component {
     } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-    const dropdownButtonClass = classnames('dropdown-select', buttonClassName);
-    const displayedValueClass = classnames('displayed-value', selectedValueClassName, { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
-    const contentClass = classnames('dropdown-content', contentClassName, { 'dropdown-content-open': open, 'dropdown-content-down': !openUp, 'dropdown-content-up': openUp });
-    const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
-    const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
+    const wrapperClass = this.getStyle('dropdownWrapper');
+    const dropdownButtonClass = emotion.cx(buttonClassName, this.getStyle('dropdownButton'));
+    const displayedValueClass = emotion.cx(selectedValueClassName, this.getStyle('displayedValue'));
+    const contentClass = emotion.cx(contentClassName, this.getStyle('optionContainer'));
+    const arrowClass = this.getStyle('arrow');
 
     return React.createElement(
       'div',
       {
-        className: 'dropdown',
+        className: wrapperClass,
         onKeyDown: this.onKeyDown,
-        ref: div => this.container = div,
-        style: { width, height }
+        ref: div => this.container = div
       },
       React.createElement(
         'button',
@@ -388,7 +532,7 @@ class Dropdown extends React.Component {
       ),
       React.createElement(
         'ul',
-        { className: contentClass, style: listStyle },
+        { className: contentClass },
         this.renderOptions()
       )
     );
@@ -420,6 +564,16 @@ Dropdown.propTypes = {
   selectedOptionClassName: PropTypes.string,
   selectedValueClassName: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
+  style: PropTypes.shape({
+    arrow: PropTypes.func,
+    dropdownButton: PropTypes.func,
+    displayedValue: PropTypes.func,
+    dropdownWrapper: PropTypes.func,
+    groupContainer: PropTypes.func,
+    groupHeading: PropTypes.func,
+    optionContainer: PropTypes.func,
+    optionItem: PropTypes.func
+  }),
   width: PropTypes.number
 };
 
@@ -447,6 +601,7 @@ Dropdown.defaultProps = {
   selectedOption: null,
   selectedOptionClassName: undefined,
   selectedValueClassName: undefined,
+  style: {},
   width: null
 };
 

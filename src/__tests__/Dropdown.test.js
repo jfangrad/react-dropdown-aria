@@ -2,9 +2,13 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
+import { createSerializer } from 'jest-emotion';
+import * as emotion from 'emotion';
 import Dropdown from '../Dropdown';
 import { CUSTOM_OPTIONS, OPTIONS, GROUPED_OPTIONS } from './constants';
 import { KEY_CODES } from '../utils/helper';
+
+expect.addSnapshotSerializer(createSerializer(emotion));
 
 const foo = () => {};
 
@@ -42,8 +46,8 @@ describe('Navigation', () => {
   let button;
 
   beforeEach(() => {
-    wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} />);
-    button = wrapper.find('.dropdown-select'); // Actual dropdown button element
+    wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} buttonClassName="test" />);
+    button = wrapper.find('.test'); // Actual dropdown button element
   });
 
   it('Opens dropdown when clicked', () => {
@@ -116,8 +120,8 @@ describe('Selecting Options', () => {
 
   beforeEach(() => {
     spy = sinon.spy();
-    wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} />);
-    button = wrapper.find('.dropdown-select'); // Actual dropdown button element
+    wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
+    button = wrapper.find('.test'); // Actual dropdown button element
   });
 
   it('calls setSelected with value when option selected', () => {
@@ -131,14 +135,14 @@ describe('Selecting Options', () => {
     button.simulate('click');
     wrapper.find('ul').childAt(0).simulate('click', { nativeEvent: { target: { innerText: '1' } } });
 
-    expect(button.find('.displayed-value').text()).toBe('1');
+    expect(button.find('div').first().text()).toBe('1');
   });
 });
 
 describe('Special props', () => {
   it('Does not open when disabled', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} disabled />);
-    wrapper.find('.dropdown-select').simulate('click');
+    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} buttonClassName="test" disabled />);
+    wrapper.find('.test').simulate('click');
 
     expect(wrapper.state('open')).toBeFalsy();
   });

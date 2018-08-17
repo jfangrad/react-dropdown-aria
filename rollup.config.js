@@ -1,12 +1,8 @@
 import babel from 'rollup-plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
-import scss from 'rollup-plugin-scss';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import uglifycss from 'uglifycss';
-import { writeFileSync } from 'fs';
-import path from 'path';
 
 const config = {
   input: 'src/Dropdown.jsx',
@@ -15,12 +11,6 @@ const config = {
     interop: false,
   },
   plugins: [
-    scss({
-      output: (style) => {
-        const uglified = uglifycss.processString(style);
-        writeFileSync(path.join(__dirname, 'dist/react-dropdown-aria.min.css'), uglified);
-      },
-    }),
     resolve({
       extensions: ['.scss', '.js', '.jsx'],
     }),
@@ -30,7 +20,7 @@ const config = {
       },
     }),
   ],
-  external: ['react', 'prop-types'],
+  external: ['react', 'prop-types', 'emotion'],
 };
 
 if (process.env.NODE_ENV === 'production') {

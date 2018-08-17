@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { css, cx } from 'emotion';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { KEY_CODES, NAVIGATION_KEYS } from './utils/helper';
 import defaultOptionRenderer from './utils/defaultOptionRenderer';
-import './styles/Dropdown.scss';
+import defaultStyles from './styles/Dropdown';
 
 class Dropdown extends Component {
   constructor(props) {
@@ -113,6 +113,13 @@ class Dropdown extends Component {
     }
   }
 
+  getStyle = (key, extraState) => {
+    const { style } = this.props;
+    const baseStyle = defaultStyles[key](this.props, this.state, extraState);
+    const customStyle = style[key];
+    return customStyle ? css(customStyle(baseStyle, this.state, extraState)) : css(baseStyle);
+  }
+
   setFocus = () => {
     const { focusedIndex } = this.state;
     this.elements[focusedIndex].focus();
@@ -159,10 +166,10 @@ class Dropdown extends Component {
     this.elements = []; // Reset ref array
 
     if (optionRenderer) {
-      return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements);
+      return optionRenderer(selectedOption || internalSelectedOption, options, this.onOptionClicked, this.elements, this.getStyle);
     }
 
-    return defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, this.onOptionClicked, this.elements);
+    return defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, this.onOptionClicked, this.elements, this.getStyle);
   }
 
   render() {
@@ -172,19 +179,14 @@ class Dropdown extends Component {
       ariaLabel,
       ariaLabelledBy,
       arrowRenderer,
-      centerText,
       contentClassName,
       buttonClassName,
       disabled,
-      height,
       hideArrow,
       id,
-      maxContentHeight,
-      openUp,
       placeholder,
       selectedOption,
       selectedValueClassName,
-      width,
     } = this.props;
 
     const {
@@ -193,18 +195,17 @@ class Dropdown extends Component {
     } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-    const dropdownButtonClass = classNames('dropdown-select', buttonClassName);
-    const displayedValueClass = classNames('displayed-value', selectedValueClassName, { grey: !selectedOption && !internalSelectedOption, 'no-arrow': hideArrow, 'center-text': centerText });
-    const contentClass = classNames('dropdown-content', contentClassName, { 'dropdown-content-open': open, 'dropdown-content-down': !openUp, 'dropdown-content-up': openUp });
-    const arrowClass = open ? 'dropdown-arrow up' : 'dropdown-arrow down';
-    const listStyle = maxContentHeight ? { maxHeight: maxContentHeight, overflowY: 'scroll' } : {};
+    const wrapperClass = this.getStyle('dropdownWrapper');
+    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButton'));
+    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValue'));
+    const contentClass = cx(contentClassName, this.getStyle('optionContainer'));
+    const arrowClass = this.getStyle('arrow');
 
     return (
       <div
-        className="dropdown"
+        className={wrapperClass}
         onKeyDown={this.onKeyDown}
         ref={div => this.container = div}
-        style={{ width, height }}
       >
         <button
           aria-label={ariaLabel}
@@ -222,7 +223,7 @@ class Dropdown extends Component {
           { !hideArrow && !arrowRenderer && <div className={arrowClass} /> }
           { !hideArrow && arrowRenderer && arrowRenderer(open) }
         </button>
-        <ul className={contentClass} style={listStyle}>{ this.renderOptions() }</ul>
+        <ul className={contentClass}>{ this.renderOptions() }</ul>
       </div>
     );
   }
@@ -253,6 +254,16 @@ Dropdown.propTypes = {
   selectedOptionClassName: PropTypes.string,
   selectedValueClassName: PropTypes.string,
   setSelected: PropTypes.func.isRequired,
+  style: PropTypes.shape({
+    arrow: PropTypes.func,
+    dropdownButton: PropTypes.func,
+    displayedValue: PropTypes.func,
+    dropdownWrapper: PropTypes.func,
+    groupContainer: PropTypes.func,
+    groupHeading: PropTypes.func,
+    optionContainer: PropTypes.func,
+    optionItem: PropTypes.func,
+  }),
   width: PropTypes.number,
 };
 
@@ -280,6 +291,7 @@ Dropdown.defaultProps = {
   selectedOption: null,
   selectedOptionClassName: undefined,
   selectedValueClassName: undefined,
+  style: {},
   width: null,
 };
 

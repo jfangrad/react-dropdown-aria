@@ -1,26 +1,25 @@
 import React from 'react';
-import classNames from 'classnames';
+import { cx } from 'emotion';
 // import OptionItem from '../components/OptionItem';
-
 
 /*
 This file needs changes once Enzyme updates to be able to handle forwardRef in tests
 */
 
-function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef) {
+function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
   return options.map((option) => {
     const { groupOptions, label, value, className } = option;
 
     if (groupOptions) { // Is group of options
       return (
-        <div key={label} className="dropdown-group">
-          <div className="dropdown-group-heading">
+        <div key={label} className={getStyle('groupContainer')}>
+          <div className={getStyle('groupHeading')}>
             <div>{label.toUpperCase()}</div>
             <div>{groupOptions.length}</div>
           </div>
           {
             option.groupOptions.map((groupOption) => {
-              const groupOptionClass = classNames(groupOption.className, (groupOption.value === selectedOption) ? (selectedOptionClassName || 'dropdown-option-selected') : (optionClassName || 'dropdown-option'));
+              const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
               return (
                 <button
                   aria-label={groupOption.ariaLabel}
@@ -52,7 +51,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
-    const optionClass = classNames(className, (value === selectedOption) ? (selectedOptionClassName || 'dropdown-option-selected') : (optionClassName || 'dropdown-option'));
+    const optionClass = cx(className, getStyle('optionItem', value === selectedOption));
     return (
       <button
         aria-label={option.ariaLabel}

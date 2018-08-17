@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from '../../../src/Dropdown';
-import '../styles/CustomStyles.scss';
+import styles from '../styles/CustomStyles';
 
 const airOptions = [
   { value: 'Helicopter', iconClass: 'fas fa-helicopter' },
@@ -58,10 +58,6 @@ class CustomStyles extends React.Component {
         <div className="section-title">Custom Styling <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx">(Source)</a></div>
         <Dropdown
           placeholder="Transportation of Choice?"
-          buttonClassName="my-custom-dropdown"
-          contentClassName="my-custom-dropdown-content"
-          optionClassName="custom-option"
-          selectedOptionClassName="custom-option-selected"
           id="dropdown"
           ariaLabel="Custom styled Dropdown"
           options={options}
@@ -71,6 +67,7 @@ class CustomStyles extends React.Component {
           width={400}
           maxContentHeight={150}
           searchable={searchable}
+          style={styles}
         />
         <div className="buttons-container">
           <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>

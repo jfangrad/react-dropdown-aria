@@ -1,9 +1,17 @@
 [![CircleCI](https://circleci.com/gh/jfangrad/react-dropdown-aria.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-dropdown-aria/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
+[![gzip size](http://img.badgesize.io/https://unpkg.com/react-dropdown-aria/dist/react-dropdown-aria.min.js?compression=gzip)](https://unpkg.com/react-dropdown-aria/dist/react-dropdown-aria.min.js)
 # react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
 ## Purpose
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
+
+## Features
+1. Fully customizable styling
+2. Grouped options
+3. Accessible
+4. Type to find item
+5. Custom render function props
 
 # Demo And Examples
 For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
@@ -60,6 +68,40 @@ Groups of items can also be implemented by pasing an array of objects of the fol
 ```
 Where the `groupOptions` is an array of options as described above, and the `label` is the string to display above the group in the dropdown.
 
+## Styling
+Custom styling can be applied to the dropdown through 2 ways:
+1. CSS className props (As seen in props table below)
+2. Emotion JavaScript Objects passed to `style` prop
+
+The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
+The following object keys are supported to apply style to the corresponding part of the dropdown:
+```
+arrow, dropdownButton, displayedValue, dropdownWrapper, groupContainer, groupHeading, optionContainer, optionItem
+```
+The style prop should be passed and object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example object is shown below:
+```js
+const style = {
+  optionItem: (base, state, selected) => ({
+    ...base,
+    fontSize: '0.95em',
+    color: selected ? 'white' : 'black',
+    backgroundColor: selected ? '#00A3EF' : 'white',
+    '&:hover': {
+      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
+    },
+    '&:focus': {
+      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
+    },
+  }),
+  ...
+}
+```
+As shown above, each function will be called with `base` and `state` at minimum and some will be provided a third `extraState` parameter as shown with `optionStyle` where the extraState is whether it is currently selected or not.
+
+`base` - is the default styles object. It can either be spread out to extend the default styles (as shown above) or ommitted to ignore all default styles
+
+`state` - is the internal state of the dropdown
+
 ## Dropdown Props
 | Property | Type | Default | Description |
 |:---|:---|:---|:---|
@@ -86,6 +128,7 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `setSelected` | function | undefined | Function used to update the state of the selected value |
+| `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 
 

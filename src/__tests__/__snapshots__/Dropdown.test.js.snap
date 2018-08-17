@@ -1,21 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check Props Matches snapshot with custom props 1`] = `
+.emotion-2 {
+  font-size: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 9px 5px;
+  margin: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #b5b6b7;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:hover {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:focus {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:disabled {
+  cursor: not-allowed;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-right: 1px solid #b5b6b7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #808080;
+  text-align: left;
+}
+
+.emotion-1 {
+  content: "";
+  width: 0px;
+  height: 0px;
+  margin-left: 8px;
+  margin-right: 5px;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #808080;
+  border-bottom: 0px;
+}
+
+.emotion-7 {
+  width: 400px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-6 {
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  z-index: 9999;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0px;
+  list-style-type: none;
+  margin: 0px;
+  padding: 2px 0;
+  background-color: white;
+  color: black;
+  border-radius: 2px;
+  display: none;
+  box-sizing: border-box;
+  top: 100%;
+  box-shadow: 0px 3px 3px 2px #d9dadd;
+}
+
+.emotion-6::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-6::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-6::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.emotion-3 {
+  font-size: 0.95em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  background-color: white;
+  border: none;
+}
+
+.emotion-3:hover {
+  background-color: #d9dadd;
+}
+
+.emotion-3:focus {
+  background-color: #d9dadd;
+}
+
+.emotion-3 .option-icon {
+  padding-right: 5px;
+}
+
 <div
-  className="dropdown"
+  className="emotion-7"
   onKeyDown={[Function]}
-  style={
-    Object {
-      "height": null,
-      "width": 400,
-    }
-  }
 >
   <button
     ari-describedby={null}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
-    className="dropdown-select custom-class"
+    className="custom-class emotion-2"
     disabled={true}
     id="dropdown"
     onClick={[Function]}
@@ -23,26 +152,20 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     type="button"
   >
     <div
-      className="displayed-value grey"
+      className="emotion-0"
     >
       Custom Placeholder...
     </div>
     <div
-      className="dropdown-arrow down"
+      className="emotion-1"
     />
   </button>
   <ul
-    className="dropdown-content dropdown-content-down"
-    style={
-      Object {
-        "maxHeight": 150,
-        "overflowY": "scroll",
-      }
-    }
+    className="emotion-6"
   >
     <button
       aria-label="ariaLabel"
-      className="className dropdown-option"
+      className="className emotion-3"
       key="1"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -57,7 +180,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     </button>
     <button
       aria-label="ariaLabel"
-      className="className dropdown-option"
+      className="className emotion-3"
       key="2"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -72,7 +195,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     </button>
     <button
       aria-label="ariaLabel"
-      className="className dropdown-option"
+      className="className emotion-3"
       key="3"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -90,82 +213,329 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
 `;
 
 exports[`Check Props Matches snapshot with default props 1`] = `
+.emotion-4 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  font-size: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 9px 5px;
+  margin: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #b5b6b7;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:hover {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:focus {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:disabled {
+  cursor: not-allowed;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-right: 1px solid #b5b6b7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #808080;
+  text-align: left;
+}
+
+.emotion-3 {
+  width: 100%;
+  max-height: 175px;
+  z-index: 9999;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0px;
+  list-style-type: none;
+  margin: 0px;
+  padding: 2px 0;
+  background-color: white;
+  color: black;
+  border-radius: 2px;
+  display: none;
+  box-sizing: border-box;
+  top: 100%;
+  box-shadow: 0px 3px 3px 2px #d9dadd;
+}
+
+.emotion-3::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-3::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-3::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.emotion-1 {
+  content: "";
+  width: 0px;
+  height: 0px;
+  margin-left: 8px;
+  margin-right: 5px;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #808080;
+  border-bottom: 0px;
+}
+
 <div
-  className="dropdown"
+  className="emotion-4"
   onKeyDown={[Function]}
-  style={
-    Object {
-      "height": null,
-      "width": null,
-    }
-  }
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="dropdown-select"
+    className="emotion-2"
     disabled={false}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="displayed-value grey"
+      className="emotion-0"
     >
       Select ...
     </div>
     <div
-      className="dropdown-arrow down"
+      className="emotion-1"
     />
   </button>
   <ul
-    className="dropdown-content dropdown-content-down"
-    style={Object {}}
+    className="emotion-3"
   />
 </div>
 `;
 
 exports[`Check Props Matches snapshot with grouped options 1`] = `
+.emotion-28 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-2 {
+  font-size: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 9px 5px;
+  margin: 0px;
+  border-radius: 0px;
+  border-bottom: 2px solid #b5b6b7;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+.emotion-2:hover {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:focus {
+  box-shadow: 0px 1px 3px 2px #d9dadd;
+}
+
+.emotion-2:disabled {
+  cursor: not-allowed;
+}
+
+.emotion-0 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-right: 1px solid #b5b6b7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #808080;
+  text-align: left;
+}
+
+.emotion-27 {
+  width: 100%;
+  max-height: 175px;
+  z-index: 9999;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0px;
+  list-style-type: none;
+  margin: 0px;
+  padding: 2px 0;
+  background-color: white;
+  color: black;
+  border-radius: 2px;
+  display: none;
+  box-sizing: border-box;
+  top: 100%;
+  box-shadow: 0px 3px 3px 2px #d9dadd;
+}
+
+.emotion-27::-webkit-scrollbar {
+  width: 5px;
+}
+
+.emotion-27::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.emotion-27::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.emotion-1 {
+  content: "";
+  width: 0px;
+  height: 0px;
+  margin-left: 8px;
+  margin-right: 5px;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid #808080;
+  border-bottom: 0px;
+}
+
+.emotion-4 {
+  font-size: 0.95em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  background-color: white;
+  border: none;
+}
+
+.emotion-4:hover {
+  background-color: #d9dadd;
+}
+
+.emotion-4:focus {
+  background-color: #d9dadd;
+}
+
+.emotion-4 .option-icon {
+  padding-right: 5px;
+}
+
+.emotion-14 {
+  padding: 1em 0 0 0;
+}
+
+.emotion-3 {
+  color: grey;
+  font-size: 0.9em;
+  padding: 0 10px 3px 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
 <div
-  className="dropdown"
+  className="emotion-28"
   onKeyDown={[Function]}
-  style={
-    Object {
-      "height": null,
-      "width": null,
-    }
-  }
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="dropdown-select"
+    className="emotion-2"
     disabled={false}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="displayed-value grey"
+      className="emotion-0"
     >
       Select ...
     </div>
     <div
-      className="dropdown-arrow down"
+      className="emotion-1"
     />
   </button>
   <ul
-    className="dropdown-content dropdown-content-down"
-    style={Object {}}
+    className="emotion-27"
   >
     <div
-      className="dropdown-group"
+      className="emotion-14"
       key="numbers"
     >
       <div
-        className="dropdown-group-heading"
+        className="emotion-3"
       >
         <div>
           NUMBERS
@@ -175,7 +545,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="1"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -185,7 +555,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         1
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="2"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -195,7 +565,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         2
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="3"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -205,7 +575,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         3
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="4"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -215,7 +585,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         4
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="5"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -225,7 +595,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         5
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="6"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -235,7 +605,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         6
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="7"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -245,7 +615,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         7
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="8"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -255,7 +625,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         8
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="9"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -265,7 +635,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         9
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="10"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -276,11 +646,11 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       </button>
     </div>
     <div
-      className="dropdown-group"
+      className="emotion-14"
       key="letters"
     >
       <div
-        className="dropdown-group-heading"
+        className="emotion-3"
       >
         <div>
           LETTERS
@@ -290,7 +660,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="a"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -300,7 +670,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         a
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="b"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -310,7 +680,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         b
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="c"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -320,7 +690,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         c
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="d"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -330,7 +700,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         d
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="e"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -340,7 +710,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         e
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="f"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -350,7 +720,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         f
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="g"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -360,7 +730,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         g
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="h"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -370,7 +740,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         h
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="i"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -380,7 +750,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         i
       </button>
       <button
-        className="dropdown-option"
+        className="emotion-4"
         key="j"
         onClick={[Function]}
         onKeyDown={[Function]}
