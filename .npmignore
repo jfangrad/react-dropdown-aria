@@ -1,13 +1,14 @@
 src
 demo
-.eslintrc
+.eslintrc.js
 .eslintignore
 .gitignore
 webpack.config.js
-.bablerc
+.babelrc
 .vscode/
 .circleci/
 .github/
 __tests__/
 enzymeAdapter.setup.js
 stats.json
+rollup.config.js
