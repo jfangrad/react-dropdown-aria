@@ -25,12 +25,10 @@ $ npm install --save react-dropdown-aria
 $ yarn add react-dropdown-aria
 ```
 
-You can then include it as well as the styles in your project:
+You can then include it in your project as needed:
 ```js
 import Dropdown from 'react-dropdown-aria';
-import 'react-dropdown-aria/dist/react-dropdown-aria.min.css';
 ```
-(You only need to include the styles once in your project)
 
 # Usage
 Options should be provided to the Dropdown as an array of objects.
