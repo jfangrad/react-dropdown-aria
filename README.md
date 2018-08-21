@@ -76,7 +76,7 @@ The following object keys are supported to apply style to the corresponding part
 ```
 arrow, dropdownButton, displayedValue, dropdownWrapper, groupContainer, groupHeading, optionContainer, optionItem
 ```
-The style prop should be passed and object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example object is shown below:
+The style prop should be passed an object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example is shown below:
 ```js
 const style = {
   optionItem: (base, state, selected) => ({
