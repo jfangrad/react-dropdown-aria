@@ -14,7 +14,7 @@ const customStyle = {
     ...base,
     'text-align': index % 2 === 0 ? 'left' : 'right',
   }),
-}
+};
 
 class CustomRender extends React.Component {
   constructor(props) {

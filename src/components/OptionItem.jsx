@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import colours from '../styles/Colours';
 
-export const optionItemStyle = (props, state, { selected = false}) => ({
+export const optionItemStyle = (props, state, { selected = false }) => ({
   fontSize: '0.95em',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
