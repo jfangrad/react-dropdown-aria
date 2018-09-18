@@ -94,7 +94,7 @@ const style = {
   ...
 }
 ```
-As shown above, each function will be called with `base` and `state` at minimum and some will be provided a third `extraState` parameter which should be an object, as shown with `optionStyle` where the extraState contains is whether it is currently selected or not.
+As shown above, each function will be called with `base` and `state` at minimum and some will be provided a third `extraState` parameter which should be an object, as shown with `optionStyle` where the extraState contains whether an option is currently selected or not.
 
 `base` - is the default styles object. It can either be spread out to extend the default styles (as shown above) or ommitted to ignore all default styles
 
