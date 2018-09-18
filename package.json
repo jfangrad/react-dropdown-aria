@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-aria",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Simple and accessible React dropdown component",
   "main": "index.js",
   "scripts": {
