@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react');
-var emotion = require('emotion');
 var PropTypes = require('prop-types');
+var emotion = require('emotion');
 
 const KEY_CODES = {
   UP_ARROW: 38,
@@ -15,95 +15,6 @@ const KEY_CODES = {
 };
 
 const NAVIGATION_KEYS = [KEY_CODES.ESCAPE, KEY_CODES.UP_ARROW, KEY_CODES.DOWN_ARROW, KEY_CODES.PAGE_UP, KEY_CODES.PAGE_DOWN];
-
-// import OptionItem from '../components/OptionItem';
-
-/*
-This file needs changes once Enzyme updates to be able to handle forwardRef in tests
-*/
-
-function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
-  return options.map(option => {
-    const { groupOptions, label, value, className } = option;
-
-    if (groupOptions) {
-      // Is group of options
-      return React.createElement(
-        'div',
-        { key: label, className: getStyle('groupContainer') },
-        React.createElement(
-          'div',
-          { className: getStyle('groupHeading') },
-          React.createElement(
-            'div',
-            null,
-            label.toUpperCase()
-          ),
-          React.createElement(
-            'div',
-            null,
-            groupOptions.length
-          )
-        ),
-        option.groupOptions.map(groupOption => {
-          const groupOptionClass = emotion.cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
-          return React.createElement(
-            'button',
-            {
-              'aria-label': groupOption.ariaLabel,
-              className: groupOptionClass,
-              onClick: onOptionClicked,
-              onKeyDown: onOptionClicked,
-              ref: el => el && elementsRef.push(el),
-              tabIndex: '-1',
-              title: groupOption.title,
-              type: 'button',
-              key: groupOption.value
-            },
-            groupOption.iconClass && React.createElement('i', { className: `${groupOption.iconClass} option-icon` }),
-            groupOption.value
-          );
-          /* return (
-            <OptionItem
-              key={groupOption.value}
-              optionClass={groupOptionClass}
-              onOptionClicked={onOptionClicked}
-              option={groupOption}
-              ref={el => el && elementsRef.push(el)}
-            />
-          ); */
-        })
-      );
-    }
-
-    const optionClass = emotion.cx(className, getStyle('optionItem', value === selectedOption));
-    return React.createElement(
-      'button',
-      {
-        'aria-label': option.ariaLabel,
-        className: optionClass,
-        onClick: onOptionClicked,
-        onKeyDown: onOptionClicked,
-        ref: el => el && elementsRef.push(el),
-        tabIndex: '-1',
-        title: option.title,
-        type: 'button',
-        key: option.value
-      },
-      option.iconClass && React.createElement('i', { className: `${option.iconClass} option-icon` }),
-      option.value
-    );
-    // return (
-    //   <OptionItem
-    //     key={value}
-    //     optionClass={optionClass}
-    //     onOptionClicked={onOptionClicked}
-    //     option={option}
-    //     ref={el => el && elementsRef.push(el)}
-    //   />
-    // );
-  });
-}
 
 const colours = {
   greys: {
@@ -181,6 +92,53 @@ OptionItem.propTypes = {
   }).isRequired,
   optionClass: PropTypes.string
 };
+
+function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
+  return options.map(option => {
+    const { groupOptions, label, value, className } = option;
+
+    if (groupOptions) {
+      // Is group of options
+      return React.createElement(
+        'div',
+        { key: label, className: getStyle('groupContainer') },
+        React.createElement(
+          'div',
+          { className: getStyle('groupHeading') },
+          React.createElement(
+            'div',
+            null,
+            label.toUpperCase()
+          ),
+          React.createElement(
+            'div',
+            null,
+            groupOptions.length
+          )
+        ),
+        option.groupOptions.map(groupOption => {
+          const groupOptionClass = emotion.cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
+          return React.createElement(OptionItem, {
+            key: groupOption.value,
+            optionClass: groupOptionClass,
+            onOptionClicked: onOptionClicked,
+            option: groupOption,
+            ref: el => el && elementsRef.push(el)
+          });
+        })
+      );
+    }
+
+    const optionClass = emotion.cx(className, getStyle('optionItem', { selected: value === selectedOption }));
+    return React.createElement(OptionItem, {
+      key: value,
+      optionClass: optionClass,
+      onOptionClicked: onOptionClicked,
+      option: option,
+      ref: el => el && elementsRef.push(el)
+    });
+  });
+}
 
 const dropdownWrapper = ({ width, height }) => ({
   width,
