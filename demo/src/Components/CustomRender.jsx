@@ -9,6 +9,13 @@ const options = [
   { value: 'Example' },
 ];
 
+const customStyle = {
+  optionItem: (base, state, { index }) => ({
+    ...base,
+    'text-align': index % 2 === 0 ? 'left' : 'right',
+  }),
+}
+
 class CustomRender extends React.Component {
   constructor(props) {
     super(props);
@@ -37,14 +44,13 @@ class CustomRender extends React.Component {
     this.setState({ interest: selectedOption });
   }
 
-  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef) => options.map((option, index) => {
-    const selected = selectedOption === option.value ? 'dropdown-option-selected' : 'dropdown-option';
-    const optionClass = index % 2 === 0 ? 'option-left' : 'option-right';
+  customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef, getStyle) => options.map((option, index) => {
+    const classNames = getStyle('optionItem', { selected: option.value === selectedOption, index });
 
     return (
       <button
         aria-label={option.ariaLabel}
-        className={`${optionClass} ${selected}`}
+        className={classNames}
         onClick={onOptionClicked}
         onKeyDown={onOptionClicked}
         ref={btn => elementsRef.push(btn)}
@@ -75,6 +81,7 @@ class CustomRender extends React.Component {
           disabled={disabled}
           width={400}
           searchable={searchable}
+          style={customStyle}
         />
         <div className="buttons-container">
           <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>

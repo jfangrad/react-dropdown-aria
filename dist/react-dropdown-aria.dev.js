@@ -120,7 +120,7 @@ const colours = {
   }
 };
 
-const optionItemStyle = (props, state, selected) => ({
+const optionItemStyle = (props, state, { selected = false }) => ({
   fontSize: '0.95em',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
