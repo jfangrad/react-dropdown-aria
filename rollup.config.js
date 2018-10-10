@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import { uglify } from 'rollup-plugin-uglify';
 import { minify } from 'uglify-es';
 import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import pkg from './package.json';
 
 const config = {
   input: 'src/Dropdown.jsx',
@@ -14,13 +14,12 @@ const config = {
     resolve({
       extensions: ['.scss', '.js', '.jsx'],
     }),
-    commonjs({
-      namedExports: {
-        'node_modules/classnames/index.js': ['classnames'],
-      },
-    }),
   ],
-  external: ['react', 'prop-types', 'emotion'],
+  external: [
+    'react',
+    'react-dom',
+    ...Object.keys(pkg.dependencies),
+  ],
 };
 
 if (process.env.NODE_ENV === 'production') {
