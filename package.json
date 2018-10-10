@@ -16,7 +16,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx src/ demo/src",
     "test": "jest",
     "test:update": "jest --updateSnapshot",
-    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/react-dropdown-aria.min.js",
+    "gzip-size": "node -e \"process.stdout.write('JS gzip size: ')\" && gzip-size --raw dist/index.js",
     "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
   "repository": {
@@ -90,7 +90,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/react-dropdown-aria.min.js"
+      "path": "./dist/index.js"
     }
   ],
   "jest": {
