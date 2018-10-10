@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { cx, css } from 'emotion';
+'use strict';
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
+var PropTypes = _interopDefault(require('prop-types'));
+var emotion = require('emotion');
 
 const KEY_CODES = {
   UP_ARROW: 38,
@@ -55,14 +60,14 @@ const optionItemStyle = (props, state, { selected = false }) => ({
   }
 });
 
-const OptionItem = React.forwardRef((props, ref) => {
+const OptionItem = React__default.forwardRef((props, ref) => {
   const {
     onOptionClicked,
     option,
     optionClass
   } = props;
 
-  return React.createElement(
+  return React__default.createElement(
     'button',
     {
       'aria-label': option.ariaLabel,
@@ -74,7 +79,7 @@ const OptionItem = React.forwardRef((props, ref) => {
       title: option.title,
       type: 'button'
     },
-    option.iconClass && React.createElement('i', { className: `${option.iconClass} option-icon` }),
+    option.iconClass && React__default.createElement('i', { className: `${option.iconClass} option-icon` }),
     option.value
   );
 });
@@ -97,26 +102,26 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
 
     if (groupOptions) {
       // Is group of options
-      return React.createElement(
+      return React__default.createElement(
         'div',
         { key: label, className: getStyle('groupContainer') },
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: getStyle('groupHeading') },
-          React.createElement(
+          React__default.createElement(
             'div',
             null,
             label.toUpperCase()
           ),
-          React.createElement(
+          React__default.createElement(
             'div',
             null,
             groupOptions.length
           )
         ),
         option.groupOptions.map(groupOption => {
-          const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
-          return React.createElement(OptionItem, {
+          const groupOptionClass = emotion.cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
+          return React__default.createElement(OptionItem, {
             key: groupOption.value,
             optionClass: groupOptionClass,
             onOptionClicked: onOptionClicked,
@@ -127,8 +132,8 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
-    const optionClass = cx(className, getStyle('optionItem', { selected: value === selectedOption }));
-    return React.createElement(OptionItem, {
+    const optionClass = emotion.cx(className, getStyle('optionItem', { selected: value === selectedOption }));
+    return React__default.createElement(OptionItem, {
       key: value,
       optionClass: optionClass,
       onOptionClicked: onOptionClicked,
@@ -258,7 +263,7 @@ const defaultStyles = {
   optionItem: optionItemStyle
 };
 
-class Dropdown extends Component {
+class Dropdown extends React.Component {
   constructor(props) {
     super(props);
 
@@ -353,7 +358,7 @@ class Dropdown extends Component {
       const { style } = this.props;
       const baseStyle = defaultStyles[key](this.props, this.state, extraState);
       const customStyle = style[key];
-      return customStyle ? css(customStyle(baseStyle, this.state, extraState)) : css(baseStyle);
+      return customStyle ? emotion.css(customStyle(baseStyle, this.state, extraState)) : emotion.css(baseStyle);
     };
 
     this.setFocus = () => {
@@ -452,19 +457,19 @@ class Dropdown extends Component {
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const wrapperClass = this.getStyle('dropdownWrapper');
-    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButton'));
-    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValue'));
-    const contentClass = cx(contentClassName, this.getStyle('optionContainer'));
+    const dropdownButtonClass = emotion.cx(buttonClassName, this.getStyle('dropdownButton'));
+    const displayedValueClass = emotion.cx(selectedValueClassName, this.getStyle('displayedValue'));
+    const contentClass = emotion.cx(contentClassName, this.getStyle('optionContainer'));
     const arrowClass = this.getStyle('arrow');
 
-    return React.createElement(
+    return React__default.createElement(
       'div',
       {
         className: wrapperClass,
         onKeyDown: this.onKeyDown,
         ref: div => this.container = div
       },
-      React.createElement(
+      React__default.createElement(
         'button',
         {
           'aria-label': ariaLabel,
@@ -478,15 +483,15 @@ class Dropdown extends Component {
           ref: btn => this.button = btn,
           type: 'button'
         },
-        React.createElement(
+        React__default.createElement(
           'div',
           { className: displayedValueClass },
           displayedValue
         ),
-        !hideArrow && !arrowRenderer && React.createElement('div', { className: arrowClass }),
+        !hideArrow && !arrowRenderer && React__default.createElement('div', { className: arrowClass }),
         !hideArrow && arrowRenderer && arrowRenderer(open)
       ),
-      React.createElement(
+      React__default.createElement(
         'ul',
         { className: contentClass },
         this.renderOptions()
@@ -545,24 +550,6 @@ Dropdown.defaultProps = {
   disabled: false,
   height: null,
   hideArrow: false,
-  id: undefined,
-  openUp: false,
-  optionRenderer: undefined,
-  options: [],
-  optionClassName: undefined,
-  maxContentHeight: null,
-  pageKeyTraverseSize: 10,
-  placeholder: 'Select ...',
-  searchable: true,
-  selectedOption: null,
-  selectedOptionClassName: undefined,
-  selectedValueClassName: undefined,
-  style: {},
-  width: null
-};
-
-export default Dropdown;
-alse,
   id: undefined,
   openUp: false,
   optionRenderer: undefined,

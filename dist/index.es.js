@@ -1,8 +1,6 @@
-'use strict';
-
-var React = require('react');
-var PropTypes = require('prop-types');
-var emotion = require('emotion');
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { cx, css } from 'emotion';
 
 const KEY_CODES = {
   UP_ARROW: 38,
@@ -117,7 +115,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
           )
         ),
         option.groupOptions.map(groupOption => {
-          const groupOptionClass = emotion.cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
+          const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
           return React.createElement(OptionItem, {
             key: groupOption.value,
             optionClass: groupOptionClass,
@@ -129,7 +127,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
-    const optionClass = emotion.cx(className, getStyle('optionItem', { selected: value === selectedOption }));
+    const optionClass = cx(className, getStyle('optionItem', { selected: value === selectedOption }));
     return React.createElement(OptionItem, {
       key: value,
       optionClass: optionClass,
@@ -260,7 +258,7 @@ const defaultStyles = {
   optionItem: optionItemStyle
 };
 
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props);
 
@@ -355,7 +353,7 @@ class Dropdown extends React.Component {
       const { style } = this.props;
       const baseStyle = defaultStyles[key](this.props, this.state, extraState);
       const customStyle = style[key];
-      return customStyle ? emotion.css(customStyle(baseStyle, this.state, extraState)) : emotion.css(baseStyle);
+      return customStyle ? css(customStyle(baseStyle, this.state, extraState)) : css(baseStyle);
     };
 
     this.setFocus = () => {
@@ -454,9 +452,9 @@ class Dropdown extends React.Component {
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const wrapperClass = this.getStyle('dropdownWrapper');
-    const dropdownButtonClass = emotion.cx(buttonClassName, this.getStyle('dropdownButton'));
-    const displayedValueClass = emotion.cx(selectedValueClassName, this.getStyle('displayedValue'));
-    const contentClass = emotion.cx(contentClassName, this.getStyle('optionContainer'));
+    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButton'));
+    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValue'));
+    const contentClass = cx(contentClassName, this.getStyle('optionContainer'));
     const arrowClass = this.getStyle('arrow');
 
     return React.createElement(
@@ -563,4 +561,4 @@ Dropdown.defaultProps = {
   width: null
 };
 
-module.exports = Dropdown;
+export default Dropdown;
