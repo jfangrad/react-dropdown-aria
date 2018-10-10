@@ -6,10 +6,16 @@ import pkg from './package.json';
 
 const config = {
   input: 'src/Dropdown.jsx',
-  output: {
-    format: 'cjs', // Consider making es?
-    interop: false,
-  },
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+    },
+  ],
   plugins: [
     resolve({
       extensions: ['.scss', '.js', '.jsx'],
@@ -18,7 +24,7 @@ const config = {
   external: [
     'react',
     'react-dom',
-    ...Object.keys(pkg.dependencies),
+    ...Object.keys(pkg.dependencies || {}),
   ],
 };
 
