@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-aria",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Simple and accessible React dropdown component",
   "main": "dist/react-dropdown-aria.cjs.js",
   "module": "dist/react-dropdown-aria.esm.js",
