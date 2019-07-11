@@ -1,14 +1,14 @@
 {
   "name": "react-dropdown-aria",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Simple and accessible React dropdown component",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "dist/react-dropdown-aria.cjs.js",
+  "module": "dist/react-dropdown-aria.esm.js",
   "scripts": {
-    "dev": "concurrently \"npm run lib:dev\" \"npm run demo:dev\"",
+    "dev": "npm run demo:dev",
     "build": "npm run lib:prod && npm run demo:prod",
-    "lib:dev": "rollup -c -w -o dist/react-dropdown-aria.dev.js",
-    "lib:prod": "SET NODE_ENV=production && rollup -c",
+    "lib:dev": "preconstruct watch",
+    "lib:prod": "preconstruct build",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
     "deploy:demo": "npm run build && git push origin `git subtree split --prefix demo/dist master`:gh-pages --force",
@@ -38,15 +38,16 @@
   },
   "homepage": "https://github.com/jfangrad/react-dropdown-aria#readme",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-emotion": "^9.2.6",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.14",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.14",
     "concurrently": "^3.6.1",
     "css-loader": "^0.28.11",
     "enzyme": "^3.6.0",
@@ -63,24 +64,20 @@
     "jest-emotion": "^9.2.7",
     "jsx-loader": "^0.13.2",
     "node-sass": "^4.9.3",
+    "preconstruct": "^0.0.82",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
-    "rollup": "^0.62.0",
-    "rollup-plugin-babel": "^3.0.7",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-uglify": "^4.0.0",
     "sass-loader": "^7.1.0",
     "sinon": "^6.1.5",
     "style-loader": "^0.21.0",
-    "uglify-es": "^3.3.10",
     "webpack": "^4.17.0",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "@babel/runtime": "^7.5.4",
     "emotion": "^9.2.6",
     "prop-types": "^15.6.2"
   },
@@ -104,5 +101,12 @@
     "moduleNameMapper": {
       "\\.(scss)$": "<rootDir>/src/__tests__/__mocks__/styleMock.js"
     }
+  },
+  "preconstruct": {
+    "source": "src/index.js"
+  },
+  "browser": {
+    "./dist/react-dropdown-aria.cjs.js": "./dist/react-dropdown-aria.browser.cjs.js",
+    "./dist/react-dropdown-aria.esm.js": "./dist/react-dropdown-aria.browser.esm.js"
   }
 }
