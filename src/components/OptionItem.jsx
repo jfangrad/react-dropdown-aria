@@ -60,8 +60,15 @@ OptionItem.propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
     value: PropTypes.string.isRequired,
+    iconClass: PropTypes.string,
   }).isRequired,
   optionClass: PropTypes.string,
+  onOptionClicked: PropTypes.func.isRequired,
+};
+
+OptionItem.defaultProps = {
+  ariaLabel: null,
+  optionClass: null,
 };
 
 export default OptionItem;
