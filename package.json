@@ -4,6 +4,7 @@
   "description": "Simple and accessible React dropdown component",
   "main": "dist/react-dropdown-aria.cjs.js",
   "module": "dist/react-dropdown-aria.esm.js",
+  "typings": "./index.d.ts",
   "scripts": {
     "dev": "npm run demo:dev",
     "build": "npm run lib:prod && npm run demo:prod",
