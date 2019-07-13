@@ -1,124 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check Props Matches snapshot with custom props 1`] = `
-.emotion-2 {
-  font-size: 1em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  padding: 9px 5px;
-  margin: 0px;
-  border-radius: 0px;
-  border-bottom: 2px solid #b5b6b7;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-2:hover {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:focus {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:disabled {
-  cursor: not-allowed;
-}
-
-.emotion-0 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  border-right: 1px solid #b5b6b7;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #808080;
-  text-align: left;
-}
-
-.emotion-1 {
-  content: "";
-  width: 0px;
-  height: 0px;
-  margin-left: 8px;
-  margin-right: 5px;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-top: 5px solid #808080;
-  border-bottom: 0px;
-}
-
-.emotion-4 {
-  width: 400px;
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.emotion-3 {
-  width: 100%;
-  max-height: 150px;
-  overflow-y: scroll;
-  z-index: 9999;
-  overflow-x: hidden;
-  position: absolute;
-  left: 0px;
-  list-style-type: none;
-  margin: 0px;
-  padding: 2px 0;
-  background-color: white;
-  color: black;
-  border-radius: 2px;
-  display: none;
-  box-sizing: border-box;
-  top: 100%;
-  box-shadow: 0px 3px 3px 2px #d9dadd;
-}
-
-.emotion-3::-webkit-scrollbar {
-  width: 5px;
-}
-
-.emotion-3::-webkit-scrollbar-track {
-  background: #ddd;
-}
-
-.emotion-3::-webkit-scrollbar-thumb {
-  background: #666;
-}
-
 <div
-  className="emotion-4"
+  className="css-6jp1dd-getStyle"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
-    className="custom-class emotion-2"
+    className="custom-class css-1smiv4i-getStyle"
     disabled={true}
     id="dropdown"
     onClick={[Function]}
@@ -126,18 +17,19 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     type="button"
   >
     <div
-      className="emotion-0"
+      className="css-g2ph4-getStyle"
     >
       Custom Placeholder...
     </div>
     <div
-      className="emotion-1"
+      className="css-gtoew0-getStyle"
     />
   </button>
   <ul
-    className="emotion-3"
+    className="css-85ohvu-getStyle"
   >
     <ForwardRef
+      ariaLabel={null}
       key="1"
       onOptionClicked={[Function]}
       option={
@@ -149,9 +41,10 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "1",
         }
       }
-      optionClass="className css-1y23m36"
+      optionClass="className css-1qrc31u-getStyle"
     />
     <ForwardRef
+      ariaLabel={null}
       key="2"
       onOptionClicked={[Function]}
       option={
@@ -163,9 +56,10 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "2",
         }
       }
-      optionClass="className css-1y23m36"
+      optionClass="className css-1qrc31u-getStyle"
     />
     <ForwardRef
+      ariaLabel={null}
       key="3"
       onOptionClicked={[Function]}
       option={
@@ -177,310 +71,75 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "3",
         }
       }
-      optionClass="className css-1y23m36"
+      optionClass="className css-1qrc31u-getStyle"
     />
   </ul>
 </div>
 `;
 
 exports[`Check Props Matches snapshot with default props 1`] = `
-.emotion-4 {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.emotion-2 {
-  font-size: 1em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  padding: 9px 5px;
-  margin: 0px;
-  border-radius: 0px;
-  border-bottom: 2px solid #b5b6b7;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-2:hover {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:focus {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:disabled {
-  cursor: not-allowed;
-}
-
-.emotion-0 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  border-right: 1px solid #b5b6b7;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #808080;
-  text-align: left;
-}
-
-.emotion-3 {
-  width: 100%;
-  max-height: 175px;
-  z-index: 9999;
-  overflow-x: hidden;
-  position: absolute;
-  left: 0px;
-  list-style-type: none;
-  margin: 0px;
-  padding: 2px 0;
-  background-color: white;
-  color: black;
-  border-radius: 2px;
-  display: none;
-  box-sizing: border-box;
-  top: 100%;
-  box-shadow: 0px 3px 3px 2px #d9dadd;
-}
-
-.emotion-3::-webkit-scrollbar {
-  width: 5px;
-}
-
-.emotion-3::-webkit-scrollbar-track {
-  background: #ddd;
-}
-
-.emotion-3::-webkit-scrollbar-thumb {
-  background: #666;
-}
-
-.emotion-1 {
-  content: "";
-  width: 0px;
-  height: 0px;
-  margin-left: 8px;
-  margin-right: 5px;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-top: 5px solid #808080;
-  border-bottom: 0px;
-}
-
 <div
-  className="emotion-4"
+  className="css-620nxu-getStyle"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="emotion-2"
+    className="css-1smiv4i-getStyle"
     disabled={false}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="emotion-0"
+      className="css-g2ph4-getStyle"
     >
       Select ...
     </div>
     <div
-      className="emotion-1"
+      className="css-gtoew0-getStyle"
     />
   </button>
   <ul
-    className="emotion-3"
+    className="css-11z1uu-getStyle"
   />
 </div>
 `;
 
 exports[`Check Props Matches snapshot with grouped options 1`] = `
-.emotion-8 {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.emotion-2 {
-  font-size: 1em;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  padding: 9px 5px;
-  margin: 0px;
-  border-radius: 0px;
-  border-bottom: 2px solid #b5b6b7;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
-}
-
-.emotion-2:hover {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:focus {
-  box-shadow: 0px 1px 3px 2px #d9dadd;
-}
-
-.emotion-2:disabled {
-  cursor: not-allowed;
-}
-
-.emotion-0 {
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  border-right: 1px solid #b5b6b7;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #808080;
-  text-align: left;
-}
-
-.emotion-7 {
-  width: 100%;
-  max-height: 175px;
-  z-index: 9999;
-  overflow-x: hidden;
-  position: absolute;
-  left: 0px;
-  list-style-type: none;
-  margin: 0px;
-  padding: 2px 0;
-  background-color: white;
-  color: black;
-  border-radius: 2px;
-  display: none;
-  box-sizing: border-box;
-  top: 100%;
-  box-shadow: 0px 3px 3px 2px #d9dadd;
-}
-
-.emotion-7::-webkit-scrollbar {
-  width: 5px;
-}
-
-.emotion-7::-webkit-scrollbar-track {
-  background: #ddd;
-}
-
-.emotion-7::-webkit-scrollbar-thumb {
-  background: #666;
-}
-
-.emotion-1 {
-  content: "";
-  width: 0px;
-  height: 0px;
-  margin-left: 8px;
-  margin-right: 5px;
-  border-right: 5px solid transparent;
-  border-left: 5px solid transparent;
-  border-top: 5px solid #808080;
-  border-bottom: 0px;
-}
-
-.emotion-4 {
-  padding: 1em 0 0 0;
-}
-
-.emotion-3 {
-  color: grey;
-  font-size: 0.9em;
-  padding: 0 10px 3px 5px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
 <div
-  className="emotion-8"
+  className="css-620nxu-getStyle"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="emotion-2"
+    className="css-1smiv4i-getStyle"
     disabled={false}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="emotion-0"
+      className="css-g2ph4-getStyle"
     >
       Select ...
     </div>
     <div
-      className="emotion-1"
+      className="css-gtoew0-getStyle"
     />
   </button>
   <ul
-    className="emotion-7"
+    className="css-11z1uu-getStyle"
   >
     <div
-      className="emotion-4"
+      className="css-njngn0-getStyle"
       key="numbers"
     >
       <div
-        className="emotion-3"
+        className="css-b0mje9-getStyle"
       >
         <div>
           NUMBERS
@@ -490,6 +149,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <ForwardRef
+        ariaLabel={null}
         key="1"
         onOptionClicked={[Function]}
         option={
@@ -497,9 +157,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "1",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="2"
         onOptionClicked={[Function]}
         option={
@@ -507,9 +168,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "2",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="3"
         onOptionClicked={[Function]}
         option={
@@ -517,9 +179,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "3",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="4"
         onOptionClicked={[Function]}
         option={
@@ -527,9 +190,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "4",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="5"
         onOptionClicked={[Function]}
         option={
@@ -537,9 +201,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "5",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="6"
         onOptionClicked={[Function]}
         option={
@@ -547,9 +212,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "6",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="7"
         onOptionClicked={[Function]}
         option={
@@ -557,9 +223,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "7",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="8"
         onOptionClicked={[Function]}
         option={
@@ -567,9 +234,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "8",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="9"
         onOptionClicked={[Function]}
         option={
@@ -577,9 +245,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "9",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="10"
         onOptionClicked={[Function]}
         option={
@@ -587,15 +256,15 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "10",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
     </div>
     <div
-      className="emotion-4"
+      className="css-njngn0-getStyle"
       key="letters"
     >
       <div
-        className="emotion-3"
+        className="css-b0mje9-getStyle"
       >
         <div>
           LETTERS
@@ -605,6 +274,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <ForwardRef
+        ariaLabel={null}
         key="a"
         onOptionClicked={[Function]}
         option={
@@ -612,9 +282,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "a",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="b"
         onOptionClicked={[Function]}
         option={
@@ -622,9 +293,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "b",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="c"
         onOptionClicked={[Function]}
         option={
@@ -632,9 +304,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "c",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="d"
         onOptionClicked={[Function]}
         option={
@@ -642,9 +315,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "d",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="e"
         onOptionClicked={[Function]}
         option={
@@ -652,9 +326,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "e",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="f"
         onOptionClicked={[Function]}
         option={
@@ -662,9 +337,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "f",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="g"
         onOptionClicked={[Function]}
         option={
@@ -672,9 +348,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "g",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="h"
         onOptionClicked={[Function]}
         option={
@@ -682,9 +359,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "h",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="i"
         onOptionClicked={[Function]}
         option={
@@ -692,9 +370,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "i",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
       <ForwardRef
+        ariaLabel={null}
         key="j"
         onOptionClicked={[Function]}
         option={
@@ -702,7 +381,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "j",
           }
         }
-        optionClass="css-1y23m36"
+        optionClass="css-1qrc31u-getStyle"
       />
     </div>
   </ul>
