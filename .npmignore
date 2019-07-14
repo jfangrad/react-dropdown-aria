@@ -4,11 +4,10 @@ demo
 .eslintignore
 .gitignore
 webpack.config.js
-.babelrc
 .vscode/
 .circleci/
 .github/
 __tests__/
 enzymeAdapter.setup.js
 stats.json
-rollup.config.js
+babel.config.js

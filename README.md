@@ -12,6 +12,7 @@ This component was created to be a light weight and fully accessible dropdown co
 3. Accessible
 4. Type to find item
 5. Custom render function props
+6. Typescript typings included
 
 # Demo And Examples
 For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
