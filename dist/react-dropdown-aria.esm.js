@@ -85,9 +85,15 @@ OptionItem.propTypes = {
     ariaLabel: PropTypes.string,
     className: PropTypes.string,
     title: PropTypes.string,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string.isRequired,
+    iconClass: PropTypes.string
   }).isRequired,
-  optionClass: PropTypes.string
+  optionClass: PropTypes.string,
+  onOptionClicked: PropTypes.func.isRequired
+};
+OptionItem.defaultProps = {
+  ariaLabel: null,
+  optionClass: null
 };
 
 function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
