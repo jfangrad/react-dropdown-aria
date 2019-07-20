@@ -1,15 +1,16 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, mount, ReactWrapper } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import { createSerializer } from 'jest-emotion';
 import * as emotion from 'emotion';
-import Dropdown from '../Dropdown';
+import Dropdown from '../index';
 import { CUSTOM_OPTIONS, OPTIONS, GROUPED_OPTIONS } from './constants';
 import { KEY_CODES } from '../utils/helper';
 
-expect.addSnapshotSerializer(createSerializer(emotion));
+expect.addSnapshotSerializer(createSerializer(emotion as any));
 
+// tslint:disable-next-line: no-empty
 const foo = () => {};
 
 describe('Check Props', () => {
@@ -42,8 +43,8 @@ describe('Check Props', () => {
 });
 
 describe('Navigation', () => {
-  let wrapper;
-  let button;
+  let wrapper: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
+  let button: ReactWrapper<any, Readonly<{}>, React.Component<{}, {}, any>>;
 
   beforeEach(() => {
     wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} buttonClassName="test" />);
@@ -98,7 +99,7 @@ describe('Navigation', () => {
     button.simulate('click');
     wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
 
-    expect(document.activeElement.innerHTML).toBe('1'); // eslint-disable-line no-undef
+    expect(document.activeElement!.innerHTML).toBe('1'); // eslint-disable-line no-undef
   });
 
   it('Arrow key nav loops arround', () => {
@@ -106,25 +107,24 @@ describe('Navigation', () => {
     for (let i = 0; i < 10; i += 1) {
       wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
     }
-    expect(document.activeElement.innerHTML).toBe('10'); // eslint-disable-line no-undef
+    expect(document.activeElement!.innerHTML).toBe('10'); // eslint-disable-line no-undef
 
     wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
-    expect(document.activeElement.innerHTML).toBe('1'); // eslint-disable-line no-undef
+    expect(document.activeElement!.innerHTML).toBe('1'); // eslint-disable-line no-undef
   });
 });
 
 describe('Selecting Options', () => {
-  let wrapper;
-  let button;
-  let spy;
+  let spy: any;
 
   beforeEach(() => {
     spy = sinon.spy();
-    wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
-    button = wrapper.find('.test'); // Actual dropdown button element
   });
 
   it('calls setSelected with value when option selected', () => {
+    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
+    const button = wrapper.find('.test');
+
     button.simulate('click');
     wrapper.find('ul').childAt(0).simulate('click', { nativeEvent: { target: { innerText: '1' } } });
 
@@ -132,6 +132,9 @@ describe('Selecting Options', () => {
   });
 
   it('sets dropdown text to selected item', () => {
+    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
+    const button = wrapper.find('.test');
+
     button.simulate('click');
     wrapper.find('ul').childAt(0).simulate('click', { nativeEvent: { target: { innerText: '1' } } });
 

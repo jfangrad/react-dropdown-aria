@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../src/Dropdown';
+import Dropdown from '../../../lib';
 import '../styles/CustomArrow.scss';
 
 const options = [
