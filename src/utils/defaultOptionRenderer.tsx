@@ -1,12 +1,26 @@
 import React from 'react';
 import { cx } from 'emotion';
-import OptionItem from '../components/OptionItem';
+import OptionItem, { DropdownOption, OptionGroup, Option } from '../components/OptionItem';
 
-function defaultOptionRenderer(selectedOption, options, selectedOptionClassName, optionClassName, onOptionClicked, elementsRef, getStyle) {
+const pushRef = (elementsRef: HTMLButtonElement[]) => (element: HTMLButtonElement) => {
+  if (element) {
+    elementsRef.push(element);
+  }
+}
+
+function defaultOptionRenderer(
+  selectedOption: string,
+  options: DropdownOption[],
+  selectedOptionClassName: string,
+  optionClassName: string,
+  onOptionClicked: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>) => void,
+  elementsRef: HTMLButtonElement[],
+  getStyle: (key: string, extraState?: {} | undefined) => string
+) {
   return options.map((option) => {
-    const { groupOptions, label, value, className } = option;
 
-    if (groupOptions) { // Is group of options
+    if ((option as OptionGroup).groupOptions) { // Is group of options
+      const { groupOptions, label } = (option as OptionGroup);
       return (
         <div key={label} className={getStyle('groupContainer')}>
           <div className={getStyle('groupHeading')}>
@@ -14,7 +28,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
             <div>{groupOptions.length}</div>
           </div>
           {
-            option.groupOptions.map((groupOption) => {
+            groupOptions.map((groupOption) => {
               const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
               return (
                 <OptionItem
@@ -22,7 +36,7 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
                   optionClass={groupOptionClass}
                   onOptionClicked={onOptionClicked}
                   option={groupOption}
-                  ref={el => el && elementsRef.push(el)}
+                  ref={pushRef(elementsRef)}
                 />
               );
             })
@@ -31,14 +45,15 @@ function defaultOptionRenderer(selectedOption, options, selectedOptionClassName,
       );
     }
 
+    const { value, className } = (option as Option);
     const optionClass = cx(className, getStyle('optionItem', { selected: value === selectedOption }));
     return (
       <OptionItem
         key={value}
         optionClass={optionClass}
         onOptionClicked={onOptionClicked}
-        option={option}
-        ref={el => el && elementsRef.push(el)}
+        option={(option as Option)}
+        ref={pushRef(elementsRef)}
       />
     );
   });

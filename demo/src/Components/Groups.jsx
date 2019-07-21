@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../src/Dropdown';
+import Dropdown from '../../../lib';
 
 const languageOptions = [
   { value: 'ActionScript' },

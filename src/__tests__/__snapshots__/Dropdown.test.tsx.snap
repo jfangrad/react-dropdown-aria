@@ -2,14 +2,14 @@
 
 exports[`Check Props Matches snapshot with custom props 1`] = `
 <div
-  className="css-6jp1dd-getStyle"
+  className="css-137uxmb"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
-    className="custom-class css-1smiv4i-getStyle"
+    className="custom-class css-assshr"
     disabled={true}
     id="dropdown"
     onClick={[Function]}
@@ -17,19 +17,18 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     type="button"
   >
     <div
-      className="css-g2ph4-getStyle"
+      className="css-1fhu87z"
     >
-      Custom Placeholder...
+      1
     </div>
     <div
-      className="css-gtoew0-getStyle"
+      className="css-sfaqia"
     />
   </button>
   <ul
-    className="css-85ohvu-getStyle"
+    className="css-oqb566"
   >
     <ForwardRef
-      ariaLabel={null}
       key="1"
       onOptionClicked={[Function]}
       option={
@@ -41,10 +40,9 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "1",
         }
       }
-      optionClass="className css-1qrc31u-getStyle"
+      optionClass="className css-1j0wxjc"
     />
     <ForwardRef
-      ariaLabel={null}
       key="2"
       onOptionClicked={[Function]}
       option={
@@ -56,10 +54,9 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "2",
         }
       }
-      optionClass="className css-1qrc31u-getStyle"
+      optionClass="className css-1j0wxjc"
     />
     <ForwardRef
-      ariaLabel={null}
       key="3"
       onOptionClicked={[Function]}
       option={
@@ -71,7 +68,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "3",
         }
       }
-      optionClass="className css-1qrc31u-getStyle"
+      optionClass="className css-1j0wxjc"
     />
   </ul>
 </div>
@@ -79,67 +76,69 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
 
 exports[`Check Props Matches snapshot with default props 1`] = `
 <div
-  className="css-620nxu-getStyle"
+  className="css-1tvgpda"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="css-1smiv4i-getStyle"
+    className="css-assshr"
     disabled={false}
+    id={null}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="css-g2ph4-getStyle"
+      className="css-1v5tzl8"
     >
       Select ...
     </div>
     <div
-      className="css-gtoew0-getStyle"
+      className="css-sfaqia"
     />
   </button>
   <ul
-    className="css-11z1uu-getStyle"
+    className="css-135hdaw"
   />
 </div>
 `;
 
 exports[`Check Props Matches snapshot with grouped options 1`] = `
 <div
-  className="css-620nxu-getStyle"
+  className="css-1tvgpda"
   onKeyDown={[Function]}
 >
   <button
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="css-1smiv4i-getStyle"
+    className="css-assshr"
     disabled={false}
+    id={null}
     onClick={[Function]}
     onKeyDown={[Function]}
     type="button"
   >
     <div
-      className="css-g2ph4-getStyle"
+      className="css-1fhu87z"
     >
-      Select ...
+      1
     </div>
     <div
-      className="css-gtoew0-getStyle"
+      className="css-sfaqia"
     />
   </button>
   <ul
-    className="css-11z1uu-getStyle"
+    className="css-135hdaw"
   >
     <div
-      className="css-njngn0-getStyle"
+      className="css-dckqxd"
       key="numbers"
     >
       <div
-        className="css-b0mje9-getStyle"
+        className="css-n02qli"
       >
         <div>
           NUMBERS
@@ -149,7 +148,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <ForwardRef
-        ariaLabel={null}
         key="1"
         onOptionClicked={[Function]}
         option={
@@ -157,10 +155,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "1",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="2"
         onOptionClicked={[Function]}
         option={
@@ -168,10 +165,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "2",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="3"
         onOptionClicked={[Function]}
         option={
@@ -179,10 +175,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "3",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="4"
         onOptionClicked={[Function]}
         option={
@@ -190,10 +185,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "4",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="5"
         onOptionClicked={[Function]}
         option={
@@ -201,10 +195,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "5",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="6"
         onOptionClicked={[Function]}
         option={
@@ -212,10 +205,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "6",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="7"
         onOptionClicked={[Function]}
         option={
@@ -223,10 +215,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "7",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="8"
         onOptionClicked={[Function]}
         option={
@@ -234,10 +225,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "8",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="9"
         onOptionClicked={[Function]}
         option={
@@ -245,10 +235,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "9",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="10"
         onOptionClicked={[Function]}
         option={
@@ -256,15 +245,15 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "10",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
     </div>
     <div
-      className="css-njngn0-getStyle"
+      className="css-dckqxd"
       key="letters"
     >
       <div
-        className="css-b0mje9-getStyle"
+        className="css-n02qli"
       >
         <div>
           LETTERS
@@ -274,7 +263,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </div>
       <ForwardRef
-        ariaLabel={null}
         key="a"
         onOptionClicked={[Function]}
         option={
@@ -282,10 +270,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "a",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="b"
         onOptionClicked={[Function]}
         option={
@@ -293,10 +280,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "b",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="c"
         onOptionClicked={[Function]}
         option={
@@ -304,10 +290,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "c",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="d"
         onOptionClicked={[Function]}
         option={
@@ -315,10 +300,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "d",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="e"
         onOptionClicked={[Function]}
         option={
@@ -326,10 +310,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "e",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="f"
         onOptionClicked={[Function]}
         option={
@@ -337,10 +320,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "f",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="g"
         onOptionClicked={[Function]}
         option={
@@ -348,10 +330,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "g",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="h"
         onOptionClicked={[Function]}
         option={
@@ -359,10 +340,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "h",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="i"
         onOptionClicked={[Function]}
         option={
@@ -370,10 +350,9 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "i",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
       <ForwardRef
-        ariaLabel={null}
         key="j"
         onOptionClicked={[Function]}
         option={
@@ -381,7 +360,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "j",
           }
         }
-        optionClass="css-1qrc31u-getStyle"
+        optionClass="css-1j0wxjc"
       />
     </div>
   </ul>
