@@ -68,6 +68,7 @@ class CustomStyles extends React.Component {
           maxContentHeight={150}
           searchable={searchable}
           style={styles}
+          pageKeyTraverseSize={3}
         />
         <div className="buttons-container">
           <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>

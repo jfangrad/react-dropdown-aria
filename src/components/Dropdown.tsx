@@ -1,58 +1,10 @@
 import React, { Component, MouseEvent, KeyboardEvent, createRef } from 'react';
 import { css, cx } from 'emotion';
-import { KEY_CODES, NAVIGATION_KEYS } from '../utils/helper';
+import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
 import defaultStyles from '../styles/Dropdown';
-import { DropdownOption, OptionGroup, Option } from './OptionItem';
-
-type StyleFunction = (base: {}, state: DropdownState, extraState?: {}) => {};
-
-interface DropdownStyle {
-  arrow?: StyleFunction,
-  dropdownButton?: StyleFunction,
-  displayedValue?: StyleFunction,
-  dropdownWrapper?: StyleFunction,
-  groupContainer?: StyleFunction,
-  groupHeading?: StyleFunction,
-  optionContainer?: StyleFunction,
-  optionItem?: StyleFunction,
-};
-
-export interface DropdownState {
-  open: boolean,
-  searchTerm: string,
-  searchTimer: NodeJS.Timer | null,
-  focusedIndex: number,
-  internalSelectedOption: string,
-};
-
-export interface DropdownProps {
-  ariaDescribedBy: string,
-  ariaLabel: string,
-  ariaLabelledBy: string,
-  arrowRenderer: (open: boolean) => React.ReactNode,
-  buttonClassName: string,
-  centerText: boolean,
-  contentClassName: string,
-  disabled: boolean,
-  height: number,
-  hideArrow: boolean,
-  id: string,
-  maxContentHeight: number,
-  openUp: boolean,
-  options: DropdownOption[],
-  optionClassName: string,
-  optionRenderer: (selectedOption: string, optionsArray: DropdownOption[], onOptionClicked: (e:  MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void, elementsRef: any[], getStyle: (key: string, extraState: {}) => string) => React.ReactNode,
-  pageKeyTraverseSize: number,
-  placeholder: string,
-  searchable: boolean,
-  selectedOption: string,
-  selectedOptionClassName: string,
-  selectedValueClassName: string,
-  setSelected: (option: string) => void,
-  style: DropdownStyle,
-  width: number,
-}
+import { StyleKey, ExtraState, DropdownProps, DropdownState } from '../utils/types';
+import { isOptionGroup } from '../utils/helper';
 
 class Dropdown extends Component<DropdownProps, DropdownState> {
   public static defaultProps = {
@@ -91,13 +43,13 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     super(props);
 
     let defaultOption = props.options[0] || { value: ''};
-    if (defaultOption && (defaultOption as OptionGroup).groupOptions) {
-      defaultOption = (defaultOption as OptionGroup).groupOptions[0];
+    if (defaultOption && isOptionGroup(defaultOption)) {
+      defaultOption = defaultOption.groupOptions[0];
     }
 
     this.state = {
       focusedIndex: -1,
-      internalSelectedOption: (defaultOption as Option).value,
+      internalSelectedOption: defaultOption.value,
       open: false,
       searchTerm: '',
       searchTimer: null,
@@ -105,43 +57,35 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
   }
 
   public componentDidMount() {
-    document.addEventListener('mouseup', this.onClick, false); // eslint-disable-line no-undef
-    document.addEventListener('touchend', this.onClick, false); // eslint-disable-line no-undef
+    document.addEventListener('mouseup', this.onClick, false);
+    document.addEventListener('touchend', this.onClick, false);
   }
 
   public componentWillUnmount() {
-    document.removeEventListener('mouseup', this.onClick); // eslint-disable-line no-undef
-    document.removeEventListener('touchend', this.onClick); // eslint-disable-line no-undef
+    document.removeEventListener('mouseup', this.onClick);
+    document.removeEventListener('touchend', this.onClick);
   }
 
   public render() {
-    // Please Keep Alphabetical
     const {
       ariaDescribedBy,
       ariaLabel,
       ariaLabelledBy,
-      arrowRenderer,
       contentClassName,
       buttonClassName,
       disabled,
-      hideArrow,
       id,
       placeholder,
       selectedOption,
       selectedValueClassName,
     } = this.props;
-
-    const {
-      internalSelectedOption,
-      open,
-    } = this.state;
+    const { internalSelectedOption } = this.state;
 
     const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-    const wrapperClass = this.getStyle('dropdownWrapper');
-    const dropdownButtonClass = cx(buttonClassName, this.getStyle('dropdownButton'));
-    const displayedValueClass = cx(selectedValueClassName, this.getStyle('displayedValue'));
-    const contentClass = cx(contentClassName, this.getStyle('optionContainer'));
-    const arrowClass = this.getStyle('arrow');
+    const wrapperClass = this.getStyle(StyleKeys.DropdownWrapper);
+    const dropdownButtonClass = cx(buttonClassName, this.getStyle(StyleKeys.DropdownButton));
+    const displayedValueClass = cx(selectedValueClassName, this.getStyle(StyleKeys.DisplayedValue));
+    const contentClass = cx(contentClassName, this.getStyle(StyleKeys.OptionContainer));
 
     return (
       <div
@@ -162,12 +106,23 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
           type="button"
         >
           <div className={displayedValueClass}>{ displayedValue }</div>
-          { !hideArrow && !arrowRenderer && <div className={arrowClass} /> }
-          { !hideArrow && arrowRenderer && arrowRenderer(open) }
+          { this.renderArrow() }
         </button>
-        <ul className={contentClass}>{ this.renderOptions() }</ul>
+        <ul className={contentClass}>
+          { this.renderOptions() }
+        </ul>
       </div>
     );
+  }
+
+  private renderArrow = () => {
+    const { hideArrow, arrowRenderer } = this.props;
+    const { open } = this.state;
+    const arrowClass = this.getStyle(StyleKeys.Arrow);
+
+    if (hideArrow) return null;
+    if (arrowRenderer) return arrowRenderer(open);
+    return <div className={arrowClass} />
   }
 
   private renderOptions = () => {
@@ -191,7 +146,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
   private onDropdownClick = ({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => {
     const { disabled } = this.props;
 
-    if (nativeEvent instanceof KeyboardEvent) { // eslint-disable-line no-undef
+    if (nativeEvent instanceof KeyboardEvent) {
       if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
       nativeEvent.preventDefault();
     }
@@ -220,8 +175,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
   }
 
   private onKeyDown = ({ nativeEvent }: KeyboardEvent) => {
-    const key = nativeEvent.key && nativeEvent.key.toLowerCase();
-    const { keyCode } = nativeEvent;
+    const { keyCode, key } = nativeEvent;
     const { searchable } = this.props;
 
     if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
@@ -230,7 +184,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     } else if (keyCode === KEY_CODES.TAB) {
       this.closeDropdown();
     } else if (key.length === 1 && searchable) {
-      this.searchDropdown(key);
+      this.searchDropdown(key.toLowerCase());
     }
   }
 
@@ -252,16 +206,22 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
         this.setState(p => ({ focusedIndex: (p.focusedIndex + 1) % this.elements.length }), this.setFocus);
         break;
       case KEY_CODES.PAGE_UP:
-        if (focusedIndex === -1) {
+        if (focusedIndex === -1 || (focusedIndex - pageKeyTraverseSize < 0 && focusedIndex !== 0)) {
           this.setState({ focusedIndex: 0 }, this.setFocus);
         } else if (focusedIndex - pageKeyTraverseSize < 0) {
           this.setState({ focusedIndex: this.elements.length - 1 }, this.setFocus);
         } else {
-          this.setState(p => ({ focusedIndex: p.focusedIndex - pageKeyTraverseSize - 1 }), this.setFocus);
+          this.setState(p => ({ focusedIndex: p.focusedIndex - pageKeyTraverseSize }), this.setFocus);
         }
         break;
       case KEY_CODES.PAGE_DOWN:
-        this.setState(p => ({ focusedIndex: (p.focusedIndex + pageKeyTraverseSize - 1) % this.elements.length }), this.setFocus);
+        if (focusedIndex === -1 || focusedIndex === this.elements.length - 1) {
+          this.setState({ focusedIndex: 0 }, this.setFocus);
+        } else if (focusedIndex + pageKeyTraverseSize > this.elements.length - 1) {
+          this.setState({ focusedIndex: this.elements.length - 1 }, this.setFocus);
+        } else {
+          this.setState(p => ({ focusedIndex: (p.focusedIndex + pageKeyTraverseSize) % this.elements.length }), this.setFocus);
+        }
         break;
       case KEY_CODES.ESCAPE:
         this.closeDropdown(true);
@@ -271,9 +231,9 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     }
   }
 
-  private getStyle = (key: string, extraState?: {}) => {
+  private getStyle = (key: StyleKey, extraState?: ExtraState) => {
     const { style } = this.props;
-    const baseStyle = defaultStyles[key](this.props, this.state, extraState);
+    const baseStyle = defaultStyles[key](this.props, this.state, extraState || {});
     const customStyle = style[key];
     return customStyle ? css(customStyle(baseStyle, this.state, extraState)) : css(baseStyle);
   }
@@ -304,6 +264,11 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     this.setState({ searchTimer: timer });
   }
 
+  private searchList = (value: string) => {
+    const element = this.elements.find(el => el && el.innerText.toLowerCase().indexOf(value) === 0);
+    if (element) element.focus();
+  }
+
   private clearTimer = () => {
     const { searchTimer } = this.state;
     if (searchTimer) {
@@ -314,13 +279,6 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
 
   private clearSearch = () => {
     this.setState({ searchTerm: '' });
-  }
-
-  private searchList = (value: string) => {
-    const element: React.RefObject<HTMLButtonElement> = (this.elements as any).find(
-      (el: React.RefObject<HTMLButtonElement>) => el.current && el.current.innerText.toLowerCase().indexOf(value) === 0,
-    );
-    if (element.current) element.current.focus();
   }
 }
 

@@ -1,51 +1,5 @@
-/// <reference types="node" />
-import React, { Component, MouseEvent, KeyboardEvent } from 'react';
-import { DropdownOption } from './OptionItem';
-declare type StyleFunction = (base: {}, state: DropdownState, extraState?: {}) => {};
-interface DropdownStyle {
-    arrow?: StyleFunction;
-    dropdownButton?: StyleFunction;
-    displayedValue?: StyleFunction;
-    dropdownWrapper?: StyleFunction;
-    groupContainer?: StyleFunction;
-    groupHeading?: StyleFunction;
-    optionContainer?: StyleFunction;
-    optionItem?: StyleFunction;
-}
-export interface DropdownState {
-    open: boolean;
-    searchTerm: string;
-    searchTimer: NodeJS.Timer | null;
-    focusedIndex: number;
-    internalSelectedOption: string;
-}
-export interface DropdownProps {
-    ariaDescribedBy: string;
-    ariaLabel: string;
-    ariaLabelledBy: string;
-    arrowRenderer: (open: boolean) => React.ReactNode;
-    buttonClassName: string;
-    centerText: boolean;
-    contentClassName: string;
-    disabled: boolean;
-    height: number;
-    hideArrow: boolean;
-    id: string;
-    maxContentHeight: number;
-    openUp: boolean;
-    options: DropdownOption[];
-    optionClassName: string;
-    optionRenderer: (selectedOption: string, optionsArray: DropdownOption[], onOptionClicked: (e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void, elementsRef: any[], getStyle: (key: string, extraState: {}) => string) => React.ReactNode;
-    pageKeyTraverseSize: number;
-    placeholder: string;
-    searchable: boolean;
-    selectedOption: string;
-    selectedOptionClassName: string;
-    selectedValueClassName: string;
-    setSelected: (option: string) => void;
-    style: DropdownStyle;
-    width: number;
-}
+import { Component } from 'react';
+import { DropdownProps, DropdownState } from '../utils/types';
 declare class Dropdown extends Component<DropdownProps, DropdownState> {
     static defaultProps: {
         ariaDescribedBy: null;
@@ -81,6 +35,7 @@ declare class Dropdown extends Component<DropdownProps, DropdownState> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     render(): JSX.Element;
+    private renderArrow;
     private renderOptions;
     private onClick;
     private onDropdownClick;
@@ -91,8 +46,8 @@ declare class Dropdown extends Component<DropdownProps, DropdownState> {
     private setFocus;
     private closeDropdown;
     private searchDropdown;
+    private searchList;
     private clearTimer;
     private clearSearch;
-    private searchList;
 }
 export default Dropdown;

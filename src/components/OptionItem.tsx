@@ -1,19 +1,5 @@
 import React, { MouseEvent, KeyboardEvent, forwardRef } from 'react';
-
-export interface Option {
-  ariaLabel?: string,
-  className?: string,
-  title?: string,
-  value: string,
-  iconClass?: string,
-}
-
-export interface OptionGroup {
-  label: string,
-  groupOptions: Option[],
-}
-
-export type DropdownOption = Option | OptionGroup;
+import { Option } from '../utils/types';
 
 interface OptionItemProps {
   option: Option,

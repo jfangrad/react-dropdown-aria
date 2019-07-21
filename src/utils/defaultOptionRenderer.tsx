@@ -1,6 +1,9 @@
 import React from 'react';
 import { cx } from 'emotion';
-import OptionItem, { DropdownOption, OptionGroup, Option } from '../components/OptionItem';
+import OptionItem from '../components/OptionItem';
+import { isOptionGroup } from './helper';
+import { StyleKey, ExtraState, DropdownOption, OptionGroup, Option } from './types';
+import { StyleKeys } from './constants';
 
 const pushRef = (elementsRef: HTMLButtonElement[]) => (element: HTMLButtonElement) => {
   if (element) {
@@ -15,21 +18,22 @@ function defaultOptionRenderer(
   optionClassName: string,
   onOptionClicked: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>) => void,
   elementsRef: HTMLButtonElement[],
-  getStyle: (key: string, extraState?: {} | undefined) => string
+  getStyle: (key: StyleKey, extraState?: ExtraState) => string
 ) {
   return options.map((option) => {
 
-    if ((option as OptionGroup).groupOptions) { // Is group of options
+    if (isOptionGroup(option)) { // Is group of options
       const { groupOptions, label } = (option as OptionGroup);
       return (
-        <div key={label} className={getStyle('groupContainer')}>
-          <div className={getStyle('groupHeading')}>
+        <div key={label} className={getStyle(StyleKeys.GroupContainer)}>
+          <div className={getStyle(StyleKeys.GroupHeading)}>
             <div>{label.toUpperCase()}</div>
             <div>{groupOptions.length}</div>
           </div>
           {
             groupOptions.map((groupOption) => {
-              const groupOptionClass = cx(groupOption.className, getStyle('optionItem', groupOption.value === selectedOption));
+              const selected = groupOption.value === selectedOption;
+              const groupOptionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected }));
               return (
                 <OptionItem
                   key={groupOption.value}
@@ -45,8 +49,8 @@ function defaultOptionRenderer(
       );
     }
 
-    const { value, className } = (option as Option);
-    const optionClass = cx(className, getStyle('optionItem', { selected: value === selectedOption }));
+    const { value, className } = option;
+    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected: value === selectedOption }));
     return (
       <OptionItem
         key={value}

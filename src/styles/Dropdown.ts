@@ -1,8 +1,9 @@
 import colours from './colours';
-import optionItem from './OptionItem';
-import { DropdownProps, DropdownState } from '../components/Dropdown';
+import OptionItem from './OptionItem';
+import { DropdownProps, DropdownState } from '../utils/types';
+import { CSSObject } from 'create-emotion';
 
-const dropdownWrapper = ({ width, height }: DropdownProps) => ({
+const DropdownWrapper = ({ width, height }: DropdownProps): CSSObject => ({
   display: 'flex',
   flexDirection: 'column',
   height,
@@ -10,7 +11,7 @@ const dropdownWrapper = ({ width, height }: DropdownProps) => ({
   width,
 });
 
-const dropdownButton = (props: DropdownProps, { open }: DropdownState) => ({
+const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
   alignItems: 'center',
   backgroundColor: 'white',
   borderBottom: `2px solid ${colours.greys.light}`,
@@ -43,7 +44,7 @@ const dropdownButton = (props: DropdownProps, { open }: DropdownState) => ({
   },
 });
 
-const displayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownState) => ({
+const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownState): CSSObject => ({
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   color: (selectedOption || internalSelectedOption) ? 'black' : colours.greys.base,
   flex: '1',
@@ -53,7 +54,7 @@ const displayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps
   whiteSpace: 'nowrap',
 });
 
-const arrow = (props: DropdownProps, { open }: DropdownState) => ({
+const Arrow = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
   borderBottom: open ? `5px solid ${colours.greys.base}` : '0',
   borderLeft: '5px solid transparent',
   borderRight: '5px solid transparent',
@@ -65,10 +66,10 @@ const arrow = (props: DropdownProps, { open }: DropdownState) => ({
   width: '0',
 });
 
-const optionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState) => ({
+const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState): CSSObject => ({
   backgroundColor: 'white',
   borderRadius: '2px',
-  bottom: openUp ? '105%' : null,
+  bottom: openUp ? '105%' : undefined,
   boxShadow: openUp ? `0px -3px 3px 2px ${colours.greys.lighter}` : `0px 3px 3px 2px ${colours.greys.lighter}`,
   boxSizing: 'border-box',
   color: 'black',
@@ -78,12 +79,12 @@ const optionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
   margin: '0',
   maxHeight: maxContentHeight || '175px',
   overflowX: 'hidden',
-  overflowY: maxContentHeight ? 'scroll' : null,
+  overflowY: maxContentHeight ? 'scroll' : undefined,
   padding: '2px 0',
   position: 'absolute',
-  top: openUp ? null : '100%',
+  top: openUp ? undefined : '100%',
   width: '100%',
-  zIndex: '9999',
+  zIndex: 9999,
 
   '&::-webkit-scrollbar': {
     width: '5px',
@@ -98,11 +99,11 @@ const optionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
   },
 });
 
-const groupContainer = () => ({
+const GroupContainer = (): CSSObject => ({
   padding: '1em 0 0 0',
 });
 
-const groupHeading = () => ({
+const GroupHeading = (): CSSObject => ({
   color: 'grey',
   display: 'flex',
   flexDirection: 'row',
@@ -112,14 +113,14 @@ const groupHeading = () => ({
 });
 
 const defaultStyles = {
-  arrow,
-  displayedValue,
-  dropdownButton,
-  dropdownWrapper,
-  groupContainer,
-  groupHeading,
-  optionContainer,
-  optionItem,
+  Arrow,
+  DisplayedValue,
+  DropdownButton,
+  DropdownWrapper,
+  GroupContainer,
+  GroupHeading,
+  OptionContainer,
+  OptionItem,
 };
 
 export default defaultStyles;

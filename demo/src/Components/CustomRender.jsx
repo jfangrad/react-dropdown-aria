@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../lib';
+import Dropdown, { StyleKeys } from '../../../lib';
 import '../styles/CustomRender.scss';
 
 const options = [
@@ -45,7 +45,7 @@ class CustomRender extends React.Component {
   }
 
   customRenderFunction = (selectedOption, optionsArray, onOptionClicked, elementsRef, getStyle) => options.map((option, index) => {
-    const classNames = getStyle('optionItem', { selected: option.value === selectedOption, index });
+    const classNames = getStyle(StyleKeys.OptionItem, { selected: option.value === selectedOption, index });
 
     return (
       <button

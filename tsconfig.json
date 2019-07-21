@@ -17,7 +17,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es6", "dom"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/__tests__/*"]
