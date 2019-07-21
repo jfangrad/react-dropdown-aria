@@ -72,10 +72,10 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
-    "webpack": "^4.17.0",
+    "webpack": "^4.36.1",
     "webpack-bundle-analyzer": ">=3.3.2",
-    "webpack-cli": "^3.3.1",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
     "emotion": "^9.2.6"
