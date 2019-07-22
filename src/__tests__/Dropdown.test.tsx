@@ -6,7 +6,7 @@ import { createSerializer } from 'jest-emotion';
 import * as emotion from 'emotion';
 import Dropdown from '../index';
 import { CUSTOM_OPTIONS, OPTIONS, GROUPED_OPTIONS } from './constants';
-import { KEY_CODES } from '../utils/helper';
+import { KEY_CODES } from '../utils/constants';
 
 expect.addSnapshotSerializer(createSerializer(emotion as any));
 
