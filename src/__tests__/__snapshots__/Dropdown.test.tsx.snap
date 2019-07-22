@@ -26,7 +26,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     />
   </button>
   <ul
-    className="css-oqb566"
+    className="css-1wojo61"
   >
     <ForwardRef
       key="1"
@@ -100,7 +100,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     />
   </button>
   <ul
-    className="css-135hdaw"
+    className="css-fczowh"
   />
 </div>
 `;
@@ -131,7 +131,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     />
   </button>
   <ul
-    className="css-135hdaw"
+    className="css-fczowh"
   >
     <div
       className="css-dckqxd"
