@@ -8,7 +8,7 @@ export type StyleKey = keyof typeof StyleKeys;
 type StyleFunction = (base: {}, state: DropdownState, extraState?: {}) => {};
 
 type OptionRendererFunction = (
-  selectedOption: string,
+  selectedOption: string | string[],
   optionsArray: DropdownOption[],
   onOptionClicked: (e:  MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void,
   elementsRef: any[],
@@ -46,7 +46,7 @@ export interface DropdownState {
   searchTerm: string,
   searchTimer: NodeJS.Timer | null,
   focusedIndex: number,
-  internalSelectedOption: string,
+  internalSelectedOption: string | string[],
 };
 
 export interface DropdownProps {
@@ -62,6 +62,7 @@ export interface DropdownProps {
   hideArrow: boolean,
   id: string,
   maxContentHeight: number,
+  multi: boolean,
   openUp: boolean,
   options: DropdownOption[],
   optionClassName: string,
@@ -69,10 +70,10 @@ export interface DropdownProps {
   pageKeyTraverseSize: number,
   placeholder: string,
   searchable: boolean,
-  selectedOption: string,
+  selectedOption: string | string[],
   selectedOptionClassName: string,
   selectedValueClassName: string,
-  setSelected: (option: string) => void,
+  setSelected: (option: string | string[]) => void,
   style: DropdownStyle,
   width: number,
 }

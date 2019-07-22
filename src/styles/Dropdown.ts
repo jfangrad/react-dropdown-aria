@@ -47,6 +47,7 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObjec
 const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownState): CSSObject => ({
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   color: (selectedOption || internalSelectedOption) ? 'black' : colours.greys.base,
+  display: 'flex',
   flex: '1',
   overflow: 'hidden',
   textAlign: centerText ? 'center' : 'left',

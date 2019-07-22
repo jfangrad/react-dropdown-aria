@@ -1,7 +1,7 @@
 import React from 'react';
 import { cx } from 'emotion';
 import OptionItem from '../components/OptionItem';
-import { isOptionGroup } from './helper';
+import { isOptionGroup, isArray } from './helper';
 import { StyleKey, ExtraState, DropdownOption, OptionGroup, Option } from './types';
 import { StyleKeys } from './constants';
 
@@ -12,7 +12,7 @@ const pushRef = (elementsRef: HTMLButtonElement[]) => (element: HTMLButtonElemen
 }
 
 function defaultOptionRenderer(
-  selectedOption: string,
+  selectedOption: string | string[],
   options: DropdownOption[],
   selectedOptionClassName: string,
   optionClassName: string,
@@ -32,7 +32,7 @@ function defaultOptionRenderer(
           </div>
           {
             groupOptions.map((groupOption) => {
-              const selected = groupOption.value === selectedOption;
+              const selected = isArray(selectedOption) ? selectedOption.indexOf(groupOption.value) !== -1 : groupOption.value === selectedOption;
               const groupOptionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected }));
               return (
                 <OptionItem
@@ -50,7 +50,8 @@ function defaultOptionRenderer(
     }
 
     const { value, className } = option;
-    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected: value === selectedOption }));
+    const selected = isArray(selectedOption) ? selectedOption.indexOf(value) !== -1 : value === selectedOption;
+    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected }));
     return (
       <OptionItem
         key={value}

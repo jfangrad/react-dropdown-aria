@@ -5,6 +5,7 @@ import defaultOptionRenderer from '../utils/defaultOptionRenderer';
 import defaultStyles from '../styles/Dropdown';
 import { StyleKey, ExtraState, DropdownProps, DropdownState } from '../utils/types';
 import { isOptionGroup } from '../utils/helper';
+import Tag from './Tag';
 
 class Dropdown extends Component<DropdownProps, DropdownState> {
   public static defaultProps = {
@@ -20,6 +21,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     hideArrow: false,
     id: null,
     maxContentHeight: null,
+    multi: false,
     openUp: false,
     optionClassName: null,
     optionRenderer: undefined,
@@ -49,7 +51,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
 
     this.state = {
       focusedIndex: -1,
-      internalSelectedOption: defaultOption.value,
+      internalSelectedOption: props.multi ? [] : '',
       open: false,
       searchTerm: '',
       searchTimer: null,
@@ -75,16 +77,10 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
       buttonClassName,
       disabled,
       id,
-      placeholder,
-      selectedOption,
-      selectedValueClassName,
     } = this.props;
-    const { internalSelectedOption } = this.state;
 
-    const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
     const wrapperClass = this.getStyle(StyleKeys.DropdownWrapper);
     const dropdownButtonClass = cx(buttonClassName, this.getStyle(StyleKeys.DropdownButton));
-    const displayedValueClass = cx(selectedValueClassName, this.getStyle(StyleKeys.DisplayedValue));
     const contentClass = cx(contentClassName, this.getStyle(StyleKeys.OptionContainer));
 
     return (
@@ -105,7 +101,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
           ref={this.button}
           type="button"
         >
-          <div className={displayedValueClass}>{ displayedValue }</div>
+          { this.renderValue() }
           { this.renderArrow() }
         </button>
         <ul className={contentClass}>
@@ -114,6 +110,30 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
       </div>
     );
   }
+
+  private renderValue = () => {
+    const { selectedOption, placeholder, selectedValueClassName, multi } = this.props;
+    const { internalSelectedOption } = this.state;
+
+    const displayedValueClass = cx(selectedValueClassName, this.getStyle(StyleKeys.DisplayedValue));
+
+    if (multi) {
+      if ((selectedOption || []).length === 0 && internalSelectedOption.length === 0) {
+        return <div className={displayedValueClass}>{ placeholder }</div>
+      }
+      return (
+        <div className={displayedValueClass}>
+          {((selectedOption || internalSelectedOption || []) as string[]).map(option => (
+            <Tag value={option} key={option} onDeleteClick={this.handleOptionRemove} />
+          ))}
+        </div>
+      );
+    }
+
+    const displayedValue = selectedOption || internalSelectedOption || placeholder;
+
+    return <div className={displayedValueClass}>{ displayedValue }</div>
+  };
 
   private renderArrow = () => {
     const { hideArrow, arrowRenderer } = this.props;
@@ -157,7 +177,8 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
   }
 
   private onOptionClicked = ({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => {
-    const { setSelected } = this.props;
+    const { setSelected, selectedOption, multi } = this.props;
+    const { internalSelectedOption } = this.state;
 
     if (nativeEvent instanceof KeyboardEvent) {
       if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
@@ -165,13 +186,26 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
     }
 
     if (nativeEvent.target) {
-      const selectedOption = (nativeEvent.target as HTMLButtonElement).innerText;
-      setSelected(selectedOption);
-      this.setState({ open: false, internalSelectedOption: selectedOption });
+      const value = (nativeEvent.target as HTMLButtonElement).innerText;
+      const newSelectedOption = multi ? [...((selectedOption || internalSelectedOption || []) as string[]), value] : value;
+      setSelected(newSelectedOption);
+      this.setState({ open: false, internalSelectedOption: newSelectedOption });
       if (nativeEvent instanceof KeyboardEvent && nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER && this.button.current) {
         this.button.current.focus();
       }
     }
+  }
+
+  private handleOptionRemove  = (option: string) => {
+    const { selectedOption, setSelected } = this.props;
+    const { internalSelectedOption } = this.state;
+    const newSelectedOption = ((selectedOption || internalSelectedOption || []) as string[]).filter(s => s !== option);
+
+    if (selectedOption && selectedOption.length) {
+      setSelected(newSelectedOption);
+    }
+
+    this.setState({ internalSelectedOption: newSelectedOption });
   }
 
   private onKeyDown = ({ nativeEvent }: KeyboardEvent) => {

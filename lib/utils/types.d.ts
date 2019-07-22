@@ -6,7 +6,7 @@ export interface ExtraState {
 }
 export declare type StyleKey = keyof typeof StyleKeys;
 declare type StyleFunction = (base: {}, state: DropdownState, extraState?: {}) => {};
-declare type OptionRendererFunction = (selectedOption: string, optionsArray: DropdownOption[], onOptionClicked: (e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void, elementsRef: any[], getStyle: (key: StyleKey, extraState?: ExtraState) => string) => ReactNode;
+declare type OptionRendererFunction = (selectedOption: string | string[], optionsArray: DropdownOption[], onOptionClicked: (e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void, elementsRef: any[], getStyle: (key: StyleKey, extraState?: ExtraState) => string) => ReactNode;
 interface DropdownStyle {
     arrow?: StyleFunction;
     dropdownButton?: StyleFunction;
@@ -34,7 +34,7 @@ export interface DropdownState {
     searchTerm: string;
     searchTimer: NodeJS.Timer | null;
     focusedIndex: number;
-    internalSelectedOption: string;
+    internalSelectedOption: string | string[];
 }
 export interface DropdownProps {
     ariaDescribedBy: string;
@@ -49,6 +49,7 @@ export interface DropdownProps {
     hideArrow: boolean;
     id: string;
     maxContentHeight: number;
+    multi: boolean;
     openUp: boolean;
     options: DropdownOption[];
     optionClassName: string;
@@ -56,10 +57,10 @@ export interface DropdownProps {
     pageKeyTraverseSize: number;
     placeholder: string;
     searchable: boolean;
-    selectedOption: string;
+    selectedOption: string | string[];
     selectedOptionClassName: string;
     selectedValueClassName: string;
-    setSelected: (option: string) => void;
+    setSelected: (option: string | string[]) => void;
     style: DropdownStyle;
     width: number;
 }

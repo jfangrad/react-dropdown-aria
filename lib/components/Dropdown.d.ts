@@ -14,6 +14,7 @@ declare class Dropdown extends Component<DropdownProps, DropdownState> {
         hideArrow: boolean;
         id: null;
         maxContentHeight: null;
+        multi: boolean;
         openUp: boolean;
         optionClassName: null;
         optionRenderer: undefined;
@@ -35,11 +36,13 @@ declare class Dropdown extends Component<DropdownProps, DropdownState> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     render(): JSX.Element;
+    private renderValue;
     private renderArrow;
     private renderOptions;
     private onClick;
     private onDropdownClick;
     private onOptionClicked;
+    private handleOptionRemove;
     private onKeyDown;
     private onNavigation;
     private getStyle;

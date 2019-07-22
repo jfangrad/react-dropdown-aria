@@ -8,6 +8,7 @@ import CustomStyles from './Components/CustomStyles';
 import Groups from './Components/Groups';
 import Footer from './Components/Footer';
 import './index.scss';
+import Multi from './Components/Multi';
 
 const Demo = () => (
   <div className="demo-app">
@@ -15,6 +16,7 @@ const Demo = () => (
     <div className="demo-container">
       <Basic />
       <Groups />
+      <Multi />
       <CustomStyles />
       <CustomRender />
       <CustomArrow />
