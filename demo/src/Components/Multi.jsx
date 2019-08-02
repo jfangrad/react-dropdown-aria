@@ -37,7 +37,7 @@ class Multi extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    console.log(selectedOption);
+    console.log('HERE3', selectedOption);
     this.setState({ interest: selectedOption });
   }
 
@@ -59,7 +59,7 @@ class Multi extends React.Component {
           width={400}
           maxContentHeight={150}
           searchable={searchable}
-          multi
+          multi={true}
         />
         <div className="buttons-container">
           <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>

@@ -189,7 +189,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
       const value = (nativeEvent.target as HTMLButtonElement).innerText;
       const newSelectedOption = multi ? [...((selectedOption || internalSelectedOption || []) as string[]), value] : value;
       setSelected(newSelectedOption);
-      this.setState({ open: false, internalSelectedOption: newSelectedOption });
+      this.setState({ open: multi, internalSelectedOption: newSelectedOption });
       if (nativeEvent instanceof KeyboardEvent && nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER && this.button.current) {
         this.button.current.focus();
       }
