@@ -6,7 +6,8 @@ export declare enum StyleKeys {
     GroupContainer = "GroupContainer",
     GroupHeading = "GroupHeading",
     OptionContainer = "OptionContainer",
-    OptionItem = "OptionItem"
+    OptionItem = "OptionItem",
+    Tag = "Tag"
 }
 export declare enum KEY_CODES {
     DOWN_ARROW = 40,

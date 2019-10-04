@@ -7,6 +7,7 @@ export enum StyleKeys {
   GroupHeading = 'GroupHeading',
   OptionContainer = 'OptionContainer',
   OptionItem = 'OptionItem',
+  Tag = 'Tag',
 }
 
 export enum KEY_CODES {

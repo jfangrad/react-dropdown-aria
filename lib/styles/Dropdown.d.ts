@@ -9,5 +9,6 @@ declare const defaultStyles: {
     GroupHeading: () => CSSObject;
     OptionContainer: ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState) => CSSObject;
     OptionItem: (props: DropdownProps, state: DropdownState, { selected }: import("../utils/types").ExtraState) => CSSObject;
+    Tag: () => CSSObject;
 };
 export default defaultStyles;

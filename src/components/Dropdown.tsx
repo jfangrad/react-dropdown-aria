@@ -124,7 +124,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
       return (
         <div className={displayedValueClass}>
           {((selectedOption || internalSelectedOption || []) as string[]).map(option => (
-            <Tag value={option} key={option} onDeleteClick={this.handleOptionRemove} />
+            <Tag value={option} key={option} onDeleteClick={this.handleOptionRemove} getStyle={this.getStyle} />
           ))}
         </div>
       );

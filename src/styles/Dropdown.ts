@@ -1,5 +1,6 @@
 import colours from './colours';
 import OptionItem from './OptionItem';
+import Tag from './Tag';
 import { DropdownProps, DropdownState } from '../utils/types';
 import { CSSObject } from 'create-emotion';
 
@@ -122,6 +123,7 @@ const defaultStyles = {
   GroupHeading,
   OptionContainer,
   OptionItem,
+  Tag,
 };
 
 export default defaultStyles;
