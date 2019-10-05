@@ -6,10 +6,9 @@ declare const colours: {
         light: string;
         lighter: string;
     };
-    purple: {
-        base: string;
-        light: string;
-        lighter: string;
+    states: {
+        disabled: string;
+        focused: string;
     };
 };
 export default colours;

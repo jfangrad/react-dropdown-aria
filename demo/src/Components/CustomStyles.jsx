@@ -43,6 +43,7 @@ class CustomStyles extends React.Component {
       <ExampleSection title="Custom Styling" fileName="CustomStyles.jsx">
         {(dropdownState) => (
           <Dropdown
+            {...dropdownState}
             placeholder="Transportation of Choice?"
             id="dropdown"
             ariaLabel="Custom styled Dropdown"
@@ -53,7 +54,6 @@ class CustomStyles extends React.Component {
             maxContentHeight={150}
             style={styles}
             pageKeyTraverseSize={3}
-            {...dropdownState}
           />
         )}
       </ExampleSection>

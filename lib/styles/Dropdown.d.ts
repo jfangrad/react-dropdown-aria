@@ -6,6 +6,7 @@ declare const defaultStyles: {
     DropdownButton: (props: DropdownProps, { open }: DropdownState) => CSSObject;
     DropdownWrapper: ({ width, height }: DropdownProps) => CSSObject;
     GroupContainer: () => CSSObject;
+    GroupDivider: () => CSSObject;
     GroupHeading: () => CSSObject;
     OptionContainer: ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState) => CSSObject;
     OptionItem: (props: DropdownProps, state: DropdownState, { selected }: import("../utils/types").ExtraState) => CSSObject;

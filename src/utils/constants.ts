@@ -4,6 +4,7 @@ export enum StyleKeys {
   DropdownButton = 'DropdownButton',
   DropdownWrapper = 'DropdownWrapper',
   GroupContainer = 'GroupContainer',
+  GroupDivider = 'GroupDivider',
   GroupHeading = 'GroupHeading',
   OptionContainer = 'OptionContainer',
   OptionItem = 'OptionItem',

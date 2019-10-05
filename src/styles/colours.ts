@@ -1,15 +1,14 @@
 const colours = {
   greys: {
     base: '#808080',
-    dark: '#595959',
-    darker: '#404040',
-    light: '#b5b6b7',
-    lighter: '#d9dadd',
+    dark: '#7C7C7C',
+    darker: '#6e6d6d',
+    light: '#CECECE',
+    lighter: '#f5f5f5',
   },
-  purple: {
-    base: '#990099',
-    light: '#a7aedf',
-    lighter: '#ccd1ed',
+  states: {
+    disabled: '#ededed',
+    focused: '#0080bc',
   },
 };
 

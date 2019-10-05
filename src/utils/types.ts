@@ -16,14 +16,15 @@ type OptionRendererFunction = (
 ) => ReactNode;
 
 interface DropdownStyle {
-  arrow?: StyleFunction,
-  dropdownButton?: StyleFunction,
-  displayedValue?: StyleFunction,
-  dropdownWrapper?: StyleFunction,
-  groupContainer?: StyleFunction,
-  groupHeading?: StyleFunction,
-  optionContainer?: StyleFunction,
-  optionItem?: StyleFunction,
+  Arrow?: StyleFunction,
+  DropdownButton?: StyleFunction,
+  DisplayedValue?: StyleFunction,
+  DropdownWrapper?: StyleFunction,
+  GroupContainer?: StyleFunction,
+  GroupHeading?: StyleFunction,
+  GroupDivider?: StyleFunction,
+  OptionContainer?: StyleFunction,
+  OptionItem?: StyleFunction,
 };
 
 export interface Option {

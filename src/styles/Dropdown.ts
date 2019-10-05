@@ -13,13 +13,9 @@ const DropdownWrapper = ({ width, height }: DropdownProps): CSSObject => ({
 
 const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
   alignItems: 'center',
-  backgroundColor: 'white',
-  borderBottom: `2px solid ${colours.greys.light}`,
-  borderLeft: 'none',
-  borderRadius: '0',
-  borderRight: 'none',
-  borderTop: 'none',
-  boxShadow: open ? `0px 1px 3px 2px ${colours.greys.lighter}` : 'none',
+  backgroundColor: colours.greys.lighter,
+  border: `2px solid ${open ? colours.states.focused : colours.greys.dark}`,
+  borderRadius: '7',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -27,20 +23,21 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObjec
   height: '100%',
   margin: '0',
   outline: 'none',
-  padding: '9px 5px',
+  padding: '9px 5px 9px 12px',
   textAlign: 'left',
   width: '100%',
 
   '&:hover': {
-    boxShadow: `0px 1px 3px 2px ${colours.greys.lighter}`,
+    border: `2px solid ${colours.greys.darker}`,
   },
 
   '&:focus': {
-    boxShadow: `0px 1px 3px 2px ${colours.greys.lighter}`,
+    border: `2px solid ${colours.states.focused}`,
   },
 
   '&:disabled': {
-    cursor: 'not-allowed',
+    backgroundColor: colours.states.disabled,
+    cursor: 'unset',
   },
 });
 
@@ -66,11 +63,13 @@ const Arrow = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
   width: '0',
 });
 
+
 const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState): CSSObject => ({
-  backgroundColor: 'white',
-  borderRadius: '2px',
+  backgroundColor: colours.greys.lighter,
+  border: `2px solid ${colours.greys.darker}`,
+  borderRadius: '4px',
   bottom: openUp ? '105%' : undefined,
-  boxShadow: openUp ? `0px -3px 3px 2px ${colours.greys.lighter}` : `0px 3px 3px 2px ${colours.greys.lighter}`,
+  boxShadow: `0px ${openUp ? '-4px' : '4px'} 4px rgba(0, 0, 0, 0.25)`,
   boxSizing: 'border-box',
   color: 'black',
   display: open ? 'block' : 'none',
@@ -108,8 +107,14 @@ const GroupHeading = (): CSSObject => ({
   display: 'flex',
   flexDirection: 'row',
   fontSize: '0.9em',
-  justifyContent: 'space-between',
   padding: '0 10px 3px 5px',
+});
+
+const GroupDivider = (): CSSObject => ({
+  borderBottom: `1px solid ${colours.greys.dark}`,
+  margin: 'auto',
+  paddingTop: 10,
+  width: '85%',
 });
 
 const defaultStyles = {
@@ -118,6 +123,7 @@ const defaultStyles = {
   DropdownButton,
   DropdownWrapper,
   GroupContainer,
+  GroupDivider,
   GroupHeading,
   OptionContainer,
   OptionItem,
