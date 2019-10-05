@@ -33,17 +33,23 @@ body {
   justify-content: center;
   background-color: $dark-green;
   padding: 3em 0;
+  color: white;
 
   .title {
     font-size: 2em;
     padding: 0.2em 0;
     margin: 0.2em 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid white;
   }
 
   .description {
     margin: 1em auto;
     text-align: center;
+    max-width: 50%;
+
+    a {
+      color: white;
+    }
   }
 }
 

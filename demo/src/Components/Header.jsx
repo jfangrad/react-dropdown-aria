@@ -6,7 +6,7 @@ const Header = () => (
       React Dropdown Aria
     </div>
     <div className="description">
-    This component was created to be a light weight and fully accessible dropdown component for React.<br />For a more feature heavy dropdown look to React Select
+    This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy dropdown look to <a href="https://react-select.com/home">React Select</a>
     </div>
   </div>
 );
