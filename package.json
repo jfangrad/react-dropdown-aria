@@ -78,6 +78,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@material-ui/core": "^4.5.0",
     "emotion": "^9.2.6"
   },
   "peerDependencies": {

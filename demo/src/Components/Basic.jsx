@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from '../../../lib';
+import ExampleSection from './ExampleSection';
 
 const options = [
   { value: 'Java', className: 'test', ariaLabel: 'test-aria' },
@@ -18,22 +19,7 @@ class Basic extends React.Component {
 
     this.state = {
       interest: null,
-      disabled: false,
-      searchable: true,
     };
-  }
-
-  onCheckboxClick = ({ nativeEvent }) => {
-    switch (nativeEvent.target.id) {
-      case 'disable-checkbox':
-        this.setState({ disabled: nativeEvent.target.checked });
-        break;
-      case 'searchable-checkbox':
-        this.setState({ searchable: nativeEvent.target.checked });
-        break;
-      default:
-        break;
-    }
   }
 
   setInterest = (selectedOption) => {
@@ -41,29 +27,25 @@ class Basic extends React.Component {
   }
 
   render() {
-    const { disabled, interest, searchable } = this.state;
+    const { interest } = this.state;
 
     return (
-      <div className="section">
-        <div className="section-title">Basic Usage <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/Basic.jsx">(Source)</a></div>
-        <Dropdown
-          placeholder="Language of Choice?"
-          buttonClassName="my-dropdown"
-          id="dropdown"
-          ariaLabel="React Simple Dropdown"
-          options={options}
-          selectedOption={interest}
-          setSelected={this.setInterest}
-          disabled={disabled}
-          width={400}
-          maxContentHeight={150}
-          searchable={searchable}
-        />
-        <div className="buttons-container">
-          <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>
-          <span className="checkbox-input"><input id="searchable-checkbox" type="checkbox" onChange={this.onCheckboxClick} checked={searchable} />Searchable</span>
-        </div>
-      </div>
+      <ExampleSection title="Basic Usage" fileName="Basic.jsx">
+        {(dropdownState) => (
+          <Dropdown
+            placeholder="Language of Choice?"
+            buttonClassName="my-dropdown"
+            id="dropdown"
+            ariaLabel="React Simple Dropdown"
+            options={options}
+            selectedOption={interest}
+            setSelected={this.setInterest}
+            width={400}
+            maxContentHeight={150}
+            {...dropdownState}
+          />
+        )}
+      </ExampleSection>
     );
   }
 }

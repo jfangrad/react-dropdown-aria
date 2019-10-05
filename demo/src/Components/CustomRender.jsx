@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown, { StyleKeys } from '../../../lib';
 import '../styles/CustomRender.scss';
+import ExampleSection from './ExampleSection';
 
 const options = [
   { value: 'Custom' },
@@ -22,22 +23,7 @@ class CustomRender extends React.Component {
 
     this.state = {
       interest: null,
-      disabled: false,
-      searchable: true,
     };
-  }
-
-  onCheckboxClick = ({ nativeEvent }) => {
-    switch (nativeEvent.target.id) {
-      case 'disable-checkbox':
-        this.setState({ disabled: nativeEvent.target.checked });
-        break;
-      case 'searchable-checkbox':
-        this.setState({ searchable: nativeEvent.target.checked });
-        break;
-      default:
-        break;
-    }
   }
 
   setInterest = (selectedOption) => {
@@ -65,29 +51,25 @@ class CustomRender extends React.Component {
   });
 
   render() {
-    const { disabled, interest, searchable } = this.state;
+    const { interest } = this.state;
 
     return (
-      <div className="section">
-        <div className="section-title">Custom Option Render Function <a href="https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomRender.jsx">(Source)</a></div>
-        <Dropdown
-          buttonClassName="my-dropdown"
-          id="dropdown"
-          ariaLabel="Custom Option Rendering Dropdown"
-          options={options}
-          optionRenderer={this.customRenderFunction}
-          selectedOption={interest}
-          setSelected={this.setInterest}
-          disabled={disabled}
-          width={400}
-          searchable={searchable}
-          style={customStyle}
-        />
-        <div className="buttons-container">
-          <span className="checkbox-input"><input id="disable-checkbox" type="checkbox" onChange={this.onCheckboxClick} />Disable</span>
-          <span className="checkbox-input"><input id="searchable-checkbox" type="checkbox" onChange={this.onCheckboxClick} checked={searchable} />Searchable</span>
-        </div>
-      </div>
+      <ExampleSection title="Custom Option Render Function" fileName="CustomRender.jsx">
+        {(dropdownState) => (
+          <Dropdown
+            buttonClassName="my-dropdown"
+            id="dropdown"
+            ariaLabel="Custom Option Rendering Dropdown"
+            options={options}
+            optionRenderer={this.customRenderFunction}
+            selectedOption={interest}
+            setSelected={this.setInterest}
+            width={400}
+            style={customStyle}
+            {...dropdownState}
+          />
+        )}
+      </ExampleSection>
     );
   }
 }
