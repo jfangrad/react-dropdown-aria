@@ -11,7 +11,7 @@
     "lib:prod": "tsc",
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
-    "deploy:demo": "npm run build && git push origin `git subtree split --prefix demo/dist master`:gh-pages --force",
+    "deploy:demo": "npm run build && git push origin `git subtree split --prefix=demo/dist master`:gh-pages --force",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
     "test:update": "jest --updateSnapshot"
