@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, ReactWrapper } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import { createSerializer } from 'jest-emotion';
@@ -15,12 +15,12 @@ const foo = () => {};
 
 describe('Check Props', () => {
   it('Matches snapshot with default props', () => {
-    const dropdown = shallow(<Dropdown setSelected={foo} />);
+    const dropdown = mount(<Dropdown setSelected={foo} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 
   it('Matches snapshot with custom props', () => {
-    const dropdown = shallow(
+    const dropdown = mount(
       <Dropdown
         placeholder="Custom Placeholder..."
         buttonClassName="custom-class"
@@ -37,7 +37,7 @@ describe('Check Props', () => {
   });
 
   it('Matches snapshot with grouped options', () => {
-    const dropdown = shallow(<Dropdown setSelected={foo} options={GROUPED_OPTIONS} />);
+    const dropdown = mount(<Dropdown setSelected={foo} options={GROUPED_OPTIONS} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 });
@@ -53,8 +53,8 @@ describe('Navigation', () => {
 
   it('Opens dropdown when clicked', () => {
     button.simulate('click');
-
-    expect(wrapper.state('open')).toBeTruthy();
+    const listContainer = wrapper.find('ul').first();
+    expect(listContainer).toHaveStyleRule('display', 'block');
   });
 
   it('Opens dropdown with enter key', () => {

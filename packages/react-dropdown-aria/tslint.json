@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier", "react-hooks"],
   "defaultSeverity": "warning",
   "linterOptions": {
     "exclude": [

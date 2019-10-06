@@ -1,8 +1,8 @@
 import colours from './colours';
-import { ExtraState, DropdownProps, DropdownState } from '../utils/types';
+import { ExtraState, DropdownProps, DropdownStyleDependantState } from '../utils/types';
 import { CSSObject } from 'create-emotion';
 
-export default (props: DropdownProps, state: DropdownState, { selected = false }: ExtraState): CSSObject => ({
+export default (props: DropdownProps, state: DropdownStyleDependantState, { selected = false }: ExtraState): CSSObject => ({
   backgroundColor: selected ? colours.greys.light : colours.greys.lighter,
   border: 'none',
   cursor: 'pointer',
