@@ -3,7 +3,7 @@ import { ExtraState, DropdownProps, DropdownState } from '../utils/types';
 import { CSSObject } from 'create-emotion';
 
 export default (props: DropdownProps, state: DropdownState, { selected = false }: ExtraState): CSSObject => ({
-  backgroundColor: selected ? colours.purple.lighter : 'white',
+  backgroundColor: selected ? colours.greys.light : colours.greys.lighter,
   border: 'none',
   cursor: 'pointer',
   fontSize: '0.95em',
@@ -16,11 +16,13 @@ export default (props: DropdownProps, state: DropdownState, { selected = false }
   width: '100%',
 
   '&:hover': {
-    backgroundColor: selected ? colours.purple.light : colours.greys.lighter,
+    backgroundColor: selected ? colours.greys.dark : colours.greys.light,
+    color: selected ? colours.greys.lighter : undefined,
   },
 
   '&:focus': {
-    backgroundColor: selected ? colours.purple.light : colours.greys.lighter,
+    backgroundColor: selected ? colours.greys.dark : colours.greys.light,
+    color: selected ? colours.greys.lighter : undefined,
   },
 
   '.option-icon': {

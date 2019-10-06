@@ -4,7 +4,6 @@ import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
 import defaultStyles from '../styles/Dropdown';
 import { StyleKey, ExtraState, DropdownProps, DropdownState } from '../utils/types';
-import { isOptionGroup } from '../utils/helper';
 
 class Dropdown extends Component<DropdownProps, DropdownState> {
   public static defaultProps = {
@@ -42,14 +41,9 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
   constructor(props: DropdownProps) {
     super(props);
 
-    let defaultOption = props.options[0] || { value: ''};
-    if (defaultOption && isOptionGroup(defaultOption)) {
-      defaultOption = defaultOption.groupOptions[0];
-    }
-
     this.state = {
       focusedIndex: -1,
-      internalSelectedOption: defaultOption.value,
+      internalSelectedOption: props.selectedOption,
       open: false,
       searchTerm: '',
       searchTimer: null,

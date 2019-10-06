@@ -8,14 +8,15 @@ export declare type StyleKey = keyof typeof StyleKeys;
 declare type StyleFunction = (base: {}, state: DropdownState, extraState?: {}) => {};
 declare type OptionRendererFunction = (selectedOption: string, optionsArray: DropdownOption[], onOptionClicked: (e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void, elementsRef: any[], getStyle: (key: StyleKey, extraState?: ExtraState) => string) => ReactNode;
 interface DropdownStyle {
-    arrow?: StyleFunction;
-    dropdownButton?: StyleFunction;
-    displayedValue?: StyleFunction;
-    dropdownWrapper?: StyleFunction;
-    groupContainer?: StyleFunction;
-    groupHeading?: StyleFunction;
-    optionContainer?: StyleFunction;
-    optionItem?: StyleFunction;
+    Arrow?: StyleFunction;
+    DropdownButton?: StyleFunction;
+    DisplayedValue?: StyleFunction;
+    DropdownWrapper?: StyleFunction;
+    GroupContainer?: StyleFunction;
+    GroupHeading?: StyleFunction;
+    GroupDivider?: StyleFunction;
+    OptionContainer?: StyleFunction;
+    OptionItem?: StyleFunction;
 }
 export interface Option {
     ariaLabel?: string;

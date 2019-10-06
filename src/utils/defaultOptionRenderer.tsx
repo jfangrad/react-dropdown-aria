@@ -27,7 +27,7 @@ function defaultOptionRenderer(
       return (
         <div key={label} className={getStyle(StyleKeys.GroupContainer)}>
           <div className={getStyle(StyleKeys.GroupHeading)}>
-            <div>{label.toUpperCase()}</div>
+            <div>{label.toUpperCase()} | &nbsp;</div>
             <div>{groupOptions.length}</div>
           </div>
           {
@@ -45,6 +45,7 @@ function defaultOptionRenderer(
               );
             })
           }
+          <div className={getStyle(StyleKeys.GroupDivider)} />
         </div>
       );
     }

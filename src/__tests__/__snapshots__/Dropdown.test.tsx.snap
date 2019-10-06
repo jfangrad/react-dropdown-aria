@@ -9,7 +9,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     ari-describedby={null}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
-    className="custom-class css-assshr"
+    className="custom-class css-cn7df1"
     disabled={true}
     id="dropdown"
     onClick={[Function]}
@@ -17,16 +17,16 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     type="button"
   >
     <div
-      className="css-1fhu87z"
+      className="css-vh9bzf"
     >
-      1
+      Custom Placeholder...
     </div>
     <div
       className="css-sfaqia"
     />
   </button>
   <ul
-    className="css-1wojo61"
+    className="css-pgkk4u"
   >
     <ForwardRef
       key="1"
@@ -40,7 +40,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "1",
         }
       }
-      optionClass="className css-1j0wxjc"
+      optionClass="className css-orv7bh"
     />
     <ForwardRef
       key="2"
@@ -54,7 +54,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "2",
         }
       }
-      optionClass="className css-1j0wxjc"
+      optionClass="className css-orv7bh"
     />
     <ForwardRef
       key="3"
@@ -68,7 +68,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           "value": "3",
         }
       }
-      optionClass="className css-1j0wxjc"
+      optionClass="className css-orv7bh"
     />
   </ul>
 </div>
@@ -83,7 +83,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="css-assshr"
+    className="css-cn7df1"
     disabled={false}
     id={null}
     onClick={[Function]}
@@ -91,7 +91,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     type="button"
   >
     <div
-      className="css-1v5tzl8"
+      className="css-vh9bzf"
     >
       Select ...
     </div>
@@ -100,7 +100,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     />
   </button>
   <ul
-    className="css-fczowh"
+    className="css-mqwsxw"
   />
 </div>
 `;
@@ -114,7 +114,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     ari-describedby={null}
     aria-label={null}
     aria-labelledby={null}
-    className="css-assshr"
+    className="css-cn7df1"
     disabled={false}
     id={null}
     onClick={[Function]}
@@ -122,26 +122,27 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     type="button"
   >
     <div
-      className="css-1fhu87z"
+      className="css-vh9bzf"
     >
-      1
+      Select ...
     </div>
     <div
       className="css-sfaqia"
     />
   </button>
   <ul
-    className="css-fczowh"
+    className="css-mqwsxw"
   >
     <div
       className="css-dckqxd"
       key="numbers"
     >
       <div
-        className="css-n02qli"
+        className="css-1q3omhu"
       >
         <div>
           NUMBERS
+           |  
         </div>
         <div>
           10
@@ -155,7 +156,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "1",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="2"
@@ -165,7 +166,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "2",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="3"
@@ -175,7 +176,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "3",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="4"
@@ -185,7 +186,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "4",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="5"
@@ -195,7 +196,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "5",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="6"
@@ -205,7 +206,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "6",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="7"
@@ -215,7 +216,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "7",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="8"
@@ -225,7 +226,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "8",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="9"
@@ -235,7 +236,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "9",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="10"
@@ -245,7 +246,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "10",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
+      />
+      <div
+        className="css-iryzig"
       />
     </div>
     <div
@@ -253,10 +257,11 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       key="letters"
     >
       <div
-        className="css-n02qli"
+        className="css-1q3omhu"
       >
         <div>
           LETTERS
+           |  
         </div>
         <div>
           10
@@ -270,7 +275,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "a",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="b"
@@ -280,7 +285,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "b",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="c"
@@ -290,7 +295,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "c",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="d"
@@ -300,7 +305,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "d",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="e"
@@ -310,7 +315,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "e",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="f"
@@ -320,7 +325,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "f",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="g"
@@ -330,7 +335,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "g",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="h"
@@ -340,7 +345,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "h",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="i"
@@ -350,7 +355,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "i",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
       />
       <ForwardRef
         key="j"
@@ -360,7 +365,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "value": "j",
           }
         }
-        optionClass="css-1j0wxjc"
+        optionClass="css-orv7bh"
+      />
+      <div
+        className="css-iryzig"
       />
     </div>
   </ul>

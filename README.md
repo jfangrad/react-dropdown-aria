@@ -75,12 +75,12 @@ Custom styling can be applied to the dropdown through 2 ways:
 The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 The following object keys are supported to apply style to the corresponding part of the dropdown:
 ```
-arrow, dropdownButton, displayedValue, dropdownWrapper, groupContainer, groupHeading, optionContainer, optionItem
+Arrow, DropdownButton, DisplayedValue, DropdownWrapper, GroupContainer, GroupDivider, GroupHeading, OptionContainer, OptionItem
 ```
 The style prop should be passed an object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example is shown below:
 ```js
 const style = {
-  optionItem: (base, state, { selected }) => ({
+  OptionItem: (base, state, { selected }) => ({
     ...base,
     fontSize: '0.95em',
     color: selected ? 'white' : 'black',
