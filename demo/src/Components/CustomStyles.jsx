@@ -1,6 +1,6 @@
 import React from 'react';
 import ExampleSection from './ExampleSection';
-import Dropdown from '../../../lib';
+import Dropdown from '../../../dist';
 import styles from '../styles/CustomStyles';
 
 const airOptions = [
