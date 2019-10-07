@@ -6,7 +6,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   onKeyDown={[Function]}
 >
   <button
-    ari-describedby={null}
+    aria-describedby={null}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
     className="custom-class css-cn7df1"
@@ -80,7 +80,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   onKeyDown={[Function]}
 >
   <button
-    ari-describedby={null}
+    aria-describedby={null}
     aria-label={null}
     aria-labelledby={null}
     className="css-cn7df1"
@@ -111,7 +111,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   onKeyDown={[Function]}
 >
   <button
-    ari-describedby={null}
+    aria-describedby={null}
     aria-label={null}
     aria-labelledby={null}
     className="css-cn7df1"
