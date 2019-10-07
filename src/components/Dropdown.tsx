@@ -89,7 +89,7 @@ class Dropdown extends Component<DropdownProps, DropdownState> {
       >
         <button
           aria-label={ariaLabel}
-          ari-describedby={ariaDescribedBy}
+          aria-describedby={ariaDescribedBy}
           aria-labelledby={ariaLabelledBy}
           className={dropdownButtonClass}
           disabled={disabled}
