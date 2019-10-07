@@ -1,6 +1,5 @@
 node_modules/
-dist/
-demo/dist
+dist
 .vscode/
 dist/react-dropdown-aria.dev.js
 stats.json
