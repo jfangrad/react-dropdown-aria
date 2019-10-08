@@ -1,6 +1,0 @@
-node_modules/
-dist
-.vscode/
-dist/react-dropdown-aria.dev.js
-stats.json
-yarn-error.log

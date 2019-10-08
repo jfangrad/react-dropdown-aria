@@ -1,7 +1,0 @@
-__tests__/
-components/
-styles/
-utils/
-enzymeAdapter.setup.js
-tsconfig.json
-index.ts
