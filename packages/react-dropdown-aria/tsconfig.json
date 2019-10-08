@@ -3,11 +3,11 @@
     "target": "es5",
     "module": "commonjs",
     "declaration": true,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "strict": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "src",
+    "rootDir": "./",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -20,6 +20,6 @@
     "esModuleInterop": true,
     "lib": ["es6", "dom"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": ["index.ts"],
+  "exclude": ["node_modules", "/__tests__/*"]
 }

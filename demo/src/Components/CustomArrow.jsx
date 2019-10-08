@@ -1,6 +1,6 @@
 import React from 'react';
 import ExampleSection from './ExampleSection';
-import Dropdown from '../../../lib';
+import Dropdown from 'react-dropdown-aria';
 import '../styles/CustomArrow.scss';
 
 const options = [

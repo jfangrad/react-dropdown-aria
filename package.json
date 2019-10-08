@@ -1,24 +1,49 @@
 {
-  "name": "react-dropdown-aria",
-  "version": "1.4.0",
+  "name": "@react-dropdown-aria/monorepo",
+  "private": true,
+  "version": "1.0.0",
   "description": "Simple and accessible React dropdown component",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "scripts": {
-    "dev": "npm run demo:dev",
-    "build": "npm run lib:prod && npm run demo:prod",
-    "lib:dev": "tsc -w",
-    "lib:prod": "tsc",
-    "demo:dev": "webpack-dev-server --mode development --open --hot",
-    "demo:prod": "webpack --mode production",
-    "deploy:demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
-    "lint": "tslint -p tsconfig.json",
-    "test": "jest",
-    "test:update": "jest --updateSnapshot"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jfangrad/react-dropdown-aria.git"
+  },
+  "scripts": {
+    "build": "yarn lib:prod && yarn demo:prod",
+    "deploy": "yarn build && git subtree push --prefix demo/dist origin gh-pages",
+    "demo:dev": "cd demo && yarn demo:dev",
+    "demo:prod": "cd demo && yarn demo:prod",
+    "lib:dev": "cd packages/react-dropdown-aria && yarn lib:dev",
+    "lib:prod": "cd packages/react-dropdown-aria && yarn lib:prod",
+    "lint": "cd packages/react-dropdown-aria && yarn lint",
+    "test": "cd packages/react-dropdown-aria && yarn test",
+    "test:update": "cd packages/react-dropdown-aria && yarn test:update"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "@material-ui/core": "^4.5.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.14",
+    "css-loader": "^0.28.11",
+    "emotion": "^9.2.6",
+    "html-webpack-plugin": "^3.2.0",
+    "jsx-loader": "^0.13.2",
+    "node-sass": "^4.9.3",
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.3.4",
+    "sass-loader": "^7.1.0",
+    "sinon": "^6.1.5",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.36.1",
+    "webpack-bundle-analyzer": ">=3.3.2",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   },
   "keywords": [
     "react",
@@ -34,75 +59,8 @@
     "url": "https://github.com/jfangrad/react-dropdown-aria/issues"
   },
   "homepage": "https://github.com/jfangrad/react-dropdown-aria#readme",
-  "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.0",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.5.4",
-    "@babel/preset-react": "^7.0.0",
-    "@types/enzyme": "^3.10.3",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "@types/jest": "^24.0.15",
-    "@types/react": "^16.8.23",
-    "@types/react-dom": "^16.8.4",
-    "@types/sinon": "^7.0.13",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-emotion": "^10.0.14",
-    "concurrently": "^3.6.1",
-    "css-loader": "^0.28.11",
-    "enzyme": "^3.6.0",
-    "enzyme-adapter-react-16": "^1.5.0",
-    "enzyme-to-json": "^3.3.4",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.8.0",
-    "jest-emotion": "^10.0.11",
-    "jsx-loader": "^0.13.2",
-    "node-sass": "^4.9.3",
-    "prettier": "^1.18.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-hot-loader": "^4.3.4",
-    "sass-loader": "^7.1.0",
-    "sinon": "^6.1.5",
-    "style-loader": "^0.21.0",
-    "ts-jest": "^24.0.2",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
-    "tslint": "^5.18.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.5.3",
-    "webpack": "^4.36.1",
-    "webpack-bundle-analyzer": ">=3.3.2",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "dependencies": {
-    "@material-ui/core": "^4.5.0",
-    "emotion": "^9.2.6"
-  },
-  "peerDependencies": {
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
-  },
-  "bundlesize": [
-    {
-      "path": "./lib/index.js"
-    }
-  ],
-  "jest": {
-    "modulePathIgnorePatterns": [
-      "./node_modules"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "src/*(/(__tests?__/)([^_].*/)*?[^_][^/]*?\\.(test|spec)?\\.(tsx?))$",
-    "setupFiles": [
-      "./enzymeAdapter.setup.ts"
-    ],
-    "snapshotSerializers": [
-      "jest-emotion"
-    ]
-  }
+  "workspaces": [
+    "packages/*",
+    "demo"
+  ]
 }

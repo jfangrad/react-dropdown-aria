@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../lib';
+import Dropdown from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 
 const languageOptions = [
