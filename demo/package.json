@@ -6,7 +6,6 @@
   "scripts": {
     "demo:dev": "webpack-dev-server --mode development --open --hot",
     "demo:prod": "webpack --mode production",
-    "deploy:demo": "npm run build && git subtree push --prefix demo/dist origin gh-pages",
     "lint": "tslint -p tsconfig.json"
   },
   "author": "Justin Fangrad",

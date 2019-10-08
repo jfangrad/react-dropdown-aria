@@ -8,6 +8,8 @@
     "url": "git+https://github.com/jfangrad/react-dropdown-aria.git"
   },
   "scripts": {
+    "build": "cd packages/react-dropdown-aria && tsc && cd ../../demo && webpack --mode production",
+    "deploy": "yarn build && git subtree push --prefix demo/dist origin gh-pages",
     "demo:dev": "cd demo && webpack-dev-server --mode development --open --hot",
     "demo:prod": "cd demo && webpack --mode production",
     "lib:dev": "cd packages/react-dropdown-aria && tsc -w",
