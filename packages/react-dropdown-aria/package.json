@@ -68,7 +68,7 @@
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
-    "testRegex": "src/*(/(__tests?__/)([^_].*/)*?[^_][^/]*?\\.(test|spec)?\\.(tsx?))$",
+    "testRegex": "(/(__tests?__/)([^_].*/)*?[^_][^/]*?\\.(test|spec)?\\.(tsx?))$",
     "setupFiles": [
       "./enzymeAdapter.setup.ts"
     ],
