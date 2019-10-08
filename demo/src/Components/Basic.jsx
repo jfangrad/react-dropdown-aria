@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../../../dist';
+import Dropdown from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 
 const options = [

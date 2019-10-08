@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown, { StyleKeys } from '../../../dist';
+import Dropdown, { StyleKeys } from 'react-dropdown-aria';
 import '../styles/CustomRender.scss';
 import ExampleSection from './ExampleSection';
 
