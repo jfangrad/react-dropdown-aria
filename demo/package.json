@@ -5,8 +5,7 @@
   "description": "Demo for react-aria-dropdown",
   "scripts": {
     "demo:dev": "webpack-dev-server --mode development --open --hot",
-    "demo:prod": "webpack --mode production",
-    "lint": "tslint -p tsconfig.json"
+    "demo:prod": "webpack --mode production"
   },
   "author": "Justin Fangrad",
   "license": "MIT",

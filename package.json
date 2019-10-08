@@ -8,15 +8,15 @@
     "url": "git+https://github.com/jfangrad/react-dropdown-aria.git"
   },
   "scripts": {
-    "build": "cd packages/react-dropdown-aria && tsc && cd ../../demo && webpack --mode production",
+    "build": "yarn lib:prod && yarn demo:prod",
     "deploy": "yarn build && git subtree push --prefix demo/dist origin gh-pages",
-    "demo:dev": "cd demo && webpack-dev-server --mode development --open --hot",
-    "demo:prod": "cd demo && webpack --mode production",
-    "lib:dev": "cd packages/react-dropdown-aria && tsc -w",
-    "lib:prod": "cd packages/react-dropdown-aria && tsc",
-    "lint": "cd packages/react-dropdown-aria && tslint -p tsconfig.json",
-    "test": "cd packages/react-dropdown-aria && jest",
-    "test:update": "cd packages/react-dropdown-aria && jest --updateSnapshot"
+    "demo:dev": "cd demo && yarn demo:dev",
+    "demo:prod": "cd demo && yarn demo:prod",
+    "lib:dev": "cd packages/react-dropdown-aria && yarn lib:dev",
+    "lib:prod": "cd packages/react-dropdown-aria && yarn lib:prod",
+    "lint": "cd packages/react-dropdown-aria && yarn lint",
+    "test": "cd packages/react-dropdown-aria && yarn test",
+    "test:update": "cd packages/react-dropdown-aria && yarn test:update"
   },
   "dependencies": {
     "@babel/core": "^7.5.4",
