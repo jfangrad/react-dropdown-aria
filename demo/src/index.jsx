@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './Components/Header';
@@ -23,5 +24,7 @@ const Demo = () => (
   </div>
 );
 
+const DemoHot = hot(Demo);
+
 // eslint-disable-next-line no-undef
-ReactDOM.render(<Demo />, document.getElementById('root'));
+ReactDOM.render(<DemoHot />, document.getElementById('root'));
