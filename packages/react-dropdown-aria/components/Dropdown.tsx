@@ -1,8 +1,8 @@
-import React, { MouseEvent, KeyboardEvent, useCallback } from 'react';
+import React, { KeyboardEvent, useCallback } from 'react';
 import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
-import { DropdownProps } from '../utils/types';
+import { DropdownProps, MouseKeyboardEvent } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
 
 const Dropdown = (props: DropdownProps) => {
@@ -38,7 +38,7 @@ const Dropdown = (props: DropdownProps) => {
     flattenedOptions,
   } = useDropdownHooks(props);
 
-  const onDropdownClick = useCallback(({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => {
+  const onDropdownClick = useCallback(({ nativeEvent }: MouseKeyboardEvent) => {
     if (nativeEvent instanceof KeyboardEvent) {
       if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
       nativeEvent.preventDefault();
@@ -50,7 +50,7 @@ const Dropdown = (props: DropdownProps) => {
     }
   }, [open, disabled, setOpen]);
 
-  const onOptionClicked = useCallback(({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => {
+  const onOptionClicked = useCallback(({ nativeEvent }: MouseKeyboardEvent) => {
     if (nativeEvent instanceof KeyboardEvent) {
       if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
       nativeEvent.preventDefault();
@@ -113,7 +113,7 @@ const Dropdown = (props: DropdownProps) => {
     } else if (key.length === 1 && searchable) {
       searchDropdown(key.toLowerCase());
     }
-  }, []);
+  }, [searchDropdown, onNavigation, closeDropdown]);
 
   // ---------------- RENDER METHODS ---------------
   const renderArrow = useCallback(() => {

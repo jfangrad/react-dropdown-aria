@@ -1,12 +1,12 @@
-import React, { MouseEvent, KeyboardEvent, useRef, MutableRefObject, useEffect } from 'react';
-import { Option } from '../utils/types';
+import React, { useRef, MutableRefObject, useEffect } from 'react';
+import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 
 export interface OptionItemProps {
   option: Option,
   optionClass: string,
-  onOptionClicked: ({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void,
+  onOptionClicked: OnOptionClicked,
   focused: boolean,
-  itemRenderer?: ((props: OptionItemProps, buttonRef: MutableRefObject<HTMLButtonElement | null>) => JSX.Element) | undefined,
+  itemRenderer?: ItemRenderer,
 };
 
 const OptionItem = (props: OptionItemProps) => {
@@ -46,8 +46,8 @@ const OptionItem = (props: OptionItemProps) => {
 };
 
 OptionItem.defaultProps = {
-  optionClass: undefined,
   itemRenderer: undefined,
+  optionClass: undefined,
 };
 
 export default OptionItem;

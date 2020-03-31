@@ -7,7 +7,8 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, flattenedO
 
   const searchList = useCallback((value: string) => {
     const index = flattenedOptions.findIndex(option => option.value.toLowerCase().indexOf(value) === 0);
-    if (index) setFocusedIndex(index);
+
+    if (index !== -1) setFocusedIndex(index);
   }, [flattenedOptions, setFocusedIndex]);
 
   const clearTimer = useCallback(() => {
@@ -27,7 +28,7 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, flattenedO
     clearTimer();
     const timer = setTimeout(clearSearch, 1500);
     searchTimer.current = timer
-  }, [searchTerm]);
+  }, [searchTerm, searchList, searchTimer.current]);
 
   return searchDropdown;
 }

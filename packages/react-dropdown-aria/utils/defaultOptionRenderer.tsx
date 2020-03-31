@@ -3,14 +3,14 @@ import { cx } from 'emotion';
 import OptionItem, { OptionItemProps } from '../components/OptionItem';
 import OptionGroup from '../components/OptionGroup';
 import { isOptionGroup } from './helper';
-import { DropdownOption, GetStyleFunction, OptionRendererFunction } from './types';
+import { DropdownOption, GetStyleFunction, OptionRendererFunction, OnOptionClicked } from './types';
 import { StyleKeys } from './constants';
 
 function defaultOptionRenderer(
   selectedOption: string,
   options: DropdownOption[],
   focusedIndex: number,
-  onOptionClicked: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>) => void,
+  onOptionClicked: OnOptionClicked,
   getStyle: GetStyleFunction,
   optionItemRenderer?: OptionRendererFunction,
 ) {

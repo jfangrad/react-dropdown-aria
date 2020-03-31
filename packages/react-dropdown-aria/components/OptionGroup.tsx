@@ -1,6 +1,6 @@
-import React, { MutableRefObject } from 'react';
-import OptionItem, { OptionItemProps } from './OptionItem';
-import { OptionGroup as OptionGroupType, GetStyleFunction } from '../utils/types';
+import React from 'react';
+import OptionItem from './OptionItem';
+import { OptionGroup as OptionGroupType, GetStyleFunction, ItemRenderer, OnOptionClicked } from '../utils/types';
 import { StyleKeys } from '../utils/constants';
 import { cx } from 'emotion';
 
@@ -10,8 +10,8 @@ interface OptionGroupProps {
   selectedOption: string,
   focusedIndex: number,
   startingIndex: number,
-  onOptionClicked: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>) => void,
-  itemRenderer?: ((props: OptionItemProps, buttonRef: MutableRefObject<HTMLButtonElement | null>) => JSX.Element) | undefined,
+  onOptionClicked: OnOptionClicked,
+  itemRenderer?: ItemRenderer,
 };
 
 const OptionGroup = ({
