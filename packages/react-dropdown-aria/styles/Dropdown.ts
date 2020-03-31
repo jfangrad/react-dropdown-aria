@@ -1,6 +1,6 @@
 import colours from './colours';
 import OptionItem from './OptionItem';
-import { DropdownProps, DropdownState } from '../utils/types';
+import { DropdownProps, DropdownStyleDependantState } from '../utils/types';
 import { CSSObject } from 'create-emotion';
 
 const DropdownWrapper = ({ width, height }: DropdownProps): CSSObject => ({
@@ -11,7 +11,7 @@ const DropdownWrapper = ({ width, height }: DropdownProps): CSSObject => ({
   width,
 });
 
-const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
+const DropdownButton = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
   alignItems: 'center',
   backgroundColor: colours.greys.lighter,
   border: `2px solid ${open ? colours.states.focused : colours.greys.dark}`,
@@ -41,7 +41,7 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownState): CSSObjec
   },
 });
 
-const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownState): CSSObject => ({
+const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownStyleDependantState): CSSObject => ({
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   color: (selectedOption || internalSelectedOption) ? 'black' : colours.greys.base,
   flex: '1',
@@ -51,7 +51,7 @@ const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps
   whiteSpace: 'nowrap',
 });
 
-const Arrow = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
+const Arrow = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
   borderBottom: open ? `5px solid ${colours.greys.base}` : '0',
   borderLeft: '5px solid transparent',
   borderRight: '5px solid transparent',
@@ -64,7 +64,7 @@ const Arrow = (props: DropdownProps, { open }: DropdownState): CSSObject => ({
 });
 
 
-const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownState): CSSObject => ({
+const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
   backgroundColor: colours.greys.lighter,
   border: `2px solid ${colours.greys.darker}`,
   borderRadius: '4px',

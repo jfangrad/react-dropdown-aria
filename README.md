@@ -117,13 +117,11 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `id` | string | undefined | `id` to be passed to the main dropdown button |
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
 | `openUp` | boolean | false | Whether dropdown should open up or not |
-| `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
+| `optionItemRenderer` | OptionRendererFunction | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | array | [] | Array of option objects |
-| `optionClassName` | string | undefined | CSS class to be applied to all options in the dropdown |
 | `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
-| `selectedOptionClassName` | string | undefined | CSS class to be applied to the selected option in the dropdown |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `setSelected` | function | undefined | Function used to update the state of the selected value |

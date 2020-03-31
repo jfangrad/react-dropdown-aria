@@ -1,64 +1,54 @@
-import React from 'react';
+import React, { MutableRefObject } from 'react';
 import { cx } from 'emotion';
-import OptionItem from '../components/OptionItem';
+import OptionItem, { OptionItemProps } from '../components/OptionItem';
+import OptionGroup from '../components/OptionGroup';
 import { isOptionGroup } from './helper';
-import { StyleKey, ExtraState, DropdownOption, OptionGroup, Option } from './types';
+import { DropdownOption, GetStyleFunction, OptionRendererFunction, OnOptionClicked } from './types';
 import { StyleKeys } from './constants';
-
-const pushRef = (elementsRef: HTMLButtonElement[]) => (element: HTMLButtonElement) => {
-  if (element) {
-    elementsRef.push(element);
-  }
-}
 
 function defaultOptionRenderer(
   selectedOption: string,
   options: DropdownOption[],
-  selectedOptionClassName: string,
-  optionClassName: string,
-  onOptionClicked: (e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>) => void,
-  elementsRef: HTMLButtonElement[],
-  getStyle: (key: StyleKey, extraState?: ExtraState) => string
+  focusedIndex: number,
+  onOptionClicked: OnOptionClicked,
+  getStyle: GetStyleFunction,
+  optionItemRenderer?: OptionRendererFunction,
 ) {
-  return options.map((option) => {
+  const itemRenderer = optionItemRenderer ?
+    (props: OptionItemProps, optionRef: MutableRefObject<HTMLButtonElement | null>) => optionItemRenderer(props, optionRef, getStyle) :
+    undefined;
 
+  let index = 0;
+  return options.map((option) => {
     if (isOptionGroup(option)) { // Is group of options
-      const { groupOptions, label } = (option as OptionGroup);
+      const startingIndex = index;
+      index += option.groupOptions.length;
       return (
-        <div key={label} className={getStyle(StyleKeys.GroupContainer)}>
-          <div className={getStyle(StyleKeys.GroupHeading)}>
-            <div>{label.toUpperCase()} | &nbsp;</div>
-            <div>{groupOptions.length}</div>
-          </div>
-          {
-            groupOptions.map((groupOption) => {
-              const selected = groupOption.value === selectedOption;
-              const groupOptionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected }));
-              return (
-                <OptionItem
-                  key={groupOption.value}
-                  optionClass={groupOptionClass}
-                  onOptionClicked={onOptionClicked}
-                  option={groupOption}
-                  ref={pushRef(elementsRef)}
-                />
-              );
-            })
-          }
-          <div className={getStyle(StyleKeys.GroupDivider)} />
-        </div>
+        <OptionGroup
+          key={option.label}
+          optionGroup={option}
+          selectedOption={selectedOption}
+          focusedIndex={focusedIndex}
+          startingIndex={startingIndex}
+          onOptionClicked={onOptionClicked}
+          getStyle={getStyle}
+          itemRenderer={itemRenderer}
+        />
       );
     }
 
     const { value, className } = option;
+    const isFocused = index === focusedIndex;
     const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected: value === selectedOption }));
+    index += 1;
     return (
       <OptionItem
         key={value}
         optionClass={optionClass}
         onOptionClicked={onOptionClicked}
-        option={(option as Option)}
-        ref={pushRef(elementsRef)}
+        option={option}
+        focused={isFocused}
+        itemRenderer={itemRenderer}
       />
     );
   });

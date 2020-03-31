@@ -23,7 +23,6 @@ const ExampleSection = ({ title, fileName, children }) => {
   const [searchable, setSearchable] = useState(true);
 
   const handleCheckboxClick = type => ({target}) => {
-    console.log(target.id);
     if (type === 'disable') {
       setDisabled(target.checked);
     } else {

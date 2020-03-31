@@ -9001,6 +9001,11 @@ tslint-config-prettier@^1.18.0:
   resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.18.0.tgz#75f140bde947d35d8f0d238e0ebf809d64592c37"
   integrity sha512-xPw9PgNPLG3iKRxmK7DWr+Ea/SzrvfHtjFt5LBl61gk2UBG/DB9kCXRjv+xyIU1rUtnayLeMUVJBcMX8Z17nDg==
 
+tslint-react-hooks@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/tslint-react-hooks/-/tslint-react-hooks-2.2.2.tgz#4dc9b3986196802d45c11cc0bf6319a8116fe2ed"
+  integrity sha512-gtwA14+WevNUtlBhvAD5Ukpxt2qMegYI7IDD8zN/3JXLksdLdEuU/T/oqlI1CtZhMJffqyNn+aqq2oUqUFXiNA==
+
 tslint-react@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/tslint-react/-/tslint-react-4.0.0.tgz#b4bb4c01c32448cb14d23f143a2f5e4989bb961e"

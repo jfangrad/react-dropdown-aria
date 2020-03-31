@@ -1,26 +1,40 @@
-import React, { MouseEvent, KeyboardEvent, forwardRef } from 'react';
-import { Option } from '../utils/types';
+import React, { useRef, MutableRefObject, useEffect } from 'react';
+import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 
-interface OptionItemProps {
+export interface OptionItemProps {
   option: Option,
   optionClass: string,
-  onOptionClicked: ({ nativeEvent }: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>) => void,
+  onOptionClicked: OnOptionClicked,
+  focused: boolean,
+  itemRenderer?: ItemRenderer,
 };
 
-const OptionItem = forwardRef<HTMLButtonElement, OptionItemProps>((props: OptionItemProps, ref) => {
+const OptionItem = (props: OptionItemProps) => {
+  const buttonRef: MutableRefObject<HTMLButtonElement | null> = useRef(null);
   const {
     onOptionClicked,
     option,
     optionClass,
+    focused,
+    itemRenderer,
   } = props;
+  useEffect(() => {
+    if (focused && buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, [focused]);
+
+  if (itemRenderer) {
+    return itemRenderer(props, buttonRef);
+  }
 
   return (
     <button
+      ref={buttonRef}
       aria-label={option.ariaLabel}
       className={optionClass}
       onClick={onOptionClicked}
       onKeyDown={onOptionClicked}
-      ref={ref}
       tabIndex={-1}
       title={option.title}
       type="button"
@@ -29,9 +43,10 @@ const OptionItem = forwardRef<HTMLButtonElement, OptionItemProps>((props: Option
       { option.value }
     </button>
   );
-});
+};
 
 OptionItem.defaultProps = {
+  itemRenderer: undefined,
   optionClass: undefined,
 };
 
