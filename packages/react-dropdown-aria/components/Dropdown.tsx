@@ -113,7 +113,7 @@ const Dropdown = (props: DropdownProps) => {
     } else if (key.length === 1 && searchable) {
       searchDropdown(key.toLowerCase());
     }
-  }, [searchDropdown, onNavigation, closeDropdown]);
+  }, [searchDropdown, onNavigation, closeDropdown, searchable]);
 
   // ---------------- RENDER METHODS ---------------
   const renderArrow = useCallback(() => {
