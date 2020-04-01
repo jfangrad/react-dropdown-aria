@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/jfangrad/react-dropdown-aria.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-dropdown-aria/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
-[![gzip size](http://img.badgesize.io/https://unpkg.com/react-dropdown-aria/lib/index.js?compression=gzip)](https://unpkg.com/react-dropdown-aria/lib/index.js)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-dropdown-aria?color=important)
+![npm](https://img.shields.io/npm/dm/react-dropdown-aria)
 # react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
@@ -15,15 +16,17 @@ This component was created to be a light weight and fully accessible dropdown co
 6. Typescript typings included
 
 # Demo And Examples
-For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
+For demo and examples see [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
 
 # Installation
 Simply use npm or yarn to install the package.
 ```
-// npm
-$ npm install --save react-dropdown-aria
 // Yarn
 $ yarn add react-dropdown-aria
+```
+```
+// npm
+$ npm install --save react-dropdown-aria
 ```
 
 You can then include it in your project as needed:
@@ -54,7 +57,7 @@ Each option object in the array of options can have the following keys:
 | `title` | string | null | HTML title to be used for the option |
 | `value` | string | null | The value to be displayed in the dropdown (Required) |
 
-### Groups Example
+### Grouped Options Example
 Groups of items can also be implemented by pasing an array of objects of the following form to the dropdown options prop:
 ```js
 <Dropdown
@@ -69,8 +72,8 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 
 ## Styling
 Custom styling can be applied to the dropdown through 2 ways:
-1. CSS className props (As seen in props table below)
-2. Emotion JavaScript Objects passed to `style` prop
+1. Emotion JavaScript Objects via the `style` prop
+2. CSS className props (As seen in props table below)
 
 The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 The following object keys are supported to apply style to the corresponding part of the dropdown:
@@ -119,7 +122,7 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `openUp` | boolean | false | Whether dropdown should open up or not |
 | `optionItemRenderer` | OptionRendererFunction | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | array | [] | Array of option objects |
-| `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
+| `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused item by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
@@ -129,14 +132,21 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `width` | number | null | Use to set the dropdown width manually |
 
 
-## Developing
+# Developing
 Clone the repo
 ```
 git clone https://github.com/jfangrad/react-dropdown-aria.git
 ```
 
-Install node modules and start in dev mode
+Install node modules
 ```
-npm install
-npm run dev
+yarn install
+```
+
+Then in two seperate consoles start the library and demo
+```
+yarn lib:dev
+```
+```
+yarn demo:dev
 ```
