@@ -7,6 +7,7 @@ export interface OptionItemProps {
   onOptionClicked: OnOptionClicked,
   focused: boolean,
   itemRenderer?: ItemRenderer,
+  searchable: boolean,
 };
 
 const OptionItem = (props: OptionItemProps) => {
@@ -17,12 +18,14 @@ const OptionItem = (props: OptionItemProps) => {
     optionClass,
     focused,
     itemRenderer,
+    searchable,
   } = props;
+
   useEffect(() => {
-    if (focused && buttonRef.current) {
+    if (focused && buttonRef.current && !searchable) {
       buttonRef.current.focus();
     }
-  }, [focused]);
+  }, [focused, searchable, buttonRef.current]);
 
   if (itemRenderer) {
     return itemRenderer(props, buttonRef);

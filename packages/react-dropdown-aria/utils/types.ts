@@ -15,7 +15,9 @@ export type OptionRendererFunction = (
   getStyle: GetStyleFunction,
 ) => JSX.Element;
 
-export type OnOptionClicked = (e: MouseKeyboardEvent) => void;
+export type MouseKeyboardEvent<T> = React.MouseEvent<T, MouseEvent> | React.KeyboardEvent<T>;
+
+export type OnOptionClicked = (e: MouseKeyboardEvent<HTMLButtonElement>) => void;
 
 export type ItemRenderer = (
   props: OptionItemProps,
@@ -84,5 +86,3 @@ export interface DropdownProps {
   style: DropdownStyle,
   width: number,
 }
-
-export type MouseKeyboardEvent = React.MouseEvent<HTMLButtonElement, MouseEvent> | React.KeyboardEvent<HTMLButtonElement>;

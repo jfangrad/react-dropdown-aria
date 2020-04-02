@@ -41,6 +41,18 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownStyleDependantSt
   },
 });
 
+const DropdownInput = ({ hideArrow, selectedOption, centerText }: DropdownProps): CSSObject => ({
+  backgroundColor: 'inherit',
+  borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
+  borderStyle: 'none solid none none',
+  flex: '1',
+  fontSize: 'inherit',
+  outline: 'none',
+  padding: 0,
+  textAlign: centerText ? 'center' : 'left',
+  whiteSpace: 'nowrap',
+});
+
 const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownStyleDependantState): CSSObject => ({
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   color: (selectedOption || internalSelectedOption) ? 'black' : colours.greys.base,
@@ -121,6 +133,7 @@ const defaultStyles = {
   Arrow,
   DisplayedValue,
   DropdownButton,
+  DropdownInput,
   DropdownWrapper,
   GroupContainer,
   GroupDivider,

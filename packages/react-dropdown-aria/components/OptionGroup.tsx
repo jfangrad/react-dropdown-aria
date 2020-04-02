@@ -12,6 +12,7 @@ interface OptionGroupProps {
   startingIndex: number,
   onOptionClicked: OnOptionClicked,
   itemRenderer?: ItemRenderer,
+  searchable: boolean,
 };
 
 const OptionGroup = ({
@@ -21,7 +22,8 @@ const OptionGroup = ({
   startingIndex,
   focusedIndex,
   onOptionClicked,
-  itemRenderer
+  itemRenderer,
+  searchable,
 }: OptionGroupProps) => {
   const { groupOptions, label } = optionGroup;
   let index = startingIndex;
@@ -47,6 +49,7 @@ const OptionGroup = ({
               option={groupOption}
               focused={focused}
               itemRenderer={itemRenderer}
+              searchable={searchable}
             />
           );
         })

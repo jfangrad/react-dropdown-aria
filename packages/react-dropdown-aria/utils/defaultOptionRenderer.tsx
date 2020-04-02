@@ -12,6 +12,7 @@ function defaultOptionRenderer(
   focusedIndex: number,
   onOptionClicked: OnOptionClicked,
   getStyle: GetStyleFunction,
+  searchable: boolean,
   optionItemRenderer?: OptionRendererFunction,
 ) {
   const itemRenderer = optionItemRenderer ?
@@ -33,6 +34,7 @@ function defaultOptionRenderer(
           onOptionClicked={onOptionClicked}
           getStyle={getStyle}
           itemRenderer={itemRenderer}
+          searchable={searchable}
         />
       );
     }
@@ -49,6 +51,7 @@ function defaultOptionRenderer(
         option={option}
         focused={isFocused}
         itemRenderer={itemRenderer}
+        searchable={searchable}
       />
     );
   });

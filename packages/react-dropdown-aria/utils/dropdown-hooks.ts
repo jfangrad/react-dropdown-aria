@@ -8,15 +8,15 @@ import useClickListener from './dom-hooks';
 import { arrayReducer } from './helper';
 
 const useDropdownHooks = (props: DropdownProps) => {
-  const { style, options } = props;
+  const { style, options, searchable } = props;
   const [internalSelectedOption, setInternalSelectedOption] = useState<string | null>(null);
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const [open, setOpen] = useState(false);
   const container: MutableRefObject<HTMLDivElement | null> = useRef(null);
   const dropdownButton: MutableRefObject<HTMLButtonElement | null> = useRef(null);
 
-  const flattenedOptions = useMemo(() => options.reduce(arrayReducer, []), [options]);
-  const searchDropdown = useSearch(setFocusedIndex, flattenedOptions);
+  const { searchTerm, setSearchTerm, filteredOptions } = useSearch(setFocusedIndex, options, searchable);
+  const flattenedOptions = useMemo(() => filteredOptions.reduce(arrayReducer, []), [options]);
 
   const getStyle = useCallback((key: StyleKey, extraState?: ExtraState) => {
     const state = { focusedIndex, open, internalSelectedOption };
@@ -39,7 +39,8 @@ const useDropdownHooks = (props: DropdownProps) => {
     internalSelectedOption, setInternalSelectedOption,
     focusedIndex, setFocusedIndex,
     open, setOpen,
-    searchDropdown,
+    searchTerm, setSearchTerm,
+    filteredOptions,
     getStyle,
     closeDropdown,
     dropdownButton,
