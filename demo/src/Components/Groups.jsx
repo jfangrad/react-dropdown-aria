@@ -41,7 +41,7 @@ class Groups extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
   render() {
@@ -56,8 +56,8 @@ class Groups extends React.Component {
             id="dropdown"
             ariaLabel="Grouped Options Dropdown"
             options={groupedOptions}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             maxContentHeight={150}
             {...dropdownState}

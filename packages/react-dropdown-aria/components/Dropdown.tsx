@@ -16,25 +16,23 @@ const Dropdown = (props: DropdownProps) => {
     disabled,
     hideArrow,
     id,
-    // options,
     optionItemRenderer,
     pageKeyTraverseSize,
     placeholder,
     searchable,
-    setSelected,
-    selectedOption,
+    value,
     selectedValueClassName,
   } = props;
 
   const {
-    internalSelectedOption, setInternalSelectedOption,
     getStyle,
     open, setOpen,
     focusedIndex, setFocusedIndex,
+    setValue,
     dropdownButton,
     container,
     closeDropdown,
-    searchTerm, setSearchTerm,
+    searchTerm, setSearchTerm, isSearching,
     filteredOptions,
     flattenedOptions,
   } = useDropdownHooks(props);
@@ -46,10 +44,12 @@ const Dropdown = (props: DropdownProps) => {
     }
 
     if (!disabled) {
-      setOpen(p => !p);
-      setFocusedIndex(p => (open ? -1 : p));
+      if (!(open && searchable)) {
+        setOpen(p => !p);
+        setFocusedIndex(p => (open ? -1 : p));
+      }
     }
-  }, [open, disabled, setOpen]);
+  }, [open, disabled, setOpen, searchable]);
 
   const onOptionClicked = useCallback(({ nativeEvent }: MouseKeyboardEvent<HTMLButtonElement>) => {
     if (nativeEvent instanceof KeyboardEvent) {
@@ -58,16 +58,15 @@ const Dropdown = (props: DropdownProps) => {
     }
 
     if (nativeEvent.target) {
-      const newSelectedOption = (nativeEvent.target as HTMLButtonElement).innerText;
-      setSelected(newSelectedOption);
-      setOpen(false);
-      setInternalSelectedOption(newSelectedOption);
+      const newOptionText = (nativeEvent.target as HTMLButtonElement).innerText;
+      const newOption = flattenedOptions.find(({ value: optionValue }) => optionValue === newOptionText);
+      setValue(newOption, true);
 
       if (nativeEvent instanceof KeyboardEvent && nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER && dropdownButton.current) {
         dropdownButton.current.focus();
       }
     }
-  }, [setSelected, setOpen, setInternalSelectedOption, dropdownButton.current])
+  }, [setValue, setOpen, dropdownButton.current])
 
   const onNavigation = useCallback((keyCode: number) => {
     switch (keyCode) {
@@ -101,26 +100,34 @@ const Dropdown = (props: DropdownProps) => {
       default:
         break;
     }
-  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize])
+  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown])
 
   const onKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
     const { keyCode } = nativeEvent;
 
     if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
       nativeEvent.preventDefault();
+      nativeEvent.stopPropagation();
       onNavigation(keyCode);
-    } else if (keyCode === KEY_CODES.TAB) {
-      if (searchable && searchTerm) {
-        setSelected(flattenedOptions[focusedIndex].value);
-      } else {
-        closeDropdown();
-      }
+    } else if (keyCode === KEY_CODES.TAB && !searchable) {
+      closeDropdown();
     }
-  }, [onNavigation, setSearchTerm, closeDropdown, searchable]);
+  }, [onNavigation, setOpen, searchable, closeDropdown]);
 
   const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   }, [setSearchTerm]);
+
+  const handleInputKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
+    const { keyCode } = nativeEvent;
+    if (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) {
+      if (searchable && searchTerm.trim() && flattenedOptions.length > 0) {
+        nativeEvent.preventDefault();
+        nativeEvent.stopPropagation();
+        setValue(flattenedOptions[focusedIndex], true);
+      }
+    }
+  }, [searchable, searchTerm, flattenedOptions, setValue]);
 
   // ---------------- RENDER METHODS ---------------
   const renderArrow = useCallback(() => {
@@ -131,7 +138,8 @@ const Dropdown = (props: DropdownProps) => {
     return <div className={arrowClass} />
   }, [open, hideArrow, arrowRenderer]);
 
-  const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
+  const displayedValue = value || placeholder || '';
+  const inputValue = isSearching ? searchTerm : value;
   const wrapperClass = getStyle(StyleKeys.DropdownWrapper);
   const dropdownButtonClass = cx(buttonClassName, getStyle(StyleKeys.DropdownButton));
   const displayedValueClass = cx(selectedValueClassName, getStyle(StyleKeys.DisplayedValue));
@@ -142,9 +150,10 @@ const Dropdown = (props: DropdownProps) => {
     <input
       type="text"
       className={inputValueClass}
-      value={searchTerm}
+      value={inputValue}
       placeholder={placeholder}
       onChange={handleTermChange}
+      onKeyDown={handleInputKeyDown}
       disabled={disabled}
     />
   ) : (
@@ -173,7 +182,7 @@ const Dropdown = (props: DropdownProps) => {
         { renderArrow() }
       </button>
       <ul className={contentClass}>
-        { defaultOptionRenderer(selectedOption, filteredOptions, focusedIndex, onOptionClicked, getStyle, searchable, optionItemRenderer) }
+        { defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, searchable, optionItemRenderer) }
       </ul>
     </div>
   );
@@ -191,16 +200,16 @@ Dropdown.defaultProps = {
   height: null,
   hideArrow: false,
   id: null,
-  maxContentHeight: null,
+  maxContentHeight: 150,
   openUp: false,
   optionItemRenderer: undefined,
   options: [],
   pageKeyTraverseSize: 10,
   placeholder: 'Select ...',
-  searchable: true,
-  selectedOption: null,
+  searchable: false,
   selectedValueClassName: null,
   style: {},
+  value: undefined,
   width: null,
 };
 

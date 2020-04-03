@@ -32,7 +32,7 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownStyleDependantSt
   },
 
   '&:focus': {
-    border: `2px solid ${colours.states.focused}`,
+    border: `2px solid ${colours.states.focused} !important`,
   },
 
   '&:disabled': {
@@ -41,7 +41,7 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownStyleDependantSt
   },
 });
 
-const DropdownInput = ({ hideArrow, selectedOption, centerText }: DropdownProps): CSSObject => ({
+const DropdownInput = ({ hideArrow, value, centerText }: DropdownProps): CSSObject => ({
   backgroundColor: 'inherit',
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
   borderStyle: 'none solid none none',
@@ -53,9 +53,9 @@ const DropdownInput = ({ hideArrow, selectedOption, centerText }: DropdownProps)
   whiteSpace: 'nowrap',
 });
 
-const DisplayedValue = ({ hideArrow, selectedOption, centerText }: DropdownProps, { internalSelectedOption }: DropdownStyleDependantState): CSSObject => ({
+const DisplayedValue = ({ hideArrow, value, centerText }: DropdownProps): CSSObject => ({
   borderRight: hideArrow ? 'none' : `1px solid ${colours.greys.light}`,
-  color: (selectedOption || internalSelectedOption) ? 'black' : colours.greys.base,
+  color: (value) ? 'black' : colours.greys.base,
   flex: '1',
   overflow: 'hidden',
   textAlign: centerText ? 'center' : 'left',
@@ -90,7 +90,7 @@ const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
   margin: '0',
   maxHeight: maxContentHeight || '175px',
   overflowX: 'hidden',
-  overflowY: maxContentHeight ? 'scroll' : undefined,
+  overflowY: maxContentHeight ? 'auto' : undefined,
   padding: '2px 0',
   position: 'absolute',
   top: openUp ? undefined : '100%',

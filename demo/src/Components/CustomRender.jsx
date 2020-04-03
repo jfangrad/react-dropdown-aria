@@ -27,7 +27,7 @@ class CustomRender extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
   renderOption = (props, optionRef, getStyle) => {
@@ -66,8 +66,8 @@ class CustomRender extends React.Component {
             ariaLabel="Custom Option Rendering Dropdown"
             options={options}
             optionItemRenderer={this.renderOption}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             style={customStyle}
             {...dropdownState}

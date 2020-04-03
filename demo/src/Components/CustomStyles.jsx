@@ -33,7 +33,7 @@ class CustomStyles extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
   render() {
@@ -48,8 +48,8 @@ class CustomStyles extends React.Component {
             id="dropdown"
             ariaLabel="Custom styled Dropdown"
             options={options}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             maxContentHeight={150}
             style={styles}

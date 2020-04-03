@@ -2,6 +2,8 @@ import { ReactNode, MutableRefObject } from 'react';
 import { StyleKeys } from './constants';
 import { OptionItemProps } from '../components/OptionItem';
 
+export type Maybe<T> = T | null | undefined;
+
 export interface ExtraState { [key: string]: any };
 
 export type StyleKey = keyof typeof StyleKeys;
@@ -54,7 +56,6 @@ export type DropdownOption = Option | OptionGroup;
 export interface DropdownStyleDependantState {
   open: boolean,
   focusedIndex: number,
-  internalSelectedOption: string | null,
 }
 
 export interface DropdownState extends DropdownStyleDependantState {
@@ -80,9 +81,9 @@ export interface DropdownProps {
   pageKeyTraverseSize: number,
   placeholder: string,
   searchable: boolean,
-  selectedOption: string,
+  value: string,
   selectedValueClassName: string,
-  setSelected: (option: string) => void,
+  onChange: (option: Option) => void,
   style: DropdownStyle,
   width: number,
 }
