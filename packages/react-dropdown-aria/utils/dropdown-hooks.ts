@@ -1,5 +1,5 @@
 /* tslint:disable:object-literal-sort-keys */
-import { useState, useRef, MutableRefObject, useCallback, useMemo } from "react";
+import { useState, useRef, MutableRefObject, useCallback, useMemo, useEffect } from "react";
 import { DropdownProps, StyleKey, ExtraState, Option } from './types';
 import useSearch from './search-hooks';
 import defaultStyles from '../styles/Dropdown';
@@ -15,34 +15,40 @@ const useDropdownHooks = (props: DropdownProps) => {
   const dropdownButton: MutableRefObject<HTMLButtonElement | null> = useRef(null);
 
   const { searchTerm, setSearchTerm, filteredOptions, isSearching, setIsSearching } = useSearch(setFocusedIndex, options, searchable);
-  const flattenedOptions = useMemo(() => filteredOptions.reduce(arrayReducer, []), [options]);
+  const flattenedOptions = useMemo(() => filteredOptions.reduce(arrayReducer, []), [filteredOptions]);
+
+  useEffect(() => {
+    if (isSearching && searchTerm.trim() && !open) {
+      setOpen(true);
+    }
+  }, [isSearching, searchTerm, open]);
 
   const getStyle = useCallback((key: StyleKey, extraState?: ExtraState) => {
-    const state = { focusedIndex, open };
+    const state = { focusedIndex, open, searchable };
     const baseStyle = defaultStyles[key](props, state, extraState || {});
     const customStyle = style[key];
     return customStyle ? css(customStyle(baseStyle, state, extraState)) : css(baseStyle);
-  }, [style, focusedIndex, open]);
+  }, [style, focusedIndex, open, searchable, props]);
 
   const closeDropdown = useCallback((focus = false) => {
+    setSearchTerm('', false);
     setOpen(false);
     setFocusedIndex(p => (value ? p : -1))
     if (focus && dropdownButton.current) {
       dropdownButton.current.focus();
     }
-  }, [dropdownButton.current, value]);
+  }, [dropdownButton.current, value, setSearchTerm, setOpen, setFocusedIndex, isSearching, setIsSearching]);
 
   const setValue = useCallback((newOption?: Option, shouldClose: boolean = false) => {
     if (newOption) {
       onChange(newOption);
-      setSearchTerm(newOption.value);
-      setIsSearching(false);
+      setSearchTerm('', false);
     }
 
     if (shouldClose) {
       closeDropdown(false);
     }
-  }, [onChange, closeDropdown, ]);
+  }, [onChange, closeDropdown, setSearchTerm, setIsSearching]);
 
   useClickListener(closeDropdown, container);
 
@@ -51,7 +57,7 @@ const useDropdownHooks = (props: DropdownProps) => {
     open, setOpen,
     searchTerm, setSearchTerm,
     setValue,
-    isSearching,
+    isSearching, setIsSearching,
     filteredOptions,
     getStyle,
     closeDropdown,

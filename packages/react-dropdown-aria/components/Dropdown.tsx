@@ -32,7 +32,8 @@ const Dropdown = (props: DropdownProps) => {
     dropdownButton,
     container,
     closeDropdown,
-    searchTerm, setSearchTerm, isSearching,
+    searchTerm, setSearchTerm,
+    isSearching, setIsSearching,
     filteredOptions,
     flattenedOptions,
   } = useDropdownHooks(props);
@@ -109,10 +110,10 @@ const Dropdown = (props: DropdownProps) => {
       nativeEvent.preventDefault();
       nativeEvent.stopPropagation();
       onNavigation(keyCode);
-    } else if (keyCode === KEY_CODES.TAB && !searchable) {
+    } else if (keyCode === KEY_CODES.TAB && (!searchable || !searchTerm)) {
       closeDropdown();
     }
-  }, [onNavigation, setOpen, searchable, closeDropdown]);
+  }, [onNavigation, setOpen, searchable, closeDropdown, searchTerm]);
 
   const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -122,12 +123,16 @@ const Dropdown = (props: DropdownProps) => {
     const { keyCode } = nativeEvent;
     if (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) {
       if (searchable && searchTerm.trim() && flattenedOptions.length > 0) {
-        nativeEvent.preventDefault();
         nativeEvent.stopPropagation();
+        nativeEvent.preventDefault();
         setValue(flattenedOptions[focusedIndex], true);
       }
     }
   }, [searchable, searchTerm, flattenedOptions, setValue]);
+
+  const handleInputFocus = useCallback(() => {
+    setIsSearching(true);
+  }, [setIsSearching]);
 
   // ---------------- RENDER METHODS ---------------
   const renderArrow = useCallback(() => {
@@ -139,7 +144,7 @@ const Dropdown = (props: DropdownProps) => {
   }, [open, hideArrow, arrowRenderer]);
 
   const displayedValue = value || placeholder || '';
-  const inputValue = isSearching ? searchTerm : value;
+  const inputValue = (isSearching ? searchTerm : value) || '';
   const wrapperClass = getStyle(StyleKeys.DropdownWrapper);
   const dropdownButtonClass = cx(buttonClassName, getStyle(StyleKeys.DropdownButton));
   const displayedValueClass = cx(selectedValueClassName, getStyle(StyleKeys.DisplayedValue));
@@ -151,8 +156,9 @@ const Dropdown = (props: DropdownProps) => {
       type="text"
       className={inputValueClass}
       value={inputValue}
-      placeholder={placeholder}
+      placeholder={(isSearching ? value : placeholder) || placeholder}
       onChange={handleTermChange}
+      onFocus={handleInputFocus}
       onKeyDown={handleInputKeyDown}
       disabled={disabled}
     />
@@ -177,6 +183,7 @@ const Dropdown = (props: DropdownProps) => {
         onKeyDown={onDropdownClick}
         ref={dropdownButton}
         type="button"
+        tabIndex={searchable ? -1 : 0}
       >
         {ValueMarkup}
         { renderArrow() }

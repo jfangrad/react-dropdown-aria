@@ -12,10 +12,10 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: D
     return filterDropdownOptions(options, searchTerm)
   }, [options, searchTerm, isSearching]);
 
-  const setSearchTerm = useCallback((newSearchTerm: string) => {
-    setIsSearching(true);
-    setFocusedIndex(0);
+  const setSearchTerm = useCallback((newSearchTerm: string, newIsSearching = true) => {
+    setIsSearching(newIsSearching);
     setSearchTermState(newSearchTerm)
+    setFocusedIndex(0);
   }, [setFocusedIndex, setSearchTermState, setIsSearching]);
 
 

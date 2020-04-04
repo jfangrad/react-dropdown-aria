@@ -56,6 +56,7 @@ export type DropdownOption = Option | OptionGroup;
 export interface DropdownStyleDependantState {
   open: boolean,
   focusedIndex: number,
+  searchable: boolean,
 }
 
 export interface DropdownState extends DropdownStyleDependantState {

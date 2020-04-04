@@ -15,7 +15,7 @@ const useClickListener = (closeDropdown: () => void, container: MutableRefObject
     if (container.current && !container.current.contains(e.target as Node)) {
       closeDropdown();
     }
-  }, [container.current]);
+  }, [container.current, closeDropdown]);
 };
 
 export default useClickListener

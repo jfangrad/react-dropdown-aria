@@ -23,7 +23,7 @@ const DropdownButton = (props: DropdownProps, { open }: DropdownStyleDependantSt
   height: '100%',
   margin: '0',
   outline: 'none',
-  padding: '9px 5px 9px 12px',
+  padding: props.searchable ? '0' : '9px 5px 9px 12px',
   textAlign: 'left',
   width: '100%',
 
@@ -47,8 +47,9 @@ const DropdownInput = ({ hideArrow, value, centerText }: DropdownProps): CSSObje
   borderStyle: 'none solid none none',
   flex: '1',
   fontSize: 'inherit',
+  margin: '1px',
   outline: 'none',
-  padding: 0,
+  padding: '8px 4px 8px 11px',
   textAlign: centerText ? 'center' : 'left',
   whiteSpace: 'nowrap',
 });
@@ -63,7 +64,7 @@ const DisplayedValue = ({ hideArrow, value, centerText }: DropdownProps): CSSObj
   whiteSpace: 'nowrap',
 });
 
-const Arrow = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
+const Arrow = (props: DropdownProps, { open, searchable }: DropdownStyleDependantState): CSSObject => ({
   borderBottom: open ? `5px solid ${colours.greys.base}` : '0',
   borderLeft: '5px solid transparent',
   borderRight: '5px solid transparent',
@@ -71,7 +72,7 @@ const Arrow = (props: DropdownProps, { open }: DropdownStyleDependantState): CSS
   content: '""',
   height: '0',
   marginLeft: '8px',
-  marginRight: '5px',
+  marginRight: searchable ? '10px' : '5px',
   width: '0',
 });
 
