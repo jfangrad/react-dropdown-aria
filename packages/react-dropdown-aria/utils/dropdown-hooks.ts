@@ -29,11 +29,11 @@ const useDropdownHooks = (props: DropdownProps) => {
   const closeDropdown = useCallback((focus = false) => {
     setSearchTerm('');
     setOpen(false);
-    setFocusedIndex(p => (value ? p : -1))
+    setFocusedIndex(-1)
     if (focus && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [inputRef.current, value, setSearchTerm, setOpen, setFocusedIndex]);
+  }, [inputRef.current, setSearchTerm, setOpen, setFocusedIndex]);
 
   const setValue = useCallback((newOption?: Option, shouldClose: boolean = false) => {
     if (newOption) {
@@ -42,7 +42,6 @@ const useDropdownHooks = (props: DropdownProps) => {
     }
 
     if (shouldClose) {
-      console.log('closing');
       closeDropdown(true);
     }
   }, [onChange, closeDropdown, setSearchTerm]);

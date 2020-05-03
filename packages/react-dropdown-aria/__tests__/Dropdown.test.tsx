@@ -15,7 +15,7 @@ const foo = () => {};
 
 describe('Check Props', () => {
   it('Matches snapshot with default props', () => {
-    const dropdown = mount(<Dropdown setSelected={foo} />);
+    const dropdown = mount(<Dropdown onChange={foo} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 
@@ -27,7 +27,7 @@ describe('Check Props', () => {
         id="dropdown"
         ariaLabel="React Simple Dropdown"
         options={CUSTOM_OPTIONS}
-        setSelected={foo}
+        onChange={foo}
         disabled
         width={400}
         maxContentHeight={150}
@@ -37,7 +37,7 @@ describe('Check Props', () => {
   });
 
   it('Matches snapshot with grouped options', () => {
-    const dropdown = mount(<Dropdown setSelected={foo} options={GROUPED_OPTIONS} />);
+    const dropdown = mount(<Dropdown onChange={foo} options={GROUPED_OPTIONS} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 });
@@ -48,7 +48,7 @@ describe('Navigation', () => {
   let listContainer: ReactWrapper<HTMLAttributes, Readonly<{}>, React.Component<{}, {}, any>>;
 
   beforeEach(() => {
-    wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} buttonClassName="test" />);
+    wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} buttonClassName="test" />);
     button = wrapper.find('.test'); // Actual dropdown button element
     listContainer = wrapper.find('ul').first();
 
@@ -128,8 +128,8 @@ describe('Selecting Options', () => {
     spy = sinon.spy();
   });
 
-  it('calls setSelected with value when option selected', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
+  it('calls onChange with value when option selected', () => {
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} buttonClassName="test" />);
     const button = wrapper.find('.test');
 
     button.simulate('click');
@@ -139,7 +139,7 @@ describe('Selecting Options', () => {
   });
 
   it('sets dropdown text to selected item', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={spy} buttonClassName="test" />);
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} buttonClassName="test" />);
     const button = wrapper.find('.test');
 
     button.simulate('click');
@@ -151,7 +151,7 @@ describe('Selecting Options', () => {
 
 describe('Special props', () => {
   it('Does not open when disabled', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} setSelected={foo} buttonClassName="test" disabled />);
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} buttonClassName="test" disabled />);
     wrapper.find('.test').simulate('click');
     const listContainer = wrapper.find('ul').first();
 

@@ -47,21 +47,20 @@ const Dropdown = (props: DropdownProps) => {
     }
   }, [inputRef.current]);
 
-  const onDropdownClick = useCallback(({ nativeEvent }: React.MouseEvent<HTMLDivElement>) => {
+  const onDropdownClick = useCallback(() => {
     forwardFocus();
 
     if (!disabled && (!open || !searchable)) {
       setFocusedIndex(p => (open ? -1 : p));
-      console.log('Called');
       setOpen(p => !p);
     }
   }, [open, disabled, searchable, setOpen, setFocusedIndex]);
 
-  const onOptionClicked = useCallback(({ nativeEvent }: React.MouseEvent<HTMLDivElement>) => {
-    nativeEvent.preventDefault();
-    nativeEvent.stopPropagation();
-    if (nativeEvent.target) {
-      const newOptionText = (nativeEvent.target as HTMLDivElement).innerText;
+  const onOptionClicked = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.target) {
+      const newOptionText = (e.target as HTMLDivElement).innerText;
       const newOption = flattenedOptions.find(({ value: optionValue }) => optionValue === newOptionText);
       setValue(newOption, true);
     }
@@ -101,13 +100,12 @@ const Dropdown = (props: DropdownProps) => {
     }
   }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown])
 
-  const onKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
-    const { keyCode } = nativeEvent;
-    console.log('Keydown', keyCode);
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    const { keyCode } = e;
 
     if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
-      nativeEvent.preventDefault();
-      nativeEvent.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
       onNavigation(keyCode);
     } else if (keyCode === KEY_CODES.ENTER && !open) {
       setOpen(true);
@@ -120,12 +118,12 @@ const Dropdown = (props: DropdownProps) => {
     setSearchTerm(e.target.value);
   }, [setSearchTerm]);
 
-  const handleInputKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
-    const { keyCode } = nativeEvent;
+  const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
+    const { keyCode } = e;
     if (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) {
       if (flattenedOptions.length > 0 && focusedIndex >= 0 && open) {
-        nativeEvent.stopPropagation();
-        nativeEvent.preventDefault();
+        e.stopPropagation();
+        e.preventDefault();
         setValue(flattenedOptions[focusedIndex], true);
       }
     }
