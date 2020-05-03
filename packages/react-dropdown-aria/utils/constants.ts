@@ -1,9 +1,10 @@
 export enum StyleKeys {
   Arrow = 'Arrow',
-  DisplayedValue = 'DisplayedValue',
-  DropdownButton = 'DropdownButton',
-  DropdownInput = 'DropdownInput',
+  DropdownSelector = 'DropdownSelector',
   DropdownWrapper = 'DropdownWrapper',
+  SelectorSearch = 'SelectorSearch',
+  SelectedValue = 'SelectedValue',
+  Placeholder = 'Placeholder',
   GroupContainer = 'GroupContainer',
   GroupDivider = 'GroupDivider',
   GroupHeading = 'GroupHeading',

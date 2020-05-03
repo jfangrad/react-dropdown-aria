@@ -2,7 +2,8 @@ import React, { KeyboardEvent, useCallback, ChangeEvent } from 'react';
 import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
-import { DropdownProps, MouseKeyboardEvent } from '../utils/types';
+import Arrow from './Arrow';
+import { DropdownProps } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
 
 const Dropdown = (props: DropdownProps) => {
@@ -28,46 +29,43 @@ const Dropdown = (props: DropdownProps) => {
     getStyle,
     open, setOpen,
     focusedIndex, setFocusedIndex,
+    setDropdownFocused,
     setValue,
-    dropdownButton,
-    container,
     closeDropdown,
     searchTerm, setSearchTerm,
-    isSearching, setIsSearching,
     filteredOptions,
     flattenedOptions,
+    container,
+    inputRef,
+    listWrapper,
   } = useDropdownHooks(props);
 
-  const onDropdownClick = useCallback(({ nativeEvent }: MouseKeyboardEvent<HTMLButtonElement>) => {
-    if (nativeEvent instanceof KeyboardEvent) {
-      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
-      nativeEvent.preventDefault();
+  const forwardFocus = useCallback(() => {
+    if (inputRef.current) {
+      // Pass focus on to input
+      inputRef.current.focus();
     }
+  }, [inputRef.current]);
 
-    if (!disabled) {
-      if (!(open && searchable)) {
-        setOpen(p => !p);
-        setFocusedIndex(p => (open ? -1 : p));
-      }
+  const onDropdownClick = useCallback(({ nativeEvent }: React.MouseEvent<HTMLDivElement>) => {
+    forwardFocus();
+
+    if (!disabled && (!open || !searchable)) {
+      setFocusedIndex(p => (open ? -1 : p));
+      console.log('Called');
+      setOpen(p => !p);
     }
-  }, [open, disabled, setOpen, searchable]);
+  }, [open, disabled, searchable, setOpen, setFocusedIndex]);
 
-  const onOptionClicked = useCallback(({ nativeEvent }: MouseKeyboardEvent<HTMLButtonElement>) => {
-    if (nativeEvent instanceof KeyboardEvent) {
-      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
-      nativeEvent.preventDefault();
-    }
-
+  const onOptionClicked = useCallback(({ nativeEvent }: React.MouseEvent<HTMLDivElement>) => {
+    nativeEvent.preventDefault();
+    nativeEvent.stopPropagation();
     if (nativeEvent.target) {
-      const newOptionText = (nativeEvent.target as HTMLButtonElement).innerText;
+      const newOptionText = (nativeEvent.target as HTMLDivElement).innerText;
       const newOption = flattenedOptions.find(({ value: optionValue }) => optionValue === newOptionText);
       setValue(newOption, true);
-
-      if (nativeEvent instanceof KeyboardEvent && nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER && dropdownButton.current) {
-        dropdownButton.current.focus();
-      }
     }
-  }, [setValue, setOpen, dropdownButton.current])
+  }, [setValue, container.current])
 
   const onNavigation = useCallback((keyCode: number) => {
     switch (keyCode) {
@@ -105,15 +103,18 @@ const Dropdown = (props: DropdownProps) => {
 
   const onKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
     const { keyCode } = nativeEvent;
+    console.log('Keydown', keyCode);
 
     if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
       nativeEvent.preventDefault();
       nativeEvent.stopPropagation();
       onNavigation(keyCode);
-    } else if (keyCode === KEY_CODES.TAB && (!searchable || !searchTerm)) {
+    } else if (keyCode === KEY_CODES.ENTER && !open) {
+      setOpen(true);
+    } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
     }
-  }, [onNavigation, setOpen, searchable, closeDropdown, searchTerm]);
+  }, [onNavigation, setOpen, searchable, closeDropdown, open]);
 
   const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -122,73 +123,58 @@ const Dropdown = (props: DropdownProps) => {
   const handleInputKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
     const { keyCode } = nativeEvent;
     if (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) {
-      if (searchable && searchTerm.trim() && flattenedOptions.length > 0) {
+      if (flattenedOptions.length > 0 && focusedIndex >= 0 && open) {
         nativeEvent.stopPropagation();
         nativeEvent.preventDefault();
         setValue(flattenedOptions[focusedIndex], true);
       }
     }
-  }, [searchable, searchTerm, flattenedOptions, setValue]);
+  }, [flattenedOptions, setValue, focusedIndex, open]);
 
-  const handleInputFocus = useCallback(() => {
-    setIsSearching(true);
-  }, [setIsSearching]);
+  const onFocus = useCallback(() => setDropdownFocused(true), [setDropdownFocused]);
+  const onBlur = useCallback(() => setDropdownFocused(false), [setDropdownFocused]);
 
-  // ---------------- RENDER METHODS ---------------
-  const renderArrow = useCallback(() => {
-    if (hideArrow) return null;
-    if (arrowRenderer) return arrowRenderer(open);
-
-    const arrowClass = getStyle(StyleKeys.Arrow);
-    return <div className={arrowClass} />
-  }, [open, hideArrow, arrowRenderer]);
-
-  const displayedValue = value || placeholder || '';
-  const inputValue = (isSearching ? searchTerm : value) || '';
-  const wrapperClass = getStyle(StyleKeys.DropdownWrapper);
-  const dropdownButtonClass = cx(buttonClassName, getStyle(StyleKeys.DropdownButton));
-  const displayedValueClass = cx(selectedValueClassName, getStyle(StyleKeys.DisplayedValue));
-  const inputValueClass = cx(selectedValueClassName, getStyle(StyleKeys.DropdownInput));
-  const contentClass = cx(contentClassName, getStyle(StyleKeys.OptionContainer));
-
-  const ValueMarkup = (searchable) ? (
-    <input
-      type="text"
-      className={inputValueClass}
-      value={inputValue}
-      placeholder={(isSearching ? value : placeholder) || placeholder}
-      onChange={handleTermChange}
-      onFocus={handleInputFocus}
-      onKeyDown={handleInputKeyDown}
-      disabled={disabled}
-    />
-  ) : (
-    <div className={displayedValueClass}>{ displayedValue }</div>
-  );
+  // ---------------------- RENDER -----------------------
+  const wrapperClass = cx('dropdown', getStyle(StyleKeys.DropdownWrapper));
+  const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
+  const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
+  const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
+  const displayedValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
+  const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
 
   return (
     <div
+      ref={container}
       className={wrapperClass}
       onKeyDown={onKeyDown}
-      ref={container}
+      onFocus={forwardFocus}
+      onClick={onDropdownClick}
     >
-      <button
-        aria-label={ariaLabel}
-        aria-describedby={ariaDescribedBy}
-        aria-labelledby={ariaLabelledBy}
-        className={dropdownButtonClass}
-        disabled={disabled}
-        id={id}
-        onClick={onDropdownClick}
-        onKeyDown={onDropdownClick}
-        ref={dropdownButton}
-        type="button"
-        tabIndex={searchable ? -1 : 0}
-      >
-        {ValueMarkup}
-        { renderArrow() }
-      </button>
-      <ul className={contentClass}>
+      <div className={selectorClass}>
+        <span className={searchClass}>
+          <input
+            ref={inputRef}
+            value={searchTerm}
+            onChange={handleTermChange}
+            onKeyDown={handleInputKeyDown}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            readOnly={!open || !searchable}
+            disabled={disabled}
+            autoComplete="off"
+          />
+        </span>
+        {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
+        {(value && !searchTerm) && <span className={displayedValueClass}>{value}</span>}
+        <Arrow
+          dropdownOpen={open}
+          searchable={searchable}
+          getStyle={getStyle}
+          hideArrow={hideArrow}
+          arrowRenderer={arrowRenderer}
+        />
+      </div>
+      <ul className={contentClass} ref={listWrapper}>
         { defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, searchable, optionItemRenderer) }
       </ul>
     </div>

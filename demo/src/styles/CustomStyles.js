@@ -42,8 +42,7 @@ const style = {
   }),
   Arrow: (base, { open }) => ({
     ...base,
-    borderBottom: open ? `5px solid #54854C` : '0',
-    borderTop: open ? '0' : `5px solid #54854C`,
+    color: '#54854C',
   }),
 };
 

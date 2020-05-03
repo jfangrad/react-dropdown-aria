@@ -30,16 +30,13 @@ class CustomRender extends React.Component {
     this.setState({ interest: selectedOption.value });
   }
 
-  renderOption = (props, optionRef, getStyle) => {
+  renderOption = (props, getStyle) => {
     const { onOptionClicked, option } = props;
     const { selectedOption } = this.state;
     const classNames = getStyle(StyleKeys.OptionItem, { selected: option.value === selectedOption });
 
     return (
       <button
-        // Including the ref here is important, otherwise we wont be able to
-        // focuse the elements in the list when using keyboard nav
-        ref={optionRef}
         aria-label={option.ariaLabel}
         className={classNames}
         onClick={onOptionClicked}

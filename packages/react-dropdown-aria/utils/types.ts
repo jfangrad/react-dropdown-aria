@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode } from 'react';
 import { StyleKeys } from './constants';
 import { OptionItemProps } from '../components/OptionItem';
 
@@ -13,17 +13,13 @@ export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => strin
 
 export type OptionRendererFunction = (
   props: OptionItemProps,
-  optionRef: MutableRefObject<HTMLButtonElement | null>,
   getStyle: GetStyleFunction,
 ) => JSX.Element;
 
-export type MouseKeyboardEvent<T> = React.MouseEvent<T, MouseEvent> | React.KeyboardEvent<T>;
-
-export type OnOptionClicked = (e: MouseKeyboardEvent<HTMLButtonElement>) => void;
+export type OnOptionClicked = (e: React.MouseEvent<HTMLDivElement>) => void;
 
 export type ItemRenderer = (
   props: OptionItemProps,
-  optionRef: MutableRefObject<HTMLButtonElement | null>,
 ) => JSX.Element;
 
 export interface DropdownStyle {
@@ -56,7 +52,7 @@ export type DropdownOption = Option | OptionGroup;
 export interface DropdownStyleDependantState {
   open: boolean,
   focusedIndex: number,
-  searchable: boolean,
+  dropdownFocused: boolean,
 }
 
 export interface DropdownState extends DropdownStyleDependantState {

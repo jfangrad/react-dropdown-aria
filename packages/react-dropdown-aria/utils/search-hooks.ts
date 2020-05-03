@@ -4,22 +4,20 @@ import { DropdownOption } from './types';
 
 const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: DropdownOption[], searchable: boolean) => {
   const [searchTerm, setSearchTermState] = useState('');
-  const [isSearching, setIsSearching] = useState(false);
 
   const filteredOptions = useMemo(() => {
-    if (!searchable || !searchTerm.trim() || !isSearching) return options;
+    if (!searchable || !searchTerm.trim()) return options;
 
     return filterDropdownOptions(options, searchTerm)
-  }, [options, searchTerm, isSearching]);
+  }, [options, searchTerm]);
 
-  const setSearchTerm = useCallback((newSearchTerm: string, newIsSearching = true) => {
-    setIsSearching(newIsSearching);
+  const setSearchTerm = useCallback((newSearchTerm: string) => {
     setSearchTermState(newSearchTerm)
     setFocusedIndex(0);
-  }, [setFocusedIndex, setSearchTermState, setIsSearching]);
+  }, [setFocusedIndex, setSearchTermState]);
 
 
-  return { searchTerm, setSearchTerm, filteredOptions, isSearching, setIsSearching };
+  return { searchTerm, setSearchTerm, filteredOptions };
 }
 
 export default useSearch;

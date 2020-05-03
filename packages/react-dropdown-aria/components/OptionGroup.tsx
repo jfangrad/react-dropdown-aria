@@ -12,7 +12,6 @@ interface OptionGroupProps {
   startingIndex: number,
   onOptionClicked: OnOptionClicked,
   itemRenderer?: ItemRenderer,
-  searchable: boolean,
 };
 
 const OptionGroup = ({
@@ -23,7 +22,6 @@ const OptionGroup = ({
   focusedIndex,
   onOptionClicked,
   itemRenderer,
-  searchable,
 }: OptionGroupProps) => {
   const { groupOptions, label } = optionGroup;
   let index = startingIndex;
@@ -38,18 +36,16 @@ const OptionGroup = ({
         groupOptions.map((groupOption) => {
           const selected = groupOption.value === selectedOption;
           const focused = index === focusedIndex;
-          const groupOptionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected }));
+          const optionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected, focused }));
           index += 1;
 
           return (
             <OptionItem
               key={groupOption.value}
-              optionClass={groupOptionClass}
+              optionClass={optionClass}
               onOptionClicked={onOptionClicked}
               option={groupOption}
-              focused={focused}
               itemRenderer={itemRenderer}
-              searchable={searchable}
             />
           );
         })
