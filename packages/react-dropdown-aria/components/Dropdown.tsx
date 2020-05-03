@@ -13,7 +13,7 @@ const Dropdown = (props: DropdownProps) => {
     ariaLabelledBy,
     arrowRenderer,
     contentClassName,
-    buttonClassName,
+    className,
     disabled,
     hideArrow,
     id,
@@ -133,7 +133,7 @@ const Dropdown = (props: DropdownProps) => {
   const onBlur = useCallback(() => setDropdownFocused(false), [setDropdownFocused]);
 
   // ---------------------- RENDER -----------------------
-  const wrapperClass = cx('dropdown', getStyle(StyleKeys.DropdownWrapper));
+  const wrapperClass = cx('dropdown', className, getStyle(StyleKeys.DropdownWrapper));
   const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
   const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
   const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
@@ -142,11 +142,15 @@ const Dropdown = (props: DropdownProps) => {
 
   return (
     <div
+      id={id}
       ref={container}
       className={wrapperClass}
       onKeyDown={onKeyDown}
       onFocus={forwardFocus}
       onClick={onDropdownClick}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
     >
       <div className={selectorClass}>
         <span className={searchClass}>
@@ -184,8 +188,8 @@ Dropdown.defaultProps = {
   ariaLabel: null,
   ariaLabelledBy: null,
   arrowRenderer: undefined,
-  buttonClassName: undefined,
   centerText: false,
+  className: undefined,
   contentClassName: null,
   disabled: false,
   height: null,

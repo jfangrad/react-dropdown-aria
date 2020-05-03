@@ -23,7 +23,7 @@ describe('Check Props', () => {
     const dropdown = mount(
       <Dropdown
         placeholder="Custom Placeholder..."
-        buttonClassName="custom-class"
+        className="custom-class"
         id="dropdown"
         ariaLabel="React Simple Dropdown"
         options={CUSTOM_OPTIONS}
@@ -48,12 +48,12 @@ describe('Navigation', () => {
   let listContainer: ReactWrapper<HTMLAttributes, Readonly<{}>, React.Component<{}, {}, any>>;
 
   beforeEach(() => {
-    wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} buttonClassName="test" />);
-    button = wrapper.find('.test'); // Actual dropdown button element
+    wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} className="test" />);
+    button = wrapper.find('.test').first(); // Actual dropdown button element
     listContainer = wrapper.find('ul').first();
 
     // Do some action so that focus is in correct place
-    wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
+    wrapper.simulate('keyDown', { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo });
   });
 
   const getWrapperDisplayProp = () => getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display');
@@ -65,7 +65,7 @@ describe('Navigation', () => {
   });
 
   it('Opens dropdown with enter key', () => {
-    button.simulate('keyDown', { nativeEvent: { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo } });
+    button.simulate('keyDown', { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo });
 
     expect(getWrapperDisplayProp()).toBe('block');
   });
@@ -79,10 +79,10 @@ describe('Navigation', () => {
   });
 
   it('Closes when enter pressed again', () => {
-    button.simulate('keyDown', { nativeEvent: { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo } });
+    button.simulate('keyDown', { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo });
     expect(getWrapperDisplayProp()).toBe('block');
 
-    button.simulate('keyDown', { nativeEvent: { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo } });
+    button.simulate('keyDown', { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo });
     expect(getWrapperDisplayProp()).toBe('none');
   });
 
@@ -90,7 +90,7 @@ describe('Navigation', () => {
     button.simulate('click');
     expect(getWrapperDisplayProp()).toBe('block');
 
-    button.simulate('keyDown', { nativeEvent: { key: 'tab', keyCode: KEY_CODES.TAB } });
+    button.simulate('keyDown', { key: 'tab', keyCode: KEY_CODES.TAB });
     expect(getWrapperDisplayProp()).toBe('none');
   });
 
@@ -98,13 +98,13 @@ describe('Navigation', () => {
     button.simulate('click');
     expect(getWrapperDisplayProp()).toBe('block');
 
-    button.simulate('keyDown', { nativeEvent: { key: 'escape', keyCode: KEY_CODES.ESCAPE, preventDefault: foo } });
+    button.simulate('keyDown', { key: 'escape', keyCode: KEY_CODES.ESCAPE, preventDefault: foo });
     expect(getWrapperDisplayProp()).toBe('none');
   });
 
   it('Arrow key selects first element in list', () => {
     button.simulate('click');
-    wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
+    wrapper.simulate('keyDown', { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo });
 
     expect(document.activeElement!.innerHTML).toBe('1');
   });
@@ -112,11 +112,11 @@ describe('Navigation', () => {
   it('Arrow key nav loops arround', () => {
     button.simulate('click');
     for (let i = 0; i < 10; i += 1) {
-      wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
+      wrapper.simulate('keyDown', { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo });
     }
     expect(document.activeElement!.innerHTML).toBe('10');
 
-    wrapper.simulate('keyDown', { nativeEvent: { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo } });
+    wrapper.simulate('keyDown', { key: 'downArrow', keyCode: KEY_CODES.DOWN_ARROW, preventDefault: foo });
     expect(document.activeElement!.innerHTML).toBe('1');
   });
 });
@@ -129,30 +129,30 @@ describe('Selecting Options', () => {
   });
 
   it('calls onChange with value when option selected', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} buttonClassName="test" />);
-    const button = wrapper.find('.test');
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} className="test" />);
+    const button = wrapper.find('.test').first();
 
     button.simulate('click');
-    wrapper.find('ul').childAt(0).simulate('click', { nativeEvent: { target: { innerText: '1' } } });
+    wrapper.find('ul').childAt(0).simulate('click', { target: { innerText: '1' } });
 
-    expect(spy.calledWith('1')).toBe(true);
+    expect(spy.calledWith({ value: '1' })).toBe(true);
   });
 
   it('sets dropdown text to selected item', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} buttonClassName="test" />);
-    const button = wrapper.find('.test');
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={spy} className="test" />);
+    const button = wrapper.find('.test').first();
 
     button.simulate('click');
-    wrapper.find('ul').childAt(0).simulate('click', { nativeEvent: { target: { innerText: '1' } } });
+    wrapper.find('ul').childAt(0).simulate('click', { target: { innerText: '1' } });
 
-    expect(button.find('div').first().text()).toBe('1');
+    expect(button.find('.dropdown-selector-value').first().text()).toBe('1');
   });
 });
 
 describe('Special props', () => {
   it('Does not open when disabled', () => {
-    const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} buttonClassName="test" disabled />);
-    wrapper.find('.test').simulate('click');
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} className="test" disabled />);
+    wrapper.find('.test').first().simulate('click');
     const listContainer = wrapper.find('ul').first();
 
     expect(getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display')).toBe('none');

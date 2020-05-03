@@ -64,7 +64,7 @@ export interface DropdownProps {
   ariaLabel: string,
   ariaLabelledBy: string,
   arrowRenderer: (open: boolean) => ReactNode,
-  buttonClassName: string,
+  className: string,
   centerText: boolean,
   contentClassName: string,
   disabled: boolean,
