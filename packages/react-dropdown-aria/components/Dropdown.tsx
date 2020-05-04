@@ -5,6 +5,7 @@ import defaultOptionRenderer from '../utils/defaultOptionRenderer';
 import Arrow from './Arrow';
 import { DropdownProps } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
+import { Inbox } from '../icons';
 
 const Dropdown = (props: DropdownProps) => {
   const {
@@ -51,7 +52,7 @@ const Dropdown = (props: DropdownProps) => {
     forwardFocus();
 
     if (!disabled && (!open || !searchable)) {
-      setFocusedIndex(p => (open ? -1 : p));
+      setFocusedIndex(open ? -1 : 0);
       setOpen(p => !p);
     }
   }, [open, disabled, searchable, setOpen, setFocusedIndex]);
@@ -109,6 +110,7 @@ const Dropdown = (props: DropdownProps) => {
       onNavigation(keyCode);
     } else if (keyCode === KEY_CODES.ENTER && !open) {
       setOpen(true);
+      setFocusedIndex(0);
     } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
     }
@@ -140,6 +142,13 @@ const Dropdown = (props: DropdownProps) => {
   const displayedValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
   const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
 
+  const NoDataMarkup = (
+    <div className="dropdown-selector-content--empty">
+      <Inbox />
+      No data
+    </div>
+  );
+
   return (
     <div
       id={id}
@@ -151,6 +160,7 @@ const Dropdown = (props: DropdownProps) => {
       aria-label={ariaLabel}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}
+      aria-hidden={disabled}
     >
       <div className={selectorClass}>
         <span className={searchClass}>
@@ -177,7 +187,8 @@ const Dropdown = (props: DropdownProps) => {
         />
       </div>
       <ul className={contentClass} ref={listWrapper}>
-        { defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, searchable, optionItemRenderer) }
+        { filteredOptions.length !== 0 && defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, optionItemRenderer) }
+        { filteredOptions.length === 0 && NoDataMarkup}
       </ul>
     </div>
   );

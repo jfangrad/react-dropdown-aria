@@ -12,7 +12,6 @@ function defaultOptionRenderer(
   focusedIndex: number,
   onOptionClicked: OnOptionClicked,
   getStyle: GetStyleFunction,
-  searchable: boolean,
   optionItemRenderer?: OptionRendererFunction,
 ) {
   const itemRenderer = optionItemRenderer ?

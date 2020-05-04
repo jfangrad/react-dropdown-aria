@@ -4,7 +4,7 @@ import { GetStyleFunction } from '../utils/types';
 import { ChevronDown, Search } from '../icons';
 
 interface ArrowProps {
-  hideArrow?: boolean;
+  hideArrow: boolean;
   arrowRenderer?: (dropdownOpen: boolean) => ReactNode;
   getStyle: GetStyleFunction;
   dropdownOpen: boolean;
@@ -17,9 +17,9 @@ const Arrow = ({ hideArrow, arrowRenderer, getStyle, dropdownOpen, searchable }:
   const arrowClass = getStyle(StyleKeys.Arrow);
 
   if (arrowRenderer) return (
-    <span>
+    <div className={arrowClass}>
       {arrowRenderer(dropdownOpen)}
-    </span>
+    </div>
   );
 
   const showSearchIcon = dropdownOpen && searchable;
@@ -31,5 +31,9 @@ const Arrow = ({ hideArrow, arrowRenderer, getStyle, dropdownOpen, searchable }:
   )
 };
 
-// WHY???
+Arrow.defaultProps = {
+  arrowRenderer: undefined,
+  hideArrow: false,
+}
+
 export default Arrow;

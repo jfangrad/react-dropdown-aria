@@ -1,7 +1,7 @@
 import { CSSObject } from 'create-emotion';
 import colours from './colours';
 import OptionItem from './OptionItem';
-import { DropdownProps, DropdownStyleDependantState } from '../utils/types';
+import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
 
 const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
   backgroundColor: disabled ? colours.greys.light : colours.greys.lighter,
@@ -100,12 +100,21 @@ const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
   margin: '0',
   maxHeight: maxContentHeight || '175px',
   overflowX: 'hidden',
-  overflowY: maxContentHeight ? 'auto' : undefined,
+  overflowY: 'auto',
   padding: '2px 0',
   position: 'absolute',
   top: openUp ? undefined : '100%',
   width: '100%',
   zIndex: 9999,
+
+  '.dropdown-selector-content--empty': {
+    alignItems: 'center',
+    color: colours.greys.base,
+    display: 'flex',
+    flexDirection: 'column',
+    height: `${(maxContentHeight || 175) - 8}px`,
+    justifyContent: 'center',
+  },
 
   '&::-webkit-scrollbar': {
     width: '5px',
