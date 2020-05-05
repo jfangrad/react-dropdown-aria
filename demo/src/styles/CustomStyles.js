@@ -26,23 +26,19 @@ const style = {
     border: '1px solid rgb(154, 154, 154)',
     borderRadius: '5px',
   }),
-  OptionItem: (base, state, { selected }) => ({
+  OptionItem: (base, state, { selected, focused }) => ({
     ...base,
     fontSize: '0.95em',
     color: selected ? 'white' : '#54854C',
-    backgroundColor: selected ? '#00A3EF' : 'white',
-
-    '&:hover': {
-      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
-    },
-
-    '&:focus': {
-      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
-    },
   }),
   Arrow: (base, { open }) => ({
     ...base,
     color: '#54854C',
+
+    'svg': {
+      width: open ? 16 : 24,
+      height: open ? 16 : 24,
+    }
   }),
 };
 

@@ -49,6 +49,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
 >
   <div
     aria-describedby={null}
+    aria-hidden={true}
     aria-label="React Simple Dropdown"
     aria-labelledby={null}
     className="dropdown custom-class css-w4jram"
@@ -110,7 +111,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-1r6w07d"
+      className="dropdown-selector-content css-e99cqv"
     >
       <OptionItem
         key="1"
@@ -222,6 +223,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
 >
   <div
     aria-describedby={null}
+    aria-hidden={false}
     aria-label={null}
     aria-labelledby={null}
     className="dropdown css-4a6799"
@@ -283,8 +285,35 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-1r6w07d"
-    />
+      className="dropdown-selector-content css-e99cqv"
+    >
+      <div
+        className="dropdown-selector-content--empty"
+      >
+        <Inbox>
+          <svg
+            className="feather feather-chevron-down"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="22 12 16 12 14 15 10 15 8 12 2 12"
+            />
+            <path
+              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+            />
+          </svg>
+        </Inbox>
+        No data
+      </div>
+    </ul>
   </div>
 </Dropdown>
 `;
@@ -386,6 +415,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
 >
   <div
     aria-describedby={null}
+    aria-hidden={false}
     aria-label={null}
     aria-labelledby={null}
     className="dropdown css-4a6799"
@@ -447,7 +477,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-1r6w07d"
+      className="dropdown-selector-content css-e99cqv"
     >
       <OptionGroup
         focusedIndex={-1}
