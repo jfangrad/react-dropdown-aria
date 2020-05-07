@@ -1,6 +1,12 @@
-import { useCallback, useEffect, MutableRefObject, useRef } from 'react';
+import { useCallback, useEffect, MutableRefObject } from 'react';
 
 export const useClickListener = (closeDropdown: () => void, container: MutableRefObject<HTMLDivElement | null>) => {
+  const onClick = useCallback((e: Event) => {
+    if (container.current && !container.current.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  }, [container.current, closeDropdown]);
+
   useEffect(() => {
     document.addEventListener('mouseup', onClick, false);
     document.addEventListener('touchend', onClick, false);
@@ -10,12 +16,6 @@ export const useClickListener = (closeDropdown: () => void, container: MutableRe
       document.removeEventListener('touchend', onClick);
     }
   }, []);
-
-  const onClick = useCallback((e: Event) => {
-    if (container.current && !container.current.contains(e.target as Node)) {
-      closeDropdown();
-    }
-  }, [container.current, closeDropdown]);
 };
 
 const ScrollBuffer = 8;

@@ -3,5 +3,6 @@
 /styles/
 /utils/
 enzymeAdapter.setup.js
-tsconfig.json
+.eslintignore
+.eslintrc.js
 index.ts
