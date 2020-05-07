@@ -108,7 +108,7 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
 | `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
 | `arrowRenderer` | function | undefined | Custom function to render the arrow for the dropdown |
-| `buttonClassName` | string | undefined | CSS class to be applied to main drodown button |
+| `className` | string | undefined | CSS class to be applied to the drodown |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
 | `contentClassName` | string | undefined | CSS class to be applied to the dropdown option `ul` container |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
@@ -122,11 +122,11 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `optionClassName` | string | undefined | CSS class to be applied to all options in the dropdown |
 | `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
-| `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
+| `value` | string | null | The value of the option that is currently selected (as set by `setSelected`). |
 | `selectedOptionClassName` | string | undefined | CSS class to be applied to the selected option in the dropdown |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
-| `setSelected` | function | undefined | Function used to update the state of the selected value |
+| `onChange` | function | undefined | Function called when the selected value changes |
 | `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 

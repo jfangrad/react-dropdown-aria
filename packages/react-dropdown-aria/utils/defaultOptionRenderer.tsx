@@ -1,4 +1,4 @@
-import React, { MutableRefObject } from 'react';
+import React from 'react';
 import { cx } from 'emotion';
 import OptionItem, { OptionItemProps } from '../components/OptionItem';
 import OptionGroup from '../components/OptionGroup';
@@ -15,7 +15,7 @@ function defaultOptionRenderer(
   optionItemRenderer?: OptionRendererFunction,
 ) {
   const itemRenderer = optionItemRenderer ?
-    (props: OptionItemProps, optionRef: MutableRefObject<HTMLButtonElement | null>) => optionItemRenderer(props, optionRef, getStyle) :
+    (props: OptionItemProps) => optionItemRenderer(props, getStyle) :
     undefined;
 
   let index = 0;
@@ -38,8 +38,9 @@ function defaultOptionRenderer(
     }
 
     const { value, className } = option;
-    const isFocused = index === focusedIndex;
-    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected: value === selectedOption }));
+    const focused = index === focusedIndex;
+    const selected = value === selectedOption;
+    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected, focused }));
     index += 1;
     return (
       <OptionItem
@@ -47,7 +48,6 @@ function defaultOptionRenderer(
         optionClass={optionClass}
         onOptionClicked={onOptionClicked}
         option={option}
-        focused={isFocused}
         itemRenderer={itemRenderer}
       />
     );

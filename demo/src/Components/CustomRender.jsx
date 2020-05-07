@@ -27,19 +27,16 @@ class CustomRender extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
-  renderOption = (props, optionRef, getStyle) => {
+  renderOption = (props, getStyle) => {
     const { onOptionClicked, option } = props;
     const { selectedOption } = this.state;
     const classNames = getStyle(StyleKeys.OptionItem, { selected: option.value === selectedOption });
 
     return (
       <button
-        // Including the ref here is important, otherwise we wont be able to
-        // focuse the elements in the list when using keyboard nav
-        ref={optionRef}
         aria-label={option.ariaLabel}
         className={classNames}
         onClick={onOptionClicked}
@@ -66,8 +63,8 @@ class CustomRender extends React.Component {
             ariaLabel="Custom Option Rendering Dropdown"
             options={options}
             optionItemRenderer={this.renderOption}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             style={customStyle}
             {...dropdownState}

@@ -1,36 +1,23 @@
-import { useState, useCallback, MutableRefObject, useRef, Dispatch, SetStateAction } from "react";
-import { Option } from './types';
+import { useState, Dispatch, SetStateAction, useMemo, useCallback } from 'react';
+import { filterDropdownOptions } from './helper';
+import { DropdownOption } from './types';
 
-const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, flattenedOptions: Option[]) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const searchTimer: MutableRefObject<NodeJS.Timer | null> = useRef(null);
+const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: DropdownOption[], searchable: boolean) => {
+  const [searchTerm, setSearchTermState] = useState('');
 
-  const searchList = useCallback((value: string) => {
-    const index = flattenedOptions.findIndex(option => option.value.toLowerCase().indexOf(value) === 0);
+  const filteredOptions = useMemo(() => {
+    if (!searchable || !searchTerm.trim()) return options;
 
-    if (index !== -1) setFocusedIndex(index);
-  }, [flattenedOptions, setFocusedIndex]);
+    return filterDropdownOptions(options, searchTerm)
+  }, [options, searchTerm]);
 
-  const clearTimer = useCallback(() => {
-    if (searchTimer.current) {
-      clearTimeout(searchTimer.current);
-      searchTimer.current = null;
-    }
-  }, [searchTimer.current])
+  const setSearchTerm = useCallback((newSearchTerm: string) => {
+    setSearchTermState(newSearchTerm)
+    setFocusedIndex(0);
+  }, [setFocusedIndex, setSearchTermState]);
 
-  const clearSearch = useCallback(() => setSearchTerm(''), [setSearchTerm]);
 
-  const searchDropdown = useCallback((key: string) => {
-    const oldTerm = searchTerm;
-    setSearchTerm(p => (p + key));
-    searchList(oldTerm + key);
-
-    clearTimer();
-    const timer = setTimeout(clearSearch, 1500);
-    searchTimer.current = timer
-  }, [searchTerm, searchList, searchTimer.current]);
-
-  return searchDropdown;
+  return { searchTerm, setSearchTerm, filteredOptions };
 }
 
 export default useSearch;

@@ -5,14 +5,15 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   ariaDescribedBy={null}
   ariaLabel="React Simple Dropdown"
   ariaLabelledBy={null}
-  buttonClassName="custom-class"
   centerText={false}
+  className="custom-class"
   contentClassName={null}
   disabled={true}
   height={null}
   hideArrow={false}
   id="dropdown"
   maxContentHeight={150}
+  onChange={[Function]}
   openUp={false}
   options={
     Array [
@@ -41,42 +42,78 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   }
   pageKeyTraverseSize={10}
   placeholder="Custom Placeholder..."
-  searchable={true}
-  selectedOption={null}
+  searchable={false}
   selectedValueClassName={null}
-  setSelected={[Function]}
   style={Object {}}
   width={400}
 >
   <div
-    className="css-137uxmb"
+    aria-describedby={null}
+    aria-hidden={true}
+    aria-label="React Simple Dropdown"
+    aria-labelledby={null}
+    className="dropdown custom-class css-w4jram"
+    id="dropdown"
+    onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
   >
-    <button
-      aria-describedby={null}
-      aria-label="React Simple Dropdown"
-      aria-labelledby={null}
-      className="custom-class css-cn7df1"
-      disabled={true}
-      id="dropdown"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
+    <div
+      className="dropdown-selector css-q0xgr4"
     >
-      <div
-        className="css-vh9bzf"
+      <span
+        className="dropdown-selector-search css-1l6e6we"
+      >
+        <input
+          autoComplete="off"
+          disabled={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={true}
+          value=""
+        />
+      </span>
+      <span
+        className="dropdown-selector-placeholder css-nctil"
       >
         Custom Placeholder...
-      </div>
-      <div
-        className="css-sfaqia"
-      />
-    </button>
+      </span>
+      <Arrow
+        dropdownOpen={false}
+        getStyle={[Function]}
+        hideArrow={false}
+        searchable={false}
+      >
+        <div
+          className="css-1h2654e"
+        >
+          <ChevronDown>
+            <svg
+              className="feather feather-chevron-down"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="6 9 12 15 18 9"
+              />
+            </svg>
+          </ChevronDown>
+        </div>
+      </Arrow>
+    </div>
     <ul
-      className="css-pgkk4u"
+      className="dropdown-selector-content css-e99cqv"
     >
       <OptionItem
-        focused={false}
         key="1"
         onOptionClicked={[Function]}
         option={
@@ -88,25 +125,22 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "1",
           }
         }
-        optionClass="className css-orv7bh"
+        optionClass="className css-qte9rq"
       >
-        <button
+        <div
           aria-label="ariaLabel"
-          className="className css-orv7bh"
+          className="dropdown-option className css-qte9rq"
           onClick={[Function]}
-          onKeyDown={[Function]}
           tabIndex={-1}
           title="title"
-          type="button"
         >
           <i
-            className="fab fa-js-square option-icon"
+            className="fab fa-js-square dropdown-option-icon"
           />
           1
-        </button>
+        </div>
       </OptionItem>
       <OptionItem
-        focused={false}
         key="2"
         onOptionClicked={[Function]}
         option={
@@ -118,25 +152,22 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "2",
           }
         }
-        optionClass="className css-orv7bh"
+        optionClass="className css-qte9rq"
       >
-        <button
+        <div
           aria-label="ariaLabel"
-          className="className css-orv7bh"
+          className="dropdown-option className css-qte9rq"
           onClick={[Function]}
-          onKeyDown={[Function]}
           tabIndex={-1}
           title="title"
-          type="button"
         >
           <i
-            className="fab fa-js-square option-icon"
+            className="fab fa-js-square dropdown-option-icon"
           />
           2
-        </button>
+        </div>
       </OptionItem>
       <OptionItem
-        focused={false}
         key="3"
         onOptionClicked={[Function]}
         option={
@@ -148,22 +179,20 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "3",
           }
         }
-        optionClass="className css-orv7bh"
+        optionClass="className css-qte9rq"
       >
-        <button
+        <div
           aria-label="ariaLabel"
-          className="className css-orv7bh"
+          className="dropdown-option className css-qte9rq"
           onClick={[Function]}
-          onKeyDown={[Function]}
           tabIndex={-1}
           title="title"
-          type="button"
         >
           <i
-            className="fab fa-js-square option-icon"
+            className="fab fa-js-square dropdown-option-icon"
           />
           3
-        </button>
+        </div>
       </OptionItem>
     </ul>
   </div>
@@ -181,45 +210,110 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   height={null}
   hideArrow={false}
   id={null}
-  maxContentHeight={null}
+  maxContentHeight={150}
+  onChange={[Function]}
   openUp={false}
   options={Array []}
   pageKeyTraverseSize={10}
   placeholder="Select ..."
-  searchable={true}
-  selectedOption={null}
+  searchable={false}
   selectedValueClassName={null}
-  setSelected={[Function]}
   style={Object {}}
   width={null}
 >
   <div
-    className="css-1tvgpda"
+    aria-describedby={null}
+    aria-hidden={false}
+    aria-label={null}
+    aria-labelledby={null}
+    className="dropdown css-4a6799"
+    id={null}
+    onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
   >
-    <button
-      aria-describedby={null}
-      aria-label={null}
-      aria-labelledby={null}
-      className="css-cn7df1"
-      disabled={false}
-      id={null}
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
+    <div
+      className="dropdown-selector css-q0xgr4"
     >
-      <div
-        className="css-vh9bzf"
+      <span
+        className="dropdown-selector-search css-1l6e6we"
+      >
+        <input
+          autoComplete="off"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={true}
+          value=""
+        />
+      </span>
+      <span
+        className="dropdown-selector-placeholder css-nctil"
       >
         Select ...
-      </div>
-      <div
-        className="css-sfaqia"
-      />
-    </button>
+      </span>
+      <Arrow
+        dropdownOpen={false}
+        getStyle={[Function]}
+        hideArrow={false}
+        searchable={false}
+      >
+        <div
+          className="css-1h2654e"
+        >
+          <ChevronDown>
+            <svg
+              className="feather feather-chevron-down"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="6 9 12 15 18 9"
+              />
+            </svg>
+          </ChevronDown>
+        </div>
+      </Arrow>
+    </div>
     <ul
-      className="css-mqwsxw"
-    />
+      className="dropdown-selector-content css-e99cqv"
+    >
+      <div
+        className="dropdown-selector-content--empty"
+      >
+        <Inbox>
+          <svg
+            className="feather feather-chevron-down"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="22 12 16 12 14 15 10 15 8 12 2 12"
+            />
+            <path
+              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+            />
+          </svg>
+        </Inbox>
+        No data
+      </div>
+    </ul>
   </div>
 </Dropdown>
 `;
@@ -235,7 +329,8 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   height={null}
   hideArrow={false}
   id={null}
-  maxContentHeight={null}
+  maxContentHeight={150}
+  onChange={[Function]}
   openUp={false}
   options={
     Array [
@@ -313,39 +408,76 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   }
   pageKeyTraverseSize={10}
   placeholder="Select ..."
-  searchable={true}
-  selectedOption={null}
+  searchable={false}
   selectedValueClassName={null}
-  setSelected={[Function]}
   style={Object {}}
   width={null}
 >
   <div
-    className="css-1tvgpda"
+    aria-describedby={null}
+    aria-hidden={false}
+    aria-label={null}
+    aria-labelledby={null}
+    className="dropdown css-4a6799"
+    id={null}
+    onClick={[Function]}
+    onFocus={[Function]}
     onKeyDown={[Function]}
   >
-    <button
-      aria-describedby={null}
-      aria-label={null}
-      aria-labelledby={null}
-      className="css-cn7df1"
-      disabled={false}
-      id={null}
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
+    <div
+      className="dropdown-selector css-q0xgr4"
     >
-      <div
-        className="css-vh9bzf"
+      <span
+        className="dropdown-selector-search css-1l6e6we"
+      >
+        <input
+          autoComplete="off"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          readOnly={true}
+          value=""
+        />
+      </span>
+      <span
+        className="dropdown-selector-placeholder css-nctil"
       >
         Select ...
-      </div>
-      <div
-        className="css-sfaqia"
-      />
-    </button>
+      </span>
+      <Arrow
+        dropdownOpen={false}
+        getStyle={[Function]}
+        hideArrow={false}
+        searchable={false}
+      >
+        <div
+          className="css-1h2654e"
+        >
+          <ChevronDown>
+            <svg
+              className="feather feather-chevron-down"
+              fill="none"
+              height="16"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                points="6 9 12 15 18 9"
+              />
+            </svg>
+          </ChevronDown>
+        </div>
+      </Arrow>
+    </div>
     <ul
-      className="css-mqwsxw"
+      className="dropdown-selector-content css-e99cqv"
     >
       <OptionGroup
         focusedIndex={-1}
@@ -389,7 +521,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "label": "numbers",
           }
         }
-        selectedOption={null}
         startingIndex={0}
       >
         <div
@@ -407,7 +538,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </div>
           <OptionItem
-            focused={false}
             key="1"
             onOptionClicked={[Function]}
             option={
@@ -415,20 +545,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "1",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               1
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="2"
             onOptionClicked={[Function]}
             option={
@@ -436,20 +563,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "2",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               2
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="3"
             onOptionClicked={[Function]}
             option={
@@ -457,20 +581,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "3",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               3
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="4"
             onOptionClicked={[Function]}
             option={
@@ -478,20 +599,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "4",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               4
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="5"
             onOptionClicked={[Function]}
             option={
@@ -499,20 +617,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "5",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               5
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="6"
             onOptionClicked={[Function]}
             option={
@@ -520,20 +635,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "6",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               6
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="7"
             onOptionClicked={[Function]}
             option={
@@ -541,20 +653,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "7",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               7
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="8"
             onOptionClicked={[Function]}
             option={
@@ -562,20 +671,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "8",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               8
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="9"
             onOptionClicked={[Function]}
             option={
@@ -583,20 +689,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "9",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               9
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="10"
             onOptionClicked={[Function]}
             option={
@@ -604,17 +707,15 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "10",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               10
-            </button>
+            </div>
           </OptionItem>
           <div
             className="css-iryzig"
@@ -663,7 +764,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             "label": "letters",
           }
         }
-        selectedOption={null}
         startingIndex={10}
       >
         <div
@@ -681,7 +781,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </div>
           <OptionItem
-            focused={false}
             key="a"
             onOptionClicked={[Function]}
             option={
@@ -689,20 +788,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "a",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               a
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="b"
             onOptionClicked={[Function]}
             option={
@@ -710,20 +806,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "b",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               b
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="c"
             onOptionClicked={[Function]}
             option={
@@ -731,20 +824,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "c",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               c
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="d"
             onOptionClicked={[Function]}
             option={
@@ -752,20 +842,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "d",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               d
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="e"
             onOptionClicked={[Function]}
             option={
@@ -773,20 +860,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "e",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               e
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="f"
             onOptionClicked={[Function]}
             option={
@@ -794,20 +878,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "f",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               f
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="g"
             onOptionClicked={[Function]}
             option={
@@ -815,20 +896,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "g",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               g
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="h"
             onOptionClicked={[Function]}
             option={
@@ -836,20 +914,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "h",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               h
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="i"
             onOptionClicked={[Function]}
             option={
@@ -857,20 +932,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "i",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               i
-            </button>
+            </div>
           </OptionItem>
           <OptionItem
-            focused={false}
             key="j"
             onOptionClicked={[Function]}
             option={
@@ -878,17 +950,15 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "j",
               }
             }
-            optionClass="css-orv7bh"
+            optionClass="css-qte9rq"
           >
-            <button
-              className="css-orv7bh"
+            <div
+              className="dropdown-option css-qte9rq"
               onClick={[Function]}
-              onKeyDown={[Function]}
               tabIndex={-1}
-              type="button"
             >
               j
-            </button>
+            </div>
           </OptionItem>
           <div
             className="css-iryzig"

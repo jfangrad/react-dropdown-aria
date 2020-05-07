@@ -30,7 +30,7 @@ class CustomArrow extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
   customArrowRenderer = (open) => {
@@ -50,8 +50,8 @@ class CustomArrow extends React.Component {
             ariaLabel="Custom Arrow Dropdown"
             arrowRenderer={this.customArrowRenderer}
             options={options}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             maxContentHeight={150}
             {...dropdownState}

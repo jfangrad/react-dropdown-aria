@@ -23,7 +23,7 @@ class Basic extends React.Component {
   }
 
   setInterest = (selectedOption) => {
-    this.setState({ interest: selectedOption });
+    this.setState({ interest: selectedOption.value });
   }
 
   render() {
@@ -38,8 +38,8 @@ class Basic extends React.Component {
             id="dropdown"
             ariaLabel="React Simple Dropdown"
             options={options}
-            selectedOption={interest}
-            setSelected={this.setInterest}
+            value={interest}
+            onChange={this.setInterest}
             width={400}
             maxContentHeight={150}
             {...dropdownState}

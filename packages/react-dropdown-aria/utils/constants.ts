@@ -1,8 +1,10 @@
 export enum StyleKeys {
   Arrow = 'Arrow',
-  DisplayedValue = 'DisplayedValue',
-  DropdownButton = 'DropdownButton',
+  DropdownSelector = 'DropdownSelector',
   DropdownWrapper = 'DropdownWrapper',
+  SelectorSearch = 'SelectorSearch',
+  SelectedValue = 'SelectedValue',
+  Placeholder = 'Placeholder',
   GroupContainer = 'GroupContainer',
   GroupDivider = 'GroupDivider',
   GroupHeading = 'GroupHeading',
@@ -20,4 +22,10 @@ export enum KEY_CODES {
   UP_ARROW = 38,
 };
 
-export const NAVIGATION_KEYS = [KEY_CODES.ESCAPE, KEY_CODES.UP_ARROW, KEY_CODES.DOWN_ARROW, KEY_CODES.PAGE_UP, KEY_CODES.PAGE_DOWN];
+export const NAVIGATION_KEYS = [
+  KEY_CODES.ESCAPE,
+  KEY_CODES.UP_ARROW,
+  KEY_CODES.DOWN_ARROW,
+  KEY_CODES.PAGE_UP,
+  KEY_CODES.PAGE_DOWN,
+];

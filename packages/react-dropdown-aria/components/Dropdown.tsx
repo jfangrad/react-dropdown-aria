@@ -1,9 +1,11 @@
-import React, { KeyboardEvent, useCallback } from 'react';
+import React, { KeyboardEvent, useCallback, ChangeEvent } from 'react';
 import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
-import { DropdownProps, MouseKeyboardEvent } from '../utils/types';
+import Arrow from './Arrow';
+import { DropdownProps } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
+import { Inbox } from '../icons';
 
 const Dropdown = (props: DropdownProps) => {
   const {
@@ -12,61 +14,58 @@ const Dropdown = (props: DropdownProps) => {
     ariaLabelledBy,
     arrowRenderer,
     contentClassName,
-    buttonClassName,
+    className,
     disabled,
     hideArrow,
     id,
-    options,
     optionItemRenderer,
     pageKeyTraverseSize,
     placeholder,
     searchable,
-    setSelected,
-    selectedOption,
+    value,
     selectedValueClassName,
   } = props;
 
   const {
-    internalSelectedOption, setInternalSelectedOption,
     getStyle,
     open, setOpen,
     focusedIndex, setFocusedIndex,
-    dropdownButton,
-    container,
+    setDropdownFocused,
+    setValue,
     closeDropdown,
-    searchDropdown,
+    searchTerm, setSearchTerm,
+    filteredOptions,
     flattenedOptions,
+    container,
+    inputRef,
+    listWrapper,
   } = useDropdownHooks(props);
 
-  const onDropdownClick = useCallback(({ nativeEvent }: MouseKeyboardEvent) => {
-    if (nativeEvent instanceof KeyboardEvent) {
-      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
-      nativeEvent.preventDefault();
+  const forwardFocus = useCallback(() => {
+    if (inputRef.current) {
+      // Pass focus on to input
+      inputRef.current.focus();
     }
+  }, [inputRef.current]);
 
-    if (!disabled) {
+  const onDropdownClick = useCallback(() => {
+    forwardFocus();
+
+    if (!disabled && (!open || !searchable)) {
+      setFocusedIndex(open ? -1 : 0);
       setOpen(p => !p);
-      setFocusedIndex(p => (open ? -1 : p));
     }
-  }, [open, disabled, setOpen]);
+  }, [open, disabled, searchable, setOpen, setFocusedIndex]);
 
-  const onOptionClicked = useCallback(({ nativeEvent }: MouseKeyboardEvent) => {
-    if (nativeEvent instanceof KeyboardEvent) {
-      if (nativeEvent.keyCode !== KEY_CODES.ENTER) return;
-      nativeEvent.preventDefault();
+  const onOptionClicked = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.target) {
+      const newOptionText = (e.target as HTMLDivElement).innerText;
+      const newOption = flattenedOptions.find(({ value: optionValue }) => optionValue === newOptionText);
+      setValue(newOption, true);
     }
-
-    if (nativeEvent.target) {
-      const newSelectedOption = (nativeEvent.target as HTMLButtonElement).innerText;
-      setSelected(newSelectedOption);
-      setOpen(false);
-      setInternalSelectedOption(newSelectedOption);
-
-      if (nativeEvent instanceof KeyboardEvent && nativeEvent.keyCode && nativeEvent.keyCode === KEY_CODES.ENTER && dropdownButton.current) {
-        dropdownButton.current.focus();
-      }
-    }
-  }, [setSelected, setOpen, setInternalSelectedOption, dropdownButton.current])
+  }, [setValue, container.current])
 
   const onNavigation = useCallback((keyCode: number) => {
     switch (keyCode) {
@@ -100,59 +99,96 @@ const Dropdown = (props: DropdownProps) => {
       default:
         break;
     }
-  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize])
+  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown])
 
-  const onKeyDown = useCallback(({ nativeEvent }: KeyboardEvent) => {
-    const { keyCode, key } = nativeEvent;
+  const onKeyDown = useCallback((e: KeyboardEvent) => {
+    const { keyCode } = e;
 
     if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
-      nativeEvent.preventDefault();
+      e.preventDefault();
+      e.stopPropagation();
       onNavigation(keyCode);
-    } else if (keyCode === KEY_CODES.TAB) {
+    } else if (keyCode === KEY_CODES.ENTER && !open) {
+      setOpen(true);
+      setFocusedIndex(0);
+    } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
-    } else if (key.length === 1 && searchable) {
-      searchDropdown(key.toLowerCase());
     }
-  }, [searchDropdown, onNavigation, closeDropdown, searchable]);
+  }, [onNavigation, setOpen, searchable, closeDropdown, open]);
 
-  // ---------------- RENDER METHODS ---------------
-  const renderArrow = useCallback(() => {
-    if (hideArrow) return null;
-    if (arrowRenderer) return arrowRenderer(open);
+  const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  }, [setSearchTerm]);
 
-    const arrowClass = getStyle(StyleKeys.Arrow);
-    return <div className={arrowClass} />
-  }, [open, hideArrow, arrowRenderer]);
+  const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
+    const { keyCode } = e;
+    if (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) {
+      if (flattenedOptions.length > 0 && focusedIndex >= 0 && open) {
+        e.stopPropagation();
+        e.preventDefault();
+        setValue(flattenedOptions[focusedIndex], true);
+      }
+    }
+  }, [flattenedOptions, setValue, focusedIndex, open]);
 
-  const displayedValue = selectedOption || internalSelectedOption || placeholder || '';
-  const wrapperClass = getStyle(StyleKeys.DropdownWrapper);
-  const dropdownButtonClass = cx(buttonClassName, getStyle(StyleKeys.DropdownButton));
-  const displayedValueClass = cx(selectedValueClassName, getStyle(StyleKeys.DisplayedValue));
-  const contentClass = cx(contentClassName, getStyle(StyleKeys.OptionContainer));
+  const onFocus = useCallback(() => setDropdownFocused(true), [setDropdownFocused]);
+  const onBlur = useCallback(() => setDropdownFocused(false), [setDropdownFocused]);
+
+  // ---------------------- RENDER -----------------------
+  const wrapperClass = cx('dropdown', className, getStyle(StyleKeys.DropdownWrapper));
+  const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
+  const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
+  const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
+  const displayedValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
+  const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
+
+  const NoDataMarkup = (
+    <div className="dropdown-selector-content--empty">
+      <Inbox />
+      No data
+    </div>
+  );
 
   return (
     <div
+      id={id}
+      ref={container}
       className={wrapperClass}
       onKeyDown={onKeyDown}
-      ref={container}
+      onFocus={forwardFocus}
+      onClick={onDropdownClick}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
+      aria-hidden={disabled}
     >
-      <button
-        aria-label={ariaLabel}
-        aria-describedby={ariaDescribedBy}
-        aria-labelledby={ariaLabelledBy}
-        className={dropdownButtonClass}
-        disabled={disabled}
-        id={id}
-        onClick={onDropdownClick}
-        onKeyDown={onDropdownClick}
-        ref={dropdownButton}
-        type="button"
-      >
-        <div className={displayedValueClass}>{ displayedValue }</div>
-        { renderArrow() }
-      </button>
-      <ul className={contentClass}>
-        { defaultOptionRenderer(selectedOption, options, focusedIndex, onOptionClicked, getStyle, optionItemRenderer) }
+      <div className={selectorClass}>
+        <span className={searchClass}>
+          <input
+            ref={inputRef}
+            value={searchTerm}
+            onChange={handleTermChange}
+            onKeyDown={handleInputKeyDown}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            readOnly={!open || !searchable}
+            disabled={disabled}
+            autoComplete="off"
+          />
+        </span>
+        {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
+        {(value && !searchTerm) && <span className={displayedValueClass}>{value}</span>}
+        <Arrow
+          dropdownOpen={open}
+          searchable={searchable}
+          getStyle={getStyle}
+          hideArrow={hideArrow}
+          arrowRenderer={arrowRenderer}
+        />
+      </div>
+      <ul className={contentClass} ref={listWrapper}>
+        { filteredOptions.length !== 0 && defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, optionItemRenderer) }
+        { filteredOptions.length === 0 && NoDataMarkup}
       </ul>
     </div>
   );
@@ -163,23 +199,23 @@ Dropdown.defaultProps = {
   ariaLabel: null,
   ariaLabelledBy: null,
   arrowRenderer: undefined,
-  buttonClassName: undefined,
   centerText: false,
+  className: undefined,
   contentClassName: null,
   disabled: false,
   height: null,
   hideArrow: false,
   id: null,
-  maxContentHeight: null,
+  maxContentHeight: 150,
   openUp: false,
   optionItemRenderer: undefined,
   options: [],
   pageKeyTraverseSize: 10,
   placeholder: 'Select ...',
-  searchable: true,
-  selectedOption: null,
+  searchable: false,
   selectedValueClassName: null,
   style: {},
+  value: undefined,
   width: null,
 };
 
