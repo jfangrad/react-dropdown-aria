@@ -20,6 +20,9 @@
     "esModuleInterop": true,
     "lib": ["es6", "dom"]
   },
+  "typeRoots": [
+    "../../node_modules/@types",
+  ],
   "include": ["index.ts"],
   "exclude": ["node_modules", "/__tests__/*"]
 }
