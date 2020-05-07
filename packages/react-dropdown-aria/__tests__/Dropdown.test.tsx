@@ -11,7 +11,8 @@ import { KEY_CODES } from '../utils/constants';
 
 expect.addSnapshotSerializer(createSerializer(emotion as any));
 
-// tslint:disable-next-line: no-empty
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
 const foo = (val: Option) => {};
 
 describe('Check Props', () => {

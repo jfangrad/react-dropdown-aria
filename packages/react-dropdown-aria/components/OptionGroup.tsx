@@ -5,14 +5,14 @@ import { StyleKeys } from '../utils/constants';
 import { cx } from 'emotion';
 
 interface OptionGroupProps {
-  optionGroup: OptionGroupType,
-  getStyle: GetStyleFunction,
-  selectedOption: string,
-  focusedIndex: number,
-  startingIndex: number,
-  onOptionClicked: OnOptionClicked,
-  itemRenderer?: ItemRenderer,
-};
+  optionGroup: OptionGroupType;
+  getStyle: GetStyleFunction;
+  selectedOption: string;
+  focusedIndex: number;
+  startingIndex: number;
+  onOptionClicked: OnOptionClicked;
+  itemRenderer?: ItemRenderer;
+}
 
 const OptionGroup = ({
   optionGroup,

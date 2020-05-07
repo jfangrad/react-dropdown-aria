@@ -1,5 +1,5 @@
 /* tslint:disable:object-literal-sort-keys */
-import { useState, useRef, MutableRefObject, useCallback, useMemo, useEffect } from "react";
+import { useState, useRef, useCallback, useMemo } from "react";
 import { DropdownProps, StyleKey, ExtraState, Option } from './types';
 import useSearch from './search-hooks';
 import defaultStyles from '../styles/Dropdown';
@@ -8,7 +8,7 @@ import { useClickListener, useScroll } from './dom-hooks';
 import { arrayReducer } from './helper';
 
 const useDropdownHooks = (props: DropdownProps) => {
-  const { style, options, searchable, value, onChange } = props;
+  const { style, options, searchable, onChange } = props;
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const [open, setOpen] = useState(false);
   const container = useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ const useDropdownHooks = (props: DropdownProps) => {
     }
   }, [inputRef.current, setSearchTerm, setOpen, setFocusedIndex]);
 
-  const setValue = useCallback((newOption?: Option, shouldClose: boolean = false) => {
+  const setValue = useCallback((newOption?: Option, shouldClose = false) => {
     if (newOption) {
       onChange(newOption);
       setSearchTerm('');

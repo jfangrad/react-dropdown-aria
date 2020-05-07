@@ -4,7 +4,9 @@ import { OptionItemProps } from '../components/OptionItem';
 
 export type Maybe<T> = T | null | undefined;
 
-export interface ExtraState { [key: string]: any };
+export interface ExtraState {
+  [key: string]: any;
+}
 
 export type StyleKey = keyof typeof StyleKeys;
 
@@ -23,64 +25,64 @@ export type ItemRenderer = (
 ) => JSX.Element;
 
 export interface DropdownStyle {
-  Arrow?: StyleFunction,
-  DropdownButton?: StyleFunction,
-  DisplayedValue?: StyleFunction,
-  DropdownWrapper?: StyleFunction,
-  GroupContainer?: StyleFunction,
-  GroupHeading?: StyleFunction,
-  GroupDivider?: StyleFunction,
-  OptionContainer?: StyleFunction,
-  OptionItem?: StyleFunction,
-};
+  Arrow?: StyleFunction;
+  DropdownButton?: StyleFunction;
+  DisplayedValue?: StyleFunction;
+  DropdownWrapper?: StyleFunction;
+  GroupContainer?: StyleFunction;
+  GroupHeading?: StyleFunction;
+  GroupDivider?: StyleFunction;
+  OptionContainer?: StyleFunction;
+  OptionItem?: StyleFunction;
+}
 
 export interface Option {
-  ariaLabel?: string,
-  className?: string,
-  title?: string,
-  value: string,
-  iconClass?: string,
+  ariaLabel?: string;
+  className?: string;
+  title?: string;
+  value: string;
+  iconClass?: string;
 }
 
 export interface OptionGroup {
-  label: string,
-  groupOptions: Option[],
+  label: string;
+  groupOptions: Option[];
 }
 
 export type DropdownOption = Option | OptionGroup;
 
 export interface DropdownStyleDependantState {
-  open: boolean,
-  focusedIndex: number,
-  dropdownFocused: boolean,
+  open: boolean;
+  focusedIndex: number;
+  dropdownFocused: boolean;
 }
 
 export interface DropdownState extends DropdownStyleDependantState {
-  searchTerm: string,
-};
+  searchTerm: string;
+}
 
 export interface DropdownProps {
-  ariaDescribedBy: string,
-  ariaLabel: string,
-  ariaLabelledBy: string,
-  arrowRenderer: (open: boolean) => ReactNode,
-  className: string,
-  centerText: boolean,
-  contentClassName: string,
-  disabled: boolean,
-  height: number,
-  hideArrow: boolean,
-  id: string,
-  maxContentHeight: number,
-  openUp: boolean,
-  options: DropdownOption[],
-  optionItemRenderer: OptionRendererFunction,
-  pageKeyTraverseSize: number,
-  placeholder: string,
-  searchable: boolean,
-  value: string,
-  selectedValueClassName: string,
-  onChange: (option: Option) => void,
-  style: DropdownStyle,
-  width: number,
+  ariaDescribedBy: string;
+  ariaLabel: string;
+  ariaLabelledBy: string;
+  arrowRenderer: (open: boolean) => ReactNode;
+  className: string;
+  centerText: boolean;
+  contentClassName: string;
+  disabled: boolean;
+  height: number;
+  hideArrow: boolean;
+  id: string;
+  maxContentHeight: number;
+  openUp: boolean;
+  options: DropdownOption[];
+  optionItemRenderer: OptionRendererFunction;
+  pageKeyTraverseSize: number;
+  placeholder: string;
+  searchable: boolean;
+  value: string;
+  selectedValueClassName: string;
+  onChange: (option: Option) => void;
+  style: DropdownStyle;
+  width: number;
 }

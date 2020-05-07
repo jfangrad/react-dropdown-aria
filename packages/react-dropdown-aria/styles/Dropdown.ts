@@ -1,7 +1,7 @@
 import { CSSObject } from 'create-emotion';
 import colours from './colours';
 import OptionItem from './OptionItem';
-import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
+import { DropdownProps, DropdownStyleDependantState } from '../utils/types';
 
 const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
   backgroundColor: disabled ? colours.greys.light : colours.greys.lighter,
@@ -45,7 +45,7 @@ const DropdownSelector = (props: DropdownProps, { open }: DropdownStyleDependant
   },
 });
 
-const SelectorSearch = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
+const SelectorSearch = (): CSSObject => ({
   bottom: 0,
   left: '11px',
   position: 'absolute',
@@ -76,7 +76,7 @@ const Placeholder = (props: DropdownProps): CSSObject => ({
   ...inputValueStyleBase(props),
 });
 
-const Arrow = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
+const Arrow = (): CSSObject => ({
   alignItems: 'center',
   bottom: 0,
   color: colours.greys.base,

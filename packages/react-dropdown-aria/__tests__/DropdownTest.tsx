@@ -4,7 +4,7 @@ import Dropdown, { Option } from '../index';
 
 interface Props {
   onChange: (value: Option) => void;
-};
+}
 
 const DropdownTest = ({ onChange }: Props) => {
   const [value, setValue] = useState<string>();

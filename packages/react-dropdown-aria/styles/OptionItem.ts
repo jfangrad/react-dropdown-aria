@@ -4,7 +4,7 @@ import { CSSObject } from 'create-emotion';
 
 export default (props: DropdownProps, state: DropdownStyleDependantState, { selected, focused }: ExtraState): CSSObject => {
   let backgroundColor = colours.greys.lighter;
-  let color: string = 'inherit';
+  let color = 'inherit';
 
   if (focused && selected) {
     backgroundColor = colours.greys.dark;

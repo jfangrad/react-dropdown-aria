@@ -2,11 +2,11 @@ import React from 'react';
 import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 
 export interface OptionItemProps {
-  option: Option,
-  optionClass: string,
-  onOptionClicked: OnOptionClicked,
-  itemRenderer?: ItemRenderer,
-};
+  option: Option;
+  optionClass: string;
+  onOptionClicked: OnOptionClicked;
+  itemRenderer?: ItemRenderer;
+}
 
 const OptionItem = (props: OptionItemProps) => {
   const {
