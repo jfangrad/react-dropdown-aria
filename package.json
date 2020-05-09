@@ -10,13 +10,13 @@
   "scripts": {
     "build": "yarn lib:prod && yarn demo:prod",
     "deploy": "yarn build && git subtree push --prefix demo/dist origin gh-pages",
-    "demo:dev": "cd demo && yarn demo:dev",
-    "demo:prod": "cd demo && yarn demo:prod",
-    "lib:dev": "cd packages/react-dropdown-aria && yarn lib:dev",
-    "lib:prod": "cd packages/react-dropdown-aria && yarn lib:prod",
-    "lint": "cd packages/react-dropdown-aria && yarn lint",
-    "test": "cd packages/react-dropdown-aria && yarn test",
-    "test:update": "cd packages/react-dropdown-aria && yarn test:update"
+    "demo:dev": "yarn --cwd ./demo demo:dev",
+    "demo:prod": "yarn --cwd ./demo demo:prod",
+    "lib:dev": "yarn --cwd ./packages/react-dropdown-aria lib:dev",
+    "lib:prod": "yarn --cwd ./packages/react-dropdown-aria lib:prod",
+    "lint": "yarn --cwd ./packages/react-dropdown-aria lint",
+    "test": "yarn --cwd ./packages/react-dropdown-aria test",
+    "test:update": "yarn --cwd ./packages/react-dropdown-aria test:update"
   },
   "dependencies": {},
   "keywords": [

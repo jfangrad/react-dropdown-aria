@@ -18,4 +18,10 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended'
   ],
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect",
+    },
+  }
 };
