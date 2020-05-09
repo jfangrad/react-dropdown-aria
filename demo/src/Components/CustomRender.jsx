@@ -55,7 +55,7 @@ class CustomRender extends React.Component {
     const { interest } = this.state;
 
     return (
-      <ExampleSection title="Custom Option Render Function" fileName="CustomRender.jsx">
+      <ExampleSection title="Custom Option Render Function" fileName="CustomRender.jsx" sectionId="custom_option_renderer">
         {(dropdownState) => (
           <Dropdown
             buttonClassName="my-dropdown"

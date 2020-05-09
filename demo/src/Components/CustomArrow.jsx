@@ -42,7 +42,7 @@ class CustomArrow extends React.Component {
     const { interest } = this.state;
 
     return (
-      <ExampleSection title="Custom Arrow Render Function" fileName="CustomArrow.jsx">
+      <ExampleSection title="Custom Arrow Render Function" fileName="CustomArrow.jsx" sectionId="custom_arrow_render">
         {(dropdownState) => (
           <Dropdown
             buttonClassName="my-dropdown"

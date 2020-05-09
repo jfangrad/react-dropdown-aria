@@ -40,7 +40,7 @@ class CustomStyles extends React.Component {
     const { interest } = this.state;
 
     return (
-      <ExampleSection title="Custom Styling" fileName="CustomStyles.jsx">
+      <ExampleSection title="Custom Styling" fileName="CustomStyles.jsx" sectionId="custom_styles">
         {(dropdownState) => (
           <Dropdown
             {...dropdownState}

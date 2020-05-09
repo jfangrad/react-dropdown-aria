@@ -33,7 +33,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "@material-ui/core": "^4.5.0",
+    "antd": "^4.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-dropdown-aria": "1.5.1"

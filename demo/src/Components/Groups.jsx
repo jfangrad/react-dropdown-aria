@@ -48,7 +48,7 @@ class Groups extends React.Component {
     const { interest } = this.state;
 
     return (
-      <ExampleSection title="Grouped Options" fileName="Groups.jsx">
+      <ExampleSection title="Grouped Options" fileName="Groups.jsx" sectionId="grouped_options">
         {(dropdownState) => (
           <Dropdown
             placeholder={"What's best?"}
