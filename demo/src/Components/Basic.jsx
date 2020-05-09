@@ -30,7 +30,7 @@ class Basic extends React.Component {
     const { interest } = this.state;
 
     return (
-      <ExampleSection title="Basic Usage" fileName="Basic.jsx">
+      <ExampleSection title="Basic Usage" fileName="Basic.jsx" sectionId="basic">
         {(dropdownState) => (
           <Dropdown
             placeholder="Language of Choice?"

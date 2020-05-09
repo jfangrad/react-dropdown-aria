@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BackTop } from 'antd';
 import Header from './Components/Header';
 import Basic from './Components/Basic';
 import CustomRender from './Components/CustomRender';
@@ -7,6 +8,8 @@ import CustomArrow from './Components/CustomArrow';
 import CustomStyles from './Components/CustomStyles';
 import Groups from './Components/Groups';
 import Footer from './Components/Footer';
+
+import 'antd/dist/antd.css';
 import './index.scss';
 
 const Demo = () => (
@@ -20,6 +23,7 @@ const Demo = () => (
       <CustomArrow />
     </div>
     <Footer />
+    <BackTop />
   </div>
 );
 

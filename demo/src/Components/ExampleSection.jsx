@@ -1,24 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { green, grey } from '@material-ui/core/colors';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { Checkbox } from 'antd';
 
-const GreenCheckbox = withStyles({
-  root: {
-    padding: '3px',
-    marginRight: '5px',
-    marginLeft: '12px',
-    color: grey[500],
-    '&$checked': {
-      color: green[600],
-    },
-  },
-  checked: {},
-})(props => <Checkbox color="default" {...props} />);
-
-const ExampleSection = ({ title, fileName, children }) => {
+const ExampleSection = ({ title, fileName, sectionId, children }) => {
   const [disabled, setDisabled] = useState(false);
   const [searchable, setSearchable] = useState(true);
 
@@ -32,7 +16,7 @@ const ExampleSection = ({ title, fileName, children }) => {
 
   return (
     <div className="section">
-      <div className="section-title">
+      <div className="section-title" id={sectionId}>
         {title} |
         <a href={`https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/${fileName}`} className="section-source-link">
           Source
@@ -40,24 +24,18 @@ const ExampleSection = ({ title, fileName, children }) => {
       </div>
       {children({disabled, searchable})}
       <div className="buttons-container">
-        <FormControlLabel
-          label="Disabled"
-          control={
-            <GreenCheckbox
-              checked={disabled}
-              onChange={handleCheckboxClick('disable')}
-            />
-          }
-        />
-        <FormControlLabel
-          label="Searchable"
-          control={
-            <GreenCheckbox
-              checked={searchable}
-              onChange={handleCheckboxClick('searchable')}
-            />
-          }
-        />
+        <Checkbox
+          checked={disabled}
+          onChange={handleCheckboxClick('disable')}
+        >
+          Disabled
+        </Checkbox>
+        <Checkbox
+          checked={searchable}
+          onChange={handleCheckboxClick('searchable')}
+        >
+          Searchable
+        </Checkbox>
       </div>
     </div>
   );
