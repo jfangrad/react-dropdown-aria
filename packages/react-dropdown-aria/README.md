@@ -1,5 +1,6 @@
 [![CircleCI](https://circleci.com/gh/jfangrad/react-dropdown-aria.svg?style=svg&circle-token=c8db79d70dddf853273a5964b860ec0bf53f5163)](https://circleci.com/gh/jfangrad/react-dropdown-aria/tree/master) [![npm](https://img.shields.io/npm/v/react-dropdown-aria.svg)](https://www.npmjs.com/package/react-dropdown-aria)
-[![gzip size](http://img.badgesize.io/https://unpkg.com/react-dropdown-aria/lib/index.js?compression=gzip)](https://unpkg.com/react-dropdown-aria/lib/index.js)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-dropdown-aria?color=important)
+![npm](https://img.shields.io/npm/dm/react-dropdown-aria)
 # react-dropdown-aria
 Simple, lightweight, and accessible React dropdown component.
 
@@ -15,15 +16,17 @@ This component was created to be a light weight and fully accessible dropdown co
 6. Typescript typings included
 
 # Demo And Examples
-For demo and examples checkout [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
+For demo and examples see [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
 
 # Installation
 Simply use npm or yarn to install the package.
 ```
-// npm
-$ npm install --save react-dropdown-aria
 // Yarn
 $ yarn add react-dropdown-aria
+```
+```
+// npm
+$ npm install --save react-dropdown-aria
 ```
 
 You can then include it in your project as needed:
@@ -108,8 +111,8 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
 | `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
 | `arrowRenderer` | function | undefined | Custom function to render the arrow for the dropdown |
-| `className` | string | undefined | CSS class to be applied to the drodown |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
+| `className` | string | undefined | CSS class to be applied to the drodown |
 | `contentClassName` | string | undefined | CSS class to be applied to the dropdown option `ul` container |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
 | `height` | number | null | Use to set the dropdown height manually |
@@ -123,22 +126,25 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
 | `value` | string | null | The value of the option that is currently selected (as set by `setSelected`). |
-| `selectedOptionClassName` | string | undefined | CSS class to be applied to the selected option in the dropdown |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `onChange` | function | undefined | Function called when the selected value changes |
 | `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 
-
-## Developing
+# Developing
 Clone the repo
 ```
 git clone https://github.com/jfangrad/react-dropdown-aria.git
 ```
 
-Install node modules and start in dev mode
+Install node modules
 ```
-npm install
-npm run dev
+yarn install
+```
+
+Then in two seperate consoles start the library and demo
+```
+yarn lib:dev
+yarn demo:dev
 ```

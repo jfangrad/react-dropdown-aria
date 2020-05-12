@@ -57,7 +57,7 @@ Each option object in the array of options can have the following keys:
 | `title` | string | null | HTML title to be used for the option |
 | `value` | string | null | The value to be displayed in the dropdown (Required) |
 
-### Grouped Options Example
+### Groups Example
 Groups of items can also be implemented by pasing an array of objects of the following form to the dropdown options prop:
 ```js
 <Dropdown
@@ -72,8 +72,8 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 
 ## Styling
 Custom styling can be applied to the dropdown through 2 ways:
-1. Emotion JavaScript Objects via the `style` prop
-2. CSS className props (As seen in props table below)
+1. CSS className props (As seen in props table below)
+2. Emotion JavaScript Objects passed to `style` prop
 
 The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 The following object keys are supported to apply style to the corresponding part of the dropdown:
@@ -111,8 +111,8 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `ariaLabel` | string | null | Aria Label to be applied to the main dropdown button |
 | `ariaLabelledBy` | string | null | ID of element that should be used as the label for the dropdown |
 | `arrowRenderer` | function | undefined | Custom function to render the arrow for the dropdown |
-| `buttonClassName` | string | undefined | CSS class to be applied to main drodown button |
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
+| `className` | string | undefined | CSS class to be applied to the drodown |
 | `contentClassName` | string | undefined | CSS class to be applied to the dropdown option `ul` container |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
 | `height` | number | null | Use to set the dropdown height manually |
@@ -120,17 +120,17 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `id` | string | undefined | `id` to be passed to the main dropdown button |
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
 | `openUp` | boolean | false | Whether dropdown should open up or not |
-| `optionItemRenderer` | OptionRendererFunction | undefined | Custom function to render the options displayed in the dropdown |
+| `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | array | [] | Array of option objects |
-| `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused item by |
+| `optionClassName` | string | undefined | CSS class to be applied to all options in the dropdown |
+| `pageKeyTraverseSize` | number | 10 | Number of options page up or page down will move the current focused by |
 | `placeholder` | string | `Select...` | Placeholder value for dropdown |
-| `selectedOption` | string | null | The value of the option that is currently selected (as set by `setSelected`). If not provided, selected value will be tracked internally (not recomended) |
+| `value` | string | null | The value of the option that is currently selected (as set by `setSelected`). |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
-| `setSelected` | function | undefined | Function used to update the state of the selected value |
+| `onChange` | function | undefined | Function called when the selected value changes |
 | `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
-
 
 # Developing
 Clone the repo
@@ -146,7 +146,5 @@ yarn install
 Then in two seperate consoles start the library and demo
 ```
 yarn lib:dev
-```
-```
 yarn demo:dev
 ```

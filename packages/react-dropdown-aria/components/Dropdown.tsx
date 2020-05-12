@@ -149,6 +149,20 @@ const Dropdown = (props: DropdownProps) => {
     </div>
   );
 
+  const dropdownContent = (
+    <>
+      { filteredOptions.length === 0 && NoDataMarkup}
+      { filteredOptions.length !== 0 && defaultOptionRenderer({
+        selectedOption: value,
+        options: filteredOptions,
+        focusedIndex,
+        onOptionClicked,
+        getStyle,
+        optionItemRenderer,
+      })}
+    </>
+  )
+
   return (
     <div
       id={id}
@@ -187,8 +201,7 @@ const Dropdown = (props: DropdownProps) => {
         />
       </div>
       <ul className={contentClass} ref={listWrapper}>
-        { filteredOptions.length !== 0 && defaultOptionRenderer(value, filteredOptions, focusedIndex, onOptionClicked, getStyle, optionItemRenderer) }
-        { filteredOptions.length === 0 && NoDataMarkup}
+        { dropdownContent }
       </ul>
     </div>
   );

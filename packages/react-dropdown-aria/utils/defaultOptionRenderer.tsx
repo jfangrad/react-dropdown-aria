@@ -6,14 +6,23 @@ import { isOptionGroup } from './helper';
 import { DropdownOption, GetStyleFunction, OptionRendererFunction, OnOptionClicked } from './types';
 import { StyleKeys } from './constants';
 
-function defaultOptionRenderer(
-  selectedOption: string,
-  options: DropdownOption[],
-  focusedIndex: number,
-  onOptionClicked: OnOptionClicked,
-  getStyle: GetStyleFunction,
-  optionItemRenderer?: OptionRendererFunction,
-) {
+interface DefaultOptionRendererParams {
+  selectedOption: string;
+  options: DropdownOption[];
+  focusedIndex: number;
+  onOptionClicked: OnOptionClicked;
+  getStyle: GetStyleFunction;
+  optionItemRenderer?: OptionRendererFunction;
+}
+
+function defaultOptionRenderer({
+  selectedOption,
+  options,
+  focusedIndex,
+  onOptionClicked,
+  getStyle,
+  optionItemRenderer,
+}: DefaultOptionRendererParams) {
   const itemRenderer = optionItemRenderer ?
     (props: OptionItemProps, index: number) => optionItemRenderer(props, getStyle, index) :
     undefined;
