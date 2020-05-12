@@ -16,12 +16,14 @@ export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => strin
 export type OptionRendererFunction = (
   props: OptionItemProps,
   getStyle: GetStyleFunction,
+  index: number,
 ) => JSX.Element;
 
 export type OnOptionClicked = (e: React.MouseEvent<HTMLDivElement>) => void;
 
 export type ItemRenderer = (
   props: OptionItemProps,
+  index: number,
 ) => JSX.Element;
 
 export interface DropdownStyle {

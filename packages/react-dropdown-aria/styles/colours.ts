@@ -4,7 +4,8 @@ const colours = {
     dark: '#7C7C7C',
     darker: '#6e6d6d',
     light: '#CECECE',
-    lighter: '#f5f5f5',
+    lighter: '#e0e0e0',
+    lightest: '#f5f5f5',
   },
   states: {
     disabled: '#ededed',

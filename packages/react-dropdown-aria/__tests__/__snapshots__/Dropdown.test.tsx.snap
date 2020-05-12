@@ -111,9 +111,10 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-e99cqv"
+      className="dropdown-selector-content css-m2fyt8"
     >
       <OptionItem
+        index={0}
         key="1"
         onOptionClicked={[Function]}
         option={
@@ -125,11 +126,11 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "1",
           }
         }
-        optionClass="className css-qte9rq"
+        optionClass="className css-1qx3k0g"
       >
         <div
           aria-label="ariaLabel"
-          className="dropdown-option className css-qte9rq"
+          className="dropdown-option className css-1qx3k0g"
           onClick={[Function]}
           tabIndex={-1}
           title="title"
@@ -141,6 +142,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         </div>
       </OptionItem>
       <OptionItem
+        index={1}
         key="2"
         onOptionClicked={[Function]}
         option={
@@ -152,11 +154,11 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "2",
           }
         }
-        optionClass="className css-qte9rq"
+        optionClass="className css-1qx3k0g"
       >
         <div
           aria-label="ariaLabel"
-          className="dropdown-option className css-qte9rq"
+          className="dropdown-option className css-1qx3k0g"
           onClick={[Function]}
           tabIndex={-1}
           title="title"
@@ -168,6 +170,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         </div>
       </OptionItem>
       <OptionItem
+        index={2}
         key="3"
         onOptionClicked={[Function]}
         option={
@@ -179,11 +182,11 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             "value": "3",
           }
         }
-        optionClass="className css-qte9rq"
+        optionClass="className css-1qx3k0g"
       >
         <div
           aria-label="ariaLabel"
-          className="dropdown-option className css-qte9rq"
+          className="dropdown-option className css-1qx3k0g"
           onClick={[Function]}
           tabIndex={-1}
           title="title"
@@ -285,7 +288,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-e99cqv"
+      className="dropdown-selector-content css-m2fyt8"
     >
       <div
         className="dropdown-selector-content--empty"
@@ -477,7 +480,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       </Arrow>
     </div>
     <ul
-      className="dropdown-selector-content css-e99cqv"
+      className="dropdown-selector-content css-m2fyt8"
     >
       <OptionGroup
         focusedIndex={-1}
@@ -538,6 +541,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </div>
           <OptionItem
+            index={0}
             key="1"
             onOptionClicked={[Function]}
             option={
@@ -545,10 +549,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "1",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -556,6 +560,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={1}
             key="2"
             onOptionClicked={[Function]}
             option={
@@ -563,10 +568,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "2",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -574,6 +579,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={2}
             key="3"
             onOptionClicked={[Function]}
             option={
@@ -581,10 +587,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "3",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -592,6 +598,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={3}
             key="4"
             onOptionClicked={[Function]}
             option={
@@ -599,10 +606,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "4",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -610,6 +617,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={4}
             key="5"
             onOptionClicked={[Function]}
             option={
@@ -617,10 +625,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "5",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -628,6 +636,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={5}
             key="6"
             onOptionClicked={[Function]}
             option={
@@ -635,10 +644,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "6",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -646,6 +655,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={6}
             key="7"
             onOptionClicked={[Function]}
             option={
@@ -653,10 +663,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "7",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -664,6 +674,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={7}
             key="8"
             onOptionClicked={[Function]}
             option={
@@ -671,10 +682,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "8",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -682,6 +693,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={8}
             key="9"
             onOptionClicked={[Function]}
             option={
@@ -689,10 +701,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "9",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -700,6 +712,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={9}
             key="10"
             onOptionClicked={[Function]}
             option={
@@ -707,10 +720,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "10",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -781,6 +794,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </div>
           <OptionItem
+            index={10}
             key="a"
             onOptionClicked={[Function]}
             option={
@@ -788,10 +802,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "a",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -799,6 +813,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={11}
             key="b"
             onOptionClicked={[Function]}
             option={
@@ -806,10 +821,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "b",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -817,6 +832,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={12}
             key="c"
             onOptionClicked={[Function]}
             option={
@@ -824,10 +840,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "c",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -835,6 +851,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={13}
             key="d"
             onOptionClicked={[Function]}
             option={
@@ -842,10 +859,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "d",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -853,6 +870,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={14}
             key="e"
             onOptionClicked={[Function]}
             option={
@@ -860,10 +878,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "e",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -871,6 +889,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={15}
             key="f"
             onOptionClicked={[Function]}
             option={
@@ -878,10 +897,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "f",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -889,6 +908,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={16}
             key="g"
             onOptionClicked={[Function]}
             option={
@@ -896,10 +916,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "g",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -907,6 +927,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={17}
             key="h"
             onOptionClicked={[Function]}
             option={
@@ -914,10 +935,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "h",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -925,6 +946,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={18}
             key="i"
             onOptionClicked={[Function]}
             option={
@@ -932,10 +954,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "i",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >
@@ -943,6 +965,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
             </div>
           </OptionItem>
           <OptionItem
+            index={19}
             key="j"
             onOptionClicked={[Function]}
             option={
@@ -950,10 +973,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "j",
               }
             }
-            optionClass="css-qte9rq"
+            optionClass="css-1qx3k0g"
           >
             <div
-              className="dropdown-option css-qte9rq"
+              className="dropdown-option css-1qx3k0g"
               onClick={[Function]}
               tabIndex={-1}
             >

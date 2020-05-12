@@ -3,14 +3,14 @@ import { ExtraState, DropdownProps, DropdownStyleDependantState } from '../utils
 import { CSSObject } from 'create-emotion';
 
 export default (props: DropdownProps, state: DropdownStyleDependantState, { selected, focused }: ExtraState): CSSObject => {
-  let backgroundColor = colours.greys.lighter;
+  let backgroundColor = colours.greys.lightest;
   let color = 'inherit';
 
   if (focused && selected) {
     backgroundColor = colours.greys.dark;
-    color = colours.greys.lighter;
+    color = colours.greys.lightest;
   } else if (focused) {
-    backgroundColor = colours.greys.light;
+    backgroundColor = colours.greys.lighter;
   } else if (selected) {
     backgroundColor = colours.greys.light;
   }
@@ -29,10 +29,12 @@ export default (props: DropdownProps, state: DropdownStyleDependantState, { sele
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     width: '100%',
+    display: 'flex',
+    alignItems: 'center',
 
     '&:hover': {
       backgroundColor: selected ? colours.greys.dark : colours.greys.light,
-      color: selected ? colours.greys.lighter : undefined,
+      color: selected ? colours.greys.lightest : undefined,
     },
 
     '.option-icon': {
