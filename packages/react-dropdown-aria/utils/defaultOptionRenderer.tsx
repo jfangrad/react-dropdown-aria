@@ -15,7 +15,7 @@ function defaultOptionRenderer(
   optionItemRenderer?: OptionRendererFunction,
 ) {
   const itemRenderer = optionItemRenderer ?
-    (props: OptionItemProps) => optionItemRenderer(props, getStyle) :
+    (props: OptionItemProps, index: number) => optionItemRenderer(props, getStyle, index) :
     undefined;
 
   let index = 0;
@@ -49,6 +49,7 @@ function defaultOptionRenderer(
         onOptionClicked={onOptionClicked}
         option={option}
         itemRenderer={itemRenderer}
+        index={index - 1}
       />
     );
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown, { StyleKeys } from 'react-dropdown-aria';
-import '../styles/CustomRender.scss';
 import ExampleSection from './ExampleSection';
+import '../styles/CustomRender.scss';
 
 const options = [
   { value: 'Custom' },
@@ -30,24 +30,15 @@ class CustomRender extends React.Component {
     this.setState({ interest: selectedOption.value });
   }
 
-  renderOption = (props, getStyle) => {
-    const { onOptionClicked, option } = props;
+  renderOption = (props, getStyle, index) => {
+    const { option } = props;
     const { selectedOption } = this.state;
-    const classNames = getStyle(StyleKeys.OptionItem, { selected: option.value === selectedOption });
+    const classNames = getStyle(StyleKeys.OptionItem, { index });
 
     return (
-      <button
-        aria-label={option.ariaLabel}
-        className={classNames}
-        onClick={onOptionClicked}
-        onKeyDown={onOptionClicked}
-        tabIndex="-1"
-        title={option.title}
-        type="button"
-        key={option.value}
-      >
+      <span style={{ 'text-align': index % 2 === 0 ? 'left' : 'right', width: '100%' }}>
         { option.value }
-      </button>
+      </span>
     );
   }
 

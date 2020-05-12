@@ -6,6 +6,7 @@ export interface OptionItemProps {
   optionClass: string;
   onOptionClicked: OnOptionClicked;
   itemRenderer?: ItemRenderer;
+  index: number;
 }
 
 const OptionItem = (props: OptionItemProps) => {
@@ -14,10 +15,18 @@ const OptionItem = (props: OptionItemProps) => {
     option,
     optionClass,
     itemRenderer,
+    index,
   } = props;
 
+  let content = (
+    <>
+      { option.iconClass && <i className={`${option.iconClass} dropdown-option-icon`} />}
+      { option.value }
+    </>
+  );
+
   if (itemRenderer) {
-    return itemRenderer(props);
+    content = itemRenderer(props, index);
   }
 
   return (
@@ -28,8 +37,7 @@ const OptionItem = (props: OptionItemProps) => {
       tabIndex={-1}
       title={option.title}
     >
-      { option.iconClass && <i className={`${option.iconClass} dropdown-option-icon`} />}
-      { option.value }
+      {content}
     </div>
   );
 };

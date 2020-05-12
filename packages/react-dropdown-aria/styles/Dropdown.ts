@@ -4,7 +4,7 @@ import OptionItem from './OptionItem';
 import { DropdownProps, DropdownStyleDependantState } from '../utils/types';
 
 const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
-  backgroundColor: disabled ? colours.greys.light : colours.greys.lighter,
+  backgroundColor: disabled ? colours.greys.light : colours.greys.lightest,
   border: `2px solid ${(open || dropdownFocused) ? colours.states.focused : colours.greys.dark}`,
   borderRadius: '7',
   cursor: disabled ? 'not-allowed' : 'pointer',
@@ -87,7 +87,7 @@ const Arrow = (): CSSObject => ({
 });
 
 const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
-  backgroundColor: colours.greys.lighter,
+  backgroundColor: colours.greys.lightest,
   border: `2px solid ${colours.greys.darker}`,
   borderRadius: '4px',
   bottom: openUp ? '105%' : undefined,
@@ -112,8 +112,8 @@ const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
     color: colours.greys.base,
     display: 'flex',
     flexDirection: 'column',
-    height: `${(maxContentHeight || 175) - 8}px`,
     justifyContent: 'center',
+    padding: '4px 0',
   },
 
   '&::-webkit-scrollbar': {

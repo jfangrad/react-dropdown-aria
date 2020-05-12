@@ -38,7 +38,6 @@ const OptionGroup = ({
           const focused = index === focusedIndex;
           const optionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected, focused }));
           index += 1;
-
           return (
             <OptionItem
               key={groupOption.value}
@@ -46,6 +45,7 @@ const OptionGroup = ({
               onOptionClicked={onOptionClicked}
               option={groupOption}
               itemRenderer={itemRenderer}
+              index={index - 1}
             />
           );
         })
