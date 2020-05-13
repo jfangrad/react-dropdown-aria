@@ -17,6 +17,14 @@
     "url": "https://github.com/jfangrad/react-dropdown-aria/issues"
   },
   "homepage": "https://jfangrad.github.io/react-dropdown-aria/",
+  "keywords": [
+    "react",
+    "dropdown",
+    "select",
+    "aria",
+    "react-dropdown",
+    "react-dropdown-aria"
+  ],
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-class-properties": "^7.5.0",

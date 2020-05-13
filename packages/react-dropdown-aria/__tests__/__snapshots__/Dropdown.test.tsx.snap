@@ -8,6 +8,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   centerText={false}
   className="custom-class"
   contentClassName={null}
+  defaultOpen={false}
   disabled={true}
   height={null}
   hideArrow={false}
@@ -71,6 +72,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           aria-labelledby={null}
           autoComplete="off"
           disabled={true}
+          id="dropdown"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -86,13 +88,13 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         Custom Placeholder...
       </span>
       <Arrow
+        className="dropdown-arrow css-1h2654e"
         dropdownOpen={false}
-        getStyle={[Function]}
         hideArrow={false}
         searchable={false}
       >
         <div
-          className="css-1h2654e"
+          className="dropdown-arrow css-1h2654e"
         >
           <ChevronDown>
             <svg
@@ -244,6 +246,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   ariaLabelledBy={null}
   centerText={false}
   contentClassName={null}
+  defaultOpen={false}
   disabled={false}
   height={null}
   hideArrow={false}
@@ -283,6 +286,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
           aria-labelledby={null}
           autoComplete="off"
           disabled={false}
+          id="react_dropdown_aria_test"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -298,13 +302,13 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         Select ...
       </span>
       <Arrow
+        className="dropdown-arrow css-1h2654e"
         dropdownOpen={false}
-        getStyle={[Function]}
         hideArrow={false}
         searchable={false}
       >
         <div
-          className="css-1h2654e"
+          className="dropdown-arrow css-1h2654e"
         >
           <ChevronDown>
             <svg
@@ -379,6 +383,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   ariaLabelledBy={null}
   centerText={false}
   contentClassName={null}
+  defaultOpen={false}
   disabled={false}
   height={null}
   hideArrow={false}
@@ -491,6 +496,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           aria-labelledby={null}
           autoComplete="off"
           disabled={false}
+          id="react_dropdown_aria_test"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -506,13 +512,13 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         Select ...
       </span>
       <Arrow
+        className="dropdown-arrow css-1h2654e"
         dropdownOpen={false}
-        getStyle={[Function]}
         hideArrow={false}
         searchable={false}
       >
         <div
-          className="css-1h2654e"
+          className="dropdown-arrow css-1h2654e"
         >
           <ChevronDown>
             <svg
@@ -720,13 +726,13 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           <div
             className="css-1q3omhu"
           >
-            <div>
+            <span>
               NUMBERS
                |  
-            </div>
-            <div>
+            </span>
+            <span>
               10
-            </div>
+            </span>
           </div>
           <OptionItem
             index={0}
@@ -973,13 +979,13 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           <div
             className="css-1q3omhu"
           >
-            <div>
+            <span>
               LETTERS
                |  
-            </div>
-            <div>
+            </span>
+            <span>
               10
-            </div>
+            </span>
           </div>
           <OptionItem
             index={10}

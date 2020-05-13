@@ -19,14 +19,6 @@
     "test:update": "yarn --cwd ./packages/react-dropdown-aria test:update"
   },
   "dependencies": {},
-  "keywords": [
-    "react",
-    "dropdown",
-    "select",
-    "aria",
-    "react-dropdown",
-    "react-dropdown-aria"
-  ],
   "author": "Justin Fangrad",
   "license": "MIT",
   "bugs": {
