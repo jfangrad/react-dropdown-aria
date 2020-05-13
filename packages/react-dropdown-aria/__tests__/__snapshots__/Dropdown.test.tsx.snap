@@ -48,10 +48,6 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   width={400}
 >
   <div
-    aria-describedby={null}
-    aria-hidden={true}
-    aria-label="React Simple Dropdown"
-    aria-labelledby={null}
     className="dropdown custom-class css-w4jram"
     id="dropdown"
     onClick={[Function]}
@@ -65,6 +61,14 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
+          aria-activedescendant="dropdown_list_-1"
+          aria-controls="dropdown_list"
+          aria-describedby={null}
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-hidden={true}
+          aria-label="React Simple Dropdown"
+          aria-labelledby={null}
           autoComplete="off"
           disabled={true}
           onBlur={[Function]}
@@ -72,6 +76,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           readOnly={true}
+          role="combobox"
           value=""
         />
       </span>
@@ -109,6 +114,36 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           </ChevronDown>
         </div>
       </Arrow>
+    </div>
+    <div
+      id="dropdown_list"
+      role="listbox"
+      style={
+        Object {
+          "height": 0,
+          "overflow": "hidden",
+          "width": 0,
+        }
+      }
+    >
+      <div
+        aria-selected={false}
+        id="dropdown_list_0"
+        key="dropdown_list_0"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="dropdown_list_1"
+        key="dropdown_list_1"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="dropdown_list_2"
+        key="dropdown_list_2"
+        role="option"
+      />
     </div>
     <ul
       className="dropdown-selector-content css-m2fyt8"
@@ -225,10 +260,6 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   width={null}
 >
   <div
-    aria-describedby={null}
-    aria-hidden={false}
-    aria-label={null}
-    aria-labelledby={null}
     className="dropdown css-4a6799"
     id={null}
     onClick={[Function]}
@@ -242,6 +273,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
+          aria-activedescendant="react_dropdown_aria_TEST_list_-1"
+          aria-controls="react_dropdown_aria_TEST_list"
+          aria-describedby={null}
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-hidden={false}
+          aria-label={null}
+          aria-labelledby={null}
           autoComplete="off"
           disabled={false}
           onBlur={[Function]}
@@ -249,6 +288,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           readOnly={true}
+          role="combobox"
           value=""
         />
       </span>
@@ -287,6 +327,17 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         </div>
       </Arrow>
     </div>
+    <div
+      id="react_dropdown_aria_TEST_list"
+      role="listbox"
+      style={
+        Object {
+          "height": 0,
+          "overflow": "hidden",
+          "width": 0,
+        }
+      }
+    />
     <ul
       className="dropdown-selector-content css-m2fyt8"
     >
@@ -417,10 +468,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   width={null}
 >
   <div
-    aria-describedby={null}
-    aria-hidden={false}
-    aria-label={null}
-    aria-labelledby={null}
     className="dropdown css-4a6799"
     id={null}
     onClick={[Function]}
@@ -434,6 +481,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
+          aria-activedescendant="react_dropdown_aria_TEST_list_-1"
+          aria-controls="react_dropdown_aria_TEST_list"
+          aria-describedby={null}
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-hidden={false}
+          aria-label={null}
+          aria-labelledby={null}
           autoComplete="off"
           disabled={false}
           onBlur={[Function]}
@@ -441,6 +496,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           onFocus={[Function]}
           onKeyDown={[Function]}
           readOnly={true}
+          role="combobox"
           value=""
         />
       </span>
@@ -478,6 +534,138 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           </ChevronDown>
         </div>
       </Arrow>
+    </div>
+    <div
+      id="react_dropdown_aria_TEST_list"
+      role="listbox"
+      style={
+        Object {
+          "height": 0,
+          "overflow": "hidden",
+          "width": 0,
+        }
+      }
+    >
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_0"
+        key="react_dropdown_aria_TEST_list_0"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_1"
+        key="react_dropdown_aria_TEST_list_1"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_2"
+        key="react_dropdown_aria_TEST_list_2"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_3"
+        key="react_dropdown_aria_TEST_list_3"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_4"
+        key="react_dropdown_aria_TEST_list_4"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_5"
+        key="react_dropdown_aria_TEST_list_5"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_6"
+        key="react_dropdown_aria_TEST_list_6"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_7"
+        key="react_dropdown_aria_TEST_list_7"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_8"
+        key="react_dropdown_aria_TEST_list_8"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_9"
+        key="react_dropdown_aria_TEST_list_9"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_10"
+        key="react_dropdown_aria_TEST_list_10"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_11"
+        key="react_dropdown_aria_TEST_list_11"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_12"
+        key="react_dropdown_aria_TEST_list_12"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_13"
+        key="react_dropdown_aria_TEST_list_13"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_14"
+        key="react_dropdown_aria_TEST_list_14"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_15"
+        key="react_dropdown_aria_TEST_list_15"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_16"
+        key="react_dropdown_aria_TEST_list_16"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_17"
+        key="react_dropdown_aria_TEST_list_17"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_18"
+        key="react_dropdown_aria_TEST_list_18"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_TEST_list_19"
+        key="react_dropdown_aria_TEST_list_19"
+        role="option"
+      />
     </div>
     <ul
       className="dropdown-selector-content css-m2fyt8"
