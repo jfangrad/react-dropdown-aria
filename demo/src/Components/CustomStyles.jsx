@@ -45,7 +45,6 @@ class CustomStyles extends React.Component {
           <Dropdown
             {...dropdownState}
             placeholder="Transportation of Choice?"
-            id="dropdown"
             ariaLabel="Custom styled Dropdown"
             options={options}
             value={interest}

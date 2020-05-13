@@ -46,7 +46,6 @@ class CustomArrow extends React.Component {
         {(dropdownState) => (
           <Dropdown
             buttonClassName="my-dropdown"
-            id="dropdown"
             ariaLabel="Custom Arrow Dropdown"
             arrowRenderer={this.customArrowRenderer}
             options={options}

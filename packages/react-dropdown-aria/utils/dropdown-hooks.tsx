@@ -1,5 +1,4 @@
-/* tslint:disable:object-literal-sort-keys */
-import { useState, useRef, useCallback, useMemo } from "react";
+import React, { useState, useRef, useCallback, useMemo } from "react";
 import { DropdownProps, StyleKey, ExtraState, Option } from './types';
 import useSearch from './search-hooks';
 import defaultStyles from '../styles/Dropdown';
@@ -7,8 +6,24 @@ import { css } from 'emotion';
 import { useClickListener, useScroll } from './dom-hooks';
 import { arrayReducer } from './helper';
 
-const useDropdownHooks = (props: DropdownProps) => {
-  const { style, options, searchable, onChange } = props;
+const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId: string) => {
+  const optionMarkup = flattenedOptions.map((o, i) => (
+    <div role="option" id={`${mergedId}_list_${i}`} key={`${mergedId}_list_${i}`} aria-selected={i === selectedIndex} />
+  ));
+  const style = {
+    height: 0,
+    width: 0,
+    overflow: 'hidden',
+  };
+  return (
+    <div role="listbox" id={`${mergedId}_list`} style={style}>
+      {optionMarkup}
+    </div>
+  )
+};
+
+const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
+  const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value } = props;
   const [focusedIndex, setFocusedIndex] = useState(-1)
   const [open, setOpen] = useState(false);
   const container = useRef<HTMLDivElement>(null);
@@ -50,6 +65,19 @@ const useDropdownHooks = (props: DropdownProps) => {
 
   useScroll(focusedIndex, listWrapper);
 
+  const selectedIndex = flattenedOptions.map(o => o.value).indexOf(value);
+  const listbox: 'listbox' = 'listbox';
+  const ariaProps = {
+    'aria-hidden': disabled,
+    'aria-expanded': open,
+    'aria-haspopup': listbox,
+    'aria-activedescendant': `${mergedId}_list_${focusedIndex}`,
+    'aria-controls': `${mergedId}_list`,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-describedby': ariaDescribedBy,
+  };
+
   return {
     focusedIndex, setFocusedIndex,
     open, setOpen,
@@ -63,6 +91,8 @@ const useDropdownHooks = (props: DropdownProps) => {
     container,
     inputRef,
     listWrapper,
+    ariaProps,
+    ariaList: useAriaList(flattenedOptions, selectedIndex, mergedId),
   }
 };
 

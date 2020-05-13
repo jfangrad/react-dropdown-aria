@@ -13,7 +13,7 @@ const options = [
 const customStyle = {
   optionItem: (base, state, { index }) => ({
     ...base,
-    'text-align': index % 2 === 0 ? 'left' : 'right',
+    'textAlign': index % 2 === 0 ? 'left' : 'right',
   }),
 };
 
@@ -50,7 +50,6 @@ class CustomRender extends React.Component {
         {(dropdownState) => (
           <Dropdown
             buttonClassName="my-dropdown"
-            id="dropdown"
             ariaLabel="Custom Option Rendering Dropdown"
             options={options}
             optionItemRenderer={this.renderOption}

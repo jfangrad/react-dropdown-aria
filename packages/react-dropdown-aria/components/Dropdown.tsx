@@ -6,12 +6,10 @@ import Arrow from './Arrow';
 import { DropdownProps } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
 import { Inbox } from '../icons';
+import { getId } from '../utils/helper';
 
 const Dropdown = (props: DropdownProps) => {
   const {
-    ariaDescribedBy,
-    ariaLabel,
-    ariaLabelledBy,
     arrowRenderer,
     contentClassName,
     className,
@@ -26,6 +24,8 @@ const Dropdown = (props: DropdownProps) => {
     selectedValueClassName,
   } = props;
 
+  const mergedId = id || getId();
+
   const {
     getStyle,
     open, setOpen,
@@ -39,7 +39,9 @@ const Dropdown = (props: DropdownProps) => {
     container,
     inputRef,
     listWrapper,
-  } = useDropdownHooks(props);
+    ariaProps,
+    ariaList,
+  } = useDropdownHooks(props, mergedId);
 
   const forwardFocus = useCallback(() => {
     if (inputRef.current) {
@@ -171,10 +173,6 @@ const Dropdown = (props: DropdownProps) => {
       onKeyDown={onKeyDown}
       onFocus={forwardFocus}
       onClick={onDropdownClick}
-      aria-label={ariaLabel}
-      aria-labelledby={ariaLabelledBy}
-      aria-describedby={ariaDescribedBy}
-      aria-hidden={disabled}
     >
       <div className={selectorClass}>
         <span className={searchClass}>
@@ -188,6 +186,8 @@ const Dropdown = (props: DropdownProps) => {
             readOnly={!open || !searchable}
             disabled={disabled}
             autoComplete="off"
+            role="combobox"
+            {...ariaProps}
           />
         </span>
         {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
@@ -200,6 +200,7 @@ const Dropdown = (props: DropdownProps) => {
           arrowRenderer={arrowRenderer}
         />
       </div>
+      {ariaList}
       <ul className={contentClass} ref={listWrapper}>
         { dropdownContent }
       </ul>

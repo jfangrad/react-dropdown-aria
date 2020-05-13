@@ -53,7 +53,6 @@ class Groups extends React.Component {
           <Dropdown
             placeholder={"What's best?"}
             buttonClassName="my-dropdown"
-            id="dropdown"
             ariaLabel="Grouped Options Dropdown"
             options={groupedOptions}
             value={interest}
