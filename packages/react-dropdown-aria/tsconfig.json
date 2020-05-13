@@ -18,7 +18,8 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["es6", "dom"]
+    "lib": ["es6", "dom"],
+    "removeComments": true,
   },
   "typeRoots": [
     "../../node_modules/@types",
