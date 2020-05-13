@@ -35,7 +35,6 @@ class Basic extends React.Component {
           <Dropdown
             placeholder="Language of Choice?"
             buttonClassName="my-dropdown"
-            id="dropdown"
             ariaLabel="React Simple Dropdown"
             options={options}
             value={interest}

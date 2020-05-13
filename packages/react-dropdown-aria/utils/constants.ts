@@ -29,3 +29,5 @@ export const NAVIGATION_KEYS = [
   KEY_CODES.PAGE_UP,
   KEY_CODES.PAGE_DOWN,
 ];
+
+export const IdPrefix = 'react_dropdown_aria_';

@@ -10,13 +10,6 @@ const options = [
   { value: 'Example' },
 ];
 
-const customStyle = {
-  optionItem: (base, state, { index }) => ({
-    ...base,
-    'text-align': index % 2 === 0 ? 'left' : 'right',
-  }),
-};
-
 class CustomRender extends React.Component {
   constructor(props) {
     super(props);
@@ -32,11 +25,9 @@ class CustomRender extends React.Component {
 
   renderOption = (props, getStyle, index) => {
     const { option } = props;
-    const { selectedOption } = this.state;
-    const classNames = getStyle(StyleKeys.OptionItem, { index });
 
     return (
-      <span style={{ 'text-align': index % 2 === 0 ? 'left' : 'right', width: '100%' }}>
+      <span style={{ 'textAlign': index % 2 === 0 ? 'left' : 'right', width: '100%' }}>
         { option.value }
       </span>
     );
@@ -50,14 +41,12 @@ class CustomRender extends React.Component {
         {(dropdownState) => (
           <Dropdown
             buttonClassName="my-dropdown"
-            id="dropdown"
             ariaLabel="Custom Option Rendering Dropdown"
             options={options}
             optionItemRenderer={this.renderOption}
             value={interest}
             onChange={this.setInterest}
             width={400}
-            style={customStyle}
             {...dropdownState}
           />
         )}
