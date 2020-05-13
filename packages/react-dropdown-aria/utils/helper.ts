@@ -53,7 +53,7 @@ export function getId(): string {
     id = idCount;
     idCount += 1;
   } else {
-    id = 'TEST';
+    id = 'test';
   }
   return `${IdPrefix}${id}`;
 }

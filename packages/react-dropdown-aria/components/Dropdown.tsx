@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, useCallback, ChangeEvent } from 'react';
+import React, { useMemo, KeyboardEvent, useCallback, ChangeEvent } from 'react';
 import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
@@ -24,7 +24,7 @@ const Dropdown = (props: DropdownProps) => {
     selectedValueClassName,
   } = props;
 
-  const mergedId = id || getId();
+  const mergedId = useMemo(() => id || getId(), [id]);
 
   const {
     getStyle,

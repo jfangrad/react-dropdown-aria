@@ -6,6 +6,8 @@ import { css } from 'emotion';
 import { useClickListener, useScroll } from './dom-hooks';
 import { arrayReducer } from './helper';
 
+const listbox: 'listbox' = 'listbox';
+
 const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId: string) => {
   const optionMarkup = flattenedOptions.map((o, i) => (
     <div role="option" id={`${mergedId}_list_${i}`} key={`${mergedId}_list_${i}`} aria-selected={i === selectedIndex} />
@@ -65,9 +67,8 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
 
   useScroll(focusedIndex, listWrapper);
 
-  const selectedIndex = flattenedOptions.map(o => o.value).indexOf(value);
-  const listbox: 'listbox' = 'listbox';
-  const ariaProps = {
+  const selectedIndex = useMemo(() => flattenedOptions.map(o => o.value).indexOf(value), [flattenedOptions, value]);
+  const ariaProps = useMemo(() => ({
     'aria-hidden': disabled,
     'aria-expanded': open,
     'aria-haspopup': listbox,
@@ -76,7 +77,7 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
     'aria-describedby': ariaDescribedBy,
-  };
+  }), [disabled, open, mergedId, focusedIndex, ariaLabel, ariaLabelledBy, ariaDescribedBy]);
 
   return {
     focusedIndex, setFocusedIndex,
