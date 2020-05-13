@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "yarn lib:prod && yarn demo:prod",
-    "deploy": "yarn build && git subtree push --prefix demo/dist origin gh-pages",
+    "deploy": "yarn --cwd ./demo deploy",
     "demo:dev": "yarn --cwd ./demo demo:dev",
     "demo:prod": "yarn --cwd ./demo demo:prod",
     "lib:dev": "yarn --cwd ./packages/react-dropdown-aria lib:dev",
