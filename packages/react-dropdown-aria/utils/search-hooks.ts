@@ -7,7 +7,6 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: D
 
   const filteredOptions = useMemo(() => {
     if (!searchable || !searchTerm.trim()) return options;
-
     return filterDropdownOptions(options, searchTerm)
   }, [options, searchTerm]);
 
@@ -15,7 +14,6 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: D
     setSearchTermState(newSearchTerm)
     setFocusedIndex(0);
   }, [setFocusedIndex, setSearchTermState]);
-
 
   return { searchTerm, setSearchTerm, filteredOptions };
 }

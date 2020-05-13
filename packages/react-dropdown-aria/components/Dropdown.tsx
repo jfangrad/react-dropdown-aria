@@ -1,4 +1,4 @@
-import React, { useMemo, KeyboardEvent, useCallback, ChangeEvent } from 'react';
+import React, { KeyboardEvent, useCallback, ChangeEvent } from 'react';
 import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import defaultOptionRenderer from '../utils/defaultOptionRenderer';
@@ -6,7 +6,7 @@ import Arrow from './Arrow';
 import { DropdownProps } from '../utils/types';
 import useDropdownHooks from '../utils/dropdown-hooks';
 import { Inbox } from '../icons';
-import { getId } from '../utils/helper';
+import useId from '../utils/useId';
 
 const Dropdown = (props: DropdownProps) => {
   const {
@@ -24,7 +24,7 @@ const Dropdown = (props: DropdownProps) => {
     selectedValueClassName,
   } = props;
 
-  const mergedId = useMemo(() => id || getId(), [id]);
+  const mergedId = useId(id);
 
   const {
     getStyle,
@@ -141,8 +141,9 @@ const Dropdown = (props: DropdownProps) => {
   const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
   const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
   const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
-  const displayedValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
+  const selectorValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
   const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
+  const arrowClass = cx('dropdown-arrow', getStyle(StyleKeys.Arrow));
 
   const NoDataMarkup = (
     <div className="dropdown-selector-content--empty">
@@ -151,19 +152,16 @@ const Dropdown = (props: DropdownProps) => {
     </div>
   );
 
-  const dropdownContent = (
-    <>
-      { filteredOptions.length === 0 && NoDataMarkup}
-      { filteredOptions.length !== 0 && defaultOptionRenderer({
-        selectedOption: value,
-        options: filteredOptions,
-        focusedIndex,
-        onOptionClicked,
-        getStyle,
-        optionItemRenderer,
-      })}
-    </>
-  )
+  const dropdownContent = filteredOptions.length === 0 ?
+    NoDataMarkup :
+    defaultOptionRenderer({
+      selectedOption: value,
+      options: filteredOptions,
+      focusedIndex,
+      onOptionClicked,
+      getStyle,
+      optionItemRenderer,
+    });
 
   return (
     <div
@@ -177,6 +175,7 @@ const Dropdown = (props: DropdownProps) => {
       <div className={selectorClass}>
         <span className={searchClass}>
           <input
+            id={mergedId}
             ref={inputRef}
             value={searchTerm}
             onChange={handleTermChange}
@@ -191,11 +190,11 @@ const Dropdown = (props: DropdownProps) => {
           />
         </span>
         {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
-        {(value && !searchTerm) && <span className={displayedValueClass}>{value}</span>}
+        {(value && !searchTerm) && <span className={selectorValueClass}>{value}</span>}
         <Arrow
           dropdownOpen={open}
           searchable={searchable}
-          getStyle={getStyle}
+          className={arrowClass}
           hideArrow={hideArrow}
           arrowRenderer={arrowRenderer}
         />
@@ -216,6 +215,7 @@ Dropdown.defaultProps = {
   centerText: false,
   className: undefined,
   contentClassName: null,
+  defaultOpen: false,
   disabled: false,
   height: null,
   hideArrow: false,

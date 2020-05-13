@@ -26,30 +26,30 @@ const OptionGroup = ({
   const { groupOptions, label } = optionGroup;
   let index = startingIndex;
 
+  const ItemsMarkup = groupOptions.map((groupOption) => {
+    const selected = groupOption.value === selectedOption;
+    const focused = index === focusedIndex;
+    const optionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected, focused }));
+    index += 1;
+    return (
+      <OptionItem
+        key={groupOption.value}
+        optionClass={optionClass}
+        onOptionClicked={onOptionClicked}
+        option={groupOption}
+        itemRenderer={itemRenderer}
+        index={index - 1}
+      />
+    );
+  });
+
   return (
     <div className={getStyle(StyleKeys.GroupContainer)}>
       <div className={getStyle(StyleKeys.GroupHeading)}>
-        <div>{label.toUpperCase()} | &nbsp;</div>
-        <div>{groupOptions.length}</div>
+        <span>{label.toUpperCase()} | &nbsp;</span>
+        <span>{groupOptions.length}</span>
       </div>
-      {
-        groupOptions.map((groupOption) => {
-          const selected = groupOption.value === selectedOption;
-          const focused = index === focusedIndex;
-          const optionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected, focused }));
-          index += 1;
-          return (
-            <OptionItem
-              key={groupOption.value}
-              optionClass={optionClass}
-              onOptionClicked={onOptionClicked}
-              option={groupOption}
-              itemRenderer={itemRenderer}
-              index={index - 1}
-            />
-          );
-        })
-      }
+      {ItemsMarkup}
       <div className={getStyle(StyleKeys.GroupDivider)} />
     </div>
   );

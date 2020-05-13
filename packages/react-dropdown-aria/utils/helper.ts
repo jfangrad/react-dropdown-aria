@@ -1,5 +1,4 @@
 import { Option, OptionGroup, DropdownOption } from './types';
-import { IdPrefix } from './constants';
 
 export function isOptionGroup(option: Option | OptionGroup): option is OptionGroup {
   return (option as OptionGroup).groupOptions !== undefined;
@@ -34,26 +33,5 @@ export const filterDropdownOptions = (options: DropdownOption[], searchTerm: str
       }
     }
   }
-
   return filteredOptions;
-}
-
-const isClient = (
-  typeof window !== undefined &&
-  window.document &&
-  window.document.documentElement
-);
-
-const isBrowser = process.env.NODE_ENV !== 'test' && isClient;
-
-let idCount = 0;
-export function getId(): string {
-  let id: string | number;
-  if (isBrowser) {
-    id = idCount;
-    idCount += 1;
-  } else {
-    id = 'test';
-  }
-  return `${IdPrefix}${id}`;
 }

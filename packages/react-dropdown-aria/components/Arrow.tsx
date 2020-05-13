@@ -1,30 +1,26 @@
 import React, { ReactNode } from 'react';
-import { StyleKeys } from '../utils/constants';
-import { GetStyleFunction } from '../utils/types';
 import { ChevronDown, Search } from '../icons';
 
 interface ArrowProps {
   hideArrow: boolean;
   arrowRenderer?: (dropdownOpen: boolean) => ReactNode;
-  getStyle: GetStyleFunction;
+  className: string;
   dropdownOpen: boolean;
   searchable: boolean;
 }
 
-const Arrow = ({ hideArrow, arrowRenderer, getStyle, dropdownOpen, searchable }: ArrowProps) => {
+const Arrow = ({ hideArrow, arrowRenderer, className, dropdownOpen, searchable }: ArrowProps) => {
   if (hideArrow) return null;
 
-  const arrowClass = getStyle(StyleKeys.Arrow);
-
   if (arrowRenderer) return (
-    <div className={arrowClass}>
+    <div className={className}>
       {arrowRenderer(dropdownOpen)}
     </div>
   );
 
   const showSearchIcon = dropdownOpen && searchable;
   return (
-    <div className={arrowClass}>
+    <div className={className}>
       {showSearchIcon && <Search />}
       {!showSearchIcon && <ChevronDown />}
     </div>
@@ -36,4 +32,4 @@ Arrow.defaultProps = {
   hideArrow: false,
 }
 
-export default Arrow;
+export default React.memo(Arrow);

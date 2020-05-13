@@ -7,27 +7,26 @@ import { useClickListener, useScroll } from './dom-hooks';
 import { arrayReducer } from './helper';
 
 const listbox: 'listbox' = 'listbox';
-
+const listboxStyle = {
+  height: 0,
+  width: 0,
+  overflow: 'hidden',
+};
 const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId: string) => {
   const optionMarkup = flattenedOptions.map((o, i) => (
     <div role="option" id={`${mergedId}_list_${i}`} key={`${mergedId}_list_${i}`} aria-selected={i === selectedIndex} />
   ));
-  const style = {
-    height: 0,
-    width: 0,
-    overflow: 'hidden',
-  };
   return (
-    <div role="listbox" id={`${mergedId}_list`} style={style}>
+    <div role={listbox} id={`${mergedId}_list`} style={listboxStyle}>
       {optionMarkup}
     </div>
   )
 };
 
 const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
-  const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value } = props;
+  const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
   const [focusedIndex, setFocusedIndex] = useState(-1)
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const container = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listWrapper = useRef<HTMLUListElement>(null);
@@ -57,14 +56,12 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
       onChange(newOption);
       setSearchTerm('');
     }
-
     if (shouldClose) {
       closeDropdown(true);
     }
   }, [onChange, closeDropdown, setSearchTerm]);
 
   useClickListener(closeDropdown, container);
-
   useScroll(focusedIndex, listWrapper);
 
   const selectedIndex = useMemo(() => flattenedOptions.map(o => o.value).indexOf(value), [flattenedOptions, value]);

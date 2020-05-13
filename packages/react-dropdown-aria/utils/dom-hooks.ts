@@ -1,6 +1,6 @@
-import { useCallback, useEffect, MutableRefObject } from 'react';
+import { useCallback, useEffect, RefObject } from 'react';
 
-export const useClickListener = (closeDropdown: () => void, container: MutableRefObject<HTMLDivElement | null>) => {
+export const useClickListener = (closeDropdown: () => void, container: RefObject<HTMLDivElement>) => {
   const onClick = useCallback((e: Event) => {
     if (container.current && !container.current.contains(e.target as Node)) {
       closeDropdown();
@@ -19,7 +19,7 @@ export const useClickListener = (closeDropdown: () => void, container: MutableRe
 };
 
 const ScrollBuffer = 8;
-export const useScroll = (focusedIndex: number, optionContainer: MutableRefObject<HTMLUListElement | null>) => {
+export const useScroll = (focusedIndex: number, optionContainer: RefObject<HTMLUListElement>) => {
   useEffect(() => {
     if (optionContainer.current && focusedIndex >= 0) {
       const children = optionContainer.current.getElementsByClassName('dropdown-option');

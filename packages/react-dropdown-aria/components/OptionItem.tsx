@@ -47,4 +47,4 @@ OptionItem.defaultProps = {
   optionClass: undefined,
 };
 
-export default OptionItem;
+export default React.memo(OptionItem);

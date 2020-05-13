@@ -114,6 +114,7 @@ As shown above, each function will be called with `base` and `state` at minimum 
 | `centerText` | boolean | false | Whether main dropdown button text should be centered or not |
 | `className` | string | undefined | CSS class to be applied to the drodown |
 | `contentClassName` | string | undefined | CSS class to be applied to the dropdown option `ul` container |
+| `defaultOpen` | boolean | false | Whether the dropdown should be open by default |
 | `disabled` | boolean | false | Whether the dropdown should be disabled or not |
 | `height` | number | null | Use to set the dropdown height manually |
 | `hideArrow` | boolean | false | Controls whether dropdown component has the arrow or not |

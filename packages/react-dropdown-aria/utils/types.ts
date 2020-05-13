@@ -2,8 +2,6 @@ import { ReactNode } from 'react';
 import { StyleKeys } from './constants';
 import { OptionItemProps } from '../components/OptionItem';
 
-export type Maybe<T> = T | null | undefined;
-
 export interface ExtraState {
   [key: string]: any;
 }
@@ -71,6 +69,7 @@ export interface DropdownProps {
   className: string;
   centerText: boolean;
   contentClassName: string;
+  defaultOpen: boolean;
   disabled: boolean;
   height: number;
   hideArrow: boolean;
