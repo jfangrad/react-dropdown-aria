@@ -3,7 +3,7 @@
 /styles/
 /utils/
 /icons/
-enzymeAdapter.setup.js
+enzymeAdapter.setup.ts
 .eslintignore
 .eslintrc.js
 index.ts
