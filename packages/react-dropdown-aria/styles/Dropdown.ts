@@ -1,7 +1,6 @@
 import { CSSObject } from 'create-emotion';
 import colours from './colours';
-import OptionItem from './OptionItem';
-import { DropdownProps, DropdownStyleDependantState } from '../utils/types';
+import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
 
 const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
   backgroundColor: disabled ? colours.greys.light : colours.greys.lightest,
@@ -147,6 +146,44 @@ const GroupDivider = (): CSSObject => ({
   paddingTop: 10,
   width: '85%',
 });
+
+const OptionItem = (props: DropdownProps, state: DropdownStyleDependantState, { selected, focused }: ExtraState): CSSObject => {
+  let backgroundColor = colours.greys.lightest;
+  let color = 'inherit';
+
+  if (focused && selected) {
+    backgroundColor = colours.greys.dark;
+    color = colours.greys.lightest;
+  } else if (focused) {
+    backgroundColor = colours.greys.lighter;
+  } else if (selected) {
+    backgroundColor = colours.greys.light;
+  }
+
+  return {
+    backgroundColor,
+    border: 'none',
+    color,
+    cursor: 'pointer',
+    fontSize: '0.95em',
+    overflow: 'hidden',
+    padding: '5px 10px',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+
+    '&:hover': {
+      backgroundColor: selected ? colours.greys.dark : colours.greys.light,
+      color: selected ? colours.greys.lightest : undefined,
+    },
+
+    '.option-icon': {
+      paddingRight: '5px',
+    },
+  };
+};
 
 export default {
   Arrow,

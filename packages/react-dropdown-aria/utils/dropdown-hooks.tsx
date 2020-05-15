@@ -25,7 +25,7 @@ const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId
 
 const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
-  const [focusedIndex, setFocusedIndex] = useState(-1)
+  const [focusedIndex, setFocusedIndex] = useState(0)
   const [open, setOpen] = useState(defaultOpen);
   const container = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -45,7 +45,7 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const closeDropdown = useCallback((focus = false) => {
     setSearchTerm('');
     setOpen(false);
-    setFocusedIndex(-1)
+    setFocusedIndex(0)
     if (focus && inputRef.current) {
       inputRef.current.focus();
     }
