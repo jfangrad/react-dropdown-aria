@@ -17,7 +17,7 @@ export type OptionRendererFunction = (
   index: number,
 ) => JSX.Element;
 
-export type OnOptionClicked = (e: React.MouseEvent<HTMLDivElement>) => void;
+export type OnOptionClicked = (option: Option, shouldClose?: boolean) => void;
 
 export type ItemRenderer = (
   props: OptionItemProps,

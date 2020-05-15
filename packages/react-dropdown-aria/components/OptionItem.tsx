@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, MouseEvent } from 'react';
 import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 
 export interface OptionItemProps {
@@ -18,6 +18,12 @@ const OptionItem = (props: OptionItemProps) => {
     index,
   } = props;
 
+  const handleClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onOptionClicked(option, true);
+  }, [onOptionClicked, option]);
+
   let content = (
     <>
       { option.iconClass && <i className={`${option.iconClass} dropdown-option-icon`} />}
@@ -33,18 +39,13 @@ const OptionItem = (props: OptionItemProps) => {
     <div
       aria-label={option.ariaLabel}
       className={`dropdown-option ${optionClass}`}
-      onClick={onOptionClicked}
+      onClick={handleClick}
       tabIndex={-1}
       title={option.title}
     >
       {content}
     </div>
   );
-};
-
-OptionItem.defaultProps = {
-  itemRenderer: undefined,
-  optionClass: undefined,
 };
 
 export default React.memo(OptionItem);
