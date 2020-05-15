@@ -61,7 +61,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
-          aria-activedescendant="dropdown_list_-1"
+          aria-activedescendant="dropdown_list_0"
           aria-controls="dropdown_list"
           aria-describedby={null}
           aria-expanded={false}
@@ -148,7 +148,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
-        focusedIndex={-1}
+        focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
         options={
@@ -190,11 +190,11 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
               "value": "1",
             }
           }
-          optionClass="className css-7tfimk"
+          optionClass="className css-ankiux"
         >
           <div
             aria-label="ariaLabel"
-            className="dropdown-option className css-7tfimk"
+            className="dropdown-option className css-ankiux"
             onClick={[Function]}
             tabIndex={-1}
             title="title"
@@ -303,7 +303,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
-          aria-activedescendant="react_dropdown_aria_test_list_-1"
+          aria-activedescendant="react_dropdown_aria_test_list_0"
           aria-controls="react_dropdown_aria_test_list"
           aria-describedby={null}
           aria-expanded={false}
@@ -371,7 +371,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
-        focusedIndex={-1}
+        focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
         options={Array []}
@@ -521,7 +521,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
-          aria-activedescendant="react_dropdown_aria_test_list_-1"
+          aria-activedescendant="react_dropdown_aria_test_list_0"
           aria-controls="react_dropdown_aria_test_list"
           aria-describedby={null}
           aria-expanded={false}
@@ -710,7 +710,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
-        focusedIndex={-1}
+        focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
         options={
@@ -812,10 +812,10 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "1",
               }
             }
-            optionClass="css-7tfimk"
+            optionClass="css-ankiux"
           >
             <div
-              className="dropdown-option css-7tfimk"
+              className="dropdown-option css-ankiux"
               onClick={[Function]}
               tabIndex={-1}
             >

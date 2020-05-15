@@ -52,7 +52,7 @@ const Dropdown = (props: DropdownProps) => {
   const onDropdownClick = useCallback(() => {
     forwardFocus();
     if (!disabled && (!open || !searchable)) {
-      setFocusedIndex(open ? -1 : 0);
+      setFocusedIndex(0);
       setOpen(p => !p);
     }
   }, [open, disabled, searchable, setOpen, setFocusedIndex]);
@@ -61,7 +61,6 @@ const Dropdown = (props: DropdownProps) => {
     switch (keyCode) {
       case KEY_CODES.UP_ARROW:
         setFocusedIndex(prev => {
-          if(prev === -1) return 0;
           if(prev === 0) return flattenedOptions.length - 1;
           return prev - 1;
         });
@@ -71,14 +70,14 @@ const Dropdown = (props: DropdownProps) => {
         break;
       case KEY_CODES.PAGE_UP:
         setFocusedIndex(prev => {
-          if (prev === -1 || (prev - pageKeyTraverseSize < 0 && prev !== 0)) return 0;
+          if (prev - pageKeyTraverseSize < 0 && prev !== 0) return 0;
           if (prev - pageKeyTraverseSize < 0) return flattenedOptions.length - 1;
           return prev - pageKeyTraverseSize;
         });
         break;
       case KEY_CODES.PAGE_DOWN:
         setFocusedIndex(prev => {
-          if (prev === -1 || prev === flattenedOptions.length - 1) return 0;
+          if (prev === flattenedOptions.length - 1) return 0;
           if (prev + pageKeyTraverseSize > flattenedOptions.length - 1) return flattenedOptions.length - 1;
           return (prev + pageKeyTraverseSize) % flattenedOptions.length;
         });
@@ -100,7 +99,6 @@ const Dropdown = (props: DropdownProps) => {
       onNavigation(keyCode);
     } else if (keyCode === KEY_CODES.ENTER && !open) {
       setOpen(true);
-      setFocusedIndex(0);
     } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
     } else if (
