@@ -53,7 +53,6 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     id="dropdown"
     onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
   >
     <div
       className="dropdown-selector css-q0xgr4"
@@ -87,35 +86,32 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       >
         Custom Placeholder...
       </span>
-      <Arrow
+      <div
         className="dropdown-arrow css-1h2654e"
-        dropdownOpen={false}
-        hideArrow={false}
-        searchable={false}
       >
-        <div
-          className="dropdown-arrow css-1h2654e"
-        >
-          <ChevronDown>
+        <Component>
+          <StandardIcon
+            className="feather-chevron-down"
+          >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="16"
+              height="24"
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="16"
+              width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
                 points="6 9 12 15 18 9"
               />
             </svg>
-          </ChevronDown>
-        </div>
-      </Arrow>
+          </StandardIcon>
+        </Component>
+      </div>
     </div>
     <div
       id="dropdown_list"
@@ -150,90 +146,121 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     <ul
       className="dropdown-selector-content css-m2fyt8"
     >
-      <OptionItem
-        index={0}
-        key="1"
+      <DropdownContent
+        focusedIndex={-1}
+        getStyle={[Function]}
         onOptionClicked={[Function]}
-        option={
-          Object {
-            "ariaLabel": "ariaLabel",
-            "className": "className",
-            "iconClass": "fab fa-js-square",
-            "title": "title",
-            "value": "1",
-          }
+        options={
+          Array [
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "1",
+            },
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "2",
+            },
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "3",
+            },
+          ]
         }
-        optionClass="className css-1qx3k0g"
       >
-        <div
-          aria-label="ariaLabel"
-          className="dropdown-option className css-1qx3k0g"
-          onClick={[Function]}
-          tabIndex={-1}
-          title="title"
-        >
-          <i
-            className="fab fa-js-square dropdown-option-icon"
-          />
-          1
-        </div>
-      </OptionItem>
-      <OptionItem
-        index={1}
-        key="2"
-        onOptionClicked={[Function]}
-        option={
-          Object {
-            "ariaLabel": "ariaLabel",
-            "className": "className",
-            "iconClass": "fab fa-js-square",
-            "title": "title",
-            "value": "2",
+        <Memo(OptionItem)
+          index={0}
+          key="1"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "1",
+            }
           }
-        }
-        optionClass="className css-1qx3k0g"
-      >
-        <div
-          aria-label="ariaLabel"
-          className="dropdown-option className css-1qx3k0g"
-          onClick={[Function]}
-          tabIndex={-1}
-          title="title"
+          optionClass="className css-7tfimk"
         >
-          <i
-            className="fab fa-js-square dropdown-option-icon"
-          />
-          2
-        </div>
-      </OptionItem>
-      <OptionItem
-        index={2}
-        key="3"
-        onOptionClicked={[Function]}
-        option={
-          Object {
-            "ariaLabel": "ariaLabel",
-            "className": "className",
-            "iconClass": "fab fa-js-square",
-            "title": "title",
-            "value": "3",
+          <div
+            aria-label="ariaLabel"
+            className="dropdown-option className css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+            title="title"
+          >
+            <i
+              className="fab fa-js-square dropdown-option-icon"
+            />
+            1
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={1}
+          key="2"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "2",
+            }
           }
-        }
-        optionClass="className css-1qx3k0g"
-      >
-        <div
-          aria-label="ariaLabel"
-          className="dropdown-option className css-1qx3k0g"
-          onClick={[Function]}
-          tabIndex={-1}
-          title="title"
+          optionClass="className css-7tfimk"
         >
-          <i
-            className="fab fa-js-square dropdown-option-icon"
-          />
-          3
-        </div>
-      </OptionItem>
+          <div
+            aria-label="ariaLabel"
+            className="dropdown-option className css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+            title="title"
+          >
+            <i
+              className="fab fa-js-square dropdown-option-icon"
+            />
+            2
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={2}
+          key="3"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "ariaLabel": "ariaLabel",
+              "className": "className",
+              "iconClass": "fab fa-js-square",
+              "title": "title",
+              "value": "3",
+            }
+          }
+          optionClass="className css-7tfimk"
+        >
+          <div
+            aria-label="ariaLabel"
+            className="dropdown-option className css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+            title="title"
+          >
+            <i
+              className="fab fa-js-square dropdown-option-icon"
+            />
+            3
+          </div>
+        </Memo(OptionItem)>
+      </DropdownContent>
     </ul>
   </div>
 </Dropdown>
@@ -267,7 +294,6 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     id={null}
     onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
   >
     <div
       className="dropdown-selector css-q0xgr4"
@@ -301,35 +327,32 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       >
         Select ...
       </span>
-      <Arrow
+      <div
         className="dropdown-arrow css-1h2654e"
-        dropdownOpen={false}
-        hideArrow={false}
-        searchable={false}
       >
-        <div
-          className="dropdown-arrow css-1h2654e"
-        >
-          <ChevronDown>
+        <Component>
+          <StandardIcon
+            className="feather-chevron-down"
+          >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="16"
+              height="24"
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="16"
+              width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
                 points="6 9 12 15 18 9"
               />
             </svg>
-          </ChevronDown>
-        </div>
-      </Arrow>
+          </StandardIcon>
+        </Component>
+      </div>
     </div>
     <div
       id="react_dropdown_aria_test_list"
@@ -345,32 +368,43 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     <ul
       className="dropdown-selector-content css-m2fyt8"
     >
-      <div
-        className="dropdown-selector-content--empty"
+      <DropdownContent
+        focusedIndex={-1}
+        getStyle={[Function]}
+        onOptionClicked={[Function]}
+        options={Array []}
       >
-        <Inbox>
-          <svg
-            className="feather feather-chevron-down"
-            fill="none"
-            height="24"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <polyline
-              points="22 12 16 12 14 15 10 15 8 12 2 12"
-            />
-            <path
-              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
-            />
-          </svg>
-        </Inbox>
-        No data
-      </div>
+        <div
+          className="dropdown-selector-content--empty"
+        >
+          <Component>
+            <StandardIcon
+              className="feather-inbox"
+            >
+              <svg
+                className="feather feather-inbox"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polyline
+                  points="22 12 16 12 14 15 10 15 8 12 2 12"
+                />
+                <path
+                  d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                />
+              </svg>
+            </StandardIcon>
+          </Component>
+          No data
+        </div>
+      </DropdownContent>
     </ul>
   </div>
 </Dropdown>
@@ -477,7 +511,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     id={null}
     onClick={[Function]}
     onFocus={[Function]}
-    onKeyDown={[Function]}
   >
     <div
       className="dropdown-selector css-q0xgr4"
@@ -511,35 +544,32 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       >
         Select ...
       </span>
-      <Arrow
+      <div
         className="dropdown-arrow css-1h2654e"
-        dropdownOpen={false}
-        hideArrow={false}
-        searchable={false}
       >
-        <div
-          className="dropdown-arrow css-1h2654e"
-        >
-          <ChevronDown>
+        <Component>
+          <StandardIcon
+            className="feather-chevron-down"
+          >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="16"
+              height="24"
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="16"
+              width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
                 points="6 9 12 15 18 9"
               />
             </svg>
-          </ChevronDown>
-        </div>
-      </Arrow>
+          </StandardIcon>
+        </Component>
+      </div>
     </div>
     <div
       id="react_dropdown_aria_test_list"
@@ -676,52 +706,88 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     <ul
       className="dropdown-selector-content css-m2fyt8"
     >
-      <OptionGroup
+      <DropdownContent
         focusedIndex={-1}
         getStyle={[Function]}
-        key="numbers"
         onOptionClicked={[Function]}
-        optionGroup={
-          Object {
-            "groupOptions": Array [
-              Object {
-                "value": "1",
-              },
-              Object {
-                "value": "2",
-              },
-              Object {
-                "value": "3",
-              },
-              Object {
-                "value": "4",
-              },
-              Object {
-                "value": "5",
-              },
-              Object {
-                "value": "6",
-              },
-              Object {
-                "value": "7",
-              },
-              Object {
-                "value": "8",
-              },
-              Object {
-                "value": "9",
-              },
-              Object {
-                "value": "10",
-              },
-            ],
-            "label": "numbers",
-          }
+        options={
+          Array [
+            Object {
+              "groupOptions": Array [
+                Object {
+                  "value": "1",
+                },
+                Object {
+                  "value": "2",
+                },
+                Object {
+                  "value": "3",
+                },
+                Object {
+                  "value": "4",
+                },
+                Object {
+                  "value": "5",
+                },
+                Object {
+                  "value": "6",
+                },
+                Object {
+                  "value": "7",
+                },
+                Object {
+                  "value": "8",
+                },
+                Object {
+                  "value": "9",
+                },
+                Object {
+                  "value": "10",
+                },
+              ],
+              "label": "numbers",
+            },
+            Object {
+              "groupOptions": Array [
+                Object {
+                  "value": "a",
+                },
+                Object {
+                  "value": "b",
+                },
+                Object {
+                  "value": "c",
+                },
+                Object {
+                  "value": "d",
+                },
+                Object {
+                  "value": "e",
+                },
+                Object {
+                  "value": "f",
+                },
+                Object {
+                  "value": "g",
+                },
+                Object {
+                  "value": "h",
+                },
+                Object {
+                  "value": "i",
+                },
+                Object {
+                  "value": "j",
+                },
+              ],
+              "label": "letters",
+            },
+          ]
         }
-        startingIndex={0}
       >
         <div
           className="css-dckqxd"
+          key="numbers"
         >
           <div
             className="css-1q3omhu"
@@ -734,7 +800,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               10
             </span>
           </div>
-          <OptionItem
+          <Memo(OptionItem)
             index={0}
             key="1"
             onOptionClicked={[Function]}
@@ -743,17 +809,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "1",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               1
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={1}
             key="2"
             onOptionClicked={[Function]}
@@ -762,17 +828,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "2",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               2
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={2}
             key="3"
             onOptionClicked={[Function]}
@@ -781,17 +847,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "3",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               3
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={3}
             key="4"
             onOptionClicked={[Function]}
@@ -800,17 +866,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "4",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               4
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={4}
             key="5"
             onOptionClicked={[Function]}
@@ -819,17 +885,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "5",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               5
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={5}
             key="6"
             onOptionClicked={[Function]}
@@ -838,17 +904,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "6",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               6
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={6}
             key="7"
             onOptionClicked={[Function]}
@@ -857,17 +923,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "7",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               7
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={7}
             key="8"
             onOptionClicked={[Function]}
@@ -876,17 +942,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "8",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               8
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={8}
             key="9"
             onOptionClicked={[Function]}
@@ -895,17 +961,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "9",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               9
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={9}
             key="10"
             onOptionClicked={[Function]}
@@ -914,67 +980,23 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "10",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               10
             </div>
-          </OptionItem>
+          </Memo(OptionItem)>
           <div
             className="css-iryzig"
           />
         </div>
-      </OptionGroup>
-      <OptionGroup
-        focusedIndex={-1}
-        getStyle={[Function]}
-        key="letters"
-        onOptionClicked={[Function]}
-        optionGroup={
-          Object {
-            "groupOptions": Array [
-              Object {
-                "value": "a",
-              },
-              Object {
-                "value": "b",
-              },
-              Object {
-                "value": "c",
-              },
-              Object {
-                "value": "d",
-              },
-              Object {
-                "value": "e",
-              },
-              Object {
-                "value": "f",
-              },
-              Object {
-                "value": "g",
-              },
-              Object {
-                "value": "h",
-              },
-              Object {
-                "value": "i",
-              },
-              Object {
-                "value": "j",
-              },
-            ],
-            "label": "letters",
-          }
-        }
-        startingIndex={10}
-      >
         <div
           className="css-dckqxd"
+          key="letters"
         >
           <div
             className="css-1q3omhu"
@@ -987,7 +1009,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               10
             </span>
           </div>
-          <OptionItem
+          <Memo(OptionItem)
             index={10}
             key="a"
             onOptionClicked={[Function]}
@@ -996,17 +1018,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "a",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               a
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={11}
             key="b"
             onOptionClicked={[Function]}
@@ -1015,17 +1037,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "b",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               b
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={12}
             key="c"
             onOptionClicked={[Function]}
@@ -1034,17 +1056,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "c",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               c
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={13}
             key="d"
             onOptionClicked={[Function]}
@@ -1053,17 +1075,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "d",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               d
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={14}
             key="e"
             onOptionClicked={[Function]}
@@ -1072,17 +1094,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "e",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               e
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={15}
             key="f"
             onOptionClicked={[Function]}
@@ -1091,17 +1113,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "f",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               f
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={16}
             key="g"
             onOptionClicked={[Function]}
@@ -1110,17 +1132,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "g",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               g
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={17}
             key="h"
             onOptionClicked={[Function]}
@@ -1129,17 +1151,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "h",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               h
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={18}
             key="i"
             onOptionClicked={[Function]}
@@ -1148,17 +1170,17 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "i",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               i
             </div>
-          </OptionItem>
-          <OptionItem
+          </Memo(OptionItem)>
+          <Memo(OptionItem)
             index={19}
             key="j"
             onOptionClicked={[Function]}
@@ -1167,21 +1189,21 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 "value": "j",
               }
             }
-            optionClass="css-1qx3k0g"
+            optionClass="css-7tfimk"
           >
             <div
-              className="dropdown-option css-1qx3k0g"
+              className="dropdown-option css-7tfimk"
               onClick={[Function]}
               tabIndex={-1}
             >
               j
             </div>
-          </OptionItem>
+          </Memo(OptionItem)>
           <div
             className="css-iryzig"
           />
         </div>
-      </OptionGroup>
+      </DropdownContent>
     </ul>
   </div>
 </Dropdown>

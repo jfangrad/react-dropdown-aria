@@ -183,8 +183,8 @@ const Dropdown = (props: DropdownProps) => {
           options={filteredOptions}
           focusedIndex={focusedIndex}
           onOptionClicked={setValue}
-          getStyle={getStyle}
           optionItemRenderer={optionItemRenderer}
+          getStyle={getStyle}
         />
       </ul>
     </div>

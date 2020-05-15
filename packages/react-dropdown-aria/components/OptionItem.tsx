@@ -19,7 +19,6 @@ const OptionItem = (props: OptionItemProps) => {
   } = props;
 
   const handleClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
     e.stopPropagation();
     onOptionClicked(option, true);
   }, [onOptionClicked, option]);

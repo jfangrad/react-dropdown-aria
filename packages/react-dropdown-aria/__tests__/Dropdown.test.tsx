@@ -73,7 +73,7 @@ describe('Navigation', () => {
   });
 
   it('Opens dropdown with enter key', () => {
-    button.simulate('keyDown', { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo });
+    input.simulate('keyDown', { key: 'enter', keyCode: KEY_CODES.ENTER, preventDefault: foo });
 
     expect(getWrapperDisplayProp()).toBe('block');
   });
@@ -98,7 +98,7 @@ describe('Navigation', () => {
     button.simulate('click');
     expect(getWrapperDisplayProp()).toBe('block');
 
-    button.simulate('keyDown', { key: 'tab', keyCode: KEY_CODES.TAB });
+    input.simulate('keyDown', { key: 'tab', keyCode: KEY_CODES.TAB });
     expect(getWrapperDisplayProp()).toBe('none');
   });
 
@@ -106,13 +106,12 @@ describe('Navigation', () => {
     button.simulate('click');
     expect(getWrapperDisplayProp()).toBe('block');
 
-    button.simulate('keyDown', { key: 'escape', keyCode: KEY_CODES.ESCAPE, preventDefault: foo });
+    input.simulate('keyDown', { key: 'escape', keyCode: KEY_CODES.ESCAPE, preventDefault: foo });
     expect(getWrapperDisplayProp()).toBe('none');
   });
 
   it('Arrow key selects first element in list', () => {
     input.simulate('click');
-    // keyDown(input);
     pressEnter(input);
     pressEnter(input);
 
@@ -142,7 +141,7 @@ describe('Selecting Options', () => {
     const button = wrapper.find('.test').first();
 
     button.simulate('click');
-    wrapper.find('ul').childAt(0).simulate('click', { target: { innerText: '1' } });
+    wrapper.find('.dropdown-option').first().simulate('click');
 
     expect(spy.calledWith({ value: '1' })).toBe(true);
   });
@@ -152,7 +151,7 @@ describe('Selecting Options', () => {
     const button = wrapper.find('.test').first();
 
     button.simulate('click');
-    wrapper.find('ul').childAt(0).simulate('click', { target: { innerText: '1' } });
+    button.find('.dropdown-option').first().simulate('click');
 
     expect(wrapper.find('.dropdown-selector-value').first().text()).toBe('1');
   });
