@@ -92,17 +92,18 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
         <Component>
           <StandardIcon
             className="feather-chevron-down"
+            dim={16}
           >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="24"
+              height={16}
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="24"
+              width={16}
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
@@ -333,17 +334,18 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         <Component>
           <StandardIcon
             className="feather-chevron-down"
+            dim={16}
           >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="24"
+              height={16}
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="24"
+              width={16}
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
@@ -384,13 +386,13 @@ exports[`Check Props Matches snapshot with default props 1`] = `
               <svg
                 className="feather feather-inbox"
                 fill="none"
-                height="24"
+                height={24}
                 stroke="currentColor"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
-                width="24"
+                width={24}
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <polyline
@@ -550,17 +552,18 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         <Component>
           <StandardIcon
             className="feather-chevron-down"
+            dim={16}
           >
             <svg
               className="feather feather-chevron-down"
               fill="none"
-              height="24"
+              height={16}
               stroke="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              width="24"
+              width={16}
               xmlns="http://www.w3.org/2000/svg"
             >
               <polyline
