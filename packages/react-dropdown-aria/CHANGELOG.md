@@ -1,5 +1,8 @@
 # react-dropdown-aria
 
+## 2.0.1
+Mostly codebase changes. Some file organization and consolidation in an attempt to bring bundle size down
+
 ## 2.0.0
 This release brings a lot of changes to `react-dropdown-aria`, some of these changes are to the api so be sure to read the changelog carefully when upgrading to ensure smooth upgrade!
 ### Breaking changes
