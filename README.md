@@ -8,7 +8,7 @@ Simple, lightweight, and accessible React dropdown component.
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
 ## **Upgrading to v2**
-Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](CHANGELOG.md).
+Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](./packages/react-dropdown-aria/CHANGELOG.md#200).
 
 ## Features
 1. Fully customizable styling
