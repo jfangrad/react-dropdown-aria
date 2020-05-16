@@ -1,10 +1,10 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
-import { DropdownProps, StyleKey, ExtraState, Option } from './types';
-import useSearch from './search-hooks';
+import React, { useState, useRef, useCallback, useMemo, Dispatch, SetStateAction } from "react";
+import { DropdownProps, StyleKey, ExtraState, Option, DropdownOption } from './types';
 import defaultStyles from '../styles/Dropdown';
 import { css } from 'emotion';
 import { useClickListener, useScroll } from './dom-hooks';
-import { arrayReducer } from './helper';
+import { arrayReducer, filterDropdownOptions } from './helper';
+import { IdPrefix } from './constants';
 
 const listbox: 'listbox' = 'listbox';
 const listboxStyle = {
@@ -22,6 +22,22 @@ const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId
     </div>
   )
 };
+
+const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: DropdownOption[], searchable: boolean) => {
+  const [searchTerm, setSearchTermState] = useState('');
+
+  const filteredOptions = useMemo(() => {
+    if (!searchable || !searchTerm.trim()) return options;
+    return filterDropdownOptions(options, searchTerm)
+  }, [options, searchTerm]);
+
+  const setSearchTerm = useCallback((newSearchTerm: string) => {
+    setSearchTermState(newSearchTerm)
+    setFocusedIndex(0);
+  }, [setFocusedIndex, setSearchTermState]);
+
+  return { searchTerm, setSearchTerm, filteredOptions };
+}
 
 const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
@@ -93,5 +109,24 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     ariaList: useAriaList(flattenedOptions, selectedIndex, mergedId),
   }
 };
+
+const isTest = process.env.NODE_ENV === 'test';
+let idCount = 0;
+export const useId = (idProp: string): string => {
+  const mergedId = useMemo(() => {
+    if (idProp) return idProp;
+
+    let id: string | number;
+    if (isTest) {
+      id = 'test';
+    } else {
+      id = idCount;
+      idCount += 1;
+    }
+    return `${IdPrefix}${id}`;
+  }, [idProp]);
+
+  return mergedId;
+}
 
 export default useDropdownHooks;
