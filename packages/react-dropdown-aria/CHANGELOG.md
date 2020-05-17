@@ -1,5 +1,10 @@
 # react-dropdown-aria
 
+## 2.0.2
+- Fix issue where group headings with no children matching search would still show
+- Add `es` module version (Use rollup to create `commonjs` and `es` versions)
+- More file consolidation
+
 ## 2.0.1
 Mostly codebase changes. Some file organization and consolidation in an attempt to bring bundle size down
 
