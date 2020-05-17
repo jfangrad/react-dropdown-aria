@@ -8,7 +8,7 @@ Simple, lightweight, and accessible React dropdown component.
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
 ## **Upgrading to v2**
-Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](CHANGELOG.md#200).
+Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](./packages/react-dropdown-aria/CHANGELOG.md#200).
 
 ## Features
 1. Fully customizable styling
@@ -81,7 +81,7 @@ Custom styling can be applied to the dropdown through 2 ways:
 The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 The following object keys are supported to apply style to the corresponding part of the dropdown:
 ```
-Arrow, DropdownButton, DisplayedValue, DropdownWrapper, GroupContainer, GroupHeading, GroupDivider, OptionContainer, OptionItem
+Arrow, DropdownButton, DisplayedValue, DropdownWrapper, GroupContainer, GroupDivider, GroupHeading, OptionContainer, OptionItem
 ```
 The style prop should be passed an object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example is shown below:
 ```js

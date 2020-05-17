@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "Demo for react-aria-dropdown",
   "scripts": {
-    "demo:dev": "webpack-dev-server --mode development --open --hot",
-    "demo:prod": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production",
     "deploy": "gh-pages -d ./dist"
   },
   "author": "Justin Fangrad",

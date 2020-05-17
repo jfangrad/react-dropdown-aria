@@ -8,10 +8,11 @@
     "url": "git+https://github.com/jfangrad/react-dropdown-aria.git"
   },
   "scripts": {
+    "prebuild": "cp ./README.md ./packages/react-dropdown-aria/README.md",
     "build": "yarn lib:build && yarn demo:prod",
     "deploy": "yarn --cwd ./demo deploy",
-    "demo:dev": "yarn --cwd ./demo demo:dev",
-    "demo:prod": "yarn --cwd ./demo demo:prod",
+    "demo:dev": "yarn --cwd ./demo dev",
+    "demo:build": "yarn --cwd ./demo build",
     "lib:dev": "yarn --cwd ./packages/react-dropdown-aria dev",
     "lib:build": "yarn --cwd ./packages/react-dropdown-aria build",
     "lint": "yarn --cwd ./packages/react-dropdown-aria lint",
