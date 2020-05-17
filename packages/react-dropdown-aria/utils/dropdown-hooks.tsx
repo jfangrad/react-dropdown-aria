@@ -170,7 +170,7 @@ export const useId = (idProp: string): string => {
       id = idCount;
       idCount += 1;
     } else {
-      id = 'test';
+      id = 'test_or_ssr';
     }
     return `${IdPrefix}${id}`;
   }, [idProp]);
