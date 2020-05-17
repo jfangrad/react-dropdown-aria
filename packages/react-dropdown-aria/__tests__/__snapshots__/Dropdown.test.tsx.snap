@@ -304,8 +304,8 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
-          aria-activedescendant="react_dropdown_aria_test_list_0"
-          aria-controls="react_dropdown_aria_test_list"
+          aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
+          aria-controls="react_dropdown_aria_test_or_ssr_list"
           aria-describedby={null}
           aria-expanded={false}
           aria-haspopup="listbox"
@@ -314,7 +314,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
           aria-labelledby={null}
           autoComplete="off"
           disabled={false}
-          id="react_dropdown_aria_test"
+          id="react_dropdown_aria_test_or_ssr"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -358,7 +358,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       </div>
     </div>
     <div
-      id="react_dropdown_aria_test_list"
+      id="react_dropdown_aria_test_or_ssr_list"
       role="listbox"
       style={
         Object {
@@ -523,8 +523,8 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         className="dropdown-selector-search css-1l6e6we"
       >
         <input
-          aria-activedescendant="react_dropdown_aria_test_list_0"
-          aria-controls="react_dropdown_aria_test_list"
+          aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
+          aria-controls="react_dropdown_aria_test_or_ssr_list"
           aria-describedby={null}
           aria-expanded={false}
           aria-haspopup="listbox"
@@ -533,7 +533,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           aria-labelledby={null}
           autoComplete="off"
           disabled={false}
-          id="react_dropdown_aria_test"
+          id="react_dropdown_aria_test_or_ssr"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -577,7 +577,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       </div>
     </div>
     <div
-      id="react_dropdown_aria_test_list"
+      id="react_dropdown_aria_test_or_ssr_list"
       role="listbox"
       style={
         Object {
@@ -589,122 +589,122 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     >
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_0"
-        key="react_dropdown_aria_test_list_0"
+        id="react_dropdown_aria_test_or_ssr_list_0"
+        key="react_dropdown_aria_test_or_ssr_list_0"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_1"
-        key="react_dropdown_aria_test_list_1"
+        id="react_dropdown_aria_test_or_ssr_list_1"
+        key="react_dropdown_aria_test_or_ssr_list_1"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_2"
-        key="react_dropdown_aria_test_list_2"
+        id="react_dropdown_aria_test_or_ssr_list_2"
+        key="react_dropdown_aria_test_or_ssr_list_2"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_3"
-        key="react_dropdown_aria_test_list_3"
+        id="react_dropdown_aria_test_or_ssr_list_3"
+        key="react_dropdown_aria_test_or_ssr_list_3"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_4"
-        key="react_dropdown_aria_test_list_4"
+        id="react_dropdown_aria_test_or_ssr_list_4"
+        key="react_dropdown_aria_test_or_ssr_list_4"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_5"
-        key="react_dropdown_aria_test_list_5"
+        id="react_dropdown_aria_test_or_ssr_list_5"
+        key="react_dropdown_aria_test_or_ssr_list_5"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_6"
-        key="react_dropdown_aria_test_list_6"
+        id="react_dropdown_aria_test_or_ssr_list_6"
+        key="react_dropdown_aria_test_or_ssr_list_6"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_7"
-        key="react_dropdown_aria_test_list_7"
+        id="react_dropdown_aria_test_or_ssr_list_7"
+        key="react_dropdown_aria_test_or_ssr_list_7"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_8"
-        key="react_dropdown_aria_test_list_8"
+        id="react_dropdown_aria_test_or_ssr_list_8"
+        key="react_dropdown_aria_test_or_ssr_list_8"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_9"
-        key="react_dropdown_aria_test_list_9"
+        id="react_dropdown_aria_test_or_ssr_list_9"
+        key="react_dropdown_aria_test_or_ssr_list_9"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_10"
-        key="react_dropdown_aria_test_list_10"
+        id="react_dropdown_aria_test_or_ssr_list_10"
+        key="react_dropdown_aria_test_or_ssr_list_10"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_11"
-        key="react_dropdown_aria_test_list_11"
+        id="react_dropdown_aria_test_or_ssr_list_11"
+        key="react_dropdown_aria_test_or_ssr_list_11"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_12"
-        key="react_dropdown_aria_test_list_12"
+        id="react_dropdown_aria_test_or_ssr_list_12"
+        key="react_dropdown_aria_test_or_ssr_list_12"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_13"
-        key="react_dropdown_aria_test_list_13"
+        id="react_dropdown_aria_test_or_ssr_list_13"
+        key="react_dropdown_aria_test_or_ssr_list_13"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_14"
-        key="react_dropdown_aria_test_list_14"
+        id="react_dropdown_aria_test_or_ssr_list_14"
+        key="react_dropdown_aria_test_or_ssr_list_14"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_15"
-        key="react_dropdown_aria_test_list_15"
+        id="react_dropdown_aria_test_or_ssr_list_15"
+        key="react_dropdown_aria_test_or_ssr_list_15"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_16"
-        key="react_dropdown_aria_test_list_16"
+        id="react_dropdown_aria_test_or_ssr_list_16"
+        key="react_dropdown_aria_test_or_ssr_list_16"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_17"
-        key="react_dropdown_aria_test_list_17"
+        id="react_dropdown_aria_test_or_ssr_list_17"
+        key="react_dropdown_aria_test_or_ssr_list_17"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_18"
-        key="react_dropdown_aria_test_list_18"
+        id="react_dropdown_aria_test_or_ssr_list_18"
+        key="react_dropdown_aria_test_or_ssr_list_18"
         role="option"
       />
       <div
         aria-selected={false}
-        id="react_dropdown_aria_test_list_19"
-        key="react_dropdown_aria_test_list_19"
+        id="react_dropdown_aria_test_or_ssr_list_19"
+        key="react_dropdown_aria_test_or_ssr_list_19"
         role="option"
       />
     </div>
