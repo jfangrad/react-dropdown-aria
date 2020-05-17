@@ -82,7 +82,7 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: D
   return { searchTerm, setSearchTerm, filteredOptions };
 };
 
-const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
+export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
   const [focusedIndex, setFocusedIndex] = useState(0)
   const [open, setOpen] = useState(defaultOpen);
@@ -177,5 +177,3 @@ export const useId = (idProp: string): string => {
 
   return mergedId;
 };
-
-export default useDropdownHooks;

@@ -3,7 +3,7 @@ import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import DropdownContent from './DropdownContent';
 import { DropdownProps } from '../utils/types';
-import useDropdownHooks, { useId } from '../utils/dropdown-hooks';
+import { useDropdownHooks, useId } from '../utils/dropdown-hooks';
 import { ChevronDown, Search } from './icons';
 
 const Dropdown = (props: DropdownProps) => {
@@ -87,7 +87,7 @@ const Dropdown = (props: DropdownProps) => {
       default:
         break;
     }
-  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown])
+  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown]);
 
   const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
     const { keyCode } = e;
@@ -128,7 +128,6 @@ const Dropdown = (props: DropdownProps) => {
 
   const ArrowMarkup = useMemo(() => {
     if (hideArrow) return null;
-
     if (arrowRenderer) return (
       <div className={arrowClass}>
         {arrowRenderer(open)}
@@ -141,8 +140,8 @@ const Dropdown = (props: DropdownProps) => {
         {showSearchIcon && <Search />}
         {!showSearchIcon && <ChevronDown />}
       </div>
-    )
-  }, [open, arrowRenderer, arrowClass, searchable, hideArrow])
+    );
+  }, [open, arrowRenderer, arrowClass, searchable, hideArrow]);
 
   return (
     <div
