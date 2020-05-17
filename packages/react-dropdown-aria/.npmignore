@@ -9,3 +9,4 @@ enzymeAdapter.setup.ts
 index.ts
 tsconfig.json
 yarn-error.log
+rollup.config.js
