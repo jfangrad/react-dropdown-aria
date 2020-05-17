@@ -148,6 +148,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
+        empty={false}
         focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
@@ -371,6 +372,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
+        empty={true}
         focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
@@ -710,6 +712,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
+        empty={false}
         focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}

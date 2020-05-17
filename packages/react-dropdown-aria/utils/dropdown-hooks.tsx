@@ -1,10 +1,9 @@
-import React, { useState, useRef, useCallback, useMemo } from "react";
-import { DropdownProps, StyleKey, ExtraState, Option } from './types';
-import useSearch from './search-hooks';
-import defaultStyles from '../styles/Dropdown';
+import React, { useState, useRef, useCallback, useMemo, RefObject, useEffect, Dispatch, SetStateAction } from "react";
 import { css } from 'emotion';
-import { useClickListener, useScroll } from './dom-hooks';
-import { arrayReducer } from './helper';
+import { DropdownProps, StyleKey, ExtraState, Option, DropdownOption } from './types';
+import defaultStyles from '../styles';
+import { arrayReducer, filterDropdownOptions } from './helper';
+import { IdPrefix } from "./constants";
 
 const listbox: 'listbox' = 'listbox';
 const listboxStyle = {
@@ -21,6 +20,66 @@ const useAriaList = (flattenedOptions: Option[], selectedIndex: number, mergedId
       {optionMarkup}
     </div>
   )
+};
+
+const useClickListener = (closeDropdown: () => void, container: RefObject<HTMLDivElement>) => {
+  const onClick = (e: Event) => {
+    if (container.current && !container.current.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('mouseup', onClick, false);
+    document.addEventListener('touchend', onClick, false);
+    return () => {
+      document.removeEventListener('mouseup', onClick);
+      document.removeEventListener('touchend', onClick);
+    }
+  }, []);
+};
+
+const ScrollBuffer = 8;
+const useScroll = (focusedIndex: number, optionContainer: RefObject<HTMLUListElement>) => {
+  useEffect(() => {
+    if (optionContainer.current && focusedIndex >= 0) {
+      const children = optionContainer.current.childNodes;
+      if (children.length) {
+        const focusedChild = children[focusedIndex] as HTMLDivElement;
+        const { height: optionHeight } = focusedChild.getBoundingClientRect();
+        const { height: listHeight } = optionContainer.current.getBoundingClientRect();
+        const scrollTop = optionContainer.current.scrollTop;
+        const isAbove = focusedChild.offsetTop <= scrollTop;
+        const isInView = (
+          focusedChild.offsetTop >= scrollTop &&
+          focusedChild.offsetTop + optionHeight <= scrollTop + listHeight
+        );
+
+        if (!isInView) {
+          if (isAbove) {
+            optionContainer.current.scrollTo({ top: focusedChild.offsetTop });
+          } else {
+            optionContainer.current.scrollTo({ top: focusedChild.offsetTop - listHeight + optionHeight + ScrollBuffer});
+          }
+        }
+      }
+    }
+  }, [focusedIndex]);
+};
+
+const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: DropdownOption[], searchable: boolean) => {
+  const [searchTerm, setSearchTermState] = useState('');
+
+  const filteredOptions = useMemo(() => {
+    if (!searchable || !searchTerm.trim()) return options;
+    return filterDropdownOptions(options, searchTerm)
+  }, [options, searchTerm]);
+
+  const setSearchTerm = useCallback((newSearchTerm: string) => {
+    setSearchTermState(newSearchTerm)
+    setFocusedIndex(0);
+  }, [setFocusedIndex, setSearchTermState]);
+
+  return { searchTerm, setSearchTerm, filteredOptions };
 };
 
 const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
@@ -92,6 +151,31 @@ const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     ariaProps,
     ariaList: useAriaList(flattenedOptions, selectedIndex, mergedId),
   }
+};
+
+const isClient = !!(
+  typeof window !== undefined &&
+  window.document &&
+  window.document.documentElement
+);
+const isBrowser = process.env.NODE_ENV !== 'test' && isClient;
+
+let idCount = 0;
+export const useId = (idProp: string): string => {
+  const mergedId = useMemo(() => {
+    if (idProp) return idProp;
+
+    let id: string | number;
+    if (isBrowser) {
+      id = idCount;
+      idCount += 1;
+    } else {
+      id = 'test';
+    }
+    return `${IdPrefix}${id}`;
+  }, [idProp]);
+
+  return mergedId;
 };
 
 export default useDropdownHooks;

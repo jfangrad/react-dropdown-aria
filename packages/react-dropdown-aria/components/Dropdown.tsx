@@ -3,9 +3,8 @@ import { cx } from 'emotion';
 import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
 import DropdownContent from './DropdownContent';
 import { DropdownProps } from '../utils/types';
-import useDropdownHooks from '../utils/dropdown-hooks';
+import useDropdownHooks, { useId } from '../utils/dropdown-hooks';
 import { ChevronDown, Search } from './icons';
-import useId from '../utils/useId';
 
 const Dropdown = (props: DropdownProps) => {
   const {
@@ -183,6 +182,7 @@ const Dropdown = (props: DropdownProps) => {
           onOptionClicked={setValue}
           optionItemRenderer={optionItemRenderer}
           getStyle={getStyle}
+          empty={flattenedOptions.length === 0}
         />
       </ul>
     </div>
