@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "esnext",
     "declaration": true,
+    "declarationDir": "./dist",
     "outDir": "./dist",
     "strict": true,
     "jsx": "react",
@@ -25,5 +26,5 @@
     "../../node_modules/@types",
   ],
   "include": ["index.ts"],
-  "exclude": ["node_modules", "/__tests__/*"]
+  "exclude": ["node_modules", "/__tests__/*", "dist"]
 }
