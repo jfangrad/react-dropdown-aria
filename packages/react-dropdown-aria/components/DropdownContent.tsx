@@ -13,6 +13,7 @@ interface DropdownContentProps {
   onOptionClicked: OnOptionClicked;
   getStyle: GetStyleFunction;
   optionItemRenderer?: OptionRendererFunction;
+  empty: boolean;
 }
 
 function DropdownContent({
@@ -22,8 +23,9 @@ function DropdownContent({
   onOptionClicked,
   getStyle,
   optionItemRenderer,
+  empty,
 }: DropdownContentProps) {
-  if (options.length === 0) {
+  if (empty) {
     return (
       <div className="dropdown-selector-content--empty">
         <Inbox />
@@ -58,7 +60,7 @@ function DropdownContent({
         );
       });
 
-      return (
+      return optionItems.length ? (
         <div className={getStyle(StyleKeys.GroupContainer)} key={option.label}>
           <div className={getStyle(StyleKeys.GroupHeading)}>
             <span>{label.toUpperCase()} | &nbsp;</span>
@@ -67,7 +69,7 @@ function DropdownContent({
           {optionItems}
           <div className={getStyle(StyleKeys.GroupDivider)} />
         </div>
-      );
+      ) : null;
     }
 
     // Single option

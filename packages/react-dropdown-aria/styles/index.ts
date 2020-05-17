@@ -1,5 +1,5 @@
 import { CSSObject } from 'create-emotion';
-import colours from './colours';
+import { colours } from '../utils/constants';
 import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
 
 const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
