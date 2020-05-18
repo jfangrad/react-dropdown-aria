@@ -153,8 +153,8 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   }
 };
 
-const isClient = !!(
-  typeof window !== undefined &&
+const isClient = (
+  typeof window !== 'undefined' &&
   window.document &&
   window.document.documentElement
 );
