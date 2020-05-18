@@ -3,6 +3,7 @@
 ## 2.0.2
 - Fix issue where group headings with no children matching search would still show
 - Add `es` module version (Use rollup to create `commonjs` and `es` versions)
+- Fix error in `useId` hook causing SSR to not work
 - More file consolidation
 
 ## 2.0.1
