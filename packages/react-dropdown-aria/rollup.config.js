@@ -32,6 +32,7 @@ export default {
       tsconfigOverride: {
         compilerOptions: {
           declaration: !isProduction,
+          sourceMap: true,
         }
       }
     }),
