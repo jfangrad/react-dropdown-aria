@@ -9,6 +9,8 @@
     "dev": "rollup -c -w",
     "prebuild": "rm -rf dist",
     "build": "rollup -c --environment NODE_ENV:production",
+    "postbuild": "yarn types",
+    "types": "yarn tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest",
     "test:update": "jest --updateSnapshot"
