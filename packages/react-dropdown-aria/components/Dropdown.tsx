@@ -204,7 +204,6 @@ Dropdown.defaultProps = {
   maxContentHeight: 150,
   openUp: false,
   optionItemRenderer: undefined,
-  options: [],
   pageKeyTraverseSize: 10,
   placeholder: 'Select ...',
   searchable: false,

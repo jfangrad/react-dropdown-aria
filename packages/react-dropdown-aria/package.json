@@ -6,10 +6,11 @@
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
   "scripts": {
+    "clean": "rm -rf dist",
+    "predev": "yarn clean",
     "dev": "rollup -c -w",
-    "prebuild": "rm -rf dist",
+    "prebuild": "yarn clean",
     "build": "rollup -c --environment NODE_ENV:production",
-    "postbuild": "yarn types",
     "types": "yarn tsc --emitDeclarationOnly",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest",
