@@ -17,7 +17,7 @@ const foo = (val: Option) => {};
 
 describe('Check Props', () => {
   it('Matches snapshot with default props', () => {
-    const dropdown = mount(<Dropdown onChange={foo} />);
+    const dropdown = mount(<Dropdown onChange={foo} options={OPTIONS} />);
     expect(toJson(dropdown)).toMatchSnapshot();
   });
 

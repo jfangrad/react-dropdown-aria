@@ -145,7 +145,6 @@ const Dropdown = (props: DropdownProps) => {
 
   return (
     <div
-      id={id}
       ref={container}
       className={wrapperClass}
       onFocus={forwardFocus}
