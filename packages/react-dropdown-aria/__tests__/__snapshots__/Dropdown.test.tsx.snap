@@ -50,7 +50,6 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
 >
   <div
     className="dropdown custom-class css-w4jram"
-    id="dropdown"
     onClick={[Function]}
     onFocus={[Function]}
   >
@@ -283,7 +282,40 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   maxContentHeight={150}
   onChange={[Function]}
   openUp={false}
-  options={Array []}
+  options={
+    Array [
+      Object {
+        "value": "1",
+      },
+      Object {
+        "value": "2",
+      },
+      Object {
+        "value": "3",
+      },
+      Object {
+        "value": "4",
+      },
+      Object {
+        "value": "5",
+      },
+      Object {
+        "value": "6",
+      },
+      Object {
+        "value": "7",
+      },
+      Object {
+        "value": "8",
+      },
+      Object {
+        "value": "9",
+      },
+      Object {
+        "value": "10",
+      },
+    ]
+  }
   pageKeyTraverseSize={10}
   placeholder="Select ..."
   searchable={false}
@@ -293,7 +325,6 @@ exports[`Check Props Matches snapshot with default props 1`] = `
 >
   <div
     className="dropdown css-4a6799"
-    id={null}
     onClick={[Function]}
     onFocus={[Function]}
   >
@@ -367,47 +398,301 @@ exports[`Check Props Matches snapshot with default props 1`] = `
           "width": 0,
         }
       }
-    />
+    >
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_0"
+        key="react_dropdown_aria_test_or_ssr_list_0"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_1"
+        key="react_dropdown_aria_test_or_ssr_list_1"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_2"
+        key="react_dropdown_aria_test_or_ssr_list_2"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_3"
+        key="react_dropdown_aria_test_or_ssr_list_3"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_4"
+        key="react_dropdown_aria_test_or_ssr_list_4"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_5"
+        key="react_dropdown_aria_test_or_ssr_list_5"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_6"
+        key="react_dropdown_aria_test_or_ssr_list_6"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_7"
+        key="react_dropdown_aria_test_or_ssr_list_7"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_8"
+        key="react_dropdown_aria_test_or_ssr_list_8"
+        role="option"
+      />
+      <div
+        aria-selected={false}
+        id="react_dropdown_aria_test_or_ssr_list_9"
+        key="react_dropdown_aria_test_or_ssr_list_9"
+        role="option"
+      />
+    </div>
     <ul
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
-        empty={true}
+        empty={false}
         focusedIndex={0}
         getStyle={[Function]}
         onOptionClicked={[Function]}
-        options={Array []}
+        options={
+          Array [
+            Object {
+              "value": "1",
+            },
+            Object {
+              "value": "2",
+            },
+            Object {
+              "value": "3",
+            },
+            Object {
+              "value": "4",
+            },
+            Object {
+              "value": "5",
+            },
+            Object {
+              "value": "6",
+            },
+            Object {
+              "value": "7",
+            },
+            Object {
+              "value": "8",
+            },
+            Object {
+              "value": "9",
+            },
+            Object {
+              "value": "10",
+            },
+          ]
+        }
       >
-        <div
-          className="dropdown-selector-content--empty"
+        <Memo(OptionItem)
+          index={0}
+          key="1"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "1",
+            }
+          }
+          optionClass="css-ankiux"
         >
-          <Component>
-            <StandardIcon
-              className="feather-inbox"
-            >
-              <svg
-                className="feather feather-inbox"
-                fill="none"
-                height={24}
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                width={24}
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <polyline
-                  points="22 12 16 12 14 15 10 15 8 12 2 12"
-                />
-                <path
-                  d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
-                />
-              </svg>
-            </StandardIcon>
-          </Component>
-          No data
-        </div>
+          <div
+            className="dropdown-option css-ankiux"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            1
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={1}
+          key="2"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "2",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            2
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={2}
+          key="3"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "3",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            3
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={3}
+          key="4"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "4",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            4
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={4}
+          key="5"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "5",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            5
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={5}
+          key="6"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "6",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            6
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={6}
+          key="7"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "7",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            7
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={7}
+          key="8"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "8",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            8
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={8}
+          key="9"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "9",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            9
+          </div>
+        </Memo(OptionItem)>
+        <Memo(OptionItem)
+          index={9}
+          key="10"
+          onOptionClicked={[Function]}
+          option={
+            Object {
+              "value": "10",
+            }
+          }
+          optionClass="css-7tfimk"
+        >
+          <div
+            className="dropdown-option css-7tfimk"
+            onClick={[Function]}
+            tabIndex={-1}
+          >
+            10
+          </div>
+        </Memo(OptionItem)>
       </DropdownContent>
     </ul>
   </div>
@@ -512,7 +797,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
 >
   <div
     className="dropdown css-4a6799"
-    id={null}
     onClick={[Function]}
     onFocus={[Function]}
   >

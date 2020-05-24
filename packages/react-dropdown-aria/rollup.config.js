@@ -31,9 +31,11 @@ export default {
       typescript: ts,
       tsconfigOverride: {
         compilerOptions: {
-          declaration: !isProduction,
           sourceMap: true,
-        }
+        },
+        // For some reason rollup-plugin-typescript2 doesn't generate declarations for
+        // utils/types.ts without explicitly putting it in the include list
+        include: ['index.ts', 'utils'],
       }
     }),
     isProduction &&
