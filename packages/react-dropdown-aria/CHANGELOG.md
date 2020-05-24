@@ -1,5 +1,12 @@
 # react-dropdown-aria
 
+## 2.0.5
+- Fix id being applied to both the input and top level div
+- Fix type generation during rollup build
+
+## 2.0.4
+- Fix typings not being built properly
+
 ## 2.0.2
 - Fix issue where group headings with no children matching search would still show
 - Add `es` module version (Use rollup to create `commonjs` and `es` versions)
