@@ -51,7 +51,6 @@ const Dropdown = (props: DropdownProps) => {
   const onDropdownClick = useCallback(() => {
     forwardFocus();
     if (!disabled && (!open || !searchable)) {
-      // setFocusedIndex(0);
       setOpen(p => !p);
     }
   }, [open, disabled, searchable, setOpen, setFocusedIndex]);

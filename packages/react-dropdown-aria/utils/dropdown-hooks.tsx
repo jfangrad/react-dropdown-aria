@@ -114,7 +114,6 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const closeDropdown = useCallback((focus = false) => {
     setSearchTerm('', false);
     setOpen(false);
-    // setFocusedIndex(0)
     if (focus && inputRef.current) {
       inputRef.current.focus();
     }
