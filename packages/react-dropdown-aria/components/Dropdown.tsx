@@ -51,7 +51,7 @@ const Dropdown = (props: DropdownProps) => {
   const onDropdownClick = useCallback(() => {
     forwardFocus();
     if (!disabled && (!open || !searchable)) {
-      setFocusedIndex(0);
+      // setFocusedIndex(0);
       setOpen(p => !p);
     }
   }, [open, disabled, searchable, setOpen, setFocusedIndex]);
@@ -172,7 +172,7 @@ const Dropdown = (props: DropdownProps) => {
         {ArrowMarkup}
       </div>
       {ariaList}
-      <ul className={contentClass} ref={listWrapper}>
+      <div className={contentClass} ref={listWrapper}>
         <DropdownContent
           selectedOption={value}
           options={filteredOptions}
@@ -182,7 +182,7 @@ const Dropdown = (props: DropdownProps) => {
           getStyle={getStyle}
           empty={flattenedOptions.length === 0}
         />
-      </ul>
+      </div>
     </div>
   );
 };
