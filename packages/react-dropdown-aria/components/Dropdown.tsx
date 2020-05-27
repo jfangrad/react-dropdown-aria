@@ -52,8 +52,11 @@ const Dropdown = (props: DropdownProps) => {
   const onDropdownClick = useCallback(() => {
     forwardFocus();
     if (!disabled && (!open || !searchable)) {
-      if (open) closeDropdown(true);
-      else openDropdown();
+      if (open) {
+        closeDropdown(true);
+      } else {
+        openDropdown();
+      }
     }
   }, [open, disabled, searchable, closeDropdown, openDropdown]);
 
