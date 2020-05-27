@@ -125,25 +125,28 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       }
     >
       <div
+        aria-label="1"
         aria-selected={false}
         id="dropdown_list_0"
         key="dropdown_list_0"
         role="option"
       />
       <div
+        aria-label="2"
         aria-selected={false}
         id="dropdown_list_1"
         key="dropdown_list_1"
         role="option"
       />
       <div
+        aria-label="3"
         aria-selected={false}
         id="dropdown_list_2"
         key="dropdown_list_2"
         role="option"
       />
     </div>
-    <ul
+    <div
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
@@ -191,12 +194,13 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             }
           }
           optionClass="className css-ankiux"
+          selected={false}
         >
           <div
             aria-label="ariaLabel"
+            aria-selected={false}
             className="dropdown-option className css-ankiux"
             onClick={[Function]}
-            tabIndex={-1}
             title="title"
           >
             <i
@@ -219,12 +223,13 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             }
           }
           optionClass="className css-7tfimk"
+          selected={false}
         >
           <div
             aria-label="ariaLabel"
+            aria-selected={false}
             className="dropdown-option className css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
             title="title"
           >
             <i
@@ -247,12 +252,13 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
             }
           }
           optionClass="className css-7tfimk"
+          selected={false}
         >
           <div
             aria-label="ariaLabel"
+            aria-selected={false}
             className="dropdown-option className css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
             title="title"
           >
             <i
@@ -262,7 +268,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
           </div>
         </Memo(OptionItem)>
       </DropdownContent>
-    </ul>
+    </div>
   </div>
 </Dropdown>
 `;
@@ -400,67 +406,77 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       }
     >
       <div
+        aria-label="1"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_0"
         key="react_dropdown_aria_test_or_ssr_list_0"
         role="option"
       />
       <div
+        aria-label="2"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_1"
         key="react_dropdown_aria_test_or_ssr_list_1"
         role="option"
       />
       <div
+        aria-label="3"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_2"
         key="react_dropdown_aria_test_or_ssr_list_2"
         role="option"
       />
       <div
+        aria-label="4"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_3"
         key="react_dropdown_aria_test_or_ssr_list_3"
         role="option"
       />
       <div
+        aria-label="5"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_4"
         key="react_dropdown_aria_test_or_ssr_list_4"
         role="option"
       />
       <div
+        aria-label="6"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_5"
         key="react_dropdown_aria_test_or_ssr_list_5"
         role="option"
       />
       <div
+        aria-label="7"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_6"
         key="react_dropdown_aria_test_or_ssr_list_6"
         role="option"
       />
       <div
+        aria-label="8"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_7"
         key="react_dropdown_aria_test_or_ssr_list_7"
         role="option"
       />
       <div
+        aria-label="9"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_8"
         key="react_dropdown_aria_test_or_ssr_list_8"
         role="option"
       />
       <div
+        aria-label="10"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_9"
         key="react_dropdown_aria_test_or_ssr_list_9"
         role="option"
       />
     </div>
-    <ul
+    <div
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
@@ -513,11 +529,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-ankiux"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-ankiux"
             onClick={[Function]}
-            tabIndex={-1}
           >
             1
           </div>
@@ -532,11 +549,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             2
           </div>
@@ -551,11 +569,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             3
           </div>
@@ -570,11 +589,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             4
           </div>
@@ -589,11 +609,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             5
           </div>
@@ -608,11 +629,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             6
           </div>
@@ -627,11 +649,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             7
           </div>
@@ -646,11 +669,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             8
           </div>
@@ -665,11 +689,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             9
           </div>
@@ -684,17 +709,18 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             }
           }
           optionClass="css-7tfimk"
+          selected={false}
         >
           <div
+            aria-selected={false}
             className="dropdown-option css-7tfimk"
             onClick={[Function]}
-            tabIndex={-1}
           >
             10
           </div>
         </Memo(OptionItem)>
       </DropdownContent>
-    </ul>
+    </div>
   </div>
 </Dropdown>
 `;
@@ -872,127 +898,147 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       }
     >
       <div
+        aria-label="1"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_0"
         key="react_dropdown_aria_test_or_ssr_list_0"
         role="option"
       />
       <div
+        aria-label="2"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_1"
         key="react_dropdown_aria_test_or_ssr_list_1"
         role="option"
       />
       <div
+        aria-label="3"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_2"
         key="react_dropdown_aria_test_or_ssr_list_2"
         role="option"
       />
       <div
+        aria-label="4"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_3"
         key="react_dropdown_aria_test_or_ssr_list_3"
         role="option"
       />
       <div
+        aria-label="5"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_4"
         key="react_dropdown_aria_test_or_ssr_list_4"
         role="option"
       />
       <div
+        aria-label="6"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_5"
         key="react_dropdown_aria_test_or_ssr_list_5"
         role="option"
       />
       <div
+        aria-label="7"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_6"
         key="react_dropdown_aria_test_or_ssr_list_6"
         role="option"
       />
       <div
+        aria-label="8"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_7"
         key="react_dropdown_aria_test_or_ssr_list_7"
         role="option"
       />
       <div
+        aria-label="9"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_8"
         key="react_dropdown_aria_test_or_ssr_list_8"
         role="option"
       />
       <div
+        aria-label="10"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_9"
         key="react_dropdown_aria_test_or_ssr_list_9"
         role="option"
       />
       <div
+        aria-label="a"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_10"
         key="react_dropdown_aria_test_or_ssr_list_10"
         role="option"
       />
       <div
+        aria-label="b"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_11"
         key="react_dropdown_aria_test_or_ssr_list_11"
         role="option"
       />
       <div
+        aria-label="c"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_12"
         key="react_dropdown_aria_test_or_ssr_list_12"
         role="option"
       />
       <div
+        aria-label="d"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_13"
         key="react_dropdown_aria_test_or_ssr_list_13"
         role="option"
       />
       <div
+        aria-label="e"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_14"
         key="react_dropdown_aria_test_or_ssr_list_14"
         role="option"
       />
       <div
+        aria-label="f"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_15"
         key="react_dropdown_aria_test_or_ssr_list_15"
         role="option"
       />
       <div
+        aria-label="g"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_16"
         key="react_dropdown_aria_test_or_ssr_list_16"
         role="option"
       />
       <div
+        aria-label="h"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_17"
         key="react_dropdown_aria_test_or_ssr_list_17"
         role="option"
       />
       <div
+        aria-label="i"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_18"
         key="react_dropdown_aria_test_or_ssr_list_18"
         role="option"
       />
       <div
+        aria-label="j"
         aria-selected={false}
         id="react_dropdown_aria_test_or_ssr_list_19"
         key="react_dropdown_aria_test_or_ssr_list_19"
         role="option"
       />
     </div>
-    <ul
+    <div
       className="dropdown-selector-content css-m2fyt8"
     >
       <DropdownContent
@@ -1100,11 +1146,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-ankiux"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-ankiux"
               onClick={[Function]}
-              tabIndex={-1}
             >
               1
             </div>
@@ -1119,11 +1166,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               2
             </div>
@@ -1138,11 +1186,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               3
             </div>
@@ -1157,11 +1206,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               4
             </div>
@@ -1176,11 +1226,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               5
             </div>
@@ -1195,11 +1246,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               6
             </div>
@@ -1214,11 +1266,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               7
             </div>
@@ -1233,11 +1286,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               8
             </div>
@@ -1252,11 +1306,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               9
             </div>
@@ -1271,11 +1326,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               10
             </div>
@@ -1309,11 +1365,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               a
             </div>
@@ -1328,11 +1385,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               b
             </div>
@@ -1347,11 +1405,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               c
             </div>
@@ -1366,11 +1425,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               d
             </div>
@@ -1385,11 +1445,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               e
             </div>
@@ -1404,11 +1465,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               f
             </div>
@@ -1423,11 +1485,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               g
             </div>
@@ -1442,11 +1505,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               h
             </div>
@@ -1461,11 +1525,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               i
             </div>
@@ -1480,11 +1545,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               }
             }
             optionClass="css-7tfimk"
+            selected={false}
           >
             <div
+              aria-selected={false}
               className="dropdown-option css-7tfimk"
               onClick={[Function]}
-              tabIndex={-1}
             >
               j
             </div>
@@ -1494,7 +1560,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
           />
         </div>
       </DropdownContent>
-    </ul>
+    </div>
   </div>
 </Dropdown>
 `;

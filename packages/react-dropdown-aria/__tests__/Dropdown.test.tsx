@@ -53,7 +53,7 @@ describe('Navigation', () => {
   beforeEach(() => {
     wrapper = mount(<DropdownTest onChange={foo} />);
     button = wrapper.find('.test').first(); // Actual dropdown button element
-    listContainer = wrapper.find('ul').first();
+    listContainer = wrapper.find('.dropdown-selector-content').first();
     input = wrapper.find('input').first();
 
 
@@ -161,7 +161,7 @@ describe('Special props', () => {
   it('Does not open when disabled', () => {
     const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} className="test" disabled />);
     wrapper.find('.test').first().simulate('click');
-    const listContainer = wrapper.find('ul').first();
+    const listContainer = wrapper.find('.dropdown-selector-content').first();
 
     expect(getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display')).toBe('none');
   });

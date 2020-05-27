@@ -1,5 +1,10 @@
 # react-dropdown-aria
 
+## 2.0.6
+- Fix markup issues with ul but no li children (ul is now just a div)
+- Fix screen readers not reading out the name of element focused when keyboard nav
+- Fixed crashing issue when using keyboard nav with grouped options
+
 ## 2.0.5
 - Fix id being applied to both the input and top level div
 - Fix type generation during rollup build

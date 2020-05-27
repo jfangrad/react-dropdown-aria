@@ -56,6 +56,7 @@ function DropdownContent({
             option={groupOption}
             itemRenderer={itemRenderer}
             index={index - 1}
+            selected={selected}
           />
         );
       });
@@ -86,6 +87,7 @@ function DropdownContent({
         option={option}
         itemRenderer={itemRenderer}
         index={index - 1}
+        selected={selected}
       />
     );
   });

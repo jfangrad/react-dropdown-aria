@@ -7,6 +7,7 @@ export interface OptionItemProps {
   onOptionClicked: OnOptionClicked;
   itemRenderer?: ItemRenderer;
   index: number;
+  selected: boolean;
 }
 
 const OptionItem = (props: OptionItemProps) => {
@@ -16,6 +17,7 @@ const OptionItem = (props: OptionItemProps) => {
     optionClass,
     itemRenderer,
     index,
+    selected,
   } = props;
 
   const handleClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
@@ -37,9 +39,9 @@ const OptionItem = (props: OptionItemProps) => {
   return (
     <div
       aria-label={option.ariaLabel}
+      aria-selected={selected}
       className={`dropdown-option ${optionClass}`}
       onClick={handleClick}
-      tabIndex={-1}
       title={option.title}
     >
       {content}
