@@ -26,10 +26,11 @@ const Dropdown = (props: DropdownProps) => {
 
   const {
     getStyle,
-    open, setOpen,
+    open,
     focusedIndex, setFocusedIndex,
     setDropdownFocused,
     setValue,
+    openDropdown,
     closeDropdown,
     searchTerm, setSearchTerm,
     filteredOptions,
@@ -51,9 +52,10 @@ const Dropdown = (props: DropdownProps) => {
   const onDropdownClick = useCallback(() => {
     forwardFocus();
     if (!disabled && (!open || !searchable)) {
-      setOpen(p => !p);
+      if (open) closeDropdown(true);
+      else openDropdown();
     }
-  }, [open, disabled, searchable, setOpen, setFocusedIndex]);
+  }, [open, disabled, searchable, closeDropdown, openDropdown]);
 
   const onNavigation = useCallback((keyCode: number) => {
     switch (keyCode) {
@@ -96,7 +98,7 @@ const Dropdown = (props: DropdownProps) => {
       e.stopPropagation();
       onNavigation(keyCode);
     } else if (keyCode === KEY_CODES.ENTER && !open) {
-      setOpen(true);
+      openDropdown();
     } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
     } else if (
@@ -107,7 +109,7 @@ const Dropdown = (props: DropdownProps) => {
       e.preventDefault();
       setValue(flattenedOptions[focusedIndex], true);
     }
-  }, [flattenedOptions, setValue, focusedIndex, open, onNavigation, setOpen, searchable, closeDropdown]);
+  }, [flattenedOptions, setValue, focusedIndex, open, onNavigation, openDropdown, searchable, closeDropdown]);
 
   const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);

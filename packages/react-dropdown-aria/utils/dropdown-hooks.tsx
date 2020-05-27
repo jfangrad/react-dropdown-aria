@@ -103,6 +103,7 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
 
   const { searchTerm, setSearchTerm, filteredOptions } = useSearch(setFocusedIndex, options, searchable);
   const flattenedOptions = useMemo(() => filteredOptions.reduce(arrayReducer, []), [filteredOptions]);
+  const selectedIndex = useMemo(() => flattenedOptions.map(o => o.value).indexOf(value), [flattenedOptions, value]);
 
   const getStyle = useCallback((key: StyleKey, extraState?: ExtraState) => {
     const state = { focusedIndex, open, dropdownFocused };
@@ -119,6 +120,11 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     }
   }, [inputRef.current, setSearchTerm, setOpen, setFocusedIndex]);
 
+  const openDropdown = useCallback(() => {
+    setFocusedIndex(selectedIndex);
+    setOpen(true);
+  }, [setOpen, setFocusedIndex, selectedIndex]);
+
   const setValue = useCallback((newOption?: Option, shouldClose = false) => {
     if (newOption) {
       onChange(newOption);
@@ -132,7 +138,6 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   useClickListener(closeDropdown, container);
   useScroll(focusedIndex, listWrapper);
 
-  const selectedIndex = useMemo(() => flattenedOptions.map(o => o.value).indexOf(value), [flattenedOptions, value]);
   const ariaProps = useMemo(() => ({
     'aria-hidden': disabled,
     'aria-expanded': open,
@@ -152,6 +157,7 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     setValue,
     filteredOptions,
     getStyle,
+    openDropdown,
     closeDropdown,
     flattenedOptions,
     container,
