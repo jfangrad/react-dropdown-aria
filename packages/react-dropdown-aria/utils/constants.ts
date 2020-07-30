@@ -20,6 +20,7 @@ export enum KEY_CODES {
   PAGE_UP = 33,
   TAB = 9,
   UP_ARROW = 38,
+  SPACE = 32,
 }
 
 export const NAVIGATION_KEYS = [
