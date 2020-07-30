@@ -52,6 +52,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
     className="dropdown custom-class css-w4jram"
     onClick={[Function]}
     onFocus={[Function]}
+    role="button"
   >
     <div
       className="dropdown-selector css-q0xgr4"
@@ -333,6 +334,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
     className="dropdown css-4a6799"
     onClick={[Function]}
     onFocus={[Function]}
+    role="button"
   >
     <div
       className="dropdown-selector css-q0xgr4"
@@ -825,6 +827,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
     className="dropdown css-4a6799"
     onClick={[Function]}
     onFocus={[Function]}
+    role="button"
   >
     <div
       className="dropdown-selector css-q0xgr4"

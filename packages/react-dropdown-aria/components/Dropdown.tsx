@@ -100,7 +100,8 @@ const Dropdown = (props: DropdownProps) => {
       e.preventDefault();
       e.stopPropagation();
       onNavigation(keyCode);
-    } else if (keyCode === KEY_CODES.ENTER && !open) {
+    } else if ((keyCode === KEY_CODES.ENTER || (keyCode === KEY_CODES.SPACE && !searchable)) && !open) {
+      e.preventDefault();
       openDropdown();
     } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
       closeDropdown();
@@ -153,6 +154,7 @@ const Dropdown = (props: DropdownProps) => {
       className={wrapperClass}
       onFocus={forwardFocus}
       onClick={onDropdownClick}
+      role="button"
     >
       <div className={selectorClass}>
         <span className={searchClass}>

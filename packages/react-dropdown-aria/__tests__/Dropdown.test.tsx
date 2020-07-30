@@ -165,4 +165,20 @@ describe('Special props', () => {
 
     expect(getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display')).toBe('none');
   });
+
+  it('Does not open by space when searchable enabled', () => {
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} searchable />);
+    wrapper.find('input').first().simulate('keyDown', { key: 'space', keyCode: KEY_CODES.SPACE, preventDefault: foo });
+    const listContainer = wrapper.find('.dropdown-selector-content').first();
+
+    expect(getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display')).toBe('none');
+  });
+
+  it('Opens by space when searchable disabled', () => {
+    const wrapper = mount(<Dropdown options={OPTIONS} onChange={foo} searchable={false} />);
+    wrapper.find('input').first().simulate('keyDown', { key: 'space', keyCode: KEY_CODES.SPACE, preventDefault: foo });
+    const listContainer = wrapper.find('.dropdown-selector-content').first();
+
+    expect(getComputedStyle(listContainer.getDOMNode()).getPropertyValue('display')).toBe('block');
+  });
 });
