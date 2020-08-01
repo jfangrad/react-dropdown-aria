@@ -1,5 +1,9 @@
 # react-dropdown-aria
 
+## 2.0.7
+- Make dropdown open by pressing space (Only when not searchable) [#45](https://github.com/jfangrad/react-dropdown-aria/pull/45)
+- Add button role to top level div to improve keyboard navigation [#45](https://github.com/jfangrad/react-dropdown-aria/pull/45)
+
 ## 2.0.6
 - Fix markup issues with ul but no li children (ul is now just a div)
 - Fix screen readers not reading out the name of element focused when keyboard nav
