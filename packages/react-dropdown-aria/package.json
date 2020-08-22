@@ -1,6 +1,6 @@
 {
   "name": "@redocly/react-dropdown-aria",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "Simple and accessible React dropdown component",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
