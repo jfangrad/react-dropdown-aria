@@ -92,7 +92,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
 }
 
 .c5 {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border: 2px solid #6e6d6d;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -271,12 +271,12 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
       width={400}
     >
       <styled.div
-        className="dropdown-selectors"
+        className="dropdown-selector"
         open={false}
         searchable={false}
       >
         <div
-          className="c1 dropdown-selectors"
+          className="c1 dropdown-selector"
           open={false}
         >
           <styled.span
@@ -443,7 +443,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
               <styled.div
                 aria-label="ariaLabel"
                 aria-selected={false}
-                className="dropdown-option className"
+                className="dropdown-option className focused"
                 focused={true}
                 onClick={[Function]}
                 selected={false}
@@ -452,7 +452,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
                 <div
                   aria-label="ariaLabel"
                   aria-selected={false}
-                  className="c6 dropdown-option className"
+                  className="c6 dropdown-option className focused"
                   onClick={[Function]}
                   selected={false}
                   title="title"
@@ -484,7 +484,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
               <styled.div
                 aria-label="ariaLabel"
                 aria-selected={false}
-                className="dropdown-option className"
+                className="dropdown-option className "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
@@ -493,7 +493,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
                 <div
                   aria-label="ariaLabel"
                   aria-selected={false}
-                  className="c7 dropdown-option className"
+                  className="c7 dropdown-option className "
                   onClick={[Function]}
                   selected={false}
                   title="title"
@@ -525,7 +525,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
               <styled.div
                 aria-label="ariaLabel"
                 aria-selected={false}
-                className="dropdown-option className"
+                className="dropdown-option className "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
@@ -534,7 +534,7 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
                 <div
                   aria-label="ariaLabel"
                   aria-selected={false}
-                  className="c7 dropdown-option className"
+                  className="c7 dropdown-option className "
                   onClick={[Function]}
                   selected={false}
                   title="title"
@@ -645,7 +645,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
 }
 
 .c5 {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border: 2px solid #6e6d6d;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -832,12 +832,12 @@ exports[`Check Props Matches snapshot with default props 1`] = `
       width={null}
     >
       <styled.div
-        className="dropdown-selectors"
+        className="dropdown-selector"
         open={false}
         searchable={false}
       >
         <div
-          className="c1 dropdown-selectors"
+          className="c1 dropdown-selector"
           open={false}
         >
           <styled.span
@@ -847,8 +847,8 @@ exports[`Check Props Matches snapshot with default props 1`] = `
               className="c2 dropdown-selector-search"
             >
               <input
-                aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
-                aria-controls="react_dropdown_aria_test_or_ssr_list"
+                aria-activedescendant="react_dropdown_aria_test_list_0"
+                aria-controls="react_dropdown_aria_test_list"
                 aria-describedby={null}
                 aria-expanded={false}
                 aria-haspopup="listbox"
@@ -857,7 +857,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
                 aria-labelledby={null}
                 autoComplete="off"
                 disabled={false}
-                id="react_dropdown_aria_test_or_ssr"
+                id="react_dropdown_aria_test"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -912,7 +912,7 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         </div>
       </styled.div>
       <div
-        id="react_dropdown_aria_test_or_ssr_list"
+        id="react_dropdown_aria_test_list"
         role="listbox"
         style={
           Object {
@@ -925,71 +925,71 @@ exports[`Check Props Matches snapshot with default props 1`] = `
         <div
           aria-label="1"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_0"
-          key="react_dropdown_aria_test_or_ssr_list_0"
+          id="react_dropdown_aria_test_list_0"
+          key="react_dropdown_aria_test_list_0"
           role="option"
         />
         <div
           aria-label="2"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_1"
-          key="react_dropdown_aria_test_or_ssr_list_1"
+          id="react_dropdown_aria_test_list_1"
+          key="react_dropdown_aria_test_list_1"
           role="option"
         />
         <div
           aria-label="3"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_2"
-          key="react_dropdown_aria_test_or_ssr_list_2"
+          id="react_dropdown_aria_test_list_2"
+          key="react_dropdown_aria_test_list_2"
           role="option"
         />
         <div
           aria-label="4"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_3"
-          key="react_dropdown_aria_test_or_ssr_list_3"
+          id="react_dropdown_aria_test_list_3"
+          key="react_dropdown_aria_test_list_3"
           role="option"
         />
         <div
           aria-label="5"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_4"
-          key="react_dropdown_aria_test_or_ssr_list_4"
+          id="react_dropdown_aria_test_list_4"
+          key="react_dropdown_aria_test_list_4"
           role="option"
         />
         <div
           aria-label="6"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_5"
-          key="react_dropdown_aria_test_or_ssr_list_5"
+          id="react_dropdown_aria_test_list_5"
+          key="react_dropdown_aria_test_list_5"
           role="option"
         />
         <div
           aria-label="7"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_6"
-          key="react_dropdown_aria_test_or_ssr_list_6"
+          id="react_dropdown_aria_test_list_6"
+          key="react_dropdown_aria_test_list_6"
           role="option"
         />
         <div
           aria-label="8"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_7"
-          key="react_dropdown_aria_test_or_ssr_list_7"
+          id="react_dropdown_aria_test_list_7"
+          key="react_dropdown_aria_test_list_7"
           role="option"
         />
         <div
           aria-label="9"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_8"
-          key="react_dropdown_aria_test_or_ssr_list_8"
+          id="react_dropdown_aria_test_list_8"
+          key="react_dropdown_aria_test_list_8"
           role="option"
         />
         <div
           aria-label="10"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_9"
-          key="react_dropdown_aria_test_or_ssr_list_9"
+          id="react_dropdown_aria_test_list_9"
+          key="react_dropdown_aria_test_list_9"
           role="option"
         />
       </div>
@@ -1056,14 +1056,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option focused"
                 focused={true}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c6 dropdown-option undefined"
+                  className="c6 dropdown-option focused"
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1085,14 +1085,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1114,14 +1114,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1143,14 +1143,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1172,14 +1172,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1201,14 +1201,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1230,14 +1230,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1259,14 +1259,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1288,14 +1288,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1317,14 +1317,14 @@ exports[`Check Props Matches snapshot with default props 1`] = `
             >
               <styled.div
                 aria-selected={false}
-                className="dropdown-option undefined"
+                className="dropdown-option "
                 focused={false}
                 onClick={[Function]}
                 selected={false}
               >
                 <div
                   aria-selected={false}
-                  className="c7 dropdown-option undefined"
+                  className="c7 dropdown-option "
                   onClick={[Function]}
                   selected={false}
                 >
@@ -1431,7 +1431,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
 }
 
 .c5 {
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   border: 2px solid #6e6d6d;
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
@@ -1682,12 +1682,12 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
       width={null}
     >
       <styled.div
-        className="dropdown-selectors"
+        className="dropdown-selector"
         open={false}
         searchable={false}
       >
         <div
-          className="c1 dropdown-selectors"
+          className="c1 dropdown-selector"
           open={false}
         >
           <styled.span
@@ -1697,8 +1697,8 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
               className="c2 dropdown-selector-search"
             >
               <input
-                aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
-                aria-controls="react_dropdown_aria_test_or_ssr_list"
+                aria-activedescendant="react_dropdown_aria_test_list_0"
+                aria-controls="react_dropdown_aria_test_list"
                 aria-describedby={null}
                 aria-expanded={false}
                 aria-haspopup="listbox"
@@ -1707,7 +1707,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 aria-labelledby={null}
                 autoComplete="off"
                 disabled={false}
-                id="react_dropdown_aria_test_or_ssr"
+                id="react_dropdown_aria_test"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -1762,7 +1762,7 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         </div>
       </styled.div>
       <div
-        id="react_dropdown_aria_test_or_ssr_list"
+        id="react_dropdown_aria_test_list"
         role="listbox"
         style={
           Object {
@@ -1775,141 +1775,141 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
         <div
           aria-label="1"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_0"
-          key="react_dropdown_aria_test_or_ssr_list_0"
+          id="react_dropdown_aria_test_list_0"
+          key="react_dropdown_aria_test_list_0"
           role="option"
         />
         <div
           aria-label="2"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_1"
-          key="react_dropdown_aria_test_or_ssr_list_1"
+          id="react_dropdown_aria_test_list_1"
+          key="react_dropdown_aria_test_list_1"
           role="option"
         />
         <div
           aria-label="3"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_2"
-          key="react_dropdown_aria_test_or_ssr_list_2"
+          id="react_dropdown_aria_test_list_2"
+          key="react_dropdown_aria_test_list_2"
           role="option"
         />
         <div
           aria-label="4"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_3"
-          key="react_dropdown_aria_test_or_ssr_list_3"
+          id="react_dropdown_aria_test_list_3"
+          key="react_dropdown_aria_test_list_3"
           role="option"
         />
         <div
           aria-label="5"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_4"
-          key="react_dropdown_aria_test_or_ssr_list_4"
+          id="react_dropdown_aria_test_list_4"
+          key="react_dropdown_aria_test_list_4"
           role="option"
         />
         <div
           aria-label="6"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_5"
-          key="react_dropdown_aria_test_or_ssr_list_5"
+          id="react_dropdown_aria_test_list_5"
+          key="react_dropdown_aria_test_list_5"
           role="option"
         />
         <div
           aria-label="7"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_6"
-          key="react_dropdown_aria_test_or_ssr_list_6"
+          id="react_dropdown_aria_test_list_6"
+          key="react_dropdown_aria_test_list_6"
           role="option"
         />
         <div
           aria-label="8"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_7"
-          key="react_dropdown_aria_test_or_ssr_list_7"
+          id="react_dropdown_aria_test_list_7"
+          key="react_dropdown_aria_test_list_7"
           role="option"
         />
         <div
           aria-label="9"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_8"
-          key="react_dropdown_aria_test_or_ssr_list_8"
+          id="react_dropdown_aria_test_list_8"
+          key="react_dropdown_aria_test_list_8"
           role="option"
         />
         <div
           aria-label="10"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_9"
-          key="react_dropdown_aria_test_or_ssr_list_9"
+          id="react_dropdown_aria_test_list_9"
+          key="react_dropdown_aria_test_list_9"
           role="option"
         />
         <div
           aria-label="a"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_10"
-          key="react_dropdown_aria_test_or_ssr_list_10"
+          id="react_dropdown_aria_test_list_10"
+          key="react_dropdown_aria_test_list_10"
           role="option"
         />
         <div
           aria-label="b"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_11"
-          key="react_dropdown_aria_test_or_ssr_list_11"
+          id="react_dropdown_aria_test_list_11"
+          key="react_dropdown_aria_test_list_11"
           role="option"
         />
         <div
           aria-label="c"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_12"
-          key="react_dropdown_aria_test_or_ssr_list_12"
+          id="react_dropdown_aria_test_list_12"
+          key="react_dropdown_aria_test_list_12"
           role="option"
         />
         <div
           aria-label="d"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_13"
-          key="react_dropdown_aria_test_or_ssr_list_13"
+          id="react_dropdown_aria_test_list_13"
+          key="react_dropdown_aria_test_list_13"
           role="option"
         />
         <div
           aria-label="e"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_14"
-          key="react_dropdown_aria_test_or_ssr_list_14"
+          id="react_dropdown_aria_test_list_14"
+          key="react_dropdown_aria_test_list_14"
           role="option"
         />
         <div
           aria-label="f"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_15"
-          key="react_dropdown_aria_test_or_ssr_list_15"
+          id="react_dropdown_aria_test_list_15"
+          key="react_dropdown_aria_test_list_15"
           role="option"
         />
         <div
           aria-label="g"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_16"
-          key="react_dropdown_aria_test_or_ssr_list_16"
+          id="react_dropdown_aria_test_list_16"
+          key="react_dropdown_aria_test_list_16"
           role="option"
         />
         <div
           aria-label="h"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_17"
-          key="react_dropdown_aria_test_or_ssr_list_17"
+          id="react_dropdown_aria_test_list_17"
+          key="react_dropdown_aria_test_list_17"
           role="option"
         />
         <div
           aria-label="i"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_18"
-          key="react_dropdown_aria_test_or_ssr_list_18"
+          id="react_dropdown_aria_test_list_18"
+          key="react_dropdown_aria_test_list_18"
           role="option"
         />
         <div
           aria-label="j"
           aria-selected={false}
-          id="react_dropdown_aria_test_or_ssr_list_19"
-          key="react_dropdown_aria_test_or_ssr_list_19"
+          id="react_dropdown_aria_test_list_19"
+          key="react_dropdown_aria_test_list_19"
           role="option"
         />
       </div>
@@ -2035,14 +2035,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option focused"
                     focused={true}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c8 dropdown-option undefined"
+                      className="c8 dropdown-option focused"
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2064,14 +2064,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2093,14 +2093,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2122,14 +2122,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2151,14 +2151,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2180,14 +2180,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2209,14 +2209,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2238,14 +2238,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2267,14 +2267,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2296,14 +2296,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2351,14 +2351,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2380,14 +2380,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2409,14 +2409,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2438,14 +2438,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2467,14 +2467,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2496,14 +2496,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2525,14 +2525,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2554,14 +2554,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2583,14 +2583,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
@@ -2612,14 +2612,14 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
                 >
                   <styled.div
                     aria-selected={false}
-                    className="dropdown-option undefined"
+                    className="dropdown-option "
                     focused={false}
                     onClick={[Function]}
                     selected={false}
                   >
                     <div
                       aria-selected={false}
-                      className="c9 dropdown-option undefined"
+                      className="c9 dropdown-option "
                       onClick={[Function]}
                       selected={false}
                     >
