@@ -1,6 +1,207 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Check Props Matches snapshot with custom props 1`] = `
+.c0 {
+  background-color: #CECECE;
+  border: 2px solid #7C7C7C;
+  border-radius: 7;
+  cursor: not-allowed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1em;
+  position: relative;
+  width: 400px;
+}
+
+.c0:hover {
+  border: 2px solid #6e6d6d;
+}
+
+.c0:disabled {
+  background-color: #ededed;
+  cursor: unset;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 32px;
+  padding: 0 11px;
+  position: relative;
+  width: 100%;
+}
+
+.c1 input {
+  background-color: inherit;
+  border: none;
+  font-size: inherit;
+  height: 30px;
+  outline: none;
+  width: 100%;
+}
+
+.c2 {
+  bottom: 0;
+  left: 11px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+
+.c3 {
+  color: #808080;
+  text-align: left;
+  bottom: 0;
+  left: 11px;
+  line-height: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 25px;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  bottom: 0;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.c5 {
+  background-color: #f5f5f5;
+  border: 2px solid #6e6d6d;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  color: black;
+  display: none;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+.c5 .dropdown-selector-content--empty {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.c5::-webkit-scrollbar {
+  width: 5px;
+}
+
+.c5::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.c5::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.c6 {
+  background-color: #e0e0e0;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6:hover {
+  background-color: #CECECE;
+}
+
+.c6 .option-icon {
+  padding-right: 5px;
+}
+
+.c7 {
+  background-color: #f5f5f5;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7:hover {
+  background-color: #CECECE;
+}
+
+.c7 .option-icon {
+  padding-right: 5px;
+}
+
 <Dropdown
   ariaDescribedBy={null}
   ariaLabel="React Simple Dropdown"
@@ -48,233 +249,512 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   style={Object {}}
   width={400}
 >
-  <div
-    className="dropdown custom-class css-w4jram"
+  <styled.div
+    className="dropdown custom-class"
+    disabled={true}
+    dropdownFocused={false}
+    height={null}
     onClick={[Function]}
     onFocus={[Function]}
+    open={false}
     role="button"
+    width={400}
   >
     <div
-      className="dropdown-selector css-q0xgr4"
+      className="c0 dropdown custom-class"
+      disabled={true}
+      height={null}
+      onClick={[Function]}
+      onFocus={[Function]}
+      open={false}
+      role="button"
+      width={400}
     >
-      <span
-        className="dropdown-selector-search css-1l6e6we"
+      <styled.div
+        className="dropdown-selectors"
+        open={false}
+        searchable={false}
       >
-        <input
-          aria-activedescendant="dropdown_list_0"
-          aria-controls="dropdown_list"
-          aria-describedby={null}
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-hidden={true}
-          aria-label="React Simple Dropdown"
-          aria-labelledby={null}
-          autoComplete="off"
-          disabled={true}
-          id="dropdown"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          readOnly={true}
-          role="combobox"
-          value=""
-        />
-      </span>
-      <span
-        className="dropdown-selector-placeholder css-nctil"
-      >
-        Custom Placeholder...
-      </span>
-      <div
-        className="dropdown-arrow css-1h2654e"
-      >
-        <Component>
-          <StandardIcon
-            className="feather-chevron-down"
-            dim={16}
+        <div
+          className="c1 dropdown-selectors"
+          open={false}
+        >
+          <styled.span
+            className="dropdown-selector-search"
           >
-            <svg
-              className="feather feather-chevron-down"
-              fill="none"
-              height={16}
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              width={16}
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              className="c2 dropdown-selector-search"
             >
-              <polyline
-                points="6 9 12 15 18 9"
+              <input
+                aria-activedescendant="dropdown_list_0"
+                aria-controls="dropdown_list"
+                aria-describedby={null}
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                aria-hidden={true}
+                aria-label="React Simple Dropdown"
+                aria-labelledby={null}
+                autoComplete="off"
+                disabled={true}
+                id="dropdown"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                role="combobox"
+                value=""
               />
-            </svg>
-          </StandardIcon>
-        </Component>
-      </div>
-    </div>
-    <div
-      id="dropdown_list"
-      role="listbox"
-      style={
-        Object {
-          "height": 0,
-          "overflow": "hidden",
-          "width": 0,
-        }
-      }
-    >
+            </span>
+          </styled.span>
+          <styled.span
+            centerText={false}
+            className="dropdown-selector-placeholder"
+          >
+            <span
+              className="c3 dropdown-selector-placeholder"
+            >
+              Custom Placeholder...
+            </span>
+          </styled.span>
+          <styled.div
+            className="dropdown-arrow"
+          >
+            <div
+              className="c4 dropdown-arrow"
+            >
+              <Component>
+                <StandardIcon
+                  className="feather-chevron-down"
+                  dim={16}
+                >
+                  <svg
+                    className="feather feather-chevron-down"
+                    fill="none"
+                    height={16}
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width={16}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      points="6 9 12 15 18 9"
+                    />
+                  </svg>
+                </StandardIcon>
+              </Component>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
       <div
-        aria-label="1"
-        aria-selected={false}
-        id="dropdown_list_0"
-        key="dropdown_list_0"
-        role="option"
-      />
-      <div
-        aria-label="2"
-        aria-selected={false}
-        id="dropdown_list_1"
-        key="dropdown_list_1"
-        role="option"
-      />
-      <div
-        aria-label="3"
-        aria-selected={false}
-        id="dropdown_list_2"
-        key="dropdown_list_2"
-        role="option"
-      />
-    </div>
-    <div
-      className="dropdown-selector-content css-m2fyt8"
-    >
-      <DropdownContent
-        empty={false}
-        focusedIndex={0}
-        getStyle={[Function]}
-        onOptionClicked={[Function]}
-        options={
-          Array [
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "1",
-            },
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "2",
-            },
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "3",
-            },
-          ]
+        id="dropdown_list"
+        role="listbox"
+        style={
+          Object {
+            "height": 0,
+            "overflow": "hidden",
+            "width": 0,
+          }
         }
       >
-        <Memo(OptionItem)
-          index={0}
-          key="1"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "1",
-            }
-          }
-          optionClass="className css-ankiux"
-          selected={false}
+        <div
+          aria-label="1"
+          aria-selected={false}
+          id="dropdown_list_0"
+          key="dropdown_list_0"
+          role="option"
+        />
+        <div
+          aria-label="2"
+          aria-selected={false}
+          id="dropdown_list_1"
+          key="dropdown_list_1"
+          role="option"
+        />
+        <div
+          aria-label="3"
+          aria-selected={false}
+          id="dropdown_list_2"
+          key="dropdown_list_2"
+          role="option"
+        />
+      </div>
+      <styled.span
+        className="dropdown-selector-content"
+        maxContentHeight={150}
+        open={false}
+        openUp={false}
+      >
+        <span
+          className="c5 dropdown-selector-content"
+          open={false}
         >
-          <div
-            aria-label="ariaLabel"
-            aria-selected={false}
-            className="dropdown-option className css-ankiux"
-            onClick={[Function]}
-            title="title"
-          >
-            <i
-              className="fab fa-js-square dropdown-option-icon"
-            />
-            1
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={1}
-          key="2"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "2",
+          <DropdownContent
+            empty={false}
+            focusedIndex={0}
+            onOptionClicked={[Function]}
+            options={
+              Array [
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "1",
+                },
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "2",
+                },
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "3",
+                },
+              ]
             }
-          }
-          optionClass="className css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-label="ariaLabel"
-            aria-selected={false}
-            className="dropdown-option className css-7tfimk"
-            onClick={[Function]}
-            title="title"
           >
-            <i
-              className="fab fa-js-square dropdown-option-icon"
-            />
-            2
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={2}
-          key="3"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "ariaLabel": "ariaLabel",
-              "className": "className",
-              "iconClass": "fab fa-js-square",
-              "title": "title",
-              "value": "3",
-            }
-          }
-          optionClass="className css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-label="ariaLabel"
-            aria-selected={false}
-            className="dropdown-option className css-7tfimk"
-            onClick={[Function]}
-            title="title"
-          >
-            <i
-              className="fab fa-js-square dropdown-option-icon"
-            />
-            3
-          </div>
-        </Memo(OptionItem)>
-      </DropdownContent>
+            <Memo(OptionItem)
+              focused={true}
+              index={0}
+              key="1"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "1",
+                }
+              }
+              optionClass="className"
+              selected={false}
+            >
+              <styled.div
+                aria-label="ariaLabel"
+                aria-selected={false}
+                className="dropdown-option className"
+                focused={true}
+                onClick={[Function]}
+                selected={false}
+                title="title"
+              >
+                <div
+                  aria-label="ariaLabel"
+                  aria-selected={false}
+                  className="c6 dropdown-option className"
+                  onClick={[Function]}
+                  selected={false}
+                  title="title"
+                >
+                  <i
+                    className="fab fa-js-square dropdown-option-icon"
+                  />
+                  1
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={1}
+              key="2"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "2",
+                }
+              }
+              optionClass="className"
+              selected={false}
+            >
+              <styled.div
+                aria-label="ariaLabel"
+                aria-selected={false}
+                className="dropdown-option className"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+                title="title"
+              >
+                <div
+                  aria-label="ariaLabel"
+                  aria-selected={false}
+                  className="c7 dropdown-option className"
+                  onClick={[Function]}
+                  selected={false}
+                  title="title"
+                >
+                  <i
+                    className="fab fa-js-square dropdown-option-icon"
+                  />
+                  2
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={2}
+              key="3"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "ariaLabel": "ariaLabel",
+                  "className": "className",
+                  "iconClass": "fab fa-js-square",
+                  "title": "title",
+                  "value": "3",
+                }
+              }
+              optionClass="className"
+              selected={false}
+            >
+              <styled.div
+                aria-label="ariaLabel"
+                aria-selected={false}
+                className="dropdown-option className"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+                title="title"
+              >
+                <div
+                  aria-label="ariaLabel"
+                  aria-selected={false}
+                  className="c7 dropdown-option className"
+                  onClick={[Function]}
+                  selected={false}
+                  title="title"
+                >
+                  <i
+                    className="fab fa-js-square dropdown-option-icon"
+                  />
+                  3
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+          </DropdownContent>
+        </span>
+      </styled.span>
     </div>
-  </div>
+  </styled.div>
 </Dropdown>
 `;
 
 exports[`Check Props Matches snapshot with default props 1`] = `
+.c0 {
+  background-color: #f5f5f5;
+  border: 2px solid #7C7C7C;
+  border-radius: 7;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1em;
+  position: relative;
+}
+
+.c0:hover {
+  border: 2px solid #6e6d6d;
+}
+
+.c0:disabled {
+  background-color: #ededed;
+  cursor: unset;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 32px;
+  padding: 0 11px;
+  position: relative;
+  width: 100%;
+}
+
+.c1 input {
+  background-color: inherit;
+  border: none;
+  font-size: inherit;
+  height: 30px;
+  outline: none;
+  width: 100%;
+}
+
+.c2 {
+  bottom: 0;
+  left: 11px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+
+.c3 {
+  color: #808080;
+  text-align: left;
+  bottom: 0;
+  left: 11px;
+  line-height: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 25px;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  bottom: 0;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.c5 {
+  background-color: #f5f5f5;
+  border: 2px solid #6e6d6d;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  color: black;
+  display: none;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+.c5 .dropdown-selector-content--empty {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.c5::-webkit-scrollbar {
+  width: 5px;
+}
+
+.c5::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.c5::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.c6 {
+  background-color: #e0e0e0;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c6:hover {
+  background-color: #CECECE;
+}
+
+.c6 .option-icon {
+  padding-right: 5px;
+}
+
+.c7 {
+  background-color: #f5f5f5;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7:hover {
+  background-color: #CECECE;
+}
+
+.c7 .option-icon {
+  padding-right: 5px;
+}
+
 <Dropdown
   ariaDescribedBy={null}
   ariaLabel={null}
@@ -330,404 +810,761 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   style={Object {}}
   width={null}
 >
-  <div
-    className="dropdown css-4a6799"
+  <styled.div
+    className="dropdown"
+    disabled={false}
+    dropdownFocused={false}
+    height={null}
     onClick={[Function]}
     onFocus={[Function]}
+    open={false}
     role="button"
+    width={null}
   >
     <div
-      className="dropdown-selector css-q0xgr4"
+      className="c0 dropdown"
+      disabled={false}
+      height={null}
+      onClick={[Function]}
+      onFocus={[Function]}
+      open={false}
+      role="button"
+      width={null}
     >
-      <span
-        className="dropdown-selector-search css-1l6e6we"
+      <styled.div
+        className="dropdown-selectors"
+        open={false}
+        searchable={false}
       >
-        <input
-          aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
-          aria-controls="react_dropdown_aria_test_or_ssr_list"
-          aria-describedby={null}
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-hidden={false}
-          aria-label={null}
-          aria-labelledby={null}
-          autoComplete="off"
-          disabled={false}
-          id="react_dropdown_aria_test_or_ssr"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          readOnly={true}
-          role="combobox"
-          value=""
-        />
-      </span>
-      <span
-        className="dropdown-selector-placeholder css-nctil"
-      >
-        Select ...
-      </span>
-      <div
-        className="dropdown-arrow css-1h2654e"
-      >
-        <Component>
-          <StandardIcon
-            className="feather-chevron-down"
-            dim={16}
+        <div
+          className="c1 dropdown-selectors"
+          open={false}
+        >
+          <styled.span
+            className="dropdown-selector-search"
           >
-            <svg
-              className="feather feather-chevron-down"
-              fill="none"
-              height={16}
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              width={16}
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              className="c2 dropdown-selector-search"
             >
-              <polyline
-                points="6 9 12 15 18 9"
+              <input
+                aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
+                aria-controls="react_dropdown_aria_test_or_ssr_list"
+                aria-describedby={null}
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                aria-hidden={false}
+                aria-label={null}
+                aria-labelledby={null}
+                autoComplete="off"
+                disabled={false}
+                id="react_dropdown_aria_test_or_ssr"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                role="combobox"
+                value=""
               />
-            </svg>
-          </StandardIcon>
-        </Component>
-      </div>
-    </div>
-    <div
-      id="react_dropdown_aria_test_or_ssr_list"
-      role="listbox"
-      style={
-        Object {
-          "height": 0,
-          "overflow": "hidden",
-          "width": 0,
-        }
-      }
-    >
+            </span>
+          </styled.span>
+          <styled.span
+            centerText={false}
+            className="dropdown-selector-placeholder"
+          >
+            <span
+              className="c3 dropdown-selector-placeholder"
+            >
+              Select ...
+            </span>
+          </styled.span>
+          <styled.div
+            className="dropdown-arrow"
+          >
+            <div
+              className="c4 dropdown-arrow"
+            >
+              <Component>
+                <StandardIcon
+                  className="feather-chevron-down"
+                  dim={16}
+                >
+                  <svg
+                    className="feather feather-chevron-down"
+                    fill="none"
+                    height={16}
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width={16}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      points="6 9 12 15 18 9"
+                    />
+                  </svg>
+                </StandardIcon>
+              </Component>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
       <div
-        aria-label="1"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_0"
-        key="react_dropdown_aria_test_or_ssr_list_0"
-        role="option"
-      />
-      <div
-        aria-label="2"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_1"
-        key="react_dropdown_aria_test_or_ssr_list_1"
-        role="option"
-      />
-      <div
-        aria-label="3"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_2"
-        key="react_dropdown_aria_test_or_ssr_list_2"
-        role="option"
-      />
-      <div
-        aria-label="4"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_3"
-        key="react_dropdown_aria_test_or_ssr_list_3"
-        role="option"
-      />
-      <div
-        aria-label="5"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_4"
-        key="react_dropdown_aria_test_or_ssr_list_4"
-        role="option"
-      />
-      <div
-        aria-label="6"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_5"
-        key="react_dropdown_aria_test_or_ssr_list_5"
-        role="option"
-      />
-      <div
-        aria-label="7"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_6"
-        key="react_dropdown_aria_test_or_ssr_list_6"
-        role="option"
-      />
-      <div
-        aria-label="8"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_7"
-        key="react_dropdown_aria_test_or_ssr_list_7"
-        role="option"
-      />
-      <div
-        aria-label="9"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_8"
-        key="react_dropdown_aria_test_or_ssr_list_8"
-        role="option"
-      />
-      <div
-        aria-label="10"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_9"
-        key="react_dropdown_aria_test_or_ssr_list_9"
-        role="option"
-      />
-    </div>
-    <div
-      className="dropdown-selector-content css-m2fyt8"
-    >
-      <DropdownContent
-        empty={false}
-        focusedIndex={0}
-        getStyle={[Function]}
-        onOptionClicked={[Function]}
-        options={
-          Array [
-            Object {
-              "value": "1",
-            },
-            Object {
-              "value": "2",
-            },
-            Object {
-              "value": "3",
-            },
-            Object {
-              "value": "4",
-            },
-            Object {
-              "value": "5",
-            },
-            Object {
-              "value": "6",
-            },
-            Object {
-              "value": "7",
-            },
-            Object {
-              "value": "8",
-            },
-            Object {
-              "value": "9",
-            },
-            Object {
-              "value": "10",
-            },
-          ]
+        id="react_dropdown_aria_test_or_ssr_list"
+        role="listbox"
+        style={
+          Object {
+            "height": 0,
+            "overflow": "hidden",
+            "width": 0,
+          }
         }
       >
-        <Memo(OptionItem)
-          index={0}
-          key="1"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "1",
-            }
-          }
-          optionClass="css-ankiux"
-          selected={false}
+        <div
+          aria-label="1"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_0"
+          key="react_dropdown_aria_test_or_ssr_list_0"
+          role="option"
+        />
+        <div
+          aria-label="2"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_1"
+          key="react_dropdown_aria_test_or_ssr_list_1"
+          role="option"
+        />
+        <div
+          aria-label="3"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_2"
+          key="react_dropdown_aria_test_or_ssr_list_2"
+          role="option"
+        />
+        <div
+          aria-label="4"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_3"
+          key="react_dropdown_aria_test_or_ssr_list_3"
+          role="option"
+        />
+        <div
+          aria-label="5"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_4"
+          key="react_dropdown_aria_test_or_ssr_list_4"
+          role="option"
+        />
+        <div
+          aria-label="6"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_5"
+          key="react_dropdown_aria_test_or_ssr_list_5"
+          role="option"
+        />
+        <div
+          aria-label="7"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_6"
+          key="react_dropdown_aria_test_or_ssr_list_6"
+          role="option"
+        />
+        <div
+          aria-label="8"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_7"
+          key="react_dropdown_aria_test_or_ssr_list_7"
+          role="option"
+        />
+        <div
+          aria-label="9"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_8"
+          key="react_dropdown_aria_test_or_ssr_list_8"
+          role="option"
+        />
+        <div
+          aria-label="10"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_9"
+          key="react_dropdown_aria_test_or_ssr_list_9"
+          role="option"
+        />
+      </div>
+      <styled.span
+        className="dropdown-selector-content"
+        maxContentHeight={150}
+        open={false}
+        openUp={false}
+      >
+        <span
+          className="c5 dropdown-selector-content"
+          open={false}
         >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-ankiux"
-            onClick={[Function]}
-          >
-            1
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={1}
-          key="2"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "2",
+          <DropdownContent
+            empty={false}
+            focusedIndex={0}
+            onOptionClicked={[Function]}
+            options={
+              Array [
+                Object {
+                  "value": "1",
+                },
+                Object {
+                  "value": "2",
+                },
+                Object {
+                  "value": "3",
+                },
+                Object {
+                  "value": "4",
+                },
+                Object {
+                  "value": "5",
+                },
+                Object {
+                  "value": "6",
+                },
+                Object {
+                  "value": "7",
+                },
+                Object {
+                  "value": "8",
+                },
+                Object {
+                  "value": "9",
+                },
+                Object {
+                  "value": "10",
+                },
+              ]
             }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
           >
-            2
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={2}
-          key="3"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "3",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            3
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={3}
-          key="4"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "4",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            4
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={4}
-          key="5"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "5",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            5
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={5}
-          key="6"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "6",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            6
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={6}
-          key="7"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "7",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            7
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={7}
-          key="8"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "8",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            8
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={8}
-          key="9"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "9",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            9
-          </div>
-        </Memo(OptionItem)>
-        <Memo(OptionItem)
-          index={9}
-          key="10"
-          onOptionClicked={[Function]}
-          option={
-            Object {
-              "value": "10",
-            }
-          }
-          optionClass="css-7tfimk"
-          selected={false}
-        >
-          <div
-            aria-selected={false}
-            className="dropdown-option css-7tfimk"
-            onClick={[Function]}
-          >
-            10
-          </div>
-        </Memo(OptionItem)>
-      </DropdownContent>
+            <Memo(OptionItem)
+              focused={true}
+              index={0}
+              key="1"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "1",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={true}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c6 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  1
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={1}
+              key="2"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "2",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  2
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={2}
+              key="3"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "3",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  3
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={3}
+              key="4"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "4",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  4
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={4}
+              key="5"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "5",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  5
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={5}
+              key="6"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "6",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  6
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={6}
+              key="7"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "7",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  7
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={7}
+              key="8"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "8",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  8
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={8}
+              key="9"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "9",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  9
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+            <Memo(OptionItem)
+              focused={false}
+              index={9}
+              key="10"
+              onOptionClicked={[Function]}
+              option={
+                Object {
+                  "value": "10",
+                }
+              }
+              selected={false}
+            >
+              <styled.div
+                aria-selected={false}
+                className="dropdown-option undefined"
+                focused={false}
+                onClick={[Function]}
+                selected={false}
+              >
+                <div
+                  aria-selected={false}
+                  className="c7 dropdown-option undefined"
+                  onClick={[Function]}
+                  selected={false}
+                >
+                  10
+                </div>
+              </styled.div>
+            </Memo(OptionItem)>
+          </DropdownContent>
+        </span>
+      </styled.span>
     </div>
-  </div>
+  </styled.div>
 </Dropdown>
 `;
 
 exports[`Check Props Matches snapshot with grouped options 1`] = `
+.c0 {
+  background-color: #f5f5f5;
+  border: 2px solid #7C7C7C;
+  border-radius: 7;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 1em;
+  position: relative;
+}
+
+.c0:hover {
+  border: 2px solid #6e6d6d;
+}
+
+.c0:disabled {
+  background-color: #ededed;
+  cursor: unset;
+}
+
+.c1 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: inherit;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 32px;
+  padding: 0 11px;
+  position: relative;
+  width: 100%;
+}
+
+.c1 input {
+  background-color: inherit;
+  border: none;
+  font-size: inherit;
+  height: 30px;
+  outline: none;
+  width: 100%;
+}
+
+.c2 {
+  bottom: 0;
+  left: 11px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+
+.c3 {
+  color: #808080;
+  text-align: left;
+  bottom: 0;
+  left: 11px;
+  line-height: 30px;
+  overflow: hidden;
+  position: absolute;
+  right: 25px;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+}
+
+.c4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  bottom: 0;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.c5 {
+  background-color: #f5f5f5;
+  border: 2px solid #6e6d6d;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-sizing: border-box;
+  color: black;
+  display: none;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 2px 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+
+.c5 .dropdown-selector-content--empty {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #808080;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.c5::-webkit-scrollbar {
+  width: 5px;
+}
+
+.c5::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.c5::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.c6 {
+  padding: 1em 0 0 0;
+}
+
+.c7 {
+  color: grey;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: 0.9em;
+  padding: 0 10px 3px 5px;
+}
+
+.c10 {
+  border-bottom: 1px solid #7C7C7C;
+  margin: auto;
+  padding-top: 10px;
+  width: 85%;
+}
+
+.c8 {
+  background-color: #e0e0e0;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c8:hover {
+  background-color: #CECECE;
+}
+
+.c8 .option-icon {
+  padding-right: 5px;
+}
+
+.c9 {
+  background-color: #f5f5f5;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.95em;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c9:hover {
+  background-color: #CECECE;
+}
+
+.c9 .option-icon {
+  padding-right: 5px;
+}
+
 <Dropdown
   ariaDescribedBy={null}
   ariaLabel={null}
@@ -823,747 +1660,984 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   style={Object {}}
   width={null}
 >
-  <div
-    className="dropdown css-4a6799"
+  <styled.div
+    className="dropdown"
+    disabled={false}
+    dropdownFocused={false}
+    height={null}
     onClick={[Function]}
     onFocus={[Function]}
+    open={false}
     role="button"
+    width={null}
   >
     <div
-      className="dropdown-selector css-q0xgr4"
+      className="c0 dropdown"
+      disabled={false}
+      height={null}
+      onClick={[Function]}
+      onFocus={[Function]}
+      open={false}
+      role="button"
+      width={null}
     >
-      <span
-        className="dropdown-selector-search css-1l6e6we"
+      <styled.div
+        className="dropdown-selectors"
+        open={false}
+        searchable={false}
       >
-        <input
-          aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
-          aria-controls="react_dropdown_aria_test_or_ssr_list"
-          aria-describedby={null}
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-hidden={false}
-          aria-label={null}
-          aria-labelledby={null}
-          autoComplete="off"
-          disabled={false}
-          id="react_dropdown_aria_test_or_ssr"
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          readOnly={true}
-          role="combobox"
-          value=""
-        />
-      </span>
-      <span
-        className="dropdown-selector-placeholder css-nctil"
-      >
-        Select ...
-      </span>
-      <div
-        className="dropdown-arrow css-1h2654e"
-      >
-        <Component>
-          <StandardIcon
-            className="feather-chevron-down"
-            dim={16}
+        <div
+          className="c1 dropdown-selectors"
+          open={false}
+        >
+          <styled.span
+            className="dropdown-selector-search"
           >
-            <svg
-              className="feather feather-chevron-down"
-              fill="none"
-              height={16}
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              width={16}
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              className="c2 dropdown-selector-search"
             >
-              <polyline
-                points="6 9 12 15 18 9"
+              <input
+                aria-activedescendant="react_dropdown_aria_test_or_ssr_list_0"
+                aria-controls="react_dropdown_aria_test_or_ssr_list"
+                aria-describedby={null}
+                aria-expanded={false}
+                aria-haspopup="listbox"
+                aria-hidden={false}
+                aria-label={null}
+                aria-labelledby={null}
+                autoComplete="off"
+                disabled={false}
+                id="react_dropdown_aria_test_or_ssr"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={true}
+                role="combobox"
+                value=""
               />
-            </svg>
-          </StandardIcon>
-        </Component>
-      </div>
-    </div>
-    <div
-      id="react_dropdown_aria_test_or_ssr_list"
-      role="listbox"
-      style={
-        Object {
-          "height": 0,
-          "overflow": "hidden",
-          "width": 0,
-        }
-      }
-    >
+            </span>
+          </styled.span>
+          <styled.span
+            centerText={false}
+            className="dropdown-selector-placeholder"
+          >
+            <span
+              className="c3 dropdown-selector-placeholder"
+            >
+              Select ...
+            </span>
+          </styled.span>
+          <styled.div
+            className="dropdown-arrow"
+          >
+            <div
+              className="c4 dropdown-arrow"
+            >
+              <Component>
+                <StandardIcon
+                  className="feather-chevron-down"
+                  dim={16}
+                >
+                  <svg
+                    className="feather feather-chevron-down"
+                    fill="none"
+                    height={16}
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width={16}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polyline
+                      points="6 9 12 15 18 9"
+                    />
+                  </svg>
+                </StandardIcon>
+              </Component>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
       <div
-        aria-label="1"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_0"
-        key="react_dropdown_aria_test_or_ssr_list_0"
-        role="option"
-      />
-      <div
-        aria-label="2"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_1"
-        key="react_dropdown_aria_test_or_ssr_list_1"
-        role="option"
-      />
-      <div
-        aria-label="3"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_2"
-        key="react_dropdown_aria_test_or_ssr_list_2"
-        role="option"
-      />
-      <div
-        aria-label="4"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_3"
-        key="react_dropdown_aria_test_or_ssr_list_3"
-        role="option"
-      />
-      <div
-        aria-label="5"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_4"
-        key="react_dropdown_aria_test_or_ssr_list_4"
-        role="option"
-      />
-      <div
-        aria-label="6"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_5"
-        key="react_dropdown_aria_test_or_ssr_list_5"
-        role="option"
-      />
-      <div
-        aria-label="7"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_6"
-        key="react_dropdown_aria_test_or_ssr_list_6"
-        role="option"
-      />
-      <div
-        aria-label="8"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_7"
-        key="react_dropdown_aria_test_or_ssr_list_7"
-        role="option"
-      />
-      <div
-        aria-label="9"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_8"
-        key="react_dropdown_aria_test_or_ssr_list_8"
-        role="option"
-      />
-      <div
-        aria-label="10"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_9"
-        key="react_dropdown_aria_test_or_ssr_list_9"
-        role="option"
-      />
-      <div
-        aria-label="a"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_10"
-        key="react_dropdown_aria_test_or_ssr_list_10"
-        role="option"
-      />
-      <div
-        aria-label="b"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_11"
-        key="react_dropdown_aria_test_or_ssr_list_11"
-        role="option"
-      />
-      <div
-        aria-label="c"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_12"
-        key="react_dropdown_aria_test_or_ssr_list_12"
-        role="option"
-      />
-      <div
-        aria-label="d"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_13"
-        key="react_dropdown_aria_test_or_ssr_list_13"
-        role="option"
-      />
-      <div
-        aria-label="e"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_14"
-        key="react_dropdown_aria_test_or_ssr_list_14"
-        role="option"
-      />
-      <div
-        aria-label="f"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_15"
-        key="react_dropdown_aria_test_or_ssr_list_15"
-        role="option"
-      />
-      <div
-        aria-label="g"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_16"
-        key="react_dropdown_aria_test_or_ssr_list_16"
-        role="option"
-      />
-      <div
-        aria-label="h"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_17"
-        key="react_dropdown_aria_test_or_ssr_list_17"
-        role="option"
-      />
-      <div
-        aria-label="i"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_18"
-        key="react_dropdown_aria_test_or_ssr_list_18"
-        role="option"
-      />
-      <div
-        aria-label="j"
-        aria-selected={false}
-        id="react_dropdown_aria_test_or_ssr_list_19"
-        key="react_dropdown_aria_test_or_ssr_list_19"
-        role="option"
-      />
-    </div>
-    <div
-      className="dropdown-selector-content css-m2fyt8"
-    >
-      <DropdownContent
-        empty={false}
-        focusedIndex={0}
-        getStyle={[Function]}
-        onOptionClicked={[Function]}
-        options={
-          Array [
-            Object {
-              "groupOptions": Array [
-                Object {
-                  "value": "1",
-                },
-                Object {
-                  "value": "2",
-                },
-                Object {
-                  "value": "3",
-                },
-                Object {
-                  "value": "4",
-                },
-                Object {
-                  "value": "5",
-                },
-                Object {
-                  "value": "6",
-                },
-                Object {
-                  "value": "7",
-                },
-                Object {
-                  "value": "8",
-                },
-                Object {
-                  "value": "9",
-                },
-                Object {
-                  "value": "10",
-                },
-              ],
-              "label": "numbers",
-            },
-            Object {
-              "groupOptions": Array [
-                Object {
-                  "value": "a",
-                },
-                Object {
-                  "value": "b",
-                },
-                Object {
-                  "value": "c",
-                },
-                Object {
-                  "value": "d",
-                },
-                Object {
-                  "value": "e",
-                },
-                Object {
-                  "value": "f",
-                },
-                Object {
-                  "value": "g",
-                },
-                Object {
-                  "value": "h",
-                },
-                Object {
-                  "value": "i",
-                },
-                Object {
-                  "value": "j",
-                },
-              ],
-              "label": "letters",
-            },
-          ]
+        id="react_dropdown_aria_test_or_ssr_list"
+        role="listbox"
+        style={
+          Object {
+            "height": 0,
+            "overflow": "hidden",
+            "width": 0,
+          }
         }
       >
         <div
-          className="css-dckqxd"
-          key="numbers"
-        >
-          <div
-            className="css-1q3omhu"
-          >
-            <span>
-              NUMBERS
-               |  
-            </span>
-            <span>
-              10
-            </span>
-          </div>
-          <Memo(OptionItem)
-            index={0}
-            key="1"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "1",
-              }
-            }
-            optionClass="css-ankiux"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-ankiux"
-              onClick={[Function]}
-            >
-              1
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={1}
-            key="2"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "2",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              2
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={2}
-            key="3"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "3",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              3
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={3}
-            key="4"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "4",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              4
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={4}
-            key="5"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "5",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              5
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={5}
-            key="6"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "6",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              6
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={6}
-            key="7"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "7",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              7
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={7}
-            key="8"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "8",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              8
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={8}
-            key="9"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "9",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              9
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={9}
-            key="10"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "10",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              10
-            </div>
-          </Memo(OptionItem)>
-          <div
-            className="css-iryzig"
-          />
-        </div>
+          aria-label="1"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_0"
+          key="react_dropdown_aria_test_or_ssr_list_0"
+          role="option"
+        />
         <div
-          className="css-dckqxd"
-          key="letters"
+          aria-label="2"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_1"
+          key="react_dropdown_aria_test_or_ssr_list_1"
+          role="option"
+        />
+        <div
+          aria-label="3"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_2"
+          key="react_dropdown_aria_test_or_ssr_list_2"
+          role="option"
+        />
+        <div
+          aria-label="4"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_3"
+          key="react_dropdown_aria_test_or_ssr_list_3"
+          role="option"
+        />
+        <div
+          aria-label="5"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_4"
+          key="react_dropdown_aria_test_or_ssr_list_4"
+          role="option"
+        />
+        <div
+          aria-label="6"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_5"
+          key="react_dropdown_aria_test_or_ssr_list_5"
+          role="option"
+        />
+        <div
+          aria-label="7"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_6"
+          key="react_dropdown_aria_test_or_ssr_list_6"
+          role="option"
+        />
+        <div
+          aria-label="8"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_7"
+          key="react_dropdown_aria_test_or_ssr_list_7"
+          role="option"
+        />
+        <div
+          aria-label="9"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_8"
+          key="react_dropdown_aria_test_or_ssr_list_8"
+          role="option"
+        />
+        <div
+          aria-label="10"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_9"
+          key="react_dropdown_aria_test_or_ssr_list_9"
+          role="option"
+        />
+        <div
+          aria-label="a"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_10"
+          key="react_dropdown_aria_test_or_ssr_list_10"
+          role="option"
+        />
+        <div
+          aria-label="b"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_11"
+          key="react_dropdown_aria_test_or_ssr_list_11"
+          role="option"
+        />
+        <div
+          aria-label="c"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_12"
+          key="react_dropdown_aria_test_or_ssr_list_12"
+          role="option"
+        />
+        <div
+          aria-label="d"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_13"
+          key="react_dropdown_aria_test_or_ssr_list_13"
+          role="option"
+        />
+        <div
+          aria-label="e"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_14"
+          key="react_dropdown_aria_test_or_ssr_list_14"
+          role="option"
+        />
+        <div
+          aria-label="f"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_15"
+          key="react_dropdown_aria_test_or_ssr_list_15"
+          role="option"
+        />
+        <div
+          aria-label="g"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_16"
+          key="react_dropdown_aria_test_or_ssr_list_16"
+          role="option"
+        />
+        <div
+          aria-label="h"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_17"
+          key="react_dropdown_aria_test_or_ssr_list_17"
+          role="option"
+        />
+        <div
+          aria-label="i"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_18"
+          key="react_dropdown_aria_test_or_ssr_list_18"
+          role="option"
+        />
+        <div
+          aria-label="j"
+          aria-selected={false}
+          id="react_dropdown_aria_test_or_ssr_list_19"
+          key="react_dropdown_aria_test_or_ssr_list_19"
+          role="option"
+        />
+      </div>
+      <styled.span
+        className="dropdown-selector-content"
+        maxContentHeight={150}
+        open={false}
+        openUp={false}
+      >
+        <span
+          className="c5 dropdown-selector-content"
+          open={false}
         >
-          <div
-            className="css-1q3omhu"
-          >
-            <span>
-              LETTERS
-               |  
-            </span>
-            <span>
-              10
-            </span>
-          </div>
-          <Memo(OptionItem)
-            index={10}
-            key="a"
+          <DropdownContent
+            empty={false}
+            focusedIndex={0}
             onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "a",
-              }
+            options={
+              Array [
+                Object {
+                  "groupOptions": Array [
+                    Object {
+                      "value": "1",
+                    },
+                    Object {
+                      "value": "2",
+                    },
+                    Object {
+                      "value": "3",
+                    },
+                    Object {
+                      "value": "4",
+                    },
+                    Object {
+                      "value": "5",
+                    },
+                    Object {
+                      "value": "6",
+                    },
+                    Object {
+                      "value": "7",
+                    },
+                    Object {
+                      "value": "8",
+                    },
+                    Object {
+                      "value": "9",
+                    },
+                    Object {
+                      "value": "10",
+                    },
+                  ],
+                  "label": "numbers",
+                },
+                Object {
+                  "groupOptions": Array [
+                    Object {
+                      "value": "a",
+                    },
+                    Object {
+                      "value": "b",
+                    },
+                    Object {
+                      "value": "c",
+                    },
+                    Object {
+                      "value": "d",
+                    },
+                    Object {
+                      "value": "e",
+                    },
+                    Object {
+                      "value": "f",
+                    },
+                    Object {
+                      "value": "g",
+                    },
+                    Object {
+                      "value": "h",
+                    },
+                    Object {
+                      "value": "i",
+                    },
+                    Object {
+                      "value": "j",
+                    },
+                  ],
+                  "label": "letters",
+                },
+              ]
             }
-            optionClass="css-7tfimk"
-            selected={false}
           >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
+            <styled.div
+              key="numbers"
             >
-              a
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={11}
-            key="b"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "b",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
+              <div
+                className="c6"
+              >
+                <styled.div>
+                  <div
+                    className="c7"
+                  >
+                    <span>
+                      NUMBERS
+                       |  
+                    </span>
+                    <span>
+                      10
+                    </span>
+                  </div>
+                </styled.div>
+                <Memo(OptionItem)
+                  focused={true}
+                  index={0}
+                  key="1"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "1",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={true}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c8 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      1
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={1}
+                  key="2"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "2",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      2
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={2}
+                  key="3"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "3",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      3
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={3}
+                  key="4"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "4",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      4
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={4}
+                  key="5"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "5",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      5
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={5}
+                  key="6"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "6",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      6
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={6}
+                  key="7"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "7",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      7
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={7}
+                  key="8"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "8",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      8
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={8}
+                  key="9"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "9",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      9
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={9}
+                  key="10"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "10",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      10
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <styled.div>
+                  <div
+                    className="c10"
+                  />
+                </styled.div>
+              </div>
+            </styled.div>
+            <styled.div
+              key="letters"
             >
-              b
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={12}
-            key="c"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "c",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              c
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={13}
-            key="d"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "d",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              d
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={14}
-            key="e"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "e",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              e
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={15}
-            key="f"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "f",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              f
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={16}
-            key="g"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "g",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              g
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={17}
-            key="h"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "h",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              h
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={18}
-            key="i"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "i",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              i
-            </div>
-          </Memo(OptionItem)>
-          <Memo(OptionItem)
-            index={19}
-            key="j"
-            onOptionClicked={[Function]}
-            option={
-              Object {
-                "value": "j",
-              }
-            }
-            optionClass="css-7tfimk"
-            selected={false}
-          >
-            <div
-              aria-selected={false}
-              className="dropdown-option css-7tfimk"
-              onClick={[Function]}
-            >
-              j
-            </div>
-          </Memo(OptionItem)>
-          <div
-            className="css-iryzig"
-          />
-        </div>
-      </DropdownContent>
+              <div
+                className="c6"
+              >
+                <styled.div>
+                  <div
+                    className="c7"
+                  >
+                    <span>
+                      LETTERS
+                       |  
+                    </span>
+                    <span>
+                      10
+                    </span>
+                  </div>
+                </styled.div>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={10}
+                  key="a"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "a",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      a
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={11}
+                  key="b"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "b",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      b
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={12}
+                  key="c"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "c",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      c
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={13}
+                  key="d"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "d",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      d
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={14}
+                  key="e"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "e",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      e
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={15}
+                  key="f"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "f",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      f
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={16}
+                  key="g"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "g",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      g
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={17}
+                  key="h"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "h",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      h
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={18}
+                  key="i"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "i",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      i
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <Memo(OptionItem)
+                  focused={false}
+                  index={19}
+                  key="j"
+                  onOptionClicked={[Function]}
+                  option={
+                    Object {
+                      "value": "j",
+                    }
+                  }
+                  selected={false}
+                >
+                  <styled.div
+                    aria-selected={false}
+                    className="dropdown-option undefined"
+                    focused={false}
+                    onClick={[Function]}
+                    selected={false}
+                  >
+                    <div
+                      aria-selected={false}
+                      className="c9 dropdown-option undefined"
+                      onClick={[Function]}
+                      selected={false}
+                    >
+                      j
+                    </div>
+                  </styled.div>
+                </Memo(OptionItem)>
+                <styled.div>
+                  <div
+                    className="c10"
+                  />
+                </styled.div>
+              </div>
+            </styled.div>
+          </DropdownContent>
+        </span>
+      </styled.span>
     </div>
-  </div>
+  </styled.div>
 </Dropdown>
 `;
