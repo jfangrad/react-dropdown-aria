@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
 
 const ExampleSection = ({ title, fileName, sectionId, children }) => {
-  const [disabled, setDisabled] = useState(false);
-  const [searchable, setSearchable] = useState(true);
+  const [disabled, setDisabled] = React.useState(false);
+  const [searchable, setSearchable] = React.useState(true);
 
   const handleCheckboxClick = type => ({target}) => {
     if (type === 'disable') {

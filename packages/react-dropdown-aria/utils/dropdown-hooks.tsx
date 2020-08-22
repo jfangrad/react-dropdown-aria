@@ -1,4 +1,5 @@
-import React, { useState, useRef, useCallback, useMemo, RefObject, useEffect, Dispatch, SetStateAction } from "react";
+import * as React from "react";
+import { useState, useRef, useCallback, useMemo, RefObject, useEffect, Dispatch, SetStateAction }  from 'react'
 import { DropdownProps, Option, DropdownOption } from './types';
 import { arrayReducer, filterDropdownOptions } from './helper';
 import { IdPrefix } from "./constants";

@@ -1,4 +1,5 @@
-import React, { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
+import * as React from 'react';
+import { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
 import { KEY_CODES, NAVIGATION_KEYS } from '../utils/constants';
 import DropdownContent from './DropdownContent';
 import { DropdownProps } from '../utils/types';

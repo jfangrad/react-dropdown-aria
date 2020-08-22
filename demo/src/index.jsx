@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { BackTop } from 'antd';
 import Header from './Components/Header';
 import Basic from './Components/Basic';

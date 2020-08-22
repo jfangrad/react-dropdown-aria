@@ -1,4 +1,5 @@
-import React, { useCallback, MouseEvent } from 'react';
+import * as React from 'react';
+import { useCallback, MouseEvent } from 'react';
 import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 import { cx } from '../utils/helper';
 
