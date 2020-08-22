@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ExampleSection from './ExampleSection';
 import Dropdown from 'react-dropdown-aria';
 import styles from '../styles/CustomStyles';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';

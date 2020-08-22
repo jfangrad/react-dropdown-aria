@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Dropdown, { StyleKeys } from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 import '../styles/CustomRender.scss';
