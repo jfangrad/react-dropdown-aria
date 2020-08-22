@@ -96,7 +96,7 @@ export const Arrow = styled.div<any>(() => ({
 export const OptionContainer = styled.span<
   Pick<DropdownProps, 'openUp' | 'maxContentHeight'> & Pick<DropdownStyleDependantState, 'open'>
 >(({ openUp, maxContentHeight, open }) => ({
-  backgroundColor: colours.greys.lightest,
+  backgroundColor: '#ffffff',
   border: `2px solid ${colours.greys.darker}`,
   borderRadius: '4px',
   bottom: openUp ? '105%' : undefined,

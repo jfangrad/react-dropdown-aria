@@ -173,7 +173,7 @@ const Dropdown = (props: DropdownProps) => {
       dropdownFocused={dropdownFocused}
       className={cx('dropdown', className)}
     >
-      <DropdownSelector className={'dropdown-selectors'} open={open} searchable={props.searchable}>
+      <DropdownSelector className={'dropdown-selector'} open={open} searchable={props.searchable}>
         <SelectorSearch className={'dropdown-selector-search'}>
           <input
             id={mergedId}
