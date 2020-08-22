@@ -158,24 +158,17 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   }
 };
 
-const isClient = (
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.documentElement
-);
-const isBrowser = process.env.NODE_ENV !== 'test' && isClient;
-
 let idCount = 0;
 export const useId = (idProp: string): string => {
   const mergedId = useMemo(() => {
     if (idProp) return idProp;
 
     let id: string | number;
-    if (isBrowser) {
+    if (process.env.NODE_ENV !== 'test') {
       id = idCount;
       idCount += 1;
     } else {
-      id = 'test_or_ssr';
+      id = 'test';
     }
     return `${IdPrefix}${id}`;
   }, [idProp]);

@@ -71,12 +71,11 @@
     "ts-jest": "^25.5.0",
     "typescript": "^3.8.3"
   },
-  "dependencies": {
-    "styled-components": "^5.1.1"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": "^16.8.0",
+    "styled-components": "^5.1.1"
   },
   "jest": {
     "modulePathIgnorePatterns": [
