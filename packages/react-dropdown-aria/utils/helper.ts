@@ -37,11 +37,13 @@ export const filterDropdownOptions = (options: DropdownOption[], searchTerm: str
 }
 
 export function cx(...args: (string | object | undefined)[]) {
-  return args.filter(Boolean).map((c: string | object) => {
+  return args.filter(Boolean).map(c => {
     if (typeof c === 'string') {
       return c;
-    } else {
+    } else if (c) {
       return Object.keys(c).filter(k => c[k]).join(' ');
+    } else {
+      return '';
     }
   }).join(' ');
 }
