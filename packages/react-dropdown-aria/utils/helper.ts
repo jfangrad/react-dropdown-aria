@@ -36,6 +36,12 @@ export const filterDropdownOptions = (options: DropdownOption[], searchTerm: str
   return filteredOptions;
 }
 
-export function cx(...args: (string | undefined)[]) {
-  return args.filter(Boolean).join(' ');
+export function cx(...args: (string | object | undefined)[]) {
+  return args.filter(Boolean).map((c: string | object) => {
+    if (typeof c === 'string') {
+      return c;
+    } else {
+      return Object.keys(c).filter(k => c[k]).join(' ');
+    }
+  }).join(' ');
 }
