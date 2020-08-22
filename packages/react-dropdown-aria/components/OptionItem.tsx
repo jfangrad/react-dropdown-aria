@@ -1,13 +1,16 @@
 import React, { useCallback, MouseEvent } from 'react';
 import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 
+import { OptionItemWrap } from '../styles'
+
 export interface OptionItemProps {
   option: Option;
-  optionClass: string;
+  optionClass?: string;
   onOptionClicked: OnOptionClicked;
   itemRenderer?: ItemRenderer;
   index: number;
   selected: boolean;
+  focused: boolean;
 }
 
 const OptionItem = (props: OptionItemProps) => {
@@ -18,6 +21,7 @@ const OptionItem = (props: OptionItemProps) => {
     itemRenderer,
     index,
     selected,
+    focused
   } = props;
 
   const handleClick = useCallback((e: MouseEvent<HTMLDivElement>) => {
@@ -37,15 +41,18 @@ const OptionItem = (props: OptionItemProps) => {
   }
 
   return (
-    <div
+    <OptionItemWrap
       aria-label={option.ariaLabel}
       aria-selected={selected}
       className={`dropdown-option ${optionClass}`}
       onClick={handleClick}
       title={option.title}
+
+      selected={selected}
+      focused={focused}
     >
       {content}
-    </div>
+    </OptionItemWrap>
   );
 };
 

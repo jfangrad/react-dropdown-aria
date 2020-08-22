@@ -8,12 +8,8 @@ export interface ExtraState {
 
 export type StyleKey = keyof typeof StyleKeys;
 
-type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState?: {}) => {};
-export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => string;
-
 export type OptionRendererFunction = (
   props: OptionItemProps,
-  getStyle: GetStyleFunction,
   index: number,
 ) => JSX.Element;
 
@@ -23,18 +19,6 @@ export type ItemRenderer = (
   props: OptionItemProps,
   index: number,
 ) => JSX.Element;
-
-export interface DropdownStyle {
-  Arrow?: StyleFunction;
-  DropdownButton?: StyleFunction;
-  DisplayedValue?: StyleFunction;
-  DropdownWrapper?: StyleFunction;
-  GroupContainer?: StyleFunction;
-  GroupHeading?: StyleFunction;
-  GroupDivider?: StyleFunction;
-  OptionContainer?: StyleFunction;
-  OptionItem?: StyleFunction;
-}
 
 export interface Option {
   ariaLabel?: string;
@@ -84,6 +68,5 @@ export interface DropdownProps {
   value: string;
   selectedValueClassName: string;
   onChange: (option: Option) => void;
-  style: DropdownStyle;
   width: number;
 }

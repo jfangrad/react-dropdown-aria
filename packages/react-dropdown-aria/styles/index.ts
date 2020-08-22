@@ -1,10 +1,13 @@
-import { CSSObject } from 'create-emotion';
 import { colours } from '../utils/constants';
 import { DropdownProps, DropdownStyleDependantState, ExtraState } from '../utils/types';
 
-const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dropdownFocused }: DropdownStyleDependantState): CSSObject => ({
+import styled from 'styled-components';
+
+export const DropdownWrapper = styled.div<
+  Pick<DropdownProps, 'width' | 'height' | 'disabled'> & Pick<DropdownStyleDependantState, 'open' | 'dropdownFocused'>
+>(({ width, height, disabled, open, dropdownFocused }) => ({
   backgroundColor: disabled ? colours.greys.light : colours.greys.lightest,
-  border: `2px solid ${(open || dropdownFocused) ? colours.states.focused : colours.greys.dark}`,
+  border: `2px solid ${open || dropdownFocused ? colours.states.focused : colours.greys.dark}`,
   borderRadius: '7',
   cursor: disabled ? 'not-allowed' : 'pointer',
   display: 'flex',
@@ -15,26 +18,28 @@ const DropdownWrapper = ({ width, height, disabled }: DropdownProps, { open, dro
   width,
 
   '&:hover': {
-    border: `2px solid ${(open || dropdownFocused) ? colours.states.focused : colours.greys.darker}`,
+    border: `2px solid ${open || dropdownFocused ? colours.states.focused : colours.greys.darker}`,
   },
 
   '&:disabled': {
     backgroundColor: colours.states.disabled,
     cursor: 'unset',
   },
-});
+}));
 
-const DropdownSelector = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
+export const DropdownSelector = styled.div<
+  Pick<DropdownProps, 'searchable'> & Pick<DropdownStyleDependantState, 'open'>
+>(({ searchable, open }) => ({
   alignItems: 'center',
   boxSizing: 'border-box',
-  cursor: (open && props.searchable) ? 'text' : 'inherit',
+  cursor: open && searchable ? 'text' : 'inherit',
   display: 'flex',
   height: '32px',
   padding: '0 11px',
   position: 'relative',
   width: '100%',
 
-  'input': {
+  input: {
     backgroundColor: 'inherit',
     border: 'none',
     fontSize: 'inherit',
@@ -42,40 +47,43 @@ const DropdownSelector = (props: DropdownProps, { open }: DropdownStyleDependant
     outline: 'none',
     width: '100%',
   },
-});
+}));
 
-const SelectorSearch = (): CSSObject => ({
+export const SelectorSearch = styled.span<any>(() => ({
   bottom: 0,
   left: '11px',
   position: 'absolute',
   right: '25px',
   top: 0,
-});
+}));
 
-const inputValueStyleBase  = ({ centerText }: DropdownProps): CSSObject => ({
+const inputValueStyleBase = {
   bottom: 0,
   left: '11px',
   lineHeight: '30px',
   overflow: 'hidden',
   position: 'absolute',
   right: '25px',
-  textAlign: centerText ? 'center' : 'left',
   textOverflow: 'ellipsis',
   top: 0,
   whiteSpace: 'nowrap',
-});
+} as const;
 
-const SelectedValue = (props: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
-  color: (props.value && !open) ? 'black' : colours.greys.base,
-  ...inputValueStyleBase(props),
-});
+export const SelectedValue = styled.span<
+  Pick<DropdownProps, 'centerText' | 'value'> & Pick<DropdownStyleDependantState, 'open'>
+>(props => ({
+  textAlign: props.centerText ? 'center' : 'left',
+  color: props.value && !props.open ? 'black' : colours.greys.base,
+  ...inputValueStyleBase,
+}));
 
-const Placeholder = (props: DropdownProps): CSSObject => ({
+export const Placeholder = styled.span<Pick<DropdownProps, 'centerText'>>(({ centerText }) => ({
   color: colours.greys.base,
-  ...inputValueStyleBase(props),
-});
+  textAlign: centerText ? 'center' : 'left',
+  ...inputValueStyleBase,
+}));
 
-const Arrow = (): CSSObject => ({
+export const Arrow = styled.div<any>(() => ({
   alignItems: 'center',
   bottom: 0,
   color: colours.greys.base,
@@ -83,9 +91,11 @@ const Arrow = (): CSSObject => ({
   position: 'absolute',
   right: '10px',
   top: 0,
-});
+}));
 
-const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: DropdownStyleDependantState): CSSObject => ({
+export const OptionContainer = styled.span<
+  Pick<DropdownProps, 'openUp' | 'maxContentHeight'> & Pick<DropdownStyleDependantState, 'open'>
+>(({ openUp, maxContentHeight, open }) => ({
   backgroundColor: colours.greys.lightest,
   border: `2px solid ${colours.greys.darker}`,
   borderRadius: '4px',
@@ -126,28 +136,28 @@ const OptionContainer = ({ openUp, maxContentHeight }: DropdownProps, { open }: 
   '&::-webkit-scrollbar-thumb': {
     background: '#666',
   },
-});
+}));
 
-const GroupContainer = (): CSSObject => ({
+export const GroupContainer = styled.div<any>(() => ({
   padding: '1em 0 0 0',
-});
+}));
 
-const GroupHeading = (): CSSObject => ({
+export const GroupHeading = styled.div<any>(() => ({
   color: 'grey',
   display: 'flex',
   flexDirection: 'row',
   fontSize: '0.9em',
   padding: '0 10px 3px 5px',
-});
+}));
 
-const GroupDivider = (): CSSObject => ({
+export const GroupDivider = styled.div<any>(() => ({
   borderBottom: `1px solid ${colours.greys.dark}`,
   margin: 'auto',
   paddingTop: 10,
   width: '85%',
-});
+}));
 
-const OptionItem = (props: DropdownProps, state: DropdownStyleDependantState, { selected, focused }: ExtraState): CSSObject => {
+export const OptionItemWrap = styled.div<Pick<ExtraState, 'selected' | 'focused'>>(({ selected, focused }) => {
   let backgroundColor = colours.greys.lightest;
   let color = 'inherit';
 
@@ -183,18 +193,4 @@ const OptionItem = (props: DropdownProps, state: DropdownStyleDependantState, { 
       paddingRight: '5px',
     },
   };
-};
-
-export default {
-  Arrow,
-  DropdownSelector,
-  DropdownWrapper,
-  GroupContainer,
-  GroupDivider,
-  GroupHeading,
-  OptionContainer,
-  OptionItem,
-  Placeholder,
-  SelectedValue,
-  SelectorSearch,
-};
+});

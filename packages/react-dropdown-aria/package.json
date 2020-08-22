@@ -41,15 +41,16 @@
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.15",
+    "@types/styled-components": "^5.1.2",
     "@types/node": "^13.13.5",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/sinon": "^7.0.13",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
     "@typescript-eslint/parser": "^2.27.0",
+    "jest-styled-components": "7.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.6",
-    "babel-plugin-emotion": "^10.0.14",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
@@ -58,7 +59,6 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
     "jest": "^26.0.1",
-    "jest-emotion": "^10.0.11",
     "jsx-loader": "^0.13.2",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
@@ -72,7 +72,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "emotion": "^9.2.6"
+    "styled-components": "^5.1.1"
   },
   "peerDependencies": {
     "react": "^16.8.0",
@@ -89,9 +89,7 @@
     "setupFiles": [
       "./enzymeAdapter.setup.ts"
     ],
-    "snapshotSerializers": [
-      "jest-emotion"
-    ]
+    "setupFilesAfterEnv": ["./styled.setup.ts"]
   },
   "bundlesize": [
     {

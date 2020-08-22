@@ -23,7 +23,7 @@ class CustomRender extends React.Component {
     this.setState({ interest: selectedOption.value });
   }
 
-  renderOption = (props, getStyle, index) => {
+  renderOption = (props, index) => {
     const { option } = props;
 
     return (

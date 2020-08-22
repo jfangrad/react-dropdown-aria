@@ -35,3 +35,7 @@ export const filterDropdownOptions = (options: DropdownOption[], searchTerm: str
   }
   return filteredOptions;
 }
+
+export function cx(...args: (string | undefined)[]) {
+  return args.filter(Boolean).join(' ');
+}

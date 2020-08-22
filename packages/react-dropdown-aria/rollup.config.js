@@ -26,7 +26,11 @@ export default {
   plugins: [
     peerDepsExternal(),
     resolve(),
-    commonjs(),
+    commonjs({
+      namedExports: {
+        '../../node_modules/react-is/index.js': ['typeOf', 'isElement', 'isValidElementType']
+      }
+    }),
     typescript({
       typescript: ts,
       tsconfigOverride: {

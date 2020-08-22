@@ -1,10 +1,20 @@
 import React, { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
-import { cx } from 'emotion';
-import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
+import { KEY_CODES, NAVIGATION_KEYS } from '../utils/constants';
 import DropdownContent from './DropdownContent';
 import { DropdownProps } from '../utils/types';
+import { cx } from '../utils/helper';
 import { useDropdownHooks, useId } from '../utils/dropdown-hooks';
 import { ChevronDown, Search } from './icons';
+
+import {
+  DropdownWrapper,
+  DropdownSelector,
+  SelectorSearch,
+  SelectedValue,
+  Placeholder,
+  Arrow,
+  OptionContainer,
+} from '../styles';
 
 const Dropdown = (props: DropdownProps) => {
   const {
@@ -25,14 +35,16 @@ const Dropdown = (props: DropdownProps) => {
   const mergedId = useId(id);
 
   const {
-    getStyle,
     open,
-    focusedIndex, setFocusedIndex,
+    dropdownFocused,
+    focusedIndex,
+    setFocusedIndex,
     setDropdownFocused,
     setValue,
     openDropdown,
     closeDropdown,
-    searchTerm, setSearchTerm,
+    searchTerm,
+    setSearchTerm,
     filteredOptions,
     flattenedOptions,
     container,
@@ -60,104 +72,109 @@ const Dropdown = (props: DropdownProps) => {
     }
   }, [open, disabled, searchable, closeDropdown, openDropdown]);
 
-  const onNavigation = useCallback((keyCode: number) => {
-    switch (keyCode) {
-      case KEY_CODES.UP_ARROW:
-        setFocusedIndex(prev => {
-          if(prev === 0) return flattenedOptions.length - 1;
-          return prev - 1;
-        });
-        break;
-      case KEY_CODES.DOWN_ARROW:
-          setFocusedIndex(p => ((p + 1) % flattenedOptions.length));
-        break;
-      case KEY_CODES.PAGE_UP:
-        setFocusedIndex(prev => {
-          if (prev - pageKeyTraverseSize < 0 && prev !== 0) return 0;
-          if (prev - pageKeyTraverseSize < 0) return flattenedOptions.length - 1;
-          return prev - pageKeyTraverseSize;
-        });
-        break;
-      case KEY_CODES.PAGE_DOWN:
-        setFocusedIndex(prev => {
-          if (prev === flattenedOptions.length - 1) return 0;
-          if (prev + pageKeyTraverseSize > flattenedOptions.length - 1) return flattenedOptions.length - 1;
-          return (prev + pageKeyTraverseSize) % flattenedOptions.length;
-        });
-        break;
-      case KEY_CODES.ESCAPE:
-        closeDropdown(true);
-        break;
-      default:
-        break;
-    }
-  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown]);
+  const onNavigation = useCallback(
+    (keyCode: number) => {
+      switch (keyCode) {
+        case KEY_CODES.UP_ARROW:
+          setFocusedIndex(prev => {
+            if (prev === 0) return flattenedOptions.length - 1;
+            return prev - 1;
+          });
+          break;
+        case KEY_CODES.DOWN_ARROW:
+          setFocusedIndex(p => (p + 1) % flattenedOptions.length);
+          break;
+        case KEY_CODES.PAGE_UP:
+          setFocusedIndex(prev => {
+            if (prev - pageKeyTraverseSize < 0 && prev !== 0) return 0;
+            if (prev - pageKeyTraverseSize < 0) return flattenedOptions.length - 1;
+            return prev - pageKeyTraverseSize;
+          });
+          break;
+        case KEY_CODES.PAGE_DOWN:
+          setFocusedIndex(prev => {
+            if (prev === flattenedOptions.length - 1) return 0;
+            if (prev + pageKeyTraverseSize > flattenedOptions.length - 1) return flattenedOptions.length - 1;
+            return (prev + pageKeyTraverseSize) % flattenedOptions.length;
+          });
+          break;
+        case KEY_CODES.ESCAPE:
+          closeDropdown(true);
+          break;
+        default:
+          break;
+      }
+    },
+    [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown],
+  );
 
-  const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
-    const { keyCode } = e;
+  const handleInputKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      const { keyCode } = e;
 
-    if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
-      e.preventDefault();
-      e.stopPropagation();
-      onNavigation(keyCode);
-    } else if ((keyCode === KEY_CODES.ENTER || (keyCode === KEY_CODES.SPACE && !searchable)) && !open) {
-      e.preventDefault();
-      openDropdown();
-    } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
-      closeDropdown();
-    } else if (
-      (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) &&
-      flattenedOptions.length > 0 && focusedIndex >= 0 && open
-    ) {
-      e.stopPropagation();
-      e.preventDefault();
-      setValue(flattenedOptions[focusedIndex], true);
-    }
-  }, [flattenedOptions, setValue, focusedIndex, open, onNavigation, openDropdown, searchable, closeDropdown]);
+      if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
+        e.preventDefault();
+        e.stopPropagation();
+        onNavigation(keyCode);
+      } else if ((keyCode === KEY_CODES.ENTER || (keyCode === KEY_CODES.SPACE && !searchable)) && !open) {
+        e.preventDefault();
+        openDropdown();
+      } else if (keyCode === KEY_CODES.TAB && !searchable) {
+        closeDropdown();
+      } else if (
+        (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) &&
+        flattenedOptions.length > 0 &&
+        focusedIndex >= 0 &&
+        open
+      ) {
+        e.stopPropagation();
+        e.preventDefault();
+        setValue(flattenedOptions[focusedIndex], true);
+      }
+    },
+    [flattenedOptions, setValue, focusedIndex, open, onNavigation, openDropdown, searchable, closeDropdown],
+  );
 
-  const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  }, [setSearchTerm]);
+  const handleTermChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    },
+    [setSearchTerm],
+  );
 
   const onFocus = useCallback(() => setDropdownFocused(true), [setDropdownFocused]);
   const onBlur = useCallback(() => setDropdownFocused(false), [setDropdownFocused]);
 
   // ---------------------- RENDER -----------------------
-  const wrapperClass = cx('dropdown', className, getStyle(StyleKeys.DropdownWrapper));
-  const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
-  const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
-  const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
-  const selectorValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
-  const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
-  const arrowClass = cx('dropdown-arrow', getStyle(StyleKeys.Arrow));
 
   const ArrowMarkup = useMemo(() => {
     if (hideArrow) return null;
-    if (arrowRenderer) return (
-      <div className={arrowClass}>
-        {arrowRenderer(open)}
-      </div>
-    );
+    if (arrowRenderer) return <Arrow className={'dropdown-arrow'}>{arrowRenderer(open)}</Arrow>;
 
     const showSearchIcon = open && searchable;
     return (
-      <div className={arrowClass}>
+      <Arrow className={'dropdown-arrow'}>
         {showSearchIcon && <Search />}
         {!showSearchIcon && <ChevronDown />}
-      </div>
+      </Arrow>
     );
-  }, [open, arrowRenderer, arrowClass, searchable, hideArrow]);
+  }, [open, arrowRenderer, searchable, hideArrow]);
 
   return (
-    <div
+    <DropdownWrapper
       ref={container}
-      className={wrapperClass}
       onFocus={forwardFocus}
       onClick={onDropdownClick}
       role="button"
+      width={props.width}
+      height={props.height}
+      disabled={disabled}
+      open={open}
+      dropdownFocused={dropdownFocused}
+      className={cx('dropdown', className)}
     >
-      <div className={selectorClass}>
-        <span className={searchClass}>
+      <DropdownSelector className={'dropdown-selectors'} open={open} searchable={props.searchable}>
+        <SelectorSearch className={'dropdown-selector-search'}>
           <input
             id={mergedId}
             ref={inputRef}
@@ -172,24 +189,42 @@ const Dropdown = (props: DropdownProps) => {
             role="combobox"
             {...ariaProps}
           />
-        </span>
-        {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
-        {(value && !searchTerm) && <span className={selectorValueClass}>{value}</span>}
+        </SelectorSearch>
+        {!value && !searchTerm && (
+          <Placeholder className={'dropdown-selector-placeholder'} centerText={props.centerText}>
+            {placeholder}
+          </Placeholder>
+        )}
+        {value && !searchTerm && (
+          <SelectedValue
+            className={cx('dropdown-selector-value', selectedValueClassName)}
+            centerText={props.centerText}
+            value={value}
+            open={open}
+          >
+            {value}
+          </SelectedValue>
+        )}
         {ArrowMarkup}
-      </div>
+      </DropdownSelector>
       {ariaList}
-      <div className={contentClass} ref={listWrapper}>
+      <OptionContainer
+        maxContentHeight={props.maxContentHeight}
+        openUp={props.openUp}
+        open={open}
+        className={cx('dropdown-selector-content', contentClassName)}
+        ref={listWrapper}
+      >
         <DropdownContent
           selectedOption={value}
           options={filteredOptions}
           focusedIndex={focusedIndex}
           onOptionClicked={setValue}
           optionItemRenderer={optionItemRenderer}
-          getStyle={getStyle}
           empty={flattenedOptions.length === 0}
         />
-      </div>
-    </div>
+      </OptionContainer>
+    </DropdownWrapper>
   );
 };
 

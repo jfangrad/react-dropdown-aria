@@ -1,7 +1,5 @@
 import React, { useState, useRef, useCallback, useMemo, RefObject, useEffect, Dispatch, SetStateAction } from "react";
-import { css } from 'emotion';
-import { DropdownProps, StyleKey, ExtraState, Option, DropdownOption } from './types';
-import defaultStyles from '../styles';
+import { DropdownProps, Option, DropdownOption } from './types';
 import { arrayReducer, filterDropdownOptions } from './helper';
 import { IdPrefix } from "./constants";
 
@@ -93,7 +91,7 @@ const useSearch = (setFocusedIndex: Dispatch<SetStateAction<number>>, options: D
 };
 
 export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
-  const { style, options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
+  const { options, searchable, onChange, disabled, ariaDescribedBy, ariaLabel, ariaLabelledBy, value, defaultOpen } = props;
   const [focusedIndex, setFocusedIndex] = useState(0)
   const [open, setOpen] = useState(defaultOpen);
   const container = useRef<HTMLDivElement>(null);
@@ -104,13 +102,6 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   const { searchTerm, setSearchTerm, filteredOptions } = useSearch(setFocusedIndex, options, searchable);
   const flattenedOptions = useMemo(() => filteredOptions.reduce(arrayReducer, []), [filteredOptions]);
   const selectedIndex = useMemo(() => flattenedOptions.map(o => o.value).indexOf(value), [flattenedOptions, value]);
-
-  const getStyle = useCallback((key: StyleKey, extraState?: ExtraState) => {
-    const state = { focusedIndex, open, dropdownFocused };
-    const baseStyle = defaultStyles[key](props, state, extraState || {});
-    const customStyle = style[key];
-    return customStyle ? css(customStyle(baseStyle, state, extraState)) : css(baseStyle);
-  }, [style, focusedIndex, open, props, dropdownFocused]);
 
   const closeDropdown = useCallback((focus = false) => {
     setSearchTerm('', false);
@@ -156,7 +147,6 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
     dropdownFocused, setDropdownFocused,
     setValue,
     filteredOptions,
-    getStyle,
     openDropdown,
     closeDropdown,
     flattenedOptions,

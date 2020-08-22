@@ -74,38 +74,7 @@ Groups of items can also be implemented by pasing an array of objects of the fol
 Where the `groupOptions` is an array of options as described above, and the `label` is the string to display above the group in the dropdown.
 
 ## Styling
-Custom styling can be applied to the dropdown through 2 ways:
-1. CSS className props (As seen in props table below)
-2. Emotion JavaScript Objects passed to `style` prop
-
-The suggested method is by using the style prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
-The following object keys are supported to apply style to the corresponding part of the dropdown:
-```
-Arrow, DropdownButton, DisplayedValue, DropdownWrapper, GroupContainer, GroupDivider, GroupHeading, OptionContainer, OptionItem
-```
-The style prop should be passed an object containing one or more of the above properties. Each of those properties should be a function that returns an object. An example is shown below:
-```js
-const style = {
-  OptionItem: (base, state, { selected }) => ({
-    ...base,
-    fontSize: '0.95em',
-    color: selected ? 'white' : 'black',
-    backgroundColor: selected ? '#00A3EF' : 'white',
-    '&:hover': {
-      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
-    },
-    '&:focus': {
-      backgroundColor: selected ? '#0092d6' : '#e0f5ff',
-    },
-  }),
-  ...
-}
-```
-As shown above, each function will be called with `base` and `state` at minimum and some will be provided a third `extraState` parameter which should be an object, as shown with `optionStyle` where the extraState contains whether an option is currently selected or not.
-
-`base` - is the default styles object. It can either be spread out to extend the default styles (as shown above) or ommitted to ignore all default styles
-
-`state` - is the internal state of the dropdown
+Custom styling can be applied using CSS className props (As seen in props table below)
 
 ## Dropdown Props
 | Property | Type | Default | Description |
