@@ -1,9 +1,10 @@
 import React from 'react';
-import Dropdown, { StyleKeys } from 'react-dropdown-aria';
+import Dropdown, { GetStyleFunction, Option } from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 import '../styles/CustomRender.scss';
+import { OptionItemProps } from 'react-dropdown-aria/components/OptionItem';
 
-const options = [
+const options: Option[] = [
   { value: 'Custom' },
   { value: 'Render' },
   { value: 'Function' },
@@ -11,19 +12,15 @@ const options = [
 ];
 
 class CustomRender extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    interest: undefined,
+  };
 
-    this.state = {
-      interest: null,
-    };
-  }
-
-  setInterest = (selectedOption) => {
+  setInterest = (selectedOption: Option) => {
     this.setState({ interest: selectedOption.value });
   }
 
-  renderOption = (props, getStyle, index) => {
+  renderOption = (props: OptionItemProps, getStyle: GetStyleFunction, index: number) => {
     const { option } = props;
 
     return (
@@ -40,7 +37,7 @@ class CustomRender extends React.Component {
       <ExampleSection title="Custom Option Render Function" fileName="CustomRender.jsx" sectionId="custom_option_renderer">
         {(dropdownState) => (
           <Dropdown
-            buttonClassName="my-dropdown"
+            className="my-dropdown"
             ariaLabel="Custom Option Rendering Dropdown"
             options={options}
             optionItemRenderer={this.renderOption}

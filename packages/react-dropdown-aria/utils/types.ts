@@ -8,7 +8,7 @@ export interface ExtraState {
 
 export type StyleKey = keyof typeof StyleKeys;
 
-type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState?: {}) => {};
+type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState: { [key: string]: any  }) => {};
 export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => string;
 
 export type OptionRendererFunction = (

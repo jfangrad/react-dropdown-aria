@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BackTop } from 'antd';
 import Header from './Components/Header';
 import Basic from './Components/Basic';
@@ -10,22 +9,23 @@ import Groups from './Components/Groups';
 import Footer from './Components/Footer';
 
 import 'antd/dist/antd.css';
-import './index.scss';
+import './App.scss';
 
-const Demo = () => (
-  <div className="demo-app">
-    <Header />
-    <div className="demo-container">
-      <Basic />
-      <Groups />
-      <CustomStyles />
-      <CustomRender />
-      <CustomArrow />
+function App() {
+  return (
+    <div className="demo-app">
+      <Header />
+      <div className="demo-container">
+        <Basic />
+        <Groups />
+        <CustomStyles />
+        <CustomRender />
+        <CustomArrow />
+      </div>
+      <Footer />
+      <BackTop />
     </div>
-    <Footer />
-    <BackTop />
-  </div>
-);
+  );
+}
 
-// eslint-disable-next-line no-undef
-ReactDOM.render(<Demo />, document.getElementById('root'));
+export default App;

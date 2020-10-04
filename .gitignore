@@ -4,3 +4,4 @@ demo/dist
 .vscode/
 stats.json
 yarn-error.log
+.DS_STORE
