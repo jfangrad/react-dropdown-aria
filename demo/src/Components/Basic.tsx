@@ -1,8 +1,8 @@
 import React from 'react';
-import Dropdown from 'react-dropdown-aria';
+import Dropdown, { Option } from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 
-const options = [
+const options: Option[] = [
   { value: 'Java', className: 'test', ariaLabel: 'test-aria' },
   { value: 'JavaScript', title: 'testing title' },
   { value: 'Swift' },
@@ -13,16 +13,16 @@ const options = [
   { value: 'Python', iconClass: 'fab fa-python' },
 ];
 
-class Basic extends React.Component {
-  constructor(props) {
-    super(props);
+interface IState {
+  interest?: string;
+}
 
-    this.state = {
-      interest: null,
-    };
-  }
+class Basic extends React.Component<{}, IState> {
+  state = {
+    interest: undefined
+  };
 
-  setInterest = (selectedOption) => {
+  setInterest = (selectedOption: Option) => {
     this.setState({ interest: selectedOption.value });
   }
 
@@ -34,7 +34,7 @@ class Basic extends React.Component {
         {(dropdownState) => (
           <Dropdown
             placeholder="Language of Choice?"
-            buttonClassName="my-dropdown"
+            className="my-dropdown"
             ariaLabel="React Simple Dropdown"
             options={options}
             value={interest}

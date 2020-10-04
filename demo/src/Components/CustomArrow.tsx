@@ -1,9 +1,9 @@
 import React from 'react';
 import ExampleSection from './ExampleSection';
-import Dropdown from 'react-dropdown-aria';
+import Dropdown, { Option } from 'react-dropdown-aria';
 import '../styles/CustomArrow.scss';
 
-const options = [
+const options: Option[] = [
   { value: 'Custom' },
   { value: 'Arrow' },
   { value: 'Render' },
@@ -21,19 +21,16 @@ const options = [
 ];
 
 class CustomArrow extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    disabled: false,
+    interest: undefined,
+  };
 
-    this.state = {
-      disabled: false,
-    };
-  }
-
-  setInterest = (selectedOption) => {
+  setInterest = (selectedOption: Option) => {
     this.setState({ interest: selectedOption.value });
   }
 
-  customArrowRenderer = (open) => {
+  customArrowRenderer = (open: boolean) => {
     const arrowClass = open ? 'far fa-smile custom-arrow' : 'far fa-frown custom-arrow';
     return <i className={arrowClass} />;
   }
@@ -45,7 +42,7 @@ class CustomArrow extends React.Component {
       <ExampleSection title="Custom Arrow Render Function" fileName="CustomArrow.jsx" sectionId="custom_arrow_render">
         {(dropdownState) => (
           <Dropdown
-            buttonClassName="my-dropdown"
+            className="my-dropdown"
             ariaLabel="Custom Arrow Dropdown"
             arrowRenderer={this.customArrowRenderer}
             options={options}
