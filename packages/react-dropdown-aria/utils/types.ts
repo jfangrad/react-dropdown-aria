@@ -6,9 +6,9 @@ export interface ExtraState {
   [key: string]: any;
 }
 
-export type StyleKey = keyof typeof StyleKeys;
+type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState: ExtraState) => {};
 
-type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState: { [key: string]: any  }) => {};
+export type StyleKey = keyof typeof StyleKeys;
 export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => string;
 
 export type OptionRendererFunction = (
@@ -37,10 +37,10 @@ export interface DropdownStyle {
 }
 
 export interface Option {
+  value: string;
   ariaLabel?: string;
   className?: string;
   title?: string;
-  value: string;
   iconClass?: string;
 }
 
