@@ -14,7 +14,9 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "clean": "rm -rf build",
     "start": "react-scripts start",
+    "prebuild": "yarn clean",
     "build": "react-scripts build",
     "deploy": "gh-pages -d ./build",
     "eject": "react-scripts eject"
