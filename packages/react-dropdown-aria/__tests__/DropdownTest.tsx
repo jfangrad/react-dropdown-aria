@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { OPTIONS } from "./constants";
-import Dropdown, { Option } from '../index';
+import Dropdown, { Option } from '../src/index';
 
 interface Props {
   onChange: (value: Option) => void;

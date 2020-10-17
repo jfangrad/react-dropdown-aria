@@ -9,38 +9,43 @@ import packageJson from "./package.json";
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const plugins = [
+  peerDepsExternal(),
+  resolve(),
+  commonjs(),
+  typescript({
+    typescript: ts,
+    tsconfigOverride: {
+      compilerOptions: {
+        sourceMap: true,
+      },
+    }
+  }),
+];
+
+if (isProduction) {
+  plugins.push(
+    terser({
+      sourcemap: true,
+    })
+  );
+}
+
 export default {
-  input: "./index.ts",
+  input: "./src/index.ts",
   output: [
     {
       file: packageJson.main,
       format: "cjs",
-      sourcemap: true
+      // sourcemap: true,
+      exports: 'named'
     },
     {
       file: packageJson.module,
       format: "esm",
-      sourcemap: true
+      // sourcemap: true,
+      exports: 'named'
     }
   ],
-  plugins: [
-    peerDepsExternal(),
-    resolve(),
-    commonjs(),
-    typescript({
-      typescript: ts,
-      tsconfigOverride: {
-        compilerOptions: {
-          sourceMap: true,
-        },
-        // For some reason rollup-plugin-typescript2 doesn't generate declarations for
-        // utils/types.ts without explicitly putting it in the include list
-        include: ['index.ts', 'utils'],
-      }
-    }),
-    isProduction &&
-    terser({
-      sourcemap: true,
-    }),
-  ]
+  plugins,
 };
