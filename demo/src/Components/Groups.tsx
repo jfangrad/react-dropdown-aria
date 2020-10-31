@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Dropdown from 'react-dropdown-aria';
+import React from 'react';
+import Dropdown, { Option, OptionGroup } from 'react-dropdown-aria';
 import ExampleSection from './ExampleSection';
 
-const languageOptions = [
+const languageOptions: Option[] = [
   { value: 'ActionScript' },
   { value: 'Assembly' },
   { value: 'C#' },
@@ -13,14 +13,14 @@ const languageOptions = [
   { value: 'Visual Basic' },
 ];
 
-const frameworkOptions = [
+const frameworkOptions: Option[] = [
   { value: 'React' },
   { value: 'Vue' },
   { value: 'Angular' },
   { value: 'Meteor' },
 ];
 
-const groupedOptions = [
+const groupedOptions: OptionGroup[] = [
   {
     label: 'Languages',
     groupOptions: languageOptions,
@@ -32,15 +32,11 @@ const groupedOptions = [
 ];
 
 class Groups extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    interest: undefined,
+  };
 
-    this.state = {
-      interest: null,
-    };
-  }
-
-  setInterest = (selectedOption) => {
+  setInterest = (selectedOption: Option) => {
     this.setState({ interest: selectedOption.value });
   }
 
@@ -52,7 +48,7 @@ class Groups extends React.Component {
         {(dropdownState) => (
           <Dropdown
             placeholder={"What's best?"}
-            buttonClassName="my-dropdown"
+            className="my-dropdown"
             ariaLabel="Grouped Options Dropdown"
             options={groupedOptions}
             value={interest}

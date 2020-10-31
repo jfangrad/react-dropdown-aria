@@ -1,12 +1,22 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'antd';
+import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
-const ExampleSection = ({ title, fileName, sectionId, children }) => {
-  const [disabled, setDisabled] = React.useState(false);
-  const [searchable, setSearchable] = React.useState(true);
+type ChildrenFunction = (params: { disabled: boolean, searchable: boolean }) => React.ReactNode;
 
-  const handleCheckboxClick = type => ({target}) => {
+interface IProps {
+  title: string;
+  fileName: string;
+  sectionId: string;
+  children: ChildrenFunction;
+}
+
+const ExampleSection = ({ title, fileName, sectionId, children }: IProps) => {
+  const [disabled, setDisabled] = useState(false);
+  const [searchable, setSearchable] = useState(true);
+
+  const handleCheckboxClick = (type: string) => ({ target }: CheckboxChangeEvent) => {
     if (type === 'disable') {
       setDisabled(target.checked);
     } else {

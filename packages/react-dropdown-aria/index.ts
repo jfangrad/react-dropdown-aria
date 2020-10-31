@@ -10,4 +10,5 @@ export {
   DropdownStyleDependantState,
   DropdownProps,
 } from './utils/types';
+export { OptionItemProps } from './components/OptionItem';
 export { StyleKeys } from './utils/constants';

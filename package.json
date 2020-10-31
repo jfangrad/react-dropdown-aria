@@ -11,7 +11,7 @@
     "prebuild": "cp ./README.md ./packages/react-dropdown-aria/README.md",
     "build": "yarn lib:build && yarn demo:build",
     "deploy": "yarn --cwd ./demo deploy",
-    "demo:dev": "yarn --cwd ./demo dev",
+    "demo:start": "yarn --cwd ./demo start",
     "demo:build": "yarn --cwd ./demo build",
     "lib:dev": "yarn --cwd ./packages/react-dropdown-aria dev",
     "lib:build": "yarn --cwd ./packages/react-dropdown-aria build",

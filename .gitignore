@@ -1,6 +1,7 @@
 node_modules/
 packages/react-dropdown-aria/dist
-demo/dist
+demo/build
 .vscode/
 stats.json
 yarn-error.log
+.DS_STORE

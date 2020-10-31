@@ -1,12 +1,9 @@
 import { ReactNode } from 'react';
-import { StyleKeys } from './constants';
 import { OptionItemProps } from '../components/OptionItem';
 
 export interface ExtraState {
   [key: string]: any;
 }
-
-export type StyleKey = keyof typeof StyleKeys;
 
 export type OptionRendererFunction = (
   props: OptionItemProps,
@@ -21,10 +18,10 @@ export type ItemRenderer = (
 ) => JSX.Element;
 
 export interface Option {
+  value: string;
   ariaLabel?: string;
   className?: string;
   title?: string;
-  value: string;
   iconClass?: string;
 }
 

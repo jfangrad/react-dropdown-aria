@@ -119,5 +119,5 @@ yarn install
 Then in two seperate consoles start the library and demo
 ```
 yarn lib:dev
-yarn demo:dev
+yarn demo:start
 ```

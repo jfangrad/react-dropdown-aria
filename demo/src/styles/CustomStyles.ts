@@ -1,4 +1,6 @@
-const style = {
+import { DropdownStyle } from "react-dropdown-aria";
+
+const style: DropdownStyle = {
   DropdownButton: base => ({
     ...base,
     border: '2px solid #54854C',
@@ -26,18 +28,18 @@ const style = {
     border: '1px solid rgb(154, 154, 154)',
     borderRadius: '5px',
   }),
-  OptionItem: (base, state, { selected, focused }) => ({
+  OptionItem: (base, _, { selected }) => ({
     ...base,
     fontSize: '0.95em',
     color: selected ? 'white' : '#54854C',
   }),
-  Arrow: (base, { open }) => ({
+  Arrow: (base, state) => ({
     ...base,
     color: '#54854C',
 
     'svg': {
-      width: open ? 16 : 24,
-      height: open ? 16 : 24,
+      width: state.open ? 16 : 24,
+      height: state.open ? 16 : 24,
     }
   }),
 };

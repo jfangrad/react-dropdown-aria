@@ -1,15 +1,15 @@
 import * as React from 'react';
 import ExampleSection from './ExampleSection';
-import Dropdown from 'react-dropdown-aria';
+import Dropdown, { Option, OptionGroup } from 'react-dropdown-aria';
 import styles from '../styles/CustomStyles';
 
-const airOptions = [
+const airOptions: Option[] = [
   { value: 'Helicopter', iconClass: 'fas fa-helicopter' },
   { value: 'Plane', iconClass: 'fas fa-plane' },
   { value: 'Rocket', iconClass: 'fas fa-rocket' },
 ];
 
-const landOptions = [
+const landOptions: Option[] = [
   { value: 'Train', iconClass: 'fas fa-train' },
   { value: 'Bus', iconClass: 'fas fa-bus' },
   { value: 'Car', iconClass: 'fas fa-car' },
@@ -18,21 +18,17 @@ const landOptions = [
   { value: 'Motorcycle', iconClass: 'fas fa-motorcycle' },
 ];
 
-const options = [
+const options: OptionGroup[] = [
   { label: 'Air', groupOptions: airOptions },
   { label: 'Land', groupOptions: landOptions },
 ];
 
 class CustomStyles extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    interest: undefined,
+  };
 
-    this.state = {
-      interest: null,
-    };
-  }
-
-  setInterest = (selectedOption) => {
+  setInterest = (selectedOption: Option) => {
     this.setState({ interest: selectedOption.value });
   }
 
