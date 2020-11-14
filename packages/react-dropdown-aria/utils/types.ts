@@ -1,5 +1,10 @@
 import { ReactNode } from 'react';
+
 import { OptionItemProps } from '../components/OptionItem';
+import { RdaThemeType } from '../styles';
+import { StyleKeys } from './constants';
+
+export type StyleKey = keyof typeof StyleKeys;
 
 export interface ExtraState {
   [key: string]: any;
@@ -64,6 +69,7 @@ export interface DropdownProps {
   searchable: boolean;
   value: string;
   selectedValueClassName: string;
+  theme: RdaThemeType;
   onChange: (option: Option) => void;
   width: number;
 }

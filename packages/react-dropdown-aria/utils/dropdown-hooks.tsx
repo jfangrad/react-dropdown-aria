@@ -1,5 +1,14 @@
-import * as React from "react";
-import { useState, useRef, useCallback, useMemo, RefObject, useEffect, Dispatch, SetStateAction }  from 'react'
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+  RefObject,
+  useEffect,
+  Dispatch,
+  SetStateAction
+} from 'react';
+
 import { DropdownProps, Option, DropdownOption } from './types';
 import { arrayReducer, filterDropdownOptions } from './helper';
 import { IdPrefix } from "./constants";
@@ -159,17 +168,24 @@ export const useDropdownHooks = (props: DropdownProps, mergedId: string) => {
   }
 };
 
+const isClient = (
+  typeof window !== 'undefined' &&
+  window.document &&
+  window.document.documentElement
+);
+const isBrowser = process.env.NODE_ENV !== 'test' && isClient;
+
 let idCount = 0;
 export const useId = (idProp: string): string => {
   const mergedId = useMemo(() => {
     if (idProp) return idProp;
 
     let id: string | number;
-    if (process.env.NODE_ENV !== 'test') {
+    if (isBrowser) {
       id = idCount;
       idCount += 1;
     } else {
-      id = 'test';
+      id = 'test_or_ssr';
     }
     return `${IdPrefix}${id}`;
   }, [idProp]);

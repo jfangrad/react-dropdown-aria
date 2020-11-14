@@ -47,7 +47,7 @@ class CustomStyles extends React.Component {
             onChange={this.setInterest}
             width={400}
             maxContentHeight={150}
-            style={styles}
+            theme={styles}
             pageKeyTraverseSize={3}
           />
         )}

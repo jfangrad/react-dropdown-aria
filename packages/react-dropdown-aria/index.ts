@@ -12,3 +12,4 @@ export {
 } from './utils/types';
 export { OptionItemProps } from './components/OptionItem';
 export { StyleKeys } from './utils/constants';
+export { RdaThemeType } from './styles';

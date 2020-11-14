@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+
 import OptionItem, { OptionItemProps } from '../components/OptionItem';
 import { isOptionGroup } from '../utils/helper';
 import { DropdownOption, OptionRendererFunction, OnOptionClicked } from '../utils/types';

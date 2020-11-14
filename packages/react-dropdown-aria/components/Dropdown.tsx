@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
-import { KEY_CODES, NAVIGATION_KEYS } from '../utils/constants';
+import React, { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
+import { ThemeProvider } from 'styled-components';
+
 import DropdownContent from './DropdownContent';
+import { KEY_CODES, NAVIGATION_KEYS } from '../utils/constants';
 import { DropdownProps } from '../utils/types';
-import { cx } from '../utils/helper';
+import { cx, isObject, mergeThemes } from '../utils/helper';
 import { useDropdownHooks, useId } from '../utils/dropdown-hooks';
 import { ChevronDown, Search } from './icons';
 
@@ -15,22 +16,29 @@ import {
   Placeholder,
   Arrow,
   OptionContainer,
+  DropdownTheme,
 } from '../styles';
 
 const Dropdown = (props: DropdownProps) => {
   const {
     arrowRenderer,
+    centerText,
     contentClassName,
     className,
     disabled,
+    height,
     hideArrow,
     id,
+    maxContentHeight,
+    openUp,
     optionItemRenderer,
     pageKeyTraverseSize,
     placeholder,
     searchable,
-    value,
     selectedValueClassName,
+    theme,
+    value,
+    width,
   } = props;
 
   const mergedId = useId(id);
@@ -54,6 +62,15 @@ const Dropdown = (props: DropdownProps) => {
     ariaProps,
     ariaList,
   } = useDropdownHooks(props, mergedId);
+
+  const memoizedTheme = useMemo(
+    () => isObject(theme)
+      ? mergeThemes(theme, DropdownTheme)
+      : DropdownTheme,
+    [theme],
+  );
+
+  console.log(placeholder, memoizedTheme);
 
   // Pass focus on to input
   const forwardFocus = useCallback(() => {
@@ -150,11 +167,15 @@ const Dropdown = (props: DropdownProps) => {
 
   const ArrowMarkup = useMemo(() => {
     if (hideArrow) return null;
-    if (arrowRenderer) return <Arrow className={'dropdown-arrow'}>{arrowRenderer(open)}</Arrow>;
+    if (arrowRenderer) return (
+      <Arrow className="dropdown-arrow" open={open}>
+        {arrowRenderer(open)}
+      </Arrow>
+    );
 
     const showSearchIcon = open && searchable;
     return (
-      <Arrow className={'dropdown-arrow'}>
+      <Arrow className="dropdown-arrow" open={open}>
         {showSearchIcon && <Search />}
         {!showSearchIcon && <ChevronDown />}
       </Arrow>
@@ -162,70 +183,72 @@ const Dropdown = (props: DropdownProps) => {
   }, [open, arrowRenderer, searchable, hideArrow]);
 
   return (
-    <DropdownWrapper
-      ref={container}
-      onFocus={forwardFocus}
-      onClick={onDropdownClick}
-      role="button"
-      width={props.width}
-      height={props.height}
-      disabled={disabled}
-      open={open}
-      dropdownFocused={dropdownFocused}
-      className={cx('dropdown', className)}
-    >
-      <DropdownSelector className={'dropdown-selector'} open={open} searchable={props.searchable}>
-        <SelectorSearch className={'dropdown-selector-search'}>
-          <input
-            id={mergedId}
-            ref={inputRef}
-            value={searchTerm}
-            onChange={handleTermChange}
-            onKeyDown={handleInputKeyDown}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            readOnly={!open || !searchable}
-            disabled={disabled}
-            autoComplete="off"
-            role="combobox"
-            {...ariaProps}
-          />
-        </SelectorSearch>
-        {!value && !searchTerm && (
-          <Placeholder className={'dropdown-selector-placeholder'} centerText={props.centerText}>
-            {placeholder}
-          </Placeholder>
-        )}
-        {value && !searchTerm && (
-          <SelectedValue
-            className={cx('dropdown-selector-value', selectedValueClassName)}
-            centerText={props.centerText}
-            value={value}
-            open={open}
-          >
-            {value}
-          </SelectedValue>
-        )}
-        {ArrowMarkup}
-      </DropdownSelector>
-      {ariaList}
-      <OptionContainer
-        maxContentHeight={props.maxContentHeight}
-        openUp={props.openUp}
+    <ThemeProvider theme={memoizedTheme}>
+      <DropdownWrapper
+        ref={container}
+        onFocus={forwardFocus}
+        onClick={onDropdownClick}
+        role="button"
+        width={width}
+        height={height}
+        disabled={disabled}
         open={open}
-        className={cx('dropdown-selector-content', contentClassName)}
-        ref={listWrapper}
+        dropdownFocused={dropdownFocused}
+        className={cx('dropdown', className)}
       >
-        <DropdownContent
-          selectedOption={value}
-          options={filteredOptions}
-          focusedIndex={focusedIndex}
-          onOptionClicked={setValue}
-          optionItemRenderer={optionItemRenderer}
-          empty={flattenedOptions.length === 0}
-        />
-      </OptionContainer>
-    </DropdownWrapper>
+        <DropdownSelector className="dropdown-selector" open={open} searchable={searchable}>
+          <SelectorSearch className="dropdown-selector-search">
+            <input
+              id={mergedId}
+              ref={inputRef}
+              value={searchTerm}
+              onChange={handleTermChange}
+              onKeyDown={handleInputKeyDown}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              readOnly={!open || !searchable}
+              disabled={disabled}
+              autoComplete="off"
+              role="combobox"
+              {...ariaProps}
+            />
+          </SelectorSearch>
+          {!value && !searchTerm && (
+            <Placeholder className="dropdown-selector-placeholder" centerText={centerText}>
+              {placeholder}
+            </Placeholder>
+          )}
+          {value && !searchTerm && (
+            <SelectedValue
+              className={cx('dropdown-selector-value', selectedValueClassName)}
+              centerText={centerText}
+              value={value}
+              open={open}
+            >
+              {value}
+            </SelectedValue>
+          )}
+          {ArrowMarkup}
+        </DropdownSelector>
+        {ariaList}
+        <OptionContainer
+          maxContentHeight={maxContentHeight}
+          openUp={openUp}
+          open={open}
+          className={cx('dropdown-selector-content', contentClassName)}
+          ref={listWrapper}
+        >
+          <DropdownContent
+            selectedOption={value}
+            options={filteredOptions}
+            focusedIndex={focusedIndex}
+            onOptionClicked={setValue}
+            optionItemRenderer={optionItemRenderer}
+            empty={flattenedOptions.length === 0}
+          />
+        </OptionContainer>
+      </DropdownWrapper>
+    </ThemeProvider>
   );
 };
 
@@ -250,6 +273,7 @@ Dropdown.defaultProps = {
   searchable: false,
   selectedValueClassName: null,
   style: {},
+  theme: undefined,
   value: undefined,
   width: null,
 };

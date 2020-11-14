@@ -1,15 +1,14 @@
 export enum StyleKeys {
-  Arrow = 'Arrow',
-  DropdownSelector = 'DropdownSelector',
-  DropdownWrapper = 'DropdownWrapper',
-  SelectorSearch = 'SelectorSearch',
-  SelectedValue = 'SelectedValue',
-  Placeholder = 'Placeholder',
-  GroupContainer = 'GroupContainer',
-  GroupDivider = 'GroupDivider',
-  GroupHeading = 'GroupHeading',
-  OptionContainer = 'OptionContainer',
-  OptionItem = 'OptionItem',
+  Arrow = 'arrow',
+  Selector = 'selector',
+  Wrapper = 'wrapper',
+  SelectorSearch = 'selectorSearch',
+  SelectedValue = 'selectedValue',
+  GroupContainer = 'groupContainer',
+  GroupDivider = 'groupDivider',
+  GroupHeading = 'groupHeading',
+  OptionContainer = 'optionContainer',
+  OptionItemWrap = 'optionItemWrap',
 }
 
 export enum KEY_CODES {

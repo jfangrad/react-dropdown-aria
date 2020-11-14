@@ -1,8 +1,7 @@
-import { DropdownStyle } from "react-dropdown-aria";
+import { RdaThemeType } from "react-dropdown-aria";
 
-const style: DropdownStyle = {
-  DropdownButton: base => ({
-    ...base,
+const style: RdaThemeType = {
+  wrapper: {
     border: '2px solid #54854C',
     borderRadius: '8px',
     transition: 'border 0.2s, padding: 0.2s, background-color 0.5s',
@@ -21,25 +20,22 @@ const style: DropdownStyle = {
     '&:disabled': {
       backgroundColor: '#e6e6e6',
     },
-  }),
-  OptionContainer: base => ({
-    ...base,
+  },
+  optionContainer: {
     padding: '5px 0',
     border: '1px solid rgb(154, 154, 154)',
     borderRadius: '5px',
-  }),
-  OptionItem: (base, _, { selected }) => ({
-    ...base,
-    fontSize: '0.95em',
+  },
+  optionItem: ({ selected }) => ({
+    fontSize: '0.9em',
     color: selected ? 'white' : '#54854C',
   }),
-  Arrow: (base, state) => ({
-    ...base,
+  arrow: ({ open }) => ({
     color: '#54854C',
 
     'svg': {
-      width: state.open ? 16 : 24,
-      height: state.open ? 16 : 24,
+      width: open ? 16 : 24,
+      height: open ? 16 : 24,
     }
   }),
 };
