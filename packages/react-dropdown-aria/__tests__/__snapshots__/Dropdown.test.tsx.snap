@@ -247,7 +247,6 @@ exports[`Check Props Matches snapshot with custom props 1`] = `
   placeholder="Custom Placeholder..."
   searchable={false}
   selectedValueClassName={null}
-  style={Object {}}
   width={400}
 >
   <Component
@@ -970,7 +969,6 @@ exports[`Check Props Matches snapshot with default props 1`] = `
   placeholder="Select ..."
   searchable={false}
   selectedValueClassName={null}
-  style={Object {}}
   width={null}
 >
   <Component
@@ -1982,7 +1980,6 @@ exports[`Check Props Matches snapshot with grouped options 1`] = `
   placeholder="Select ..."
   searchable={false}
   selectedValueClassName={null}
-  style={Object {}}
   width={null}
 >
   <Component
