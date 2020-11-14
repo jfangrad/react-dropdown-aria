@@ -1,6 +1,6 @@
 {
   "name": "react-dropdown-aria",
-  "version": "2.0.7",
+  "version": "3.0.0-rc.1",
   "description": "Simple and accessible React dropdown component",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
