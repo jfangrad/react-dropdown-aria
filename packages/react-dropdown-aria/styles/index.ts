@@ -9,7 +9,7 @@ export type ThemeFunction<T> = (props: T) => ThemeObject<T> | StyleValue<T>;
 export type ThemeObject<T> = { [key: string]: ThemeFunction<T> | StyleValue<T> };
 export type ThemeObjectOrFunction<T = undefined> = ThemeObject<T> | ThemeFunction<T> | [ThemeFunction<T>, DefaultTheme];
 
-export type RdaThemeType = {
+export type RdaTheme = {
   wrapper?: ThemeObjectOrFunction<DropdownWrapperProps>;
   selector?: ThemeObjectOrFunction<DropdownSelectorProps>;
   selectorSearch?: ThemeObjectOrFunction;
@@ -23,7 +23,7 @@ export type RdaThemeType = {
   optionItem?: ThemeObjectOrFunction<OptionItemWrapProps>;
 };
 
-export const DropdownTheme: RdaThemeType = {
+export const DropdownTheme: RdaTheme = {
   wrapper: {
     backgroundColor: ({ disabled }: DropdownWrapperProps) => disabled ? colours.greys.light : colours.greys.lightest,
     border: ({ open, dropdownFocused }: DropdownWrapperProps) => `2px solid ${(open || dropdownFocused) ? colours.states.focused : colours.greys.darker}`,

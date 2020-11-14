@@ -1,6 +1,6 @@
 import { DefaultTheme } from 'styled-components';
 
-import { RdaThemeType, ThemeFunction, ThemeObjectOrFunction, StyleValue } from '../styles';
+import { RdaTheme, ThemeFunction, ThemeObjectOrFunction, StyleValue } from '../styles';
 import { Option, OptionGroup, DropdownOption } from './types';
 
 export function isOptionGroup(option: Option | OptionGroup): option is OptionGroup {
@@ -59,7 +59,11 @@ export function isFunction<T>(obj: any): obj is ThemeFunction<T> {
   return !!obj && typeof obj === 'function';
 }
 
-export function mergeThemes(provided: RdaThemeType, defaultTheme: RdaThemeType): RdaThemeType {
+/**
+ * Utility to merge the provided theme with the default theme. The resulting merged theme
+ * is then put into the styled-components theme-provider
+ */
+export function mergeThemes(provided: RdaTheme, defaultTheme: RdaTheme): RdaTheme {
   const mergedTheme = { ...defaultTheme };
 
   for (const key in provided) {
@@ -86,7 +90,6 @@ function merge<T>(obj1: any, obj2: any): StyleValue<T> {
   }
 
   const merged = { ...obj1 };
-
   for (const key in obj2) {
     const val = obj2[key];
     if (isObject(val) && key in merged) {
@@ -99,6 +102,12 @@ function merge<T>(obj1: any, obj2: any): StyleValue<T> {
   return merged;
 }
 
+/**
+ * Unpacks a theme key into a pure object without any functions.
+ * The result of this can be given to a styled component.
+ * eg:
+ * styled.div<T>(props: T => unpackTheme(theme, props));
+ */
 export function unpackTheme<T>(theme: ThemeObjectOrFunction<T> | StyleValue<T>, props: T) {
   let unpacked: any = {};
 
@@ -122,8 +131,3 @@ export function unpackTheme<T>(theme: ThemeObjectOrFunction<T> | StyleValue<T>, 
 
   return unpacked;
 }
-
-// if (Array.isArray(theme)) {
-//   const [func, obj] = theme as [ThemeFunction<T>, DefaultTheme]
-//   unpacked = merge(obj, func(props));
-// }

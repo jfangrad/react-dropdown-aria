@@ -70,8 +70,6 @@ const Dropdown = (props: DropdownProps) => {
     [theme],
   );
 
-  console.log(placeholder, memoizedTheme);
-
   // Pass focus on to input
   const forwardFocus = useCallback(() => {
     if (inputRef.current) {
@@ -272,7 +270,6 @@ Dropdown.defaultProps = {
   placeholder: 'Select ...',
   searchable: false,
   selectedValueClassName: null,
-  style: {},
   theme: undefined,
   value: undefined,
   width: null,

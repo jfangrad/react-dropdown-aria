@@ -1,6 +1,6 @@
-import { RdaThemeType } from "react-dropdown-aria";
+import { RdaTheme } from "react-dropdown-aria";
 
-const style: RdaThemeType = {
+const style: RdaTheme = {
   wrapper: {
     border: '2px solid #54854C',
     borderRadius: '8px',

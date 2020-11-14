@@ -1,9 +1,9 @@
-import { DropdownTheme, RdaThemeType } from "../styles";
+import { DropdownTheme, RdaTheme } from "../styles";
 import { mergeThemes, unpackTheme } from "../utils/helper";
 
 describe('Merge themes', () => {
   it('Should properly merge plain theme objects', () => {
-    const custom: RdaThemeType = {
+    const custom: RdaTheme = {
       wrapper: {
         backgroundColor: '#FFFFFF',
         display: 'none',
@@ -21,7 +21,7 @@ describe('Merge themes', () => {
   });
 
   it('Should properly merge functional theme objects', () => {
-    const custom: RdaThemeType = {
+    const custom: RdaTheme = {
       wrapper: (props) => ({
         backgroundColor: props.disabled ? 'red' : '#FFFFFF',
         display: 'none',
@@ -47,7 +47,7 @@ describe('Merge themes', () => {
 
 describe('Unpack themes', () => {
   it('Should properly unpack plain custom theme', () => {
-    const custom: RdaThemeType = {
+    const custom: RdaTheme = {
       wrapper: {
         backgroundColor: '#FFFFFF',
         display: 'none',
@@ -62,7 +62,7 @@ describe('Unpack themes', () => {
   });
 
   it('should properly unpack function themes', () => {
-    const custom: RdaThemeType = {
+    const custom: RdaTheme = {
       wrapper: (props) => ({
         backgroundColor: props.disabled ? 'red' : '#FFFFFF',
         display: 'none',

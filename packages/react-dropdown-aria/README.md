@@ -11,7 +11,7 @@ This component was created to be a light weight and fully accessible dropdown co
 Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](https://github.com/jfangrad/react-dropdown-aria/blob/master/packages/react-dropdown-aria/CHANGELOG.md#200).
 
 ## Features
-1. Fully customizable styling
+1. Fully customizable styling (powered by styled-components)
 2. Grouped options
 3. Accessible
 4. Searchable
@@ -74,7 +74,32 @@ Groups of items can also be implemented by pasing an array of objects of the fol
 Where the `groupOptions` is an array of options as described above, and the `label` is the string to display above the group in the dropdown.
 
 ## Styling
-Custom styling can be applied using CSS className props (As seen in props table below)
+Custom styling can be applied to the dropdown through 2 ways:
+1. CSS className props (As seen in props table below)
+2. JavaScript Objects passed to the `theme` prop
+
+The suggested method is by using the theme prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
+The theme prop can have keys of the following form:
+```typescript
+type RdaTheme = {
+  wrapper?: ThemeObjectOrFunction<DropdownWrapperProps>;
+  selector?: ThemeObjectOrFunction<DropdownSelectorProps>;
+  selectorSearch?: ThemeObjectOrFunction;
+  selectedValue?: ThemeObjectOrFunction<SelectedValueProps>;
+  placeholder?: ThemeObjectOrFunction<PlaceholderProps>;
+  arrow?: ThemeObjectOrFunction<ArrowProps>;
+  optionContainer?: ThemeObjectOrFunction<OptionContainerProps>;
+  groupContainer?: ThemeObjectOrFunction;
+  groupHeading?: ThemeObjectOrFunction;
+  groupDivider?: ThemeObjectOrFunction;
+  optionItem?: ThemeObjectOrFunction<OptionItemWrapProps>;
+};
+```
+As is shown above, each key in the `theme` object can be either a plain object or function. If you need access to the current state of the dropdown then you should pass a function which will be called with the appropiate state.
+
+The theme object you provide will be merged with the default theme.
+
+Examples of both methods are shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 
 ## Dropdown Props
 | Property | Type | Default | Description |
@@ -102,7 +127,7 @@ Custom styling can be applied using CSS className props (As seen in props table 
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
 | `onChange` | function | undefined | Function called when the selected value changes |
-| `style` | object | {} | Use to change the style of the dropdown through js instead of css (see styling section) |
+| `theme` | [RdaTheme](https://github.com/jfangrad/react-dropdown-aria/blob/master/packages/react-dropdown-aria/styles/index.ts#L12) | undefined | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 
 # Developing
