@@ -182,8 +182,7 @@ export const useId = (idProp: string): string => {
 
     let id: string | number;
     if (isBrowser) {
-      id = idCount;
-      idCount += 1;
+      id = idCount++;
     } else {
       id = 'test_or_ssr';
     }

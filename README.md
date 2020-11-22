@@ -2,9 +2,6 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-dropdown-aria?color=important)
 ![npm](https://img.shields.io/npm/dm/react-dropdown-aria)
 # react-dropdown-aria
-Simple, lightweight, and accessible React dropdown component.
-
-## Purpose
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
 ## **Upgrading to v2**
@@ -18,6 +15,9 @@ Please take note when upgrading from v1 to v2 there are breaking changes. Be sur
 5. Custom render function props
 6. Typescript typings
 
+### Peer dependencies:
+- Styled-components (Used for styling)
+
 # Demo And Examples
 For demo and examples see [https://jfangrad.github.io/react-dropdown-aria/](https://jfangrad.github.io/react-dropdown-aria/)
 
@@ -25,11 +25,10 @@ For demo and examples see [https://jfangrad.github.io/react-dropdown-aria/](http
 Simply use npm or yarn to install the package.
 ```
 // Yarn
-$ yarn add react-dropdown-aria
-```
-```
+$ yarn add react-dropdown-aria styled-components
+
 // npm
-$ npm install --save react-dropdown-aria
+$ npm install --save react-dropdown-aria styled-components
 ```
 
 You can then include it in your project as needed:
