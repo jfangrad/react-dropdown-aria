@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
 import Dropdown, { Option } from '../index';
 import DropdownTest from './DropdownTest';

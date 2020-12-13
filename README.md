@@ -4,8 +4,8 @@
 # react-dropdown-aria
 This component was created to be a light weight and fully accessible dropdown component for React. For a more feature heavy and powerful dropdown look to the [react-select](https://github.com/JedWatson/react-select) package. (This dropdown is inspired by react-select)
 
-## **Upgrading to v2**
-Please take note when upgrading from v1 to v2 there are breaking changes. Be sure to carefully read the [changelog entry for v2.0.0](https://github.com/jfangrad/react-dropdown-aria/blob/master/packages/react-dropdown-aria/CHANGELOG.md#200).
+## **Upgrading to v3**
+Please take note when upgrading from v2 to v3 there are breaking changes. Be sure to carefully read the [changelog entry for v3.0.0](https://github.com/jfangrad/react-dropdown-aria/blob/master/packages/react-dropdown-aria/CHANGELOG.md#200).
 
 ## Features
 1. Fully customizable styling (powered by styled-components)
@@ -75,8 +75,10 @@ Where the `groupOptions` is an array of options as described above, and the `lab
 ## Styling
 Custom styling can be applied to the dropdown through 2 ways:
 1. CSS className props (As seen in props table below)
-2. JavaScript Objects passed to the `theme` prop
+2. JavaScript Objects passed to the `theme` prop ([Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx))
+3. Using the styled-components library ([Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/StyledDropdown.jsx))
 
+### Option 1
 The suggested method is by using the theme prop as shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
 The theme prop can have keys of the following form:
 ```typescript
@@ -95,11 +97,14 @@ type RdaTheme = {
 };
 ```
 As is shown above, each key in the `theme` object can be either a plain object or function. If you need access to the current state of the dropdown then you should pass a function which will be called with the appropiate state.
-
 The theme object you provide will be merged with the default theme.
 
-Examples of both methods are shown in the [Custom Styling Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/CustomStyles.jsx).
-
+### option 3
+If you would prefer to use **option 3**, you can apply styles to the sub components of the dropdown using the method described [here](https://styled-components.com/docs/advanced#referring-to-other-components). The sub components can be imported via
+```js
+import { StyledDropdownComponents } from 'react-dropdown-aria';
+```
+Each component is a property on that import and has the same keys as those listed above using typical component casing. ([Example](https://github.com/jfangrad/react-aria-dropdown/blob/master/demo/src/Components/StyledDropdown.jsx))
 ## Dropdown Props
 | Property | Type | Default | Description |
 |:---|:---|:---|:---|
@@ -116,6 +121,7 @@ Examples of both methods are shown in the [Custom Styling Example](https://githu
 | `hideArrow` | boolean | false | Controls whether dropdown component has the arrow or not |
 | `id` | string | undefined | `id` to be passed to the main dropdown button |
 | `maxContentHeight` | number | null | Controls the max height of the dropdown area that contains all options |
+| `onChange` | function | undefined | Function called when the selected value changes |
 | `openUp` | boolean | false | Whether dropdown should open up or not |
 | `optionRenderer` | function | undefined | Custom function to render the options displayed in the dropdown |
 | `options` | array | [] | Array of option objects |
@@ -125,7 +131,6 @@ Examples of both methods are shown in the [Custom Styling Example](https://githu
 | `value` | string | null | The value of the option that is currently selected (as set by `setSelected`). |
 | `selectedValueClassName` | string | undefined | CSS class to be applied to main drodown button text |
 | `searchable` | boolean | true | Whether or not the keyboard can be used to quickly navigate to an item through typing |
-| `onChange` | function | undefined | Function called when the selected value changes |
 | `theme` | [RdaTheme](https://github.com/jfangrad/react-dropdown-aria/blob/master/packages/react-dropdown-aria/styles/index.ts#L12) | undefined | Use to change the style of the dropdown through js instead of css (see styling section) |
 | `width` | number | null | Use to set the dropdown width manually |
 

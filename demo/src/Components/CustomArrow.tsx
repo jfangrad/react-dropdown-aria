@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import ExampleSection from './ExampleSection';
 import Dropdown, { Option } from 'react-dropdown-aria';
 import '../styles/CustomArrow.scss';

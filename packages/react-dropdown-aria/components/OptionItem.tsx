@@ -2,7 +2,6 @@ import React, { useCallback, MouseEvent } from 'react';
 
 import { Option, ItemRenderer, OnOptionClicked } from '../utils/types';
 import { cx } from '../utils/helper';
-
 import { OptionItemWrap } from '../styles';
 
 export interface OptionItemProps {

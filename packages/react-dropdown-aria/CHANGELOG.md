@@ -1,5 +1,22 @@
 # react-dropdown-aria
 
+## 3.0.0
+This release marks a migration to styled-components for dropdown styling
+### Breaking changes
+- If you were previously applying custom styles via the styles prop you will need to update the object you are passing to use the new method. Migration should be relatively simple and may only entail removing the `base` function parameter if you are using it. See the [Styling](https://github.com/jfangrad/react-dropdown-aria#styling) section for more details on the new method.
+#### Prop changes
+- `style` => `theme`
+
+### New Features
+- Search
+  - Search is now much nicer (input will show what you are searching)
+  - While searching press "tab" to autocomplete
+
+
+### Changes
+- Better accessability
+- Added `defaultOpen` prop to control default open state of the dropdown
+
 ## 2.0.7
 - Make dropdown open by pressing space (Only when not searchable) [#45](https://github.com/jfangrad/react-dropdown-aria/pull/45)
 - Add button role to top level div to improve keyboard navigation [#45](https://github.com/jfangrad/react-dropdown-aria/pull/45)

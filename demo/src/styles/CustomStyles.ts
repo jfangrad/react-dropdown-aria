@@ -9,12 +9,10 @@ const style: RdaTheme = {
     '&:hover': {
       border: '2px solid rgb(103, 103, 103)',
       backgroundColor: '#f8f8f8',
-      boxShadow: 'none',
     },
 
     '&:focus': {
       border: '2px solid rgb(0, 128, 188)',
-      boxShadow: 'none',
     },
 
     '&:disabled': {
