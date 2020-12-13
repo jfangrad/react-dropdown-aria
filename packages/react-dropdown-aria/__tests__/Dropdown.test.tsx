@@ -2,15 +2,10 @@ import React from 'react';
 import { mount, ReactWrapper, HTMLAttributes } from 'enzyme';
 import sinon from 'sinon';
 import toJson from 'enzyme-to-json';
-import { createSerializer } from 'jest-emotion';
-import * as emotion from 'emotion';
 import Dropdown, { Option } from '../index';
 import DropdownTest from './DropdownTest';
 import { CUSTOM_OPTIONS, OPTIONS, GROUPED_OPTIONS } from './constants';
 import { KEY_CODES } from '../utils/constants';
-
-expect.addSnapshotSerializer(createSerializer(emotion as any));
-
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
 const foo = (val: Option) => {};

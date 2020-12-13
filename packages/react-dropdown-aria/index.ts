@@ -1,15 +1,43 @@
 import Dropdown from './components/Dropdown';
+import {
+  DropdownWrapper,
+  DropdownSelector,
+  SelectorSearch,
+  SelectedValue,
+  Placeholder,
+  Arrow,
+  OptionContainer,
+  GroupContainer,
+  GroupHeading,
+  GroupDivider,
+  OptionItemWrap,
+} from './styles';
 
 export default Dropdown;
 export {
-  GetStyleFunction,
   OptionRendererFunction,
   ItemRenderer,
-  DropdownStyle,
   Option,
   OptionGroup,
   DropdownOption,
   DropdownStyleDependantState,
   DropdownProps,
 } from './utils/types';
-export { StyleKeys } from './utils/constants';
+export { OptionItemProps } from './components/OptionItem';
+export {
+  RdaTheme,
+} from './styles';
+
+export const StyledDropdownComponents = {
+  DropdownWrapper,
+  DropdownSelector,
+  SelectorSearch,
+  SelectedValue,
+  Placeholder,
+  Arrow,
+  OptionContainer,
+  GroupContainer,
+  GroupHeading,
+  GroupDivider,
+  OptionItemWrap,
+};

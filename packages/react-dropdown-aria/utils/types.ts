@@ -1,19 +1,14 @@
 import { ReactNode } from 'react';
-import { StyleKeys } from './constants';
+
 import { OptionItemProps } from '../components/OptionItem';
+import { RdaTheme } from '../styles';
 
 export interface ExtraState {
   [key: string]: any;
 }
 
-type StyleFunction = (base: {}, state: DropdownStyleDependantState, extraState: ExtraState) => {};
-
-export type StyleKey = keyof typeof StyleKeys;
-export type GetStyleFunction = (key: StyleKey, extraState?: ExtraState) => string;
-
 export type OptionRendererFunction = (
   props: OptionItemProps,
-  getStyle: GetStyleFunction,
   index: number,
 ) => JSX.Element;
 
@@ -23,18 +18,6 @@ export type ItemRenderer = (
   props: OptionItemProps,
   index: number,
 ) => JSX.Element;
-
-export interface DropdownStyle {
-  Arrow?: StyleFunction;
-  DropdownButton?: StyleFunction;
-  DisplayedValue?: StyleFunction;
-  DropdownWrapper?: StyleFunction;
-  GroupContainer?: StyleFunction;
-  GroupHeading?: StyleFunction;
-  GroupDivider?: StyleFunction;
-  OptionContainer?: StyleFunction;
-  OptionItem?: StyleFunction;
-}
 
 export interface Option {
   value: string;
@@ -83,7 +66,7 @@ export interface DropdownProps {
   searchable: boolean;
   value: string;
   selectedValueClassName: string;
+  theme: RdaTheme;
   onChange: (option: Option) => void;
-  style: DropdownStyle;
   width: number;
 }

@@ -1,17 +1,3 @@
-export enum StyleKeys {
-  Arrow = 'Arrow',
-  DropdownSelector = 'DropdownSelector',
-  DropdownWrapper = 'DropdownWrapper',
-  SelectorSearch = 'SelectorSearch',
-  SelectedValue = 'SelectedValue',
-  Placeholder = 'Placeholder',
-  GroupContainer = 'GroupContainer',
-  GroupDivider = 'GroupDivider',
-  GroupHeading = 'GroupHeading',
-  OptionContainer = 'OptionContainer',
-  OptionItem = 'OptionItem',
-}
-
 export enum KEY_CODES {
   DOWN_ARROW = 40,
   ENTER = 13,

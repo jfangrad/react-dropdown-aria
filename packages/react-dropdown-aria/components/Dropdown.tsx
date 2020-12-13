@@ -1,38 +1,59 @@
 import React, { KeyboardEvent, useCallback, ChangeEvent, useMemo } from 'react';
-import { cx } from 'emotion';
-import { KEY_CODES, NAVIGATION_KEYS, StyleKeys } from '../utils/constants';
+import { ThemeProvider } from 'styled-components';
+
 import DropdownContent from './DropdownContent';
+import { KEY_CODES, NAVIGATION_KEYS } from '../utils/constants';
 import { DropdownProps } from '../utils/types';
+import { cx, isObject, mergeThemes } from '../utils/helper';
 import { useDropdownHooks, useId } from '../utils/dropdown-hooks';
 import { ChevronDown, Search } from './icons';
+
+import {
+  DropdownWrapper,
+  DropdownSelector,
+  SelectorSearch,
+  SelectedValue,
+  Placeholder,
+  Arrow,
+  OptionContainer,
+  DropdownTheme,
+} from '../styles';
 
 const Dropdown = (props: DropdownProps) => {
   const {
     arrowRenderer,
+    centerText,
     contentClassName,
     className,
     disabled,
+    height,
     hideArrow,
     id,
+    maxContentHeight,
+    openUp,
     optionItemRenderer,
     pageKeyTraverseSize,
     placeholder,
     searchable,
-    value,
     selectedValueClassName,
+    theme,
+    value,
+    width,
   } = props;
 
   const mergedId = useId(id);
 
   const {
-    getStyle,
     open,
-    focusedIndex, setFocusedIndex,
+    dropdownFocused,
+    focusedIndex,
+    setFocusedIndex,
     setDropdownFocused,
     setValue,
     openDropdown,
     closeDropdown,
-    searchTerm, setSearchTerm,
+    searchTerm,
+    setSearchTerm,
     filteredOptions,
     flattenedOptions,
     container,
@@ -41,6 +62,13 @@ const Dropdown = (props: DropdownProps) => {
     ariaProps,
     ariaList,
   } = useDropdownHooks(props, mergedId);
+
+  const memoizedTheme = useMemo(
+    () => isObject(theme)
+      ? mergeThemes(theme, DropdownTheme)
+      : DropdownTheme,
+    [theme],
+  );
 
   // Pass focus on to input
   const forwardFocus = useCallback(() => {
@@ -60,136 +88,165 @@ const Dropdown = (props: DropdownProps) => {
     }
   }, [open, disabled, searchable, closeDropdown, openDropdown]);
 
-  const onNavigation = useCallback((keyCode: number) => {
-    switch (keyCode) {
-      case KEY_CODES.UP_ARROW:
-        setFocusedIndex(prev => {
-          if(prev === 0) return flattenedOptions.length - 1;
-          return prev - 1;
-        });
-        break;
-      case KEY_CODES.DOWN_ARROW:
-          setFocusedIndex(p => ((p + 1) % flattenedOptions.length));
-        break;
-      case KEY_CODES.PAGE_UP:
-        setFocusedIndex(prev => {
-          if (prev - pageKeyTraverseSize < 0 && prev !== 0) return 0;
-          if (prev - pageKeyTraverseSize < 0) return flattenedOptions.length - 1;
-          return prev - pageKeyTraverseSize;
-        });
-        break;
-      case KEY_CODES.PAGE_DOWN:
-        setFocusedIndex(prev => {
-          if (prev === flattenedOptions.length - 1) return 0;
-          if (prev + pageKeyTraverseSize > flattenedOptions.length - 1) return flattenedOptions.length - 1;
-          return (prev + pageKeyTraverseSize) % flattenedOptions.length;
-        });
-        break;
-      case KEY_CODES.ESCAPE:
-        closeDropdown(true);
-        break;
-      default:
-        break;
-    }
-  }, [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown]);
+  const onNavigation = useCallback(
+    (keyCode: number) => {
+      switch (keyCode) {
+        case KEY_CODES.UP_ARROW:
+          setFocusedIndex(prev => {
+            if (prev === 0) return flattenedOptions.length - 1;
+            return prev - 1;
+          });
+          break;
+        case KEY_CODES.DOWN_ARROW:
+          setFocusedIndex(p => (p + 1) % flattenedOptions.length);
+          break;
+        case KEY_CODES.PAGE_UP:
+          setFocusedIndex(prev => {
+            if (prev - pageKeyTraverseSize < 0 && prev !== 0) return 0;
+            if (prev - pageKeyTraverseSize < 0) return flattenedOptions.length - 1;
+            return prev - pageKeyTraverseSize;
+          });
+          break;
+        case KEY_CODES.PAGE_DOWN:
+          setFocusedIndex(prev => {
+            if (prev === flattenedOptions.length - 1) return 0;
+            if (prev + pageKeyTraverseSize > flattenedOptions.length - 1) return flattenedOptions.length - 1;
+            return (prev + pageKeyTraverseSize) % flattenedOptions.length;
+          });
+          break;
+        case KEY_CODES.ESCAPE:
+          closeDropdown(true);
+          break;
+        default:
+          break;
+      }
+    },
+    [setFocusedIndex, flattenedOptions, pageKeyTraverseSize, closeDropdown],
+  );
 
-  const handleInputKeyDown = useCallback((e: KeyboardEvent) => {
-    const { keyCode } = e;
+  const handleInputKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      const { keyCode } = e;
 
-    if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
-      e.preventDefault();
-      e.stopPropagation();
-      onNavigation(keyCode);
-    } else if ((keyCode === KEY_CODES.ENTER || (keyCode === KEY_CODES.SPACE && !searchable)) && !open) {
-      e.preventDefault();
-      openDropdown();
-    } else if (keyCode === KEY_CODES.TAB && (!searchable)) {
-      closeDropdown();
-    } else if (
-      (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) &&
-      flattenedOptions.length > 0 && focusedIndex >= 0 && open
-    ) {
-      e.stopPropagation();
-      e.preventDefault();
-      setValue(flattenedOptions[focusedIndex], true);
-    }
-  }, [flattenedOptions, setValue, focusedIndex, open, onNavigation, openDropdown, searchable, closeDropdown]);
+      if (NAVIGATION_KEYS.indexOf(keyCode) !== -1) {
+        e.preventDefault();
+        e.stopPropagation();
+        onNavigation(keyCode);
+      } else if ((keyCode === KEY_CODES.ENTER || (keyCode === KEY_CODES.SPACE && !searchable)) && !open) {
+        e.preventDefault();
+        openDropdown();
+      } else if (keyCode === KEY_CODES.TAB && !searchable) {
+        closeDropdown();
+      } else if (
+        (keyCode === KEY_CODES.TAB || keyCode === KEY_CODES.ENTER) &&
+        flattenedOptions.length > 0 &&
+        focusedIndex >= 0 &&
+        open
+      ) {
+        e.stopPropagation();
+        e.preventDefault();
+        setValue(flattenedOptions[focusedIndex], true);
+      }
+    },
+    [flattenedOptions, setValue, focusedIndex, open, onNavigation, openDropdown, searchable, closeDropdown],
+  );
 
-  const handleTermChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-  }, [setSearchTerm]);
+  const handleTermChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    },
+    [setSearchTerm],
+  );
 
   const onFocus = useCallback(() => setDropdownFocused(true), [setDropdownFocused]);
   const onBlur = useCallback(() => setDropdownFocused(false), [setDropdownFocused]);
 
   // ---------------------- RENDER -----------------------
-  const wrapperClass = cx('dropdown', className, getStyle(StyleKeys.DropdownWrapper));
-  const selectorClass = cx('dropdown-selector', getStyle(StyleKeys.DropdownSelector));
-  const searchClass = cx('dropdown-selector-search', getStyle(StyleKeys.SelectorSearch));
-  const placeholderClass = cx('dropdown-selector-placeholder', getStyle(StyleKeys.Placeholder));
-  const selectorValueClass = cx('dropdown-selector-value', selectedValueClassName, getStyle(StyleKeys.SelectedValue));
-  const contentClass = cx('dropdown-selector-content', contentClassName, getStyle(StyleKeys.OptionContainer));
-  const arrowClass = cx('dropdown-arrow', getStyle(StyleKeys.Arrow));
 
   const ArrowMarkup = useMemo(() => {
     if (hideArrow) return null;
     if (arrowRenderer) return (
-      <div className={arrowClass}>
+      <Arrow className="dropdown-arrow" open={open}>
         {arrowRenderer(open)}
-      </div>
+      </Arrow>
     );
 
     const showSearchIcon = open && searchable;
     return (
-      <div className={arrowClass}>
+      <Arrow className="dropdown-arrow" open={open}>
         {showSearchIcon && <Search />}
         {!showSearchIcon && <ChevronDown />}
-      </div>
+      </Arrow>
     );
-  }, [open, arrowRenderer, arrowClass, searchable, hideArrow]);
+  }, [open, arrowRenderer, searchable, hideArrow]);
 
   return (
-    <div
-      ref={container}
-      className={wrapperClass}
-      onFocus={forwardFocus}
-      onClick={onDropdownClick}
-      role="button"
-    >
-      <div className={selectorClass}>
-        <span className={searchClass}>
-          <input
-            id={mergedId}
-            ref={inputRef}
-            value={searchTerm}
-            onChange={handleTermChange}
-            onKeyDown={handleInputKeyDown}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            readOnly={!open || !searchable}
-            disabled={disabled}
-            autoComplete="off"
-            role="combobox"
-            {...ariaProps}
+    <ThemeProvider theme={memoizedTheme}>
+      <DropdownWrapper
+        ref={container}
+        onFocus={forwardFocus}
+        onClick={onDropdownClick}
+        role="button"
+        width={width}
+        height={height}
+        disabled={disabled}
+        open={open}
+        dropdownFocused={dropdownFocused}
+        className={cx('dropdown', className)}
+      >
+        <DropdownSelector className="dropdown-selector" open={open} searchable={searchable}>
+          <SelectorSearch className="dropdown-selector-search">
+            <input
+              id={mergedId}
+              ref={inputRef}
+              value={searchTerm}
+              onChange={handleTermChange}
+              onKeyDown={handleInputKeyDown}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              readOnly={!open || !searchable}
+              disabled={disabled}
+              autoComplete="off"
+              role="combobox"
+              {...ariaProps}
+            />
+          </SelectorSearch>
+          {!value && !searchTerm && (
+            <Placeholder className="dropdown-selector-placeholder" centerText={centerText}>
+              {placeholder}
+            </Placeholder>
+          )}
+          {value && !searchTerm && (
+            <SelectedValue
+              className={cx('dropdown-selector-value', selectedValueClassName)}
+              centerText={centerText}
+              value={value}
+              open={open}
+            >
+              {value}
+            </SelectedValue>
+          )}
+          {ArrowMarkup}
+        </DropdownSelector>
+        {ariaList}
+        <OptionContainer
+          maxContentHeight={maxContentHeight}
+          openUp={openUp}
+          open={open}
+          className={cx('dropdown-selector-content', contentClassName)}
+          ref={listWrapper}
+        >
+          <DropdownContent
+            selectedOption={value}
+            options={filteredOptions}
+            focusedIndex={focusedIndex}
+            onOptionClicked={setValue}
+            optionItemRenderer={optionItemRenderer}
+            empty={flattenedOptions.length === 0}
           />
-        </span>
-        {(!value && !searchTerm) && <span className={placeholderClass}>{placeholder}</span>}
-        {(value && !searchTerm) && <span className={selectorValueClass}>{value}</span>}
-        {ArrowMarkup}
-      </div>
-      {ariaList}
-      <div className={contentClass} ref={listWrapper}>
-        <DropdownContent
-          selectedOption={value}
-          options={filteredOptions}
-          focusedIndex={focusedIndex}
-          onOptionClicked={setValue}
-          optionItemRenderer={optionItemRenderer}
-          getStyle={getStyle}
-          empty={flattenedOptions.length === 0}
-        />
-      </div>
-    </div>
+        </OptionContainer>
+      </DropdownWrapper>
+    </ThemeProvider>
   );
 };
 
@@ -213,7 +270,7 @@ Dropdown.defaultProps = {
   placeholder: 'Select ...',
   searchable: false,
   selectedValueClassName: null,
-  style: {},
+  theme: undefined,
   value: undefined,
   width: null,
 };

@@ -5,6 +5,7 @@ import Basic from './Components/Basic';
 import CustomRender from './Components/CustomRender';
 import CustomArrow from './Components/CustomArrow';
 import CustomStyles from './Components/CustomStyles';
+import StyledDropdown from './Components/StyledDropdown';
 import Groups from './Components/Groups';
 import Footer from './Components/Footer';
 
@@ -19,6 +20,7 @@ function App() {
         <Basic />
         <Groups />
         <CustomStyles />
+        <StyledDropdown />
         <CustomRender />
         <CustomArrow />
       </div>

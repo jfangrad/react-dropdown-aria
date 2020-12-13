@@ -1,17 +1,17 @@
 import React from 'react';
-import { cx } from 'emotion';
+
 import OptionItem, { OptionItemProps } from '../components/OptionItem';
 import { isOptionGroup } from '../utils/helper';
-import { DropdownOption, GetStyleFunction, OptionRendererFunction, OnOptionClicked } from '../utils/types';
-import { StyleKeys } from '../utils/constants';
+import { DropdownOption, OptionRendererFunction, OnOptionClicked } from '../utils/types';
 import { Inbox } from './icons';
+
+import { GroupContainer, GroupDivider, GroupHeading } from '../styles';
 
 interface DropdownContentProps {
   selectedOption: string;
   options: DropdownOption[];
   focusedIndex: number;
   onOptionClicked: OnOptionClicked;
-  getStyle: GetStyleFunction;
   optionItemRenderer?: OptionRendererFunction;
   empty: boolean;
 }
@@ -21,7 +21,6 @@ function DropdownContent({
   options,
   focusedIndex,
   onOptionClicked,
-  getStyle,
   optionItemRenderer,
   empty,
 }: DropdownContentProps) {
@@ -35,7 +34,7 @@ function DropdownContent({
   }
 
   const itemRenderer = optionItemRenderer ?
-    (props: OptionItemProps, index: number) => optionItemRenderer(props, getStyle, index) :
+    (props: OptionItemProps, index: number) => optionItemRenderer(props, index) :
     undefined;
 
   let index = 0;
@@ -46,30 +45,30 @@ function DropdownContent({
       const optionItems = groupOptions.map((groupOption) => {
         const selected = groupOption.value === selectedOption;
         const focused = index === focusedIndex;
-        const optionClass = cx(groupOption.className, getStyle(StyleKeys.OptionItem, { selected, focused }));
         index += 1;
         return (
           <OptionItem
             key={groupOption.value}
-            optionClass={optionClass}
+            optionClass={groupOption.className}
             onOptionClicked={onOptionClicked}
             option={groupOption}
             itemRenderer={itemRenderer}
             index={index - 1}
             selected={selected}
+            focused={focused}
           />
         );
       });
 
       return optionItems.length ? (
-        <div className={getStyle(StyleKeys.GroupContainer)} key={option.label}>
-          <div className={getStyle(StyleKeys.GroupHeading)}>
+        <GroupContainer key={option.label}>
+          <GroupHeading>
             <span>{label.toUpperCase()} | &nbsp;</span>
             <span>{groupOptions.length}</span>
-          </div>
+          </GroupHeading>
           {optionItems}
-          <div className={getStyle(StyleKeys.GroupDivider)} />
-        </div>
+          <GroupDivider />
+        </GroupContainer>
       ) : null;
     }
 
@@ -77,17 +76,17 @@ function DropdownContent({
     const { value, className } = option;
     const focused = index === focusedIndex;
     const selected = value === selectedOption;
-    const optionClass = cx(className, getStyle(StyleKeys.OptionItem, { selected, focused }));
     index += 1;
     return (
       <OptionItem
         key={value}
-        optionClass={optionClass}
+        optionClass={className}
         onOptionClicked={onOptionClicked}
         option={option}
         itemRenderer={itemRenderer}
         index={index - 1}
         selected={selected}
+        focused={focused}
       />
     );
   });
