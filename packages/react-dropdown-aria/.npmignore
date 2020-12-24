@@ -4,6 +4,7 @@
 /utils/
 /icons/
 enzymeAdapter.setup.ts
+styled.setup.ts
 .eslintignore
 .eslintrc.js
 index.ts
